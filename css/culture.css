@@ -1,0 +1,16 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+.music-container{
+	display: flex;
+}
+.music-container .a-music{
+	flex-basis: 100%;
+	text-align: center;
+}
+.a-music img{
+	width: 200px;
+	border-radius: 10px;
+}
