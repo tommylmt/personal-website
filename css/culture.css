@@ -14,3 +14,33 @@
 	width: 200px;
 	border-radius: 10px;
 }
+.container-title-culture{
+	position: relative;
+	background: #000;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.container-title-culture h1{
+	color: #fff;
+	font-family: "Gotham Bold", sans-serif;
+	font-size: 70pt;
+}
+/*.culture-title-holder{
+	text-align: center;
+}*/
+.container-title-culture .year{
+	opacity: .3;
+}
+.container-title-culture h2{
+	color: rgba(255,255,255,.3);
+	font-family: "Gotham", sans-serif;
+	font-size: 30pt;
+	margin-top: 20px;
+}
+.container-title-culture i{
+  background: linear-gradient(135deg,#ec0877 32.5%,#f93044 45%,#f75735 60%,#fe880e 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;	
+}

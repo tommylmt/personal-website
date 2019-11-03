@@ -50,20 +50,25 @@
 	</div>
 	<div id="fullpage">
 		<div class="section">
-			<h1>Culture</h1>
+			<div class="container-title-culture">
+				<div class="culture-title-holder">
+					<h1>Culture in <span class="year">2019</span></h1>
+					<h2>All the things I've <i class="fas fa-heart"></i> this year</h2>
+				</div>
+			</div>
 		</div>
 		<div class="section">
-			<p>TV Shows</p>
+			<p>Movies</p>
 		</div>
 		<div class="section">
-			<p class="musical">Most listened songs (on Deezer)</p>
+			<p class="musical">Music (on Deezer)</p>
 
 			<div class="music-container">
 				
 			</div>
 		</div>
 		<div class="section">
-			<p>Movies</p>
+			<p>TV shows</p>
 		</div>
 	</div>
 	<script type="text/javascript">
@@ -75,7 +80,15 @@
 			$('#fullpage').fullpage({
 				//options here
 				autoScrolling:true,
-				scrollHorizontally: true
+				scrollHorizontally: true,
+				navigation: true,
+				onLeave: function(index, nextIndex, direction){
+					if(index.index === -1){
+						$('.open-menu').addClass("white-menu");
+					} else {
+						$('.open-menu').removeClass("white-menu");
+					}
+				}
 			});
 
 			//methods

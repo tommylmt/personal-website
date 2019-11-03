@@ -11,6 +11,7 @@
 	background: #000;
 	width: 40px;
 	border-radius: 10px;
+	transition: all .4s;
 }
 .a-bar-down{
 	height: 3px;
@@ -19,7 +20,17 @@
 	margin-left: 15px;
 	margin-top: 15px;
 	border-radius: 10px;
+	transition: all .4s;
 }
+.open-menu:hover .a-bar-up{
+	width: 25px;
+	margin-left: 15px;
+}
+.open-menu:hover .a-bar-down{
+	width: 40px;
+	margin-left: 0;
+}
+
 .white-menu .a-bar-up, .white-menu .a-bar-down{
 	background: #fff;
 }
