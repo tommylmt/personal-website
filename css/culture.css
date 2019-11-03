@@ -21,6 +21,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	overflow: hidden;
 }
 .container-title-culture h1{
 	color: #fff;
@@ -43,4 +44,24 @@
   background: linear-gradient(135deg,#ec0877 32.5%,#f93044 45%,#f75735 60%,#fe880e 70%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;	
+}
+.container-title-culture .blob{
+	position: absolute;
+	z-index: 1;
+}
+.first-blob{
+	left: -200px;
+	top: -150px;
+}
+.second-blob{
+	right: -200px;
+	top: -150px;
+}
+.third-blob{
+	bottom: -200px;
+	right: -100px;
+}
+.six-blob{
+	bottom: -250px;
+	left: -200px;
 }
