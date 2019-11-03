@@ -76,17 +76,35 @@
 			</div>
 		</div>
 		<div class="section">
-			<p>Movies</p>
-		</div>
-		<div class="section">
-			<p class="musical">Music (on Deezer)</p>
-
-			<div class="music-container">
-				
+			<div class="main-movies">
+				<div class="left-movie">
+					<h3>Movies</h3>
+				</div>
+				<div class="right-movie">
+					
+				</div>
 			</div>
 		</div>
 		<div class="section">
-			<p>TV shows</p>
+			<div class="main-music">
+				<div class="left-music">
+					<h3 class="musical">Music</h3>
+				</div>
+
+				<div class="music-container">
+					
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<div class="main-shows">
+				<div class="left-shows">
+					<h3>TV shows</h3>
+				</div>
+				<div class="right-shows">
+					
+				</div>
+			</div>
 		</div>
 	</div>
 	<script type="text/javascript">
@@ -102,6 +120,8 @@
 				navigation: true,
 				onLeave: function(index, nextIndex, direction){
 					if(index.index === -1){
+						$('.open-menu').addClass("white-menu");
+					} else if(index.index == 1){
 						$('.open-menu').addClass("white-menu");
 					} else {
 						$('.open-menu').removeClass("white-menu");
@@ -209,7 +229,7 @@
 		 			console.log(data);
 		 			for(i = 0; i < 5; i++){
 		 				if(data.data[i].cover_big !== null){
-		 					$('.music-container').append('<div class="a-music"><img src="' + data.data[i].cover_big + '"><p>' + data.data[i].title + '</p><h5>' + data.data[i].artist.name + '</h5></div>');			
+		 					$('.music-container').append('<div class="a-music"><img src="' + data.data[i].cover_big + '"><div class="music-infos"><h5>By ' + data.data[i].artist.name + '</h5></div></div>');			
 		 				} else {
 		 					$('.music-container').append('<div class="a-music"><h2>Pochette non trouvée</h2></p><h5>' + data.data[i].artist.name + '</h5></div>');	
 		 				}
@@ -221,6 +241,10 @@
 		 		}
 		 	});
 		});
+
+		// A RESOUDRE : ANIMER DES BLOBS DE FACON RANDOM AU SURVOL
+
+
 	</script>
 </body>
 </html>
