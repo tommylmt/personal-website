@@ -6,6 +6,7 @@
 	<title>Culture</title>
 
 	<!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
+	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" type="text/css" href="css/fonts.css">
 	<link rel="stylesheet" type="text/css" href="css/fullpage.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -81,7 +82,36 @@
 					<h3>Movies</h3>
 				</div>
 				<div class="right-movie">
-					
+					<div class="a-movie is-animated">
+						<img src="img/film/5cfa25dc82900.jpg">
+						<div class="movie-infos">
+							<h5>By Bong Joon-Ho</h5>
+						</div>
+					</div>
+					<div class="a-movie is-animated">
+						<img src="img/film/3421837.jpg">
+						<div class="movie-infos">
+							<h5>By Jordan Peele</h5>
+						</div>
+					</div>
+					<div class="a-movie is-animated">
+						<img src="img/film/7_865505.jpg">
+						<div class="movie-infos">
+							<h5>By Yórgos Lánthimos</h5>
+						</div>
+					</div>
+					<div class="a-movie is-animated">
+						<img src="img/film/90_s.jpg">
+						<div class="movie-infos">
+							<h5>By Jonah Hill</h5>
+						</div>
+					</div>
+					<div class="a-movie is-animated">
+						<img src="img/film/Ma_vie_avec_John_F_Donovan.jpg">
+						<div class="movie-infos">
+							<h5>By Xavier Dolan</h5>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -102,7 +132,36 @@
 					<h3>TV shows</h3>
 				</div>
 				<div class="right-shows">
-					
+					<div class="a-show is-animated">
+						<img src="img/serie/1626925.jpg">
+						<div class="shows-infos">
+							<p>On Netflix</p>
+						</div>
+					</div>
+					<div class="a-show is-animated">
+						<img src="img/serie/Chernobyl.jpg">
+						<div class="shows-infos">
+							<p>On HBO</p>
+						</div>						
+					</div>
+					<div class="a-show is-animated">
+						<img src="img/serie/Peaky_Blinders.webp">
+						<div class="shows-infos">
+							<p>On BBC</p>
+						</div>	
+					</div>
+					<div class="a-show is-animated">
+						<img src="img/serie/Dark.jpg">
+						<div class="shows-infos">
+							<p>On Netflix</p>
+						</div>	
+					</div>
+					<div class="a-show is-animated">
+						<img src="img/serie/Mindhunter.webp">
+						<div class="shows-infos">
+							<p>On Netflix</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -112,6 +171,36 @@
 			const loader = document.querySelector(".wrapper-loader");
 			loader.className += " hidden-loader";
 		});
+
+		$(function(){
+		 	// CULTURE PART
+
+		 	$.ajax({
+		 		type: "GET",
+		 		url: "https://api.deezer.com/user/1567995002/charts/albums?output=jsonp",
+		 		dataType: "jsonp",
+		 		type: "application/json",
+		 		success: function(data){
+		 			// console.log(data);
+		 			for(i = 0; i < 5; i++){
+		 				if(data.data[i].cover_big !== null){
+		 					$('.music-container').append('<div class="a-music is-animated"><img src="' + data.data[i].cover_big + '"><div class="music-infos"><h5>By ' + data.data[i].artist.name + '</h5></div></div>');			
+		 				} else {
+		 					$('.music-container').append('<div class="a-music is-animated"><h2>Pochette non trouvée</h2></p><h5>' + data.data[i].artist.name + '</h5></div>');	
+		 				}
+
+		 			}
+		 		},
+		 		error: function(){
+		 			console.log("Erreur lors de la recuperation des resultats");
+		 		}
+		 	});
+		});
+
+		var $isAnimatedFilms = $('.right-movie .is-animated'),
+			$isAnimatedMusic = $('.music-container .is-animated'),
+			$isAnimatedShows = $('.right-shows .is-animated');
+
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
 				//options here
@@ -121,10 +210,53 @@
 				onLeave: function(index, nextIndex, direction){
 					if(index.index === -1){
 						$('.open-menu').addClass("white-menu");
-					} else if(index.index == 1){
-						$('.open-menu').addClass("white-menu");
-					} else {
+					}
+					if(index.index == 0){
 						$('.open-menu').removeClass("white-menu");
+						
+						$isAnimatedFilms.eq(0).addClass('animated fadeInDown');
+						$isAnimatedFilms.eq(1).addClass('animated fadeInDown');
+						$isAnimatedFilms.eq(2).addClass('animated fadeInDown');
+
+						$isAnimatedFilms.eq(3).addClass('animated fadeInUp');
+						$isAnimatedFilms.eq(4).addClass('animated fadeInUp');
+
+						$isAnimatedFilms.eq(0).css('animation-delay', '.2s');
+						$isAnimatedFilms.eq(1).css('animation-delay', '.4s');
+						$isAnimatedFilms.eq(2).css('animation-delay', '.6s');
+						$isAnimatedFilms.eq(3).css('animation-delay', '.2s');
+						$isAnimatedFilms.eq(4).css('animation-delay', '.4s');
+					}
+					if(index.index == 1){
+						$('.open-menu').addClass("white-menu");
+
+						$isAnimatedMusic.eq(0).addClass('animated fadeInDown');
+						$isAnimatedMusic.eq(1).addClass('animated fadeInDown');
+						$isAnimatedMusic.eq(2).addClass('animated fadeInDown');
+
+						$isAnimatedMusic.eq(3).addClass('animated fadeInUp');
+						$isAnimatedMusic.eq(4).addClass('animated fadeInUp');
+
+						$isAnimatedMusic.eq(0).css('animation-delay', '.2s');
+						$isAnimatedMusic.eq(1).css('animation-delay', '.4s');
+						$isAnimatedMusic.eq(2).css('animation-delay', '.6s');
+						$isAnimatedMusic.eq(3).css('animation-delay', '.2s');
+						$isAnimatedMusic.eq(4).css('animation-delay', '.4s');
+					} if(index.index == 2){
+						$('.open-menu').removeClass("white-menu");
+
+						$isAnimatedShows.eq(0).addClass('animated fadeInDown');
+						$isAnimatedShows.eq(1).addClass('animated fadeInDown');
+						$isAnimatedShows.eq(2).addClass('animated fadeInDown');
+
+						$isAnimatedShows.eq(3).addClass('animated fadeInUp');
+						$isAnimatedShows.eq(4).addClass('animated fadeInUp');
+
+						$isAnimatedShows.eq(0).css('animation-delay', '.2s');
+						$isAnimatedShows.eq(1).css('animation-delay', '.4s');
+						$isAnimatedShows.eq(2).css('animation-delay', '.6s');
+						$isAnimatedShows.eq(3).css('animation-delay', '.2s');
+						$isAnimatedShows.eq(4).css('animation-delay', '.4s');
 					}
 				}
 			});
@@ -218,28 +350,6 @@
 		 		}
 		 	});
 
-		 	// CULTURE PART
-
-		 	$.ajax({
-		 		type: "GET",
-		 		url: "https://api.deezer.com/user/1567995002/charts/albums?output=jsonp",
-		 		dataType: "jsonp",
-		 		type: "application/json",
-		 		success: function(data){
-		 			console.log(data);
-		 			for(i = 0; i < 5; i++){
-		 				if(data.data[i].cover_big !== null){
-		 					$('.music-container').append('<div class="a-music"><img src="' + data.data[i].cover_big + '"><div class="music-infos"><h5>By ' + data.data[i].artist.name + '</h5></div></div>');			
-		 				} else {
-		 					$('.music-container').append('<div class="a-music"><h2>Pochette non trouvée</h2></p><h5>' + data.data[i].artist.name + '</h5></div>');	
-		 				}
-
-		 			}
-		 		},
-		 		error: function(){
-		 			console.log("Erreur lors de la recuperation des resultats");
-		 		}
-		 	});
 		});
 
 		// A RESOUDRE : ANIMER DES BLOBS DE FACON RANDOM AU SURVOL
