@@ -25,7 +25,7 @@
 }
 .title-principal{
 	position: absolute;
-	z-index: 9999;
+	z-index: 8000;
 	color: #fff;
 	width: 100vw;
 	height: 100vh;
