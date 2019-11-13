@@ -13,7 +13,7 @@ function getDocumentWidth() {
   return Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 };
 function getDocumentHeight() {
-  return Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+  return Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 };
 
 var canvas = document.getElementById('dotCanvas');
@@ -117,7 +117,7 @@ console.log(allDots);
 //         }
         
 //         // context.globalCompositeOperation = "lighter";
-//         // drawDots(3);
+//         drawDots(3);
 //     }
 // }
 

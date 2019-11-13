@@ -5,8 +5,8 @@
 	<meta charset="utf-8">
 	<title>Portfolio Thomas Lamothe</title>
 
-	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/fonts.css">
+	<link rel="stylesheet" type="text/css" href="css/fullpage.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/menu.css">
 	<link rel="stylesheet" type="text/css" href="css/loader.css">
@@ -15,7 +15,7 @@
 
 	<!-- Librairie jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+	<script src="js/fullpage.js"></script>
 </head>
 <body>
 	<div class="wrapper-loader">
@@ -27,12 +27,9 @@
 	  </div>
 	</div>
 	<div class="wrapper">
-		<div class="open-menu">
+		<div class="open-menu white-menu">
 			<div class="a-bar-up"></div>
 			<div class="a-bar-down"></div>
-		</div>
-		<div class="slide one">
-			<h1>One</h1>
 		</div>
 		<div class="menu">
 			<div class="close">
@@ -55,17 +52,49 @@
 		    <canvas class="cursor cursor--canvas" resize></canvas>
 		</div>
 	</div>
+	<div id="fullpage">
+		<div class="section">
+			<div class="container-all">
+				<div class="title-principal">
+					<div>
+						<h2>I am</h2>
+						<h1>photograph</h1>
+					</div>
+				</div>
+				<canvas id="playground"></canvas>
+			</div>
+		</div>
+		<div class="section">
+			
+		</div>
+	</div>
 
 	<!-- LE CURSEUR EN JS -->
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.0/paper-core.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
 	<script src="js/cursor.js"></script>
 
+	<!-- LE CANVAS -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js'></script>
+	<script src="js/canvas.js"></script>
+
 	<!-- L'APPLICATION -->
 	<script type="text/javascript">
 		window.addEventListener("load", function(){
 			const loader = document.querySelector(".wrapper-loader");
 			loader.className += " hidden-loader";
+		});
+
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				//options here
+				autoScrolling:true,
+				scrollHorizontally: true,
+				navigation: true
+			});
+
+			//methods
+			$.fn.fullpage.setAllowScrolling(true);
 		});
 		$(function(){
 
