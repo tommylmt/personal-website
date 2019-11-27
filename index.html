@@ -95,7 +95,20 @@
 				//options here
 				autoScrolling:true,
 				scrollHorizontally: true,
-				navigation: true
+				navigation: true,
+				onLeave: function(index, nextIndex, direction){
+					if(index.index >= 0 && direction === "down"){
+						$('.open-menu').removeClass("white-menu");
+						$('#fp-nav ul li a span').css({
+							'background': '#000'
+						});
+					} else {
+						$('.open-menu').addClass("white-menu");
+						$('#fp-nav ul li a span').css({
+							'background': '#fff'
+						});
+					}
+				}
 			});
 
 			//methods
