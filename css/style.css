@@ -9,7 +9,7 @@
 }
 .container-all{
 	position: relative;
-	background: #000;
+	background: #fff;
 	width: 100vw;
 	height: 100vh;
 }
@@ -26,7 +26,7 @@
 .title-principal{
 	position: absolute;
 	z-index: 8000;
-	color: #fff;
+	color: rgba(0,0,0,.3);
 	width: 100vw;
 	height: 100vh;
 	display: flex;
@@ -41,13 +41,34 @@
 	letter-spacing: .2em;
 	font-size: 30pt;
 }
-.title-principal h1{
+.title-principal h1.principalh1{
 	font-family: "Gotham Bold", sans-serif;
 	text-transform: uppercase;
 	line-height: 1.5em;
 	letter-spacing: .2em;
 	font-size: 60pt;
+  	background: linear-gradient(135deg,#ec0877 32.5%,#f93044 45%,#f75735 60%,#fe880e 70%);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+
+  	z-index: 9999;
 }
-#fp-nav ul li a span{
-	background: #fff;
+.container-title-principal{
+	position: relative;
+}
+.background-title{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+	height: 50vh;
+	text-align: left;
+}
+.background-title h1{
+	color: rgba(0,0,0,.07);
+	font-size: 90pt;
+	font-family: "Gotham Bold", sans-serif;
+	text-transform: uppercase;
+	line-height: 1.5em;
+	letter-spacing: .1em;
 }
