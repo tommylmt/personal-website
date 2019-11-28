@@ -13,15 +13,24 @@
 	width: 100vw;
 	height: 100vh;
 }
-#playground {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
+.background-title{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+}
+.background-title h1{
+	color: rgba(0,0,0,.05);
+	font-size: 120pt;
+	font-family: "Gotham Bold", sans-serif;
+	text-transform: uppercase;
+	line-height: 1.5em;
+	letter-spacing: .1em;
 }
 .title-principal{
 	position: absolute;
@@ -34,6 +43,9 @@
 	justify-content: center;
 	text-align: center;
 }
+.container-title-principal{
+	position: relative;
+}
 .title-principal h2{
 	font-family: "Nevis", sans-serif;
 	text-transform: uppercase;
@@ -41,7 +53,7 @@
 	letter-spacing: .2em;
 	font-size: 30pt;
 }
-.title-principal h1.principalh1{
+.title-principal h1.principalh1, .musician, .designer, .photograph{
 	font-family: "Gotham Bold", sans-serif;
 	text-transform: uppercase;
 	line-height: 1.5em;
@@ -50,25 +62,13 @@
   	background: linear-gradient(135deg,#ec0877 32.5%,#f93044 45%,#f75735 60%,#fe880e 70%);
   	-webkit-background-clip: text;
   	-webkit-text-fill-color: transparent;
-
-  	z-index: 9999;
+  	opacity: 0;
+  	/*display: none;*/
 }
-.container-title-principal{
-	position: relative;
-}
-.background-title{
+.musician, .designer, .photograph{
 	position: absolute;
 	bottom: 0;
-	left: 0;
-	z-index: -1;
-	height: 50vh;
-	text-align: left;
-}
-.background-title h1{
-	color: rgba(0,0,0,.07);
-	font-size: 90pt;
-	font-family: "Gotham Bold", sans-serif;
-	text-transform: uppercase;
-	line-height: 1.5em;
-	letter-spacing: .1em;
+	width: 100%;
+	text-align: center;
+	z-index: 99999;
 }

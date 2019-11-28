@@ -57,11 +57,19 @@
 			<div class="container-all">
 				<div class="title-principal">
 					<div class="container-title-principal">
-						<h2>I am</h2>
+						<h2>I'm a passionate &amp; creative</h2>
 						<h1 class="principalh1">web developer</h1>
-						<div class="background-title">
-							<h1>Web Developer</h1>
-						</div>
+						<h1 class="photograph">Photograph</h1>
+						<h1 class="musician">musician</h1>
+						<h1 class="designer">Designer</h1>
+					</div>
+				</div>
+				<div class="background-title">
+					<div>
+						<h1>Web Developer</h1>
+						<h1>Photograph</h1>
+						<h1>Musician</h1>
+						<h1>Designer</h1>
 					</div>
 				</div>
 				<!-- <canvas id="playground"></canvas> -->
@@ -79,9 +87,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
 	<script src="js/cursor.js"></script>
 
-	<!-- LE CANVAS -->
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js'></script>
-	<script src="js/canvas.js"></script>
+	<!-- LE GSAP -->
+	<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
 
 	<!-- L'APPLICATION -->
 	<script type="text/javascript">
@@ -97,17 +104,7 @@
 				scrollHorizontally: true,
 				navigation: true,
 				onLeave: function(index, nextIndex, direction){
-					if(index.index >= 0 && direction === "down"){
-						$('.open-menu').removeClass("white-menu");
-						$('#fp-nav ul li a span').css({
-							'background': '#000'
-						});
-					} else {
-						$('.open-menu').addClass("white-menu");
-						$('#fp-nav ul li a span').css({
-							'background': '#fff'
-						});
-					}
+
 				}
 			});
 
@@ -199,6 +196,62 @@
 			 		$(this).children('.submenu-container').children('li').css('display','none');
 		 		}
 		 	});
+
+		 	// ONLY ON THE INDEX
+			  var infinite = new TimelineMax({repeat:-1});
+			  
+			  infinite.to(".principalh1", {
+			    duration: 1,
+			    ease: "back.out(1.7)",
+			    opacity: 1
+			    // display: 'block'
+			  });
+			  infinite.to(".principalh1", {
+			    delay : 1,
+			    duration: .5,
+			    opacity: 0
+			    // display: 'none'
+			  });
+			  
+			  infinite.to(".photograph", {
+			    delay: 1,
+			    duration: 1, 
+			    opacity: 1
+			    // display: 'block'
+			  });
+			  infinite.to(".photograph", {
+			    delay : 1,
+			    duration: .5,
+			    opacity: 0
+			    // display: 'none'
+			  });
+			  
+			  infinite.to(".musician", {
+			    delay: 1,
+			    duration: 1, 
+			    opacity: 1
+			    // display: 'block'
+			  });
+			  infinite.to(".musician", {
+			    delay : 1,
+			    duration: .5,
+			    opacity: 0
+			    // display: 'none'
+			  });
+			  
+			  infinite.to(".designer", {
+			    delay: 1,
+			    duration: 1, 
+			    opacity: 1
+			    // display: 'block'
+			  });
+			  infinite.to(".designer", {
+			    delay : 1,
+			    duration: .5,
+			    opacity: 0
+			    // display: 'none'
+			  });
+
 		});
 	</script>
 </body>
