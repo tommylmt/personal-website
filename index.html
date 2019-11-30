@@ -28,7 +28,7 @@
 	</div>
 	<div class="wrapper">
 		<div class="logo-principal-all">
-			<a href="index.html"><img src="img/logo.svg" alt="Toma" width="50px"></a>
+			<a href="index.html"><img src="img/logo.svg" alt="Toma" width="60px"></a>
 		</div>
 		<div class="open-menu">
 			<div class="a-bar-up"></div>
@@ -197,6 +197,11 @@
 		 		}
 		 	});
 
+		 	gsap.from('.logo-principal-all img', {
+		 		duration: .5,
+		 		x: -1000,
+		 		ease: "back"
+		 	});
 			gsap.from('.backgroundh1', {
 			  	duration: 1,
 			  	x: 1000,
