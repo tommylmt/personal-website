@@ -6,6 +6,21 @@
 	cursor: pointer;
 	overflow: auto;
 }
+.logo-principal-all{
+	position: fixed;
+	z-index: 11;
+	left: 35px;
+	top: 30px;
+	cursor: pointer;
+	transition: all .3s;
+}
+.logo-principal-all a{
+	opacity: 1;
+	transition: all .3s;
+}
+.logo-principal-all a:hover{
+	opacity: .7;
+}
 .a-bar-up{
 	height: 3px;
 	background: #000;
@@ -77,7 +92,18 @@
 	font-family: "Gotham", sans-serif;
 	right: 30px;
 	transform: rotate(0deg);
-	transition: all .2s;
+	transition: all .3s;
+}
+.menu .logo-white-menu{
+	position: absolute;
+	top: 30px;
+	cursor: pointer;
+	font-family: "Gotham", sans-serif;
+	left: 35px;
+	transition: all .2s;	
+}
+.menu .logo-white-menu:hover{
+	opacity: .7;
 }
 .close:hover{
 	transform: rotate(90deg);

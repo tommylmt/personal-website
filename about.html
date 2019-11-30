@@ -28,10 +28,13 @@
 	    <div class="a-wave one-wave"></div>
 	  </div>
 	  <div class="avatar">
-	    <img src="http://thomaslamothe.free.fr/img/profil.jpg" alt="Toma">
+	    <img src="img/logo-loading.png" alt="Toma">
 	  </div>
 	</div>
 	<div class="wrapper">
+		<div class="logo-principal-all">
+			<a href="index.html"><img src="img/logo.svg" alt="Toma" width="50px"></a>
+		</div>
 		<div class="open-menu">
 			<div class="a-bar-up"></div>
 			<div class="a-bar-down"></div>
@@ -45,7 +48,7 @@
 						</div>
 						<div class="content-about">
 							<h1>Hi,</h1>
-							<p>I'm Thomas Lamothe, a 20 years old french Full Stack web Developer and web designer. I'm raised in <span class="mouse">Toulouse</span>, where I'm studying computer science. I also play guitar, compose my own musics and also take photos. If my work have an interest for you, contact me.</p>
+							<p>I'm Thomas Lamothe, a 20 years old french Full Stack web Developer and web designer. I'm raised in <span class="mouse">Toulouse</span>, where I'm studying computer science. I also play guitar, compose my own musics and take photos. If my work have an interest for you, we can share a beer.</p>
 
 							<button><span class="cv">Download CV</span></button>
 						</div>
@@ -347,6 +350,9 @@
 			</div>
 		</div>
 		<div class="menu">
+			<div class="logo-white-menu">
+				<a href="index.html"><img src="img/logo-white.svg" width="50px"></a>
+			</div>
 			<div class="close">
 				<p><i class="fas fa-times"></i></p>
 			</div>
@@ -388,9 +394,19 @@
 						$isAnimatedTimeline.eq(0).css('animation-delay', '.2s');
 
 						$('.open-menu').addClass("white-menu");
+						$('.logo-principal-all img').attr('src', 'img/logo-white.svg');
+					
+						if(direction === "up"){
+							$('.logo-principal-all img').attr('src', 'img/logo-white.svg');
+						}
 					} 
 					if(index.index !== 0){
 						$('.open-menu').removeClass('white-menu');
+						$('.logo-principal-all img').attr('src', 'img/logo.svg');
+
+						if(direction === "up"){
+							$('.logo-principal-all img').attr('src', 'img/logo-white.svg');
+						}
 					}
 					if(index.index == 1){
 					    $isAnimatedIconsFirst.addClass('animated fadeInDown'); 
@@ -419,6 +435,10 @@
 					   	$isAnimatedIconsFourth.eq(1).css('animation-delay', '.3s');
 					   	$isAnimatedIconsFourth.eq(2).css('animation-delay', '.4s');
 					   	$isAnimatedIconsFourth.eq(3).css('animation-delay', '.5s');
+
+						if(direction === "up"){
+							$('.logo-principal-all img').attr('src', 'img/logo-white.svg');
+						}
 					}
 				}
 			});
