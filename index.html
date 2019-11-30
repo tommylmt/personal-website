@@ -66,18 +66,13 @@
 				</div>
 				<div class="background-title">
 					<div>
-						<h1>Web Developer</h1>
-						<h1>Photograph</h1>
-						<h1>Musician</h1>
-						<h1>Designer</h1>
+						<h1 class="backgroundh1">Web Developer</h1>
+						<h1 class="backgroundh1">Photograph</h1>
+						<h1 class="backgroundh1">Musician</h1>
+						<h1 class="backgroundh1">Designer</h1>
 					</div>
 				</div>
 				<!-- <canvas id="playground"></canvas> -->
-			</div>
-		</div>
-		<div class="section">
-			<div class="container-about-index">
-				
 			</div>
 		</div>
 	</div>
@@ -102,7 +97,6 @@
 				//options here
 				autoScrolling:true,
 				scrollHorizontally: true,
-				navigation: true,
 				onLeave: function(index, nextIndex, direction){
 
 				}
@@ -197,15 +191,28 @@
 		 		}
 		 	});
 
+			gsap.from('.backgroundh1', {
+			  	duration: 1,
+			  	x: 700,
+			  	ease: "power2.easeInOut",
+			  	stagger: .3
+			});
+			gsap.from('.title-principal',{
+				delay: 1.8,
+			  	duration: .7,
+			  	opacity: 0,
+			  	y: -100
+			});
+		 	
 		 	// ONLY ON THE INDEX
 			  var infinite = new TimelineMax({repeat:-1});
-			  
+  
 			  infinite.to(".principalh1", {
 			    duration: 1,
 			    ease: "back.out(1.7)",
 			    opacity: 1
 			    // display: 'block'
-			  });
+			  }, "+=1");
 			  infinite.to(".principalh1", {
 			    delay : 1,
 			    duration: .5,
