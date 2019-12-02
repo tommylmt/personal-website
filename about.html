@@ -54,7 +54,7 @@
 						</div>
 					</div>
 					<div class="right-about">
-						
+						<img src="img/toma-min.png" width="100%">
 					</div>
 				</div>
 			</div>
@@ -369,6 +369,8 @@
 			</ul>
 		</div>
 	</div>
+
+	<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
 	<script type="text/javascript">
 		window.addEventListener("load", function(){
 			const loader = document.querySelector(".wrapper-loader");
@@ -535,20 +537,30 @@
 		 	// ONLY THE ABOUT PART
 
 		 	$('.mouse').on('mouseover', function(){
-		 		$('.right-about').css({
-		 			'background': 'url(img/33774654144_7d8eae6249_b.jpg)',
-		 			'background-size': 'cover',
-		 			'background-position': 'center',
-		 			'filter': 'grayscale(0%)'
-		 		}, 400);
+		 		// $('.right-about img').attr('src', 'img/toulouse.png');
+		 		var timeline = new TimelineMax();
+		 		timeline.set('.right-about img', {
+		 			attr:{
+		 				src: "img/toulouse-min.png"
+		 			}
+		 		});
+		 		timeline.from('.right-about img', {
+		 			duration: .5,
+		 			y: -1000
+		 		});
 		 	});
 		 	$('.mouse').on('mouseleave', function(){
-		 		$('.right-about').css({
-		 			'background': 'url(img/71058258_413198192666106_1927507453302276096_n.jpg)',
-		 			'background-size': 'cover',
-		 			'background-position': 'center',
-		 			'filter': 'grayscale(100%)'
-		 		}, 400);
+		 		// $('.right-about img').attr('src', 'img/toma.png');
+		 		var timeline = new TimelineMax();
+		 		timeline.set('.right-about img', {
+		 			attr:{
+		 				src: "img/toma-min.png"
+		 			}
+		 		});
+		 		timeline.from('.right-about img', {
+		 			duration: .5,
+		 			y: 1000
+		 		});
 		 	});
 
 			$('.a-dot-holder').last().addClass('is-open');
