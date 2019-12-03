@@ -9,13 +9,13 @@
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" type="text/css" href="css/fonts.css">
 	<link rel="stylesheet" type="text/css" href="css/fullpage.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/fontawesome.css">
 	<link rel="stylesheet" type="text/css" href="css/loader.css">
 	<link rel="stylesheet" type="text/css" href="css/culture.css">
 	<link rel="stylesheet" type="text/css" href="css/menu.css">
 	
 	<!-- Librairie jQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/jquery.min.js"></script>
 	<script src="js/fullpage.js"></script>
 </head>
 <body>
@@ -172,6 +172,9 @@
 			</div>
 		</div>
 	</div>
+
+	<script src="js/gsap-latest-beta.min.js"></script>
+
 	<script type="text/javascript">
 		window.addEventListener("load", function(){
 			const loader = document.querySelector(".wrapper-loader");
@@ -201,6 +204,44 @@
 		 			console.log("Erreur lors de la recuperation des resultats");
 		 		}
 		 	});
+
+			// A RESOUDRE : ANIMER DES BLOBS DE FACON RANDOM AU SURVOL
+
+			$('.blob').on('mouseover', function(){
+				gsap.to($(this), {
+					duration: .6,
+					ease: "back",
+					css: {
+						scale: .85
+					}
+				});
+			});
+
+			$('.blob').on('mouseleave', function(){
+				gsap.to($(this), {
+					duration: .6,
+					ease: "back",
+					css: {
+						scale: 1
+					}
+				});
+			});
+
+			// var introCulture = new Timeline();
+
+			// introCulture.from('.culture-title-holder h1', {
+			// 	duration: 1,
+			// 	ease: 'back',
+			// 	y: 1000,
+			// 	opacity: 0
+			// });
+
+			// introCulture.from('.culture-title-holder h2', {
+			// 	duration: 1,
+			// 	ease: 'back',
+			// 	x: -1000,
+			// 	opacity: 0
+			// });
 		});
 
 		var $isAnimatedFilms = $('.right-movie .is-animated'),
@@ -357,10 +398,6 @@
 		 	});
 
 		});
-
-		// A RESOUDRE : ANIMER DES BLOBS DE FACON RANDOM AU SURVOL
-
-
 	</script>
 </body>
 </html>

@@ -11,10 +11,10 @@
 	<link rel="stylesheet" type="text/css" href="css/menu.css">
 	<link rel="stylesheet" type="text/css" href="css/loader.css">
 	<link rel="stylesheet" type="text/css" href="css/cursor.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/fontawesome.css">
 
 	<!-- Librairie jQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/jquery.min.js"></script>
 	<script src="js/fullpage.js"></script>
 </head>
 <body>
@@ -89,7 +89,7 @@
 	<script src="js/cursor.js"></script>
 
 	<!-- LE GSAP -->
-	<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
+	<script src="js/gsap-latest-beta.min.js"></script>
 
 	<!-- L'APPLICATION -->
 	<script type="text/javascript">
@@ -203,13 +203,13 @@
 		 		ease: "back"
 		 	});
 			gsap.from('.backgroundh1', {
-			  	duration: 1,
+			  	duration: .7,
 			  	x: 1000,
 			  	ease: "power2.easeInOut",
 			  	stagger: .3
 			});
 			gsap.from('.title-principal',{
-				delay: 1.8,
+				delay: 1.5,
 			  	duration: .7,
 			  	opacity: 0,
 			  	y: -100
