@@ -9,7 +9,6 @@
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" type="text/css" href="css/fonts.css">
 	<link rel="stylesheet" type="text/css" href="css/fullpage.css">
-	<link rel="stylesheet" href="css/fontawesome.css">
 	<link rel="stylesheet" type="text/css" href="css/loader.css">
 	<link rel="stylesheet" type="text/css" href="css/culture.css">
 	<link rel="stylesheet" type="text/css" href="css/menu.css">
@@ -17,6 +16,7 @@
 	<!-- Librairie jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<script src="js/fullpage.js"></script>
+	<script src="https://kit.fontawesome.com/f9e648408d.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="wrapper-loader">
@@ -227,21 +227,20 @@
 				});
 			});
 
-			// var introCulture = new Timeline();
+			var introCulture = new TimelineMax();
 
-			// introCulture.from('.culture-title-holder h1', {
-			// 	duration: 1,
-			// 	ease: 'back',
-			// 	y: 1000,
-			// 	opacity: 0
-			// });
+			introCulture.from('.culture-title-holder h1', {
+				duration: .7,
+				ease: "back",
+				y: -500,
+				opacity: 0
+			});
 
-			// introCulture.from('.culture-title-holder h2', {
-			// 	duration: 1,
-			// 	ease: 'back',
-			// 	x: -1000,
-			// 	opacity: 0
-			// });
+			introCulture.from('.culture-title-holder h2', {
+				duration: .4,
+				x: -200,
+				opacity: 0
+			});
 		});
 
 		var $isAnimatedFilms = $('.right-movie .is-animated'),
