@@ -1,0 +1,40 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+.container-title-photo{
+	position: relative;
+	background: url('../img/photo-background.png');
+	background-size: cover;
+	background-position: center;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+.container-title-photo h1{
+	color: #fff;
+	font-family: "Gotham Bold", sans-serif;
+	font-size: 70pt;
+}
+/*.culture-title-holder{
+	text-align: center;
+}*/
+.container-title-photo .year{
+  background: linear-gradient(135deg,#ec0877 32.5%,#f93044 45%,#f75735 60%,#fe880e 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;	
+}
+.container-title-photo h2{
+	color: rgba(255,255,255,.3);
+	font-family: "Gotham", sans-serif;
+	font-size: 30pt;
+	margin-top: 20px;
+}
+.container-title-photo i{
+  background: linear-gradient(135deg,#ec0877 32.5%,#f93044 45%,#f75735 60%,#fe880e 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;	
+}

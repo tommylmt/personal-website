@@ -71,6 +71,7 @@
 	padding: 3px;
 	cursor: pointer;
 	transition: all .3s;
+	list-style: none;
 	text-align: center;
 }
 .social-networks ul li span{
@@ -82,6 +83,9 @@
 	background: #000;
 	border-radius: 100%;
  	transition: all .3s;
+}
+.social-networks ul li a{
+	text-decoration: none;
 }
 .social-networks ul li span i{
 /*  background: linear-gradient(135deg,#ec0877 32.5%,#f93044 45%,#f75735 60%,#fe880e 70%);
