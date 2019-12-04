@@ -1,0 +1,128 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+.project-wrapper{
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 70px;
+}
+.night-one{
+	background: #000;
+}
+.container{
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.left-project, .right-project{
+	flex: 0 0 50%;
+}
+.project-wrapper .left-project .title-project p{
+	font-family: "Nevis", sans-serif;
+	font-size: 20pt;
+	color: rgba(0,0,0,.4);
+}
+.night-one .left-project .title-project p{
+	color: rgba(255,255,255,.4);
+}
+.project-wrapper .title-project{
+	margin-bottom: 40px;
+}
+.project-wrapper .title-project h2{
+	font-family: "Gotham Bold", sans-serif;
+	font-size: 40pt;
+	color: #2d2d2d;
+}
+.night-one .title-project h2{
+	color: #fff;
+}
+.project-wrapper .desc p{
+	font-family: "Gotham", sans-serif;
+	line-height: 2em;
+	color: rgba(0,0,0,.5);
+	font-size: 15pt;
+}
+.night-one .desc p{
+	color: rgba(255,255,255,.5);
+}
+.night-one .right-project{
+	text-align: right;
+	display: flex;
+	justify-content: flex-end;
+}
+.img-container{
+	width: 90%;
+}
+.project-wrapper .img-container img{
+	width: 100%;
+	height: 100%;
+	border: 15px solid #2d2d2d;
+	border-radius: 20px;
+}
+.night-one .img-container img{
+	border: 15px solid rgba(255,255,255,.1);
+}
+.tags{
+	margin: 40px 0;
+}
+.tags ul li:hover{
+	transform: scale(.9);
+}
+.tags ul{
+	display: flex;
+	align-items: center;
+}
+.tags ul li{
+	font-family: "Nevis", sans-serif;
+	text-transform: uppercase;
+	padding: 10px;
+	border-radius: 3px;
+	background-image: linear-gradient(135deg,#ec0877,#f93044,#f75735,#fe880e);
+	margin: 0 10px;
+	transform: scale(1);
+	transition: all .3s;
+	color: #fff;
+	list-style: none;
+}
+.webdev-title-holder{
+	z-index: 9999;
+}
+.container-title-webdev{
+	position: relative;
+	background: url('../img/background-webdev.png');
+	background-size: cover;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+.container-title-webdev h1{
+	color: #fff;
+	font-family: "Gotham Bold", sans-serif;
+	font-size: 70pt;
+}
+/*.culture-title-holder{
+	text-align: center;
+}*/
+.container-title-webdev .year{
+  background: linear-gradient(135deg,#ec0877 32.5%,#f93044 45%,#f75735 60%,#fe880e 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;	
+}
+.container-title-webdev h2{
+	color: rgba(255,255,255,.3);
+	font-family: "Gotham", sans-serif;
+	font-size: 30pt;
+	margin-top: 20px;
+}
+.container-title-webdev i{
+  background: linear-gradient(135deg,#ec0877 32.5%,#f93044 45%,#f75735 60%,#fe880e 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;	
+}
