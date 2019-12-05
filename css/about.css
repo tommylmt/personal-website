@@ -23,10 +23,8 @@
 	margin-bottom: 40px;
 }
 .right-about{
-	/*background: url(../img/71058258_413198192666106_1927507453302276096_n.jpg);*/
 	background-size: cover;
 	background-position: center;
-	/*filter: grayscale(100%);*/
 	transition: background .2s;
 }
 .left-about{
@@ -68,6 +66,9 @@
 	z-index: -2;
 	content: "";
 	transition: all .3s;
+}
+.mouse:hover{
+	color: #fff;
 }
 .mouse:hover:before{
 	height: 100%;

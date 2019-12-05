@@ -19,9 +19,6 @@
 	font-family: "Gotham Bold", sans-serif;
 	font-size: 70pt;
 }
-/*.culture-title-holder{
-	text-align: center;
-}*/
 .container-title-photo .year{
   background: linear-gradient(135deg,#ec0877 32.5%,#f93044 45%,#f75735 60%,#fe880e 70%);
   -webkit-background-clip: text;
@@ -37,4 +34,138 @@
   background: linear-gradient(135deg,#ec0877 32.5%,#f93044 45%,#f75735 60%,#fe880e 70%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;	
+}
+.container-photo{
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #fff;
+	/*color: #fff;*/
+}
+.fp-controlArrow.fp-prev {
+    left: 50px;
+    border: none;
+    width: 50px;
+    height: 101px;
+    background: url(../img/left-arrow.png) no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    transition: all .3s;
+    opacity: .1;
+}
+.fp-controlArrow.fp-next {
+    right: 50px;
+    border: none;
+    width: 50px;
+    height: 101px;
+    background: url(../img/right-arrow.png) no-repeat;
+    background-size: cover;
+    background-position: right;
+    cursor: pointer;
+    transition: all .3s;
+    opacity: .1;
+}
+.fp-controlArrow.fp-prev:hover {
+    opacity: .3;
+}
+.fp-controlArrow.fp-next:hover {
+    opacity: .3;
+}
+.a-photo{
+	width: 80%;
+	text-align: center;
+}
+.photo-wrapper img{
+	width: 60%;
+}
+.photo-info{
+	margin-top: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.left-info, .right-info{
+	flex: 0 0 45%;
+}
+.left-info{
+	text-align: right;
+	padding-right: 20px;
+	border-right: 1px solid rgba(0,0,0,.1);
+}
+.right-info{
+	text-align: left;
+	padding-left: 20px;
+}
+.left-info p{
+	font-size: 15pt;
+	font-family: "Nevis", sans-serif;
+	color: rgba(0, 0, 0, .5);
+	text-transform: uppercase;
+}
+.left-info h2{
+	font-size: 30pt;
+	font-family: "Gotham Bold", sans-serif;
+	color: #2d2d2d;
+}
+.right-info p{
+	font-size: 14pt;
+	padding: 10px 0;
+	font-family: "Gotham", sans-serif;
+	color: rgba(0, 0, 0, .5);
+}
+.right-info p i{
+	margin-right: 10px;
+	background: linear-gradient(135deg,#ec0877 32.5%,#f93044 45%,#f75735 60%,#fe880e 70%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;	
+}
+.night-one .slide .container-photo{
+	background: #000;
+}
+.night-one .slide .container-photo .left-info h2{
+	color: #fff;
+}
+.night-one .slide .container-photo .left-info p{
+	color: rgba(255,255,255,.4);
+}
+.night-one .slide .container-photo .left-info{
+	border-right: 1px solid rgba(255,255,255,.2);
+}
+.night-one .slide .container-photo .right-info p{
+	color: rgba(255,255,255,.4);
+}
+.night-one .fp-controlArrow.fp-prev {
+    left: 50px;
+    border: none;
+    width: 50px;
+    height: 101px;
+    background: url(../img/left-arrow-white.png) no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    transition: all .3s;
+    opacity: .1;
+}
+.night-one .fp-controlArrow.fp-next {
+    right: 50px;
+    border: none;
+    width: 50px;
+    height: 101px;
+    background: url(../img/right-arrow-white.png) no-repeat;
+    background-size: cover;
+    background-position: right;
+    cursor: pointer;
+    transition: all .3s;
+    opacity: .1;
+}
+.night-one .fp-controlArrow.fp-prev:hover {
+    opacity: .3;
+}
+.night-one .fp-controlArrow.fp-next:hover {
+    opacity: .3;
+}
+.a-large img{
+	height: 500px;
+	width: auto;
 }
