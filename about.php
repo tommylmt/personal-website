@@ -22,6 +22,7 @@
 
 </head>
 <body>
+	<?php include("php/pdo.php"); ?>
 	<?php include("php/loader.php"); ?>
 	<?php include("php/menu.php"); ?>
 

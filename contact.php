@@ -21,6 +21,7 @@
 	<script src="js/gsap-latest-beta.min.js"></script>
 </head>
 <body>
+	<?php include("php/pdo.php"); ?>
 	<?php include("php/loader.php"); ?>
 	<?php include("php/menu-white.php"); ?>
 
