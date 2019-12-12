@@ -63,7 +63,6 @@
   	-webkit-background-clip: text;
   	-webkit-text-fill-color: transparent;
   	opacity: 0;
-  	/*display: none;*/
 }
 .musician, .designer, .photograph{
 	position: absolute;

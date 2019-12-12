@@ -19,7 +19,6 @@
 }
 .content-contact{
 	color: #fff;
-	/*margin-left: 150px;*/
 	flex: 0 0 85vw;
 }
 .content-contact h1{
@@ -40,7 +39,6 @@
 .align-tel-mail{
 	display: flex;
 	margin: 40px 0;
-	/*justify-content: center;*/
 }
 .align-tel-mail a{
 	color: #fff;
@@ -88,9 +86,6 @@
 	text-decoration: none;
 }
 .social-networks ul li span i{
-/*  background: linear-gradient(135deg,#ec0877 32.5%,#f93044 45%,#f75735 60%,#fe880e 70%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;*/
   color: #fff;
   transition: all .3s;
 }

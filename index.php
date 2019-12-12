@@ -18,46 +18,9 @@
 	<script src="js/fullpage.js"></script>
 </head>
 <body>
-	<div class="wrapper-loader">
-	  <div class="loader">
-	    <div class="a-wave one-wave"></div>
-	  </div>
-	  <div class="avatar">
-	    <img src="img/logo-loading.png" alt="Toma">
-	  </div>
-	</div>
-	<div class="wrapper">
-		<div class="logo-principal-all">
-			<a href="index.html"><img src="img/logo.svg" alt="Toma" width="60px"></a>
-		</div>
-		<div class="open-menu">
-			<div class="a-bar-up"></div>
-			<div class="a-bar-down"></div>
-		</div>
-		<div class="menu">
-			<div class="logo-white-menu">
-				<a href="index.html"><img src="img/logo-white.svg" width="60px"></a>
-			</div>
-			<div class="close">
-				<p><i class="fas fa-times"></i></p>
-			</div>
-			<ul>
-				<li class="un"><a href="about.html"><div class="tiret"></div>About me</a></li>
-				<li class="deux submenu"><a href="#"><div class="tiret"></div>Work</a>
-					<ul class="submenu-container">
-						<li><a href="portfolio.html"><div class="tiretsub"></div>Web Development</a></li>
-						<li><a href="photos.html"><div class="tiretsub"></div>Photos</a></li>		
-					</ul>
-				</li>
-				<li class="trois"><a href="culture.html"><div class="tiret"></div>Culture</a></li>
-				<li class="quatre"><a href="contact.html"><div class="tiret"></div>Contact</a></li>
-			</ul>
+	<?php include("php/loader.php"); ?>
+	<?php include("php/menu.php"); ?>
 
-			<!-- The cursor elements --> 
-		    <div class="cursor cursor--small"></div>
-		    <canvas class="cursor cursor--canvas" resize></canvas>
-		</div>
-	</div>
 	<div id="fullpage">
 		<div class="section">
 			<div class="container-all">
@@ -78,198 +41,15 @@
 						<h1 class="backgroundh1">Designer</h1>
 					</div>
 				</div>
-				<!-- <canvas id="playground"></canvas> -->
 			</div>
 		</div>
 	</div>
 
-	<!-- LE CURSEUR EN JS -->
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.0/paper-core.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
-	<script src="js/cursor.js"></script>
 
 	<!-- LE GSAP -->
 	<script src="js/gsap-latest-beta.min.js"></script>
 
 	<!-- L'APPLICATION -->
-	<script type="text/javascript">
-		window.addEventListener("load", function(){
-			const loader = document.querySelector(".wrapper-loader");
-			loader.className += " hidden-loader";
-		});
-
-		$(document).ready(function() {
-			$('#fullpage').fullpage({
-				//options here
-				autoScrolling:true,
-				scrollHorizontally: true,
-				onLeave: function(index, nextIndex, direction){
-
-				}
-			});
-
-			//methods
-			$.fn.fullpage.setAllowScrolling(true);
-		});
-		$(function(){
-
-			$('.wrapper .menu').hide();
-		 	$('.open-menu').click(function(){
-
-		 		$('.wrapper .menu').show();
-		 		$('.menu').animate({
-		 			left: 0,
-		 			opacity: '1'
-		 		}, 300);
-
-		 		$('.un').delay(400).animate({
-		 			opacity: '1'
-		 		}, 200);
-		 		$('.deux').delay(600).animate({
-		 			opacity: '1'
-		 		}, 200);
-		 		$('.trois').delay(800).animate({
-					opacity: '1'
-		 		}, 200);
-		 		$('.quatre').delay(1000).animate({
-		 			opacity: '1'
-		 		}, 200);
-		 	});
-		 	$('.close').click(function(){
-		 		$('.quatre').animate({
-		 			opacity: '0'
-		 		}, 200);
-		 		$('.trois').delay(200).animate({
-		 			opacity: '0'
-		 		}, 200);
-		 		$('.deux').delay(400).animate({
-		 			opacity: '0'
-		 		}, 200);
-		 		$('.un').delay(600).animate({
-					opacity: '0'
-		 		}, 200);
-
-		 		$('.menu').delay(800).animate({
-		 			// opacity: '0',
-		 			left: '100vw'
-		 		}, 300);
-		 		$('.menu').delay(1000).hide(0);
-		 	});
-
-		 	// Bug to fix :
-		 	// - tiret work doesn't work after close
-		 	// - disable other <li> when Work active
-		 	var open = false;
-
-		 	$('.submenu').click(function(){
-		 		open = !open;
-		 		if(open){
-			 		$(this).children('.submenu-container').css({
-			 			opacity: '1',
-			 			height: '200px',
-			 			// display: 'block',
-			 			transition: 'all .3s'
-			 		}, 500);
-			 		$('.menu > ul > li').css({
-			 			opacity: '.3'
-			 		});
-			 		$(this).css({
-			 			opacity: '1'
-			 		});
-			 		$(this).children('.tiret').css({
-			 			width: '80px'
-			 		});
-			 		$(this).children('.submenu-container').children('li').css('display','block');
-		 		} else{
-			 		$('.menu > ul > li').css({
-			 			opacity: '1'
-			 		});
-			 		$(this).children('.submenu-container').css({
-			 			opacity: '0',
-			 			height: '0',
-			 			// display: 'none',
-			 			transition: 'all .3s'
-			 		});
-			 		$(this).children('.tiret').css({
-			 			width: '0'
-			 		});
-			 		$(this).children('.submenu-container').children('li').css('display','none');
-		 		}
-		 	});
-
-		 	gsap.from('.logo-principal-all img', {
-		 		duration: .5,
-		 		x: 1000
-		 	});
-			gsap.from('.backgroundh1', {
-			  	duration: .7,
-			  	x: 1000,
-			  	ease: "power2.easeInOut",
-			  	stagger: .2
-			});
-			gsap.from('.title-principal',{
-				delay: 1.5,
-			  	duration: .7,
-			  	opacity: 0,
-			  	y: -100
-			});
-		 	
-		 	// ONLY ON THE INDEX
-			  var infinite = new TimelineMax({repeat:-1});
-  
-			  infinite.to(".principalh1", {
-			    duration: 1,
-			    ease: "back.out(1.7)",
-			    opacity: 1
-			    // display: 'block'
-			  }, "+=1");
-			  infinite.to(".principalh1", {
-			    delay : 1,
-			    duration: .5,
-			    opacity: 0
-			    // display: 'none'
-			  });
-			  
-			  infinite.to(".photograph", {
-			    delay: 1,
-			    duration: 1, 
-			    opacity: 1
-			    // display: 'block'
-			  });
-			  infinite.to(".photograph", {
-			    delay : 1,
-			    duration: .5,
-			    opacity: 0
-			    // display: 'none'
-			  });
-			  
-			  infinite.to(".musician", {
-			    delay: 1,
-			    duration: 1, 
-			    opacity: 1
-			    // display: 'block'
-			  });
-			  infinite.to(".musician", {
-			    delay : 1,
-			    duration: .5,
-			    opacity: 0
-			    // display: 'none'
-			  });
-			  
-			  infinite.to(".designer", {
-			    delay: 1,
-			    duration: 1, 
-			    opacity: 1
-			    // display: 'block'
-			  });
-			  infinite.to(".designer", {
-			    delay : 1,
-			    duration: .5,
-			    opacity: 0
-			    // display: 'none'
-			  });
-
-		});
-	</script>
+	<script src="js/index.js"></script>
 </body>
 </html>

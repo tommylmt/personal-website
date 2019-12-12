@@ -5,13 +5,13 @@
 	<meta charset="utf-8">
 	<title>My Work</title>
 
-	<!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" type="text/css" href="css/fonts.css">
 	<link rel="stylesheet" type="text/css" href="css/fullpage.css">
 	<link rel="stylesheet" type="text/css" href="css/loader.css">
 	<link rel="stylesheet" type="text/css" href="css/menu.css">
 	<link rel="stylesheet" type="text/css" href="css/webdev.css">
+	<link rel="stylesheet" type="text/css" href="css/cursor.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 	
 	<!-- Librairie jQuery -->
@@ -19,42 +19,9 @@
 	<script src="js/fullpage.js"></script>
 </head>
 <body>
-	<div class="wrapper-loader">
-	  <div class="loader">
-	    <div class="a-wave one-wave"></div>
-	  </div>
-	  <div class="avatar">
-	    <img src="http://thomaslamothe.free.fr/img/profil.jpg" alt="Toma">
-	  </div>
-	</div>
-	<div class="wrapper">
-		<div class="logo-principal-all">
-			<a href="index.html"><img src="img/logo-white.svg" alt="Toma" width="50px"></a>
-		</div>
-		<div class="open-menu white-menu">
-			<div class="a-bar-up"></div>
-			<div class="a-bar-down"></div>
-		</div>
-		<div class="menu">
-			<div class="logo-white-menu">
-				<a href="index.html"><img src="img/logo-white.svg" width="50px"></a>
-			</div>
-			<div class="close">
-				<p><i class="fas fa-times"></i></p>
-			</div>
-			<ul>
-				<li class="un"><a href="about.html"><div class="tiret"></div>About me</a></li>
-				<li class="deux submenu"><a href="#"><div class="tiret"></div>Work</a>
-					<ul class="submenu-container">
-						<li><a href="portfolio.html"><div class="tiretsub"></div>Web Development</a></li>
-						<li><a href="photos.html"><div class="tiretsub"></div>Photos</a></li>		
-					</ul>
-				</li>
-				<li class="trois"><a href="culture.html"><div class="tiret"></div>Culture</a></li>
-				<li class="quatre"><a href="contact.html"><div class="tiret"></div>Contact</a></li>
-			</ul>
-		</div>
-	</div>
+	<?php include("php/loader.php"); ?>
+	<?php include("php/menu-white.php"); ?>
+
 	<div id="fullpage">
 		<div class="section">
 			<div class="container-title-webdev">
@@ -62,24 +29,6 @@
 					<h1><span class="year">Web</span> Development</h1>
 					<h2>I do Full Stack Development and UX design</h2>
 				</div>
-<!-- 				<div class="blob first-blob">
-					<img src="img/svg/blob-shape-one.svg">
-				</div>
-				<div class="blob second-blob">
-					<img src="img/svg/blob-shape-two.svg">
-				</div>
-				<div class="blob third-blob">
-					<img src="img/svg/blob-shape-three.svg">
-				</div>
-				<div class="blob fourth-blob">
-					<img src="img/svg/blob-shape-four.svg">
-				</div> -->
-<!-- 				<div class="blob fifth-blob" style="opacity: .3;">
-					<img src="img/webdev-blob/first.png" width="1500px">
-				</div> -->
-<!-- 				<div class="blob six-blob">
-					<img src="img/svg/blob-shape-six.svg">
-				</div> -->
 			</div>
 		</div>
 		<div class="section">
@@ -156,182 +105,6 @@
 
 	<script src="js/gsap-latest-beta.min.js"></script>
 
-	<script type="text/javascript">
-		window.addEventListener("load", function(){
-			const loader = document.querySelector(".wrapper-loader");
-			loader.className += " hidden-loader";
-		});
-
-		$(function(){
-
-			// A RESOUDRE : ANIMER DES BLOBS DE FACON RANDOM AU SURVOL
-
-			$('.blob').on('mouseover', function(){
-				gsap.to($(this), {
-					duration: .6,
-					ease: "back",
-					css: {
-						scale: .85
-					}
-				});
-			});
-
-			$('.blob').on('mouseleave', function(){
-				gsap.to($(this), {
-					duration: .6,
-					ease: "back",
-					css: {
-						scale: 1
-					}
-				});
-			});
-
-			var introCulture = new TimelineMax();
-
-			introCulture.from('.webdev-title-holder h1', {
-				duration: .7,
-				ease: "back",
-				y: -500,
-				opacity: 0
-			});
-
-			introCulture.from('.webdev-title-holder h2', {
-				duration: .4,
-				x: -200,
-				opacity: 0
-			});
-		});
-
-		$(document).ready(function() {
-			$('#fullpage').fullpage({
-				//options here
-				autoScrolling:true,
-				scrollHorizontally: true,
-				navigation: true,
-				onLeave: function(index, nextIndex, direction){
-					if(index.isFirst){
-						$('.open-menu').addClass('white-menu');
-						$('.logo-principal-all a img').attr('src', 'img/logo-white.svg');						
-					}
-
-					if(!$('.section').eq(nextIndex.index).find('.project-wrapper').hasClass('night-one')){
-
-						$('.open-menu').removeClass('white-menu');
-						$('.logo-principal-all a img').attr('src', 'img/logo.svg');
-
-					} else if($('.section').eq(nextIndex.index).find('.project-wrapper').hasClass('night-one')){$
-
-						$('.open-menu').addClass('white-menu');
-						$('.logo-principal-all a img').attr('src', 'img/logo-white.svg');
-
-					}
-
-					if(index.index >= 0){
-						var timelineWebdev = new TimelineMax();
-
-						timelineWebdev.from($('.section').eq(nextIndex.index).find('.img-container'), {
-							duration: 1,
-							ease: 'back',
-							y: 1000
-						});
-						timelineWebdev.from($('.section').eq(nextIndex.index).find('.left-project'), {
-							duration: .3,
-							opacity: 0
-						});
-					}
-				}
-			});
-
-			//methods
-			$.fn.fullpage.setAllowScrolling(true);
-		});
-		$(function(){
-
-			$('.wrapper .menu').hide();
-		 	$('.open-menu').click(function(){
-
-		 		$('.wrapper .menu').show();
-		 		$('.menu').animate({
-		 			left: 0,
-		 			opacity: '1'
-		 		}, 300);
-
-		 		$('.un').delay(400).animate({
-		 			opacity: '1'
-		 		}, 200);
-		 		$('.deux').delay(600).animate({
-		 			opacity: '1'
-		 		}, 200);
-		 		$('.trois').delay(800).animate({
-					opacity: '1'
-		 		}, 200);
-		 		$('.quatre').delay(1000).animate({
-		 			opacity: '1'
-		 		}, 200);
-		 	});
-		 	$('.close').click(function(){
-		 		$('.quatre').animate({
-		 			opacity: '0'
-		 		}, 200);
-		 		$('.trois').delay(200).animate({
-		 			opacity: '0'
-		 		}, 200);
-		 		$('.deux').delay(400).animate({
-		 			opacity: '0'
-		 		}, 200);
-		 		$('.un').delay(600).animate({
-					opacity: '0'
-		 		}, 200);
-
-		 		$('.menu').delay(800).animate({
-		 			// opacity: '0',
-		 			left: '100vw'
-		 		}, 300);
-		 		$('.menu').delay(1000).hide(0);
-		 	});
-
-		 	// Bug to fix :
-		 	// - tiret work doesn't work after close
-		 	// - disable other <li> when Work active
-		 	var open = false;
-
-		 	$('.submenu').click(function(){
-		 		open = !open;
-		 		if(open){
-			 		$(this).children('.submenu-container').css({
-			 			opacity: '1',
-			 			height: '200px',
-			 			// display: 'block',
-			 			transition: 'all .3s'
-			 		}, 500);
-			 		$('.menu > ul > li').css({
-			 			opacity: '.3'
-			 		});
-			 		$(this).css({
-			 			opacity: '1'
-			 		});
-			 		$(this).children('.tiret').css({
-			 			width: '80px'
-			 		});
-			 		$(this).children('.submenu-container').children('li').css('display','block');
-		 		} else{
-			 		$('.menu > ul > li').css({
-			 			opacity: '1'
-			 		});
-			 		$(this).children('.submenu-container').css({
-			 			opacity: '0',
-			 			height: '0',
-			 			// display: 'none',
-			 			transition: 'all .3s'
-			 		});
-			 		$(this).children('.tiret').css({
-			 			width: '0'
-			 		});
-			 		$(this).children('.submenu-container').children('li').css('display','none');
-		 		}
-		 	});
-
-		});
-	</script>
+	<script src="js/portfolio.js"></script>
 </body>
 </html>

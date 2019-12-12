@@ -5,13 +5,13 @@
 	<meta charset="utf-8">
 	<title>Culture</title>
 
-	<!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" type="text/css" href="css/fonts.css">
 	<link rel="stylesheet" type="text/css" href="css/fullpage.css">
 	<link rel="stylesheet" type="text/css" href="css/loader.css">
 	<link rel="stylesheet" type="text/css" href="css/culture.css">
 	<link rel="stylesheet" type="text/css" href="css/menu.css">
+	<link rel="stylesheet" type="text/css" href="css/cursor.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 	
 	<!-- Librairie jQuery -->
@@ -19,42 +19,9 @@
 	<script src="js/fullpage.js"></script>
 </head>
 <body>
-	<div class="wrapper-loader">
-	  <div class="loader">
-	    <div class="a-wave one-wave"></div>
-	  </div>
-	  <div class="avatar">
-	    <img src="http://thomaslamothe.free.fr/img/profil.jpg" alt="Toma">
-	  </div>
-	</div>
-	<div class="wrapper">
-		<div class="logo-principal-all">
-			<a href="index.html"><img src="img/logo-white.svg" alt="Toma" width="50px"></a>
-		</div>
-		<div class="open-menu">
-			<div class="a-bar-up"></div>
-			<div class="a-bar-down"></div>
-		</div>
-		<div class="menu">
-			<div class="logo-white-menu">
-				<a href="index.html"><img src="img/logo-white.svg" width="50px"></a>
-			</div>
-			<div class="close">
-				<p><i class="fas fa-times"></i></p>
-			</div>
-			<ul>
-				<li class="un"><a href="about.html"><div class="tiret"></div>About me</a></li>
-				<li class="deux submenu"><a href="#"><div class="tiret"></div>Work</a>
-					<ul class="submenu-container">
-						<li><a href="portfolio.html"><div class="tiretsub"></div>Web Development</a></li>
-						<li><a href="photos.html"><div class="tiretsub"></div>Photos</a></li>		
-					</ul>
-				</li>
-				<li class="trois"><a href="culture.html"><div class="tiret"></div>Culture</a></li>
-				<li class="quatre"><a href="contact.html"><div class="tiret"></div>Contact</a></li>
-			</ul>
-		</div>
-	</div>
+	<?php include("php/loader.php"); ?>
+	<?php include("php/menu-white.php"); ?>
+
 	<div id="fullpage">
 		<div class="section">
 			<div class="container-title-culture">
@@ -175,228 +142,6 @@
 
 	<script src="js/gsap-latest-beta.min.js"></script>
 
-	<script type="text/javascript">
-		window.addEventListener("load", function(){
-			const loader = document.querySelector(".wrapper-loader");
-			loader.className += " hidden-loader";
-		});
-
-		$(function(){
-		 	// CULTURE PART
-
-		 	$.ajax({
-		 		type: "GET",
-		 		url: "https://api.deezer.com/user/1567995002/charts/albums?output=jsonp",
-		 		dataType: "jsonp",
-		 		type: "application/json",
-		 		success: function(data){
-		 			// console.log(data);
-		 			for(i = 0; i < 5; i++){
-		 				if(data.data[i].cover_big !== null){
-		 					$('.music-container').append('<div class="a-music is-animated"><img src="' + data.data[i].cover_big + '"><div class="music-infos"><h5>By ' + data.data[i].artist.name + '</h5></div></div>');			
-		 				} else {
-		 					$('.music-container').append('<div class="a-music is-animated"><h2>Pochette non trouvée</h2></p><h5>' + data.data[i].artist.name + '</h5></div>');	
-		 				}
-
-		 			}
-		 		},
-		 		error: function(){
-		 			console.log("Erreur lors de la recuperation des resultats");
-		 		}
-		 	});
-
-			// A RESOUDRE : ANIMER DES BLOBS DE FACON RANDOM AU SURVOL
-
-			$('.blob').on('mouseover', function(){
-				gsap.to($(this), {
-					duration: .6,
-					ease: "back",
-					css: {
-						scale: .85
-					}
-				});
-			});
-
-			$('.blob').on('mouseleave', function(){
-				gsap.to($(this), {
-					duration: .6,
-					ease: "back",
-					css: {
-						scale: 1
-					}
-				});
-			});
-
-			var introCulture = new TimelineMax();
-
-			introCulture.from('.culture-title-holder h1', {
-				duration: .7,
-				ease: "back",
-				y: -500,
-				opacity: 0
-			});
-
-			introCulture.from('.culture-title-holder h2', {
-				duration: .4,
-				x: -200,
-				opacity: 0
-			});
-		});
-
-		var $isAnimatedFilms = $('.right-movie .is-animated'),
-			$isAnimatedMusic = $('.music-container .is-animated'),
-			$isAnimatedShows = $('.right-shows .is-animated');
-
-		$(document).ready(function() {
-			$('#fullpage').fullpage({
-				//options here
-				autoScrolling:true,
-				scrollHorizontally: true,
-				navigation: true,
-				onLeave: function(index, nextIndex, direction){
-					if(index.index === -1){
-						$('.open-menu').addClass("white-menu");
-					}
-					if(index.index == 0){
-						$('.open-menu').removeClass("white-menu");
-						
-						$isAnimatedFilms.eq(0).addClass('animated fadeInDown');
-						$isAnimatedFilms.eq(1).addClass('animated fadeInDown');
-						$isAnimatedFilms.eq(2).addClass('animated fadeInDown');
-
-						$isAnimatedFilms.eq(3).addClass('animated fadeInUp');
-						$isAnimatedFilms.eq(4).addClass('animated fadeInUp');
-
-						$isAnimatedFilms.eq(0).css('animation-delay', '.2s');
-						$isAnimatedFilms.eq(1).css('animation-delay', '.4s');
-						$isAnimatedFilms.eq(2).css('animation-delay', '.6s');
-						$isAnimatedFilms.eq(3).css('animation-delay', '.2s');
-						$isAnimatedFilms.eq(4).css('animation-delay', '.4s');
-					}
-					if(index.index == 1){
-						$('.open-menu').addClass("white-menu");
-
-						$isAnimatedMusic.eq(0).addClass('animated fadeInDown');
-						$isAnimatedMusic.eq(1).addClass('animated fadeInDown');
-						$isAnimatedMusic.eq(2).addClass('animated fadeInDown');
-
-						$isAnimatedMusic.eq(3).addClass('animated fadeInUp');
-						$isAnimatedMusic.eq(4).addClass('animated fadeInUp');
-
-						$isAnimatedMusic.eq(0).css('animation-delay', '.2s');
-						$isAnimatedMusic.eq(1).css('animation-delay', '.4s');
-						$isAnimatedMusic.eq(2).css('animation-delay', '.6s');
-						$isAnimatedMusic.eq(3).css('animation-delay', '.2s');
-						$isAnimatedMusic.eq(4).css('animation-delay', '.4s');
-					} if(index.index == 2){
-						$('.open-menu').removeClass("white-menu");
-
-						$isAnimatedShows.eq(0).addClass('animated fadeInDown');
-						$isAnimatedShows.eq(1).addClass('animated fadeInDown');
-						$isAnimatedShows.eq(2).addClass('animated fadeInDown');
-
-						$isAnimatedShows.eq(3).addClass('animated fadeInUp');
-						$isAnimatedShows.eq(4).addClass('animated fadeInUp');
-
-						$isAnimatedShows.eq(0).css('animation-delay', '.2s');
-						$isAnimatedShows.eq(1).css('animation-delay', '.4s');
-						$isAnimatedShows.eq(2).css('animation-delay', '.6s');
-						$isAnimatedShows.eq(3).css('animation-delay', '.2s');
-						$isAnimatedShows.eq(4).css('animation-delay', '.4s');
-					}
-				}
-			});
-
-			//methods
-			$.fn.fullpage.setAllowScrolling(true);
-		});
-		$(function(){
-
-			$('.wrapper .menu').hide();
-		 	$('.open-menu').click(function(){
-
-		 		$('.wrapper .menu').show();
-		 		$('.menu').animate({
-		 			left: 0,
-		 			opacity: '1'
-		 		}, 300);
-
-		 		$('.un').delay(400).animate({
-		 			opacity: '1'
-		 		}, 200);
-		 		$('.deux').delay(600).animate({
-		 			opacity: '1'
-		 		}, 200);
-		 		$('.trois').delay(800).animate({
-					opacity: '1'
-		 		}, 200);
-		 		$('.quatre').delay(1000).animate({
-		 			opacity: '1'
-		 		}, 200);
-		 	});
-		 	$('.close').click(function(){
-		 		$('.quatre').animate({
-		 			opacity: '0'
-		 		}, 200);
-		 		$('.trois').delay(200).animate({
-		 			opacity: '0'
-		 		}, 200);
-		 		$('.deux').delay(400).animate({
-		 			opacity: '0'
-		 		}, 200);
-		 		$('.un').delay(600).animate({
-					opacity: '0'
-		 		}, 200);
-
-		 		$('.menu').delay(800).animate({
-		 			// opacity: '0',
-		 			left: '100vw'
-		 		}, 300);
-		 		$('.menu').delay(1000).hide(0);
-		 	});
-
-		 	// Bug to fix :
-		 	// - tiret work doesn't work after close
-		 	// - disable other <li> when Work active
-		 	var open = false;
-
-		 	$('.submenu').click(function(){
-		 		open = !open;
-		 		if(open){
-			 		$(this).children('.submenu-container').css({
-			 			opacity: '1',
-			 			height: '200px',
-			 			// display: 'block',
-			 			transition: 'all .3s'
-			 		}, 500);
-			 		$('.menu > ul > li').css({
-			 			opacity: '.3'
-			 		});
-			 		$(this).css({
-			 			opacity: '1'
-			 		});
-			 		$(this).children('.tiret').css({
-			 			width: '80px'
-			 		});
-			 		$(this).children('.submenu-container').children('li').css('display','block');
-		 		} else{
-			 		$('.menu > ul > li').css({
-			 			opacity: '1'
-			 		});
-			 		$(this).children('.submenu-container').css({
-			 			opacity: '0',
-			 			height: '0',
-			 			// display: 'none',
-			 			transition: 'all .3s'
-			 		});
-			 		$(this).children('.tiret').css({
-			 			width: '0'
-			 		});
-			 		$(this).children('.submenu-container').children('li').css('display','none');
-		 		}
-		 	});
-
-		});
-	</script>
+	<script src="js/culture.js"></script>
 </body>
 </html>
