@@ -23,6 +23,7 @@
 </head>
 <body>
 	<?php include("php/pdo.php"); ?>
+	<?php include("php/const.php"); ?>
 	<?php include("php/loader.php"); ?>
 	<?php include("php/menu.php"); ?>
 
@@ -35,7 +36,8 @@
 					</div>
 					<div class="content-about">
 						<h1>Hi,</h1>
-						<p>I'm Thomas Lamothe, a 20 years old french Full Stack web Developer and web designer. I'm raised in <span class="mouse">Toulouse</span>, where I'm studying computer science. I also play guitar, compose my own musics and take photos.</p>
+						<p>I'm Thomas Lamothe, a <?= $age_tommy; ?> years old french Full Stack web Developer and web designer. I'm raised in <span class="mouse">Toulouse</span>, where I'm studying computer science. I also play guitar, compose my own musics and take photos.</p>
+						<p>By the way, I coded this website by hand using PHP, GSAP, Frameworks and API ;)</p>
 						<p>If my work have an interest for you, we can share a beer.</p>
 
 						<button><span class="cv">Download CV</span></button>

@@ -6,7 +6,7 @@
 	<title>Contact me | Thomas Lamothe</title>
 
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<!-- <link rel="stylesheet" type="text/css" href="css/aos.css"> -->
+	<link rel="stylesheet" type="text/css" href="css/aos.css">
 
 	<link rel="stylesheet" type="text/css" href="css/fonts.css">
 	<link rel="stylesheet" type="text/css" href="css/loader.css">
