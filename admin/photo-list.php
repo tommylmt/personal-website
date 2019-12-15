@@ -1,7 +1,7 @@
 <?php 
 	session_start();
 
-	include("php/const.php");
+	include("php/all-const.php");
 
 	if($_SESSION['password'] == $password){
 ?>
@@ -39,17 +39,17 @@
 			while($donnees = $afficherPhoto->fetch()){
 				echo '<div class="flex-elegant is-4 photo-uploaded-list is-not-space-around">
 						<div class="child-elegant">
-							<img src="../'. $donnees['NomPhotoUne'] .'">
+							<img src="'. $donnees['NomPhotoUne'] .'">
 						</div>';
 
 						if($donnees['NomPhotoDeux'] != ""){
 							echo '<div class="child-elegant">
-									<img src="../'. $donnees['NomPhotoDeux'] .'">
+									<img src="'. $donnees['NomPhotoDeux'] .'">
 								</div>';						
 						}
 						if($donnees['NomPhotoTrois'] != ""){
 							echo '<div class="child-elegant">
-									<img src="../'. $donnees['NomPhotoTrois'] .'">
+									<img src="'. $donnees['NomPhotoTrois'] .'">
 								</div>';							
 						}
 				echo '<div class="child-elegant">

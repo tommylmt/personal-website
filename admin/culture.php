@@ -1,7 +1,7 @@
 <?php 
 	session_start();
 
-	include("php/const.php");
+	include("php/all-const.php");
 
 	if($_SESSION['password'] == $password){
 ?>
@@ -97,6 +97,6 @@
 <?php 
 	}
 	else {
-		header("Location: login.php?wrongpassword=true");
+		header("location: login.php?wrongpassword=true");
 	}
 ?>

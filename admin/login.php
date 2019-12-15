@@ -55,6 +55,7 @@
 			}
 		}
 		if(isset($_GET['sessiondestroy'])){
+			session_destroy();
 	?>
 		<div class="good banner" data-aos="fade-down">
 			<p>Vous avez ete deconnecte, session detruite avec succes.</p> 

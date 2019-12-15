@@ -1,7 +1,7 @@
 <?php 
 	session_start();
 
-	include("php/const.php");
+	include("php/all-const.php");
 
 	if($_SESSION['password'] == $password){
 ?>
@@ -39,7 +39,7 @@
 			while($donnees = $afficherProjet->fetch()){
 				echo '<div class="flex-elegant is-2 web-uploaded-list">
 					<div class="child-elegant">
-						<img src="../'. $donnees['NomPhoto'] .'">
+						<img src="'. $donnees['NomPhoto'] .'">
 					</div>
 					<div class="child-elegant">
 						<h2>'. $donnees['NomProjet'] .'</h2>
