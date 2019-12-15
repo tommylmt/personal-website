@@ -19,6 +19,7 @@
 	<script src="js/fullpage.js"></script>
 </head>
 <body>
+	<?php include("php/const.php"); ?>
 	<?php include("php/pdo.php"); ?>
 	<?php include("php/loader.php"); ?>
 	<?php include("php/menu-white.php"); ?>
@@ -27,7 +28,7 @@
 		<div class="section">
 			<div class="container-title-culture">
 				<div class="culture-title-holder">
-					<h1>Culture in <span class="year">2019</span></h1>
+					<h1>Culture in <span class="year"><?= $year; ?></span></h1>
 					<h2>All the things I've <i class="fas fa-heart"></i> this year</h2>
 				</div>
 				<div class="blob first-blob">
