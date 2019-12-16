@@ -44,7 +44,7 @@
 
 						if($donnees['NomPhotoDeux'] != ""){
 							echo '<div class="child-elegant">
-									<img src="'. $donnees['NomPhotoDeux'] .'">
+									<img src="../'. $donnees['NomPhotoDeux'] .'">
 								</div>';						
 						}
 						if($donnees['NomPhotoTrois'] != ""){
