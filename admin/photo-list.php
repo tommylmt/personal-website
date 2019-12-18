@@ -39,7 +39,7 @@
 			while($donnees = $afficherPhoto->fetch()){
 				echo '<div class="flex-elegant is-4 photo-uploaded-list is-not-space-around">
 						<div class="child-elegant">
-							<img src="'. $donnees['NomPhotoUne'] .'">
+							<img src="../'. $donnees['NomPhotoUne'] .'">
 						</div>';
 
 						if($donnees['NomPhotoDeux'] != ""){
@@ -49,7 +49,7 @@
 						}
 						if($donnees['NomPhotoTrois'] != ""){
 							echo '<div class="child-elegant">
-									<img src="'. $donnees['NomPhotoTrois'] .'">
+									<img src="../'. $donnees['NomPhotoTrois'] .'">
 								</div>';							
 						}
 				echo '<div class="child-elegant">

@@ -36,8 +36,8 @@
 					</div>
 					<div class="content-about">
 						<h1>Hi,</h1>
-						<p>I'm Thomas Lamothe, a <?= $age_tommy; ?> years old french Full Stack web Developer and web designer. I'm raised in <span class="mouse">Toulouse</span>, where I'm studying computer science. I also play guitar, compose my own musics and take photos.</p>
-						<p>By the way, I coded this website by hand using PHP, GSAP, Frameworks and API ;)</p>
+						<p>I'm Thomas Lamothe, a <?= $age_tommy; ?> years old french Full Stack web Developer and web designer. I'm raised in <span class="mouse">Toulouse</span>, where I'm studying computer science. I also play guitar, composing my own musics and take photos.</p>
+						<p>By the way, I coded this website by hand using PHP, GSAP, Frameworks and API in 2019.</p>
 						<p>If my work have an interest for you, we can share a beer.</p>
 
 						<button><span class="cv">Download CV</span></button>
@@ -58,63 +58,30 @@
 				<div class="right-timeline">
 					<div class="wrapper-dots is-animated">
 					    <div class="bar-to-dots"></div>
-					  
-					    <div class="a-dot-holder">
-					      	<div class="a-dot"></div>
-					      	<div class="container-dot">
-					        	<h1><span class="graduate"><i class="fas fa-graduation-cap"></i></span> 2015</h1>
-					        	<h5>Nom du poste - Nom Entreprise</h5>
-					        	<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, pariatur labore? Magni rerum assumenda non culpa odit consequuntur, ad adipisci soluta dicta nemo! Distinctio doloribus rem aperiam ut natus. Mollitia.</p>
-					      	</div>
-					    </div>
-					    <div class="a-dot-holder">
-					      	<div class="a-dot"></div>
-					      	<div class="container-dot">
-					        	<h1><span class="graduate"><i class="fas fa-graduation-cap"></i></span> 2015</h1>
-					        	<h5>Nom du poste - Nom Entreprise</h5>
-					        	<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, pariatur labore? Magni rerum assumenda non culpa odit consequuntur, ad adipisci soluta dicta nemo! Distinctio doloribus rem aperiam ut natus. Mollitia.</p>
-					      	</div>
-					    </div>
-					    <div class="a-dot-holder">
-					      	<div class="a-dot"></div>
-					      	<div class="container-dot">
-					        	<h1><span class="graduate"><i class="fas fa-graduation-cap"></i></span> 2015</h1>
-					        	<h5>Nom du poste - Nom Entreprise</h5>
-					        	<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, pariatur labore? Magni rerum assumenda non culpa odit consequuntur, ad adipisci soluta dicta nemo! Distinctio doloribus rem aperiam ut natus. Mollitia.</p>
-					      	</div>
-					    </div>
-					    <div class="a-dot-holder">
-					      	<div class="a-dot"></div>
-					       	<div class="container-dot">
-					          	<h1><span class="graduate"><i class="fas fa-briefcase"></i></span> 2016</h1>
-					          	<h5>Nom du poste - Nom Entreprise</h5>
-					          	<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, pariatur labore? Magni rerum assumenda non culpa odit consequuntur, ad adipisci soluta dicta nemo! Distinctio doloribus rem aperiam ut natus. Mollitia.</p>      
-					      	</div>
-					    </div>
-					    <div class="a-dot-holder">
-					      	<div class="a-dot"></div>
-					       	<div class="container-dot">
-					           	<h1><span class="graduate"><i class="fas fa-graduation-cap"></i></span> 2017 - 2019</h1>
-					           	<h5>Etudiant en informatique - I.U.T. Paul Sabatier</h5>
-					           	<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, pariatur labore? Magni rerum assumenda non culpa odit consequuntur, ad adipisci soluta dicta nemo! Distinctio doloribus rem aperiam ut natus. Mollitia.</p>     
-					      	</div>
-					    </div>
-					    <div class="a-dot-holder">
-					      	<div class="a-dot"></div>
-					       	<div class="container-dot">
-					          	<h1><span class="graduate"><i class="fas fa-briefcase"></i></span> 2018</h1>
-					          	<h5>Nom du poste - Nom Entreprise</h5>
-					          	<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, pariatur labore? Magni rerum assumenda non culpa odit consequuntur, ad adipisci soluta dicta nemo! Distinctio doloribus rem aperiam ut natus. Mollitia.</p>      
-					      	</div>
-					    </div>
-					    <div class="a-dot-holder">
-					      	<div class="a-dot"></div>
-					       	<div class="container-dot">
-					          	<h1><span class="graduate"><i class="fas fa-graduation-cap"></i></span> 2019</h1>
-					          	<h5>Nom du poste - Nom Entreprise</h5>
-					          	<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, pariatur labore? Magni rerum assumenda non culpa odit consequuntur, ad adipisci soluta dicta nemo! Distinctio doloribus rem aperiam ut natus. Mollitia.</p>      
-					      	</div>
-					    </div>
+					  	
+					    <?php 
+					    	$affichageCV = $bd->query("SELECT * FROM Formation ORDER BY IdFormation");
+
+					    	while($donnees = $affichageCV->fetch()){
+
+					    		if($donnees['IsDiplome']){
+					    			$estDiplome = "fa-graduation-cap";
+					    		} else {
+					    			$estDiplome = "fa-briefcase";
+					    		}
+
+					    		echo '<div class="a-dot-holder">
+					      				<div class="a-dot"></div>
+					       					<div class="container-dot">
+					           					<h1><span class="graduate"><i class="fas '. htmlspecialchars($estDiplome) .'"></i></span> '. htmlspecialchars($donnees['Annee']) .'</h1>
+					           					<h5>'. htmlspecialchars($donnees['NomPoste']) .' - '. htmlspecialchars($donnees['NomEntreprise']) .'</h5>
+					           					<p>'. htmlspecialchars($donnees['Descriptif']) .'</p>     
+					      				</div>
+					   		 		</div>';
+					    	}
+
+					    	$affichageCV->closeCursor();
+					    ?>
 					</div>
 				</div>
 			</div>

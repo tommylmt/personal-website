@@ -30,7 +30,7 @@
 			<h3>Contact</h3>
 		</div>
 		<div class="content-contact">
-			<h1 data-aos="fade-up" data-aos-delay="400">Thomas Lamothe <span class="small-nickname">(call me Toma)</span></h1>
+			<h1 data-aos="fade-up" data-aos-delay="400">Thomas Lamothe <span class="small-nickname">(Toma)</span></h1>
 			<h2 data-aos="fade-up" data-aos-delay="600">31400, Toulouse</h2>
 			<h2 data-aos="fade-up" data-aos-delay="800">France</h2>
 

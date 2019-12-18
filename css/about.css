@@ -3,6 +3,9 @@
 	margin: 0;
 	box-sizing: border-box;
 }
+*:focus{
+	outline: none;
+}
 .main-about{
 	display: flex;
 	width: 100vw;
