@@ -98,6 +98,9 @@ button:hover span{
 	background: transparent;
 	color: #fff;
 }
+button a{
+	text-decoration: none;
+}
 .bottom-cursor{
 	position: absolute;
 	z-index: 8000;

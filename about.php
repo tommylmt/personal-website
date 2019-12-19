@@ -40,7 +40,7 @@
 						<p>By the way, I coded this website by hand using PHP, GSAP, Frameworks and API in 2019.</p>
 						<p>If my work have an interest for you, we can share a beer.</p>
 
-						<button><span class="cv">Download CV</span></button>
+						<button><a href="img/toma-cv.pdf"><span class="cv">Download CV</span></a></button>
 					</div>
 				</div>
 				<div class="right-about">
