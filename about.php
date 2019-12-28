@@ -70,12 +70,14 @@
 					    			$estDiplome = "fa-briefcase";
 					    		}
 
+					    		$desc = nl2br($donnees['Descriptif']);
+
 					    		echo '<div class="a-dot-holder">
 					      				<div class="a-dot"></div>
 					       					<div class="container-dot">
 					           					<h1><span class="graduate"><i class="fas '. htmlspecialchars($estDiplome) .'"></i></span> '. htmlspecialchars($donnees['Annee']) .'</h1>
 					           					<h5>'. htmlspecialchars($donnees['NomPoste']) .' - '. htmlspecialchars($donnees['NomEntreprise']) .'</h5>
-					           					<p>'. htmlspecialchars($donnees['Descriptif']) .'</p>     
+					           					<p>'. $desc .'</p>     
 					      				</div>
 					   		 		</div>';
 					    	}

@@ -5,6 +5,8 @@
 	<meta charset="utf-8">
 	<title>Thomas Lamothe, french Fullstack web-developer and designer</title>
 
+	<link rel="icon" type="image/png" href="img/icon.png">
+
 	<link rel="stylesheet" type="text/css" href="css/fonts.css">
 	<link rel="stylesheet" type="text/css" href="css/fullpage.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">

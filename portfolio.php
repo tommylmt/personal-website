@@ -32,76 +32,87 @@
 				</div>
 			</div>
 		</div>
-		<div class="section">
-			<div class="project-wrapper">
-				<div class="container">
-					<div class="right-project">
-						<div class="img-container">
-							<img src="draft/background.png">
-						</div>
-					</div>
-					<div class="left-project">
-						<div class="title-project">
-							<p>2019</p>
-							<h2>IUT Informatique</h2>
-						</div>
+		<?php 
 
-						<div class="desc">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-						</div>
-						<div class="tags">
-							<ul>
-								<li>jQuery</li>
-								<li>Laravel</li>
-								<li>CSS3</li>
-								<li>Adobe XD</li>
-								<li>Adobe Photoshop</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>			
-		</div>
-		<div class="section">
-			<div class="project-wrapper night-one">
-				<div class="container">
-					<div class="left-project">
-						<div class="title-project">
-							<p>2019</p>
-							<h2>IUT Informatique</h2>
-						</div>
+			$affichageProjet = $bd->query("SELECT * FROM Webdev ORDER BY IdProjet DESC");
 
-						<div class="desc">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-						</div>
-						<div class="tags">
-							<ul>
-								<li>jQuery</li>
-								<li>Laravel</li>
-								<li>CSS3</li>
-								<li>Adobe XD</li>
-								<li>Adobe Photoshop</li>
-							</ul>
-						</div>
-					</div>
-					<div class="right-project">
-						<div class="img-container">
-							<img src="draft/background.png">
-						</div>
-					</div>
-				</div>
-			</div>			
-		</div>
+			$number = 0;
+
+			while($donnees = $affichageProjet->fetch()){
+
+				$descriptif = nl2br($donnees['DescriptifProjet']);
+				$tags = explode(" ", $donnees['TagsProjet']);
+				
+				if($number % 2 == 0){
+					echo '<div class="section">
+							<div class="project-wrapper">
+								<div class="container">
+									<div class="right-project">
+										<div class="img-container">
+											<img src="'. htmlspecialchars($donnees['NomPhoto']) .'">
+										</div>
+									</div>
+									<div class="left-project">
+										<div class="title-project">
+											<p>'. htmlspecialchars($donnees['AnneeProjet']) .'</p>
+											<h2>'. htmlspecialchars($donnees['NomProjet']) .'</h2>
+										</div>
+
+										<div class="desc">
+											<p>'. $descriptif .'</p>
+										</div>
+										<div class="tags">
+											<ul>';
+
+											foreach ($tags as $aTag) {
+												echo '<li>'. $aTag .'</li>';
+											}
+
+										echo'</ul>
+										</div>
+									</div>	
+								</div>						
+							</div>
+						</div>';
+				} else {
+					echo '<div class="section">
+							<div class="project-wrapper night-one">
+								<div class="container">
+									<div class="left-project">
+										<div class="title-project">
+											<p>'. htmlspecialchars($donnees['AnneeProjet']) .'</p>
+											<h2>'. htmlspecialchars($donnees['NomProjet']) .'</h2>
+										</div>
+
+										<div class="desc">
+											<p>'. $descriptif .'</p>
+										</div>
+										<div class="tags">
+											<ul>';
+
+											foreach ($tags as $aTag) {
+												echo '<li>'. $aTag .'</li>';
+											}
+
+										echo'</ul>
+										</div>
+									</div>
+									<div class="right-project">
+										<div class="img-container">
+											<img src="'. htmlspecialchars($donnees['NomPhoto']) .'">
+										</div>
+									</div>
+								</div>						
+							</div>
+						</div>';
+				}
+
+				$number++;
+			}
+
+			$affichageProjet->closeCursor();
+
+		?>
 	</div>
 
 	<script src="js/gsap-latest-beta.min.js"></script>

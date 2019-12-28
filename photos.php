@@ -32,119 +32,90 @@
 				</div>
 			</div>
 		</div>
-		<div class="section">
-			<div class="slide">
-				<div class="container-photo">
-					<div class="a-photo">
+		
+		<?php
+			$affichagePhotos = $bd->query("SELECT * FROM Photo ORDER BY IdProjetPhoto DESC");
 
-						<img src="http://thomaslamothe.free.fr/files/photos/2d261d5a74a0f2f9527e622b61655cee.jpg">
+			$number = 0;
 
-						<div class="photo-info">
-							<p>aout 2019</p>
-							<h2>Vichy la belle époque</h2>
-						</div>
-						<div class="sub-info">
-							<p><i class="fas fa-camera"></i> Canon EOS 2000D 18-55mm</p>
-							<p><i class="fas fa-palette"></i> Adobe Lightroom</p>
-						</div>
+			while($donnees = $affichagePhotos->fetch()){
+				if($number % 2 == 0){
+					$estDark = "";
+				} else {
+					$estDark = " night-one";
+				}
 
-					</div>
-				</div>
-			</div>
-			<div class="slide">
-				<div class="container-photo">
-					<div class="a-photo-v2">
+				echo '<div class="section '. $estDark .'">
+						<div class="slide">
+							<div class="container-photo">
+								<div class="a-photo">
 
-						<img src="http://thomaslamothe.free.fr/files/photos/bfa255728315c22dc67600a001807c38.jpg">
+									<img src="'. htmlspecialchars($donnees['NomPhotoUne']) .'">
 
-						<div class="photo-info-design-two">
-							<p>aout 2019</p>
-							<h2>Vichy la belle époque</h2>
+									<div class="photo-info">
+										<p>'. htmlspecialchars($donnees['DateProjet']) .'</p>
+										<h2>'. htmlspecialchars($donnees['TitreProjet']) .' '. $number .'</h2>
+									</div>
+									<div class="sub-info">
+										<p><i class="fas fa-camera"></i> '. htmlspecialchars($donnees['InfoAppareil']) .'</p>
+										<p><i class="fas fa-palette"></i> '. htmlspecialchars($donnees['InfoRetouche']) .'</p>
+									</div>
 
-							<div class="bar"></div>
-
-							<p><i class="fas fa-camera"></i> Canon EOS 2000D 18-55mm</p>
-							<p><i class="fas fa-palette"></i> Adobe Lightroom</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="slide">
-				<div class="container-photo">
-					<div class="a-photo-v3">
-
-						<img src="http://thomaslamothe.free.fr/files/photos/5942a59e7418c32ed3d21872f5d98a7d.jpg">
-
-						<div class="photo-info-design-three">
-							<div class="left-info">
-								<p>aout 2019</p>
-								<h2>Vichy la belle époque</h2>
+								</div>
 							</div>
-							<div class="right-info">
-								<p><i class="fas fa-camera"></i> Canon EOS 2000D 18-55mm</p>
-								<p><i class="fas fa-palette"></i> Adobe Lightroom</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+						</div>';
 
-		<div class="section night-one">
-			<div class="slide">
-				<div class="container-photo">
-					<div class="a-photo-v3 a-large">
-						
-						<img src="http://thomaslamothe.free.fr/files/photos/6562b22eca5e9af01945af1b0c4972a6.jpg">
-						
-						<div class="photo-info-design-three">
-							<div class="left-info">
-								<p>aout 2019</p>
-								<h2>Vichy la belle époque</h2>
-							</div>
-							<div class="right-info">
-								<p><i class="fas fa-camera"></i> Canon EOS 2000D 18-55mm</p>
-								<p><i class="fas fa-palette"></i> Adobe Lightroom</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="slide">
-				<div class="container-photo">
-					<div class="a-photo">
-						<img src="http://thomaslamothe.free.fr/files/photos/b7e3a9ed7cf4f68e70abed94dfe96bbb.jpg">
+						if($donnees['NomPhotoDeux'] != ""){
+							echo '<div class="slide">
+								<div class="container-photo">
+									<div class="a-photo-v2">
 
-						<div class="photo-info">
-							<p>aout 2019</p>
-							<h2>Vichy la belle époque</h2>
-						</div>
+										<img src="'. htmlspecialchars($donnees['NomPhotoDeux']) .'">
 
-						<div class="sub-info">
-							<p><i class="fas fa-camera"></i> Canon EOS 2000D 18-55mm</p>
-							<p><i class="fas fa-palette"></i> Adobe Lightroom</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="slide">
-				<div class="container-photo">
-					<div class="a-photo-v2">
-						<img src="http://thomaslamothe.free.fr/files/photos/878cec480889d97da9ccb5f146c99ea1.jpg">
+										<div class="photo-info-design-two">
+											<p>'. htmlspecialchars($donnees['DateProjet']) .'</p>
+											<h2>'. htmlspecialchars($donnees['TitreProjet']) .'</h2>
 
-						<div class="photo-info-design-two">
-							<p>aout 2019</p>
-							<h2>Vichy la belle époque</h2>
+											<div class="bar"></div>
 
-							<div class="bar"></div>
+											<p><i class="fas fa-camera"></i> '. htmlspecialchars($donnees['InfoAppareil']) .'</p>
+											<p><i class="fas fa-palette"></i> '. htmlspecialchars($donnees['InfoRetouche']) .'</p>
+										</div>
+									</div>
+								</div>
+							</div>';
+						}
 
-							<p><i class="fas fa-camera"></i> Canon EOS 2000D 18-55mm</p>
-							<p><i class="fas fa-palette"></i> Adobe Lightroom</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+						if($donnees['NomPhotoTrois'] != ""){
+							echo '<div class="slide">
+								<div class="container-photo">
+									<div class="a-photo-v3">
+
+										<img src="'. htmlspecialchars($donnees['NomPhotoTrois']) .'">
+
+										<div class="photo-info-design-three">
+											<div class="left-info">
+												<p>'. htmlspecialchars($donnees['DateProjet']) .'</p>
+												<h2>'. htmlspecialchars($donnees['TitreProjet']) .'</h2>
+											</div>
+											<div class="right-info">
+												<p><i class="fas fa-camera"></i> '. htmlspecialchars($donnees['InfoAppareil']) .'</p>
+												<p><i class="fas fa-palette"></i> '. htmlspecialchars($donnees['InfoRetouche']) .'</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>';
+						}
+
+				echo '</div>';
+
+				$number++;
+			}
+
+			$affichagePhotos->closeCursor();
+		?>
+
 	</div>
 
 	<script src="js/gsap-latest-beta.min.js"></script>

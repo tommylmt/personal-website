@@ -57,36 +57,20 @@
 					<h3>Movies</h3>
 				</div>
 				<div class="right-movie">
-					<div class="a-movie is-animated">
-						<img src="img/film/5cfa25dc82900.jpg">
-						<div class="movie-infos">
-							<h5>By Bong Joon-Ho</h5>
-						</div>
-					</div>
-					<div class="a-movie is-animated">
-						<img src="img/film/3421837.jpg">
-						<div class="movie-infos">
-							<h5>By Jordan Peele</h5>
-						</div>
-					</div>
-					<div class="a-movie is-animated">
-						<img src="img/film/7_865505.jpg">
-						<div class="movie-infos">
-							<h5>By Yórgos Lánthimos</h5>
-						</div>
-					</div>
-					<div class="a-movie is-animated">
-						<img src="img/film/4738884.jpg">
-						<div class="movie-infos">
-							<h5>By Jonas Åkerlund</h5>
-						</div>
-					</div>
-					<div class="a-movie is-animated">
-						<img src="img/film/Ma_vie_avec_John_F_Donovan.jpg">
-						<div class="movie-infos">
-							<h5>By Xavier Dolan</h5>
-						</div>
-					</div>
+					<?php 
+						$affichageFilm = $bd->query("SELECT * FROM Film");
+
+						while($donnees = $affichageFilm->fetch()){
+							echo '<div class="a-movie is-animated">
+									<img src="'. htmlspecialchars($donnees['NomFichier']) .'">
+									<div class="movie-infos">
+										<h5>By '. htmlspecialchars($donnees['NomArtiste']) .'</h5>
+									</div>
+								</div>';
+						}
+
+						$affichageFilm->closeCursor();
+					?>
 				</div>
 			</div>
 		</div>
@@ -107,36 +91,20 @@
 					<h3>TV shows</h3>
 				</div>
 				<div class="right-shows">
-					<div class="a-show is-animated">
-						<img src="img/serie/1626925.jpg">
-						<div class="shows-infos">
-							<p>On Netflix</p>
-						</div>
-					</div>
-					<div class="a-show is-animated">
-						<img src="img/serie/Chernobyl.jpg">
-						<div class="shows-infos">
-							<p>On HBO</p>
-						</div>						
-					</div>
-					<div class="a-show is-animated">
-						<img src="img/serie/Peaky_Blinders.webp">
-						<div class="shows-infos">
-							<p>On BBC</p>
-						</div>	
-					</div>
-					<div class="a-show is-animated">
-						<img src="img/serie/Dark.jpg">
-						<div class="shows-infos">
-							<p>On Netflix</p>
-						</div>	
-					</div>
-					<div class="a-show is-animated">
-						<img src="img/serie/Mindhunter.webp">
-						<div class="shows-infos">
-							<p>On Netflix</p>
-						</div>
-					</div>
+					<?php 
+						$affichageSerie = $bd->query("SELECT * FROM Serie");
+
+						while($donnees = $affichageSerie->fetch()){
+							echo '<div class="a-show is-animated">
+									<img src="'. htmlspecialchars($donnees['NomFichier']) .'">
+									<div class="shows-infos">
+										<p>On '. htmlspecialchars($donnees['NomArtiste']) .'</p>
+									</div>
+								</div>';
+						}
+
+						$affichageSerie->closeCursor();
+					?>
 				</div>
 			</div>
 		</div>
