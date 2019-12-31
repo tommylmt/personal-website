@@ -115,3 +115,17 @@
   margin-right: 20px;
   width: 80px;
 }
+
+@media screen and (max-width: 1300px){
+    .container-dot h1{
+        font-size: 40px;
+    }
+    .graduate i{
+        font-size: 40px;
+        margin-right: 10px;
+        width: auto;
+    }
+    .container-dot p{
+        font-size: 13pt;
+    }
+}

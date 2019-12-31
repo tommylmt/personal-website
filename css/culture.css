@@ -172,3 +172,9 @@
 	left: 0;
 	opacity: 1;
 }
+
+@media screen and (max-width: 1300px){
+	.a-music > img{
+		width: 170px;
+	}
+}

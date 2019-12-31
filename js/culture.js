@@ -11,7 +11,7 @@ $(function(){
  			// console.log(data);
  			for(i = 0; i < 5; i++){
  				if(data.data[i].cover_big !== null){
- 					$('.music-container').append('<div class="a-music is-animated"><img src="' + data.data[i].cover_big + '"><div class="music-infos"><h5>By ' + data.data[i].artist.name + '</h5></div></div>');			
+ 					$('.music-container').append('<div class="a-music is-animated"><img src="' + data.data[i].cover_big + '" alt="a-music"><div class="music-infos"><h5>By ' + data.data[i].artist.name + '</h5></div></div>');			
  				} else {
  					$('.music-container').append('<div class="a-music is-animated"><h2>Pochette non trouvée</h2></p><h5>' + data.data[i].artist.name + '</h5></div>');	
  				}
@@ -121,6 +121,17 @@ $(document).ready(function() {
 				$isAnimatedShows.eq(2).css('animation-delay', '.6s');
 				$isAnimatedShows.eq(3).css('animation-delay', '.2s');
 				$isAnimatedShows.eq(4).css('animation-delay', '.4s');
+			}
+			if(!$('.section').eq(nextIndex.index).hasClass('isNight')){
+
+				$('.open-menu').removeClass('white-menu');
+				$('.logo-principal-all a img').attr('src', 'img/logo.svg');
+
+			} else if($('.section').eq(nextIndex.index).hasClass('isNight')){$
+
+				$('.open-menu').addClass('white-menu');
+				$('.logo-principal-all a img').attr('src', 'img/logo-white.svg');
+
 			}
 		}
 	});

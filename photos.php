@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<meta charset="utf-8">
 	<title>Photography work</title>
 
-	<link rel="stylesheet" href="css/animate.css">
+	<link rel="icon" type="image/png" href="img/icon.png">
+
 	<link rel="stylesheet" type="text/css" href="css/fonts.css">
 	<link rel="stylesheet" type="text/css" href="css/fullpage.css">
 	<link rel="stylesheet" type="text/css" href="css/loader.css">
@@ -50,7 +51,7 @@
 							<div class="container-photo">
 								<div class="a-photo">
 
-									<img src="'. htmlspecialchars($donnees['NomPhotoUne']) .'">
+									<img src="'. htmlspecialchars($donnees['NomPhotoUne']) .'" alt="'. htmlspecialchars($donnees['TitreProjet']) .'">
 
 									<div class="photo-info">
 										<p>'. htmlspecialchars($donnees['DateProjet']) .'</p>
@@ -70,7 +71,7 @@
 								<div class="container-photo">
 									<div class="a-photo-v2">
 
-										<img src="'. htmlspecialchars($donnees['NomPhotoDeux']) .'">
+										<img src="'. htmlspecialchars($donnees['NomPhotoDeux']) .'" alt="'. htmlspecialchars($donnees['TitreProjet']) .'">
 
 										<div class="photo-info-design-two">
 											<p>'. htmlspecialchars($donnees['DateProjet']) .'</p>
@@ -91,7 +92,7 @@
 								<div class="container-photo">
 									<div class="a-photo-v3">
 
-										<img src="'. htmlspecialchars($donnees['NomPhotoTrois']) .'">
+										<img src="'. htmlspecialchars($donnees['NomPhotoTrois']) .'" alt="'. htmlspecialchars($donnees['TitreProjet']) .'">
 
 										<div class="photo-info-design-three">
 											<div class="left-info">

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<meta charset="utf-8">
 	<title>About me | Thomas Lamothe</title>
+
+	<link rel="icon" type="image/png" href="img/icon.png">
 
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" type="text/css" href="css/fonts.css">
@@ -44,7 +46,7 @@
 					</div>
 				</div>
 				<div class="right-about">
-					<img src="img/toma-min.png" width="100%">
+					<img src="img/toma-min.png" alt="Toma" width="100%">
 				</div>
 			</div>
 		</div>

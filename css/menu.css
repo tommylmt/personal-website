@@ -123,9 +123,7 @@
 }
 .submenu .submenu-container{
 	height: 0;
-	/*display: none;*/
 	opacity: 0;
-	transiton: height .5s;
 	text-align: left;
 }
 .submenu-container li{
@@ -156,4 +154,17 @@
 .submenu-container li:hover .tiretsub{
 	width: 40px;
 	transition: all .3s;	
+}
+
+@media screen and (max-width: 1300px){
+	.menu{
+		font-size: 40pt;
+	}
+	.submenu-container li{
+		font-size: 30pt;
+		padding: 15px 0;
+	}
+	.logo-principal-all img{
+		width: 40px;
+	}
 }

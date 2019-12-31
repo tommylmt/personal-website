@@ -71,3 +71,8 @@
 	text-align: center;
 	z-index: 99999;
 }
+@media screen and (max-width: 1300px){
+	.background-title h1{
+		font-size: 80pt;
+	}
+}

@@ -8,7 +8,7 @@
 		</div>
 		<div class="menu">
 			<div class="logo-white-menu">
-				<a href="index.php"><img src="img/logo-white.svg" width="60px"></a>
+				<a href="index.php"><img src="img/logo-white.svg" alt="Toma Logo" width="60px"></a>
 			</div>
 			<div class="close">
 				<p><i class="fas fa-times"></i></p>

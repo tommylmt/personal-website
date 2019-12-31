@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<meta charset="utf-8">
+	<meta name=”description” content=”I am a french Full-Stack developper based in Toulouse, France. I write code, listen to music and make beautiful design.” />
 	<title>Thomas Lamothe, french Fullstack web-developer and designer</title>
 
 	<link rel="icon" type="image/png" href="img/icon.png">

@@ -269,3 +269,35 @@ button a{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;	
 }
+
+@media screen and (max-width: 1300px){
+	.content-about p{
+		font-size: 15pt;
+			line-height: 1.7em;
+	}
+	button{
+		font-size: 13px;
+	}
+	.left-about h1{
+		font-size: 40pt;
+		margin-bottom: 20px;
+	}
+	.mouse:before{
+		width: 90px;
+	}
+	.icons-wrapper{
+		padding: 0;
+	}
+	.an-icon{
+		flex: 0 0 100px;
+	}
+	.an-icon i{
+		font-size: 40px;
+	}
+	.title-skills-container h2{
+		font-size: 30px;
+	}
+	.left-about .title-about, .left-skills .title-skills{{
+		font-size: 14px;
+	}
+}

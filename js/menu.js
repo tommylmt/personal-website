@@ -72,12 +72,19 @@ $(function(){
  	$('.submenu').click(function(){
  		open = !open;
  		if(open){
-	 		$(this).children('.submenu-container').css({
-	 			opacity: '1',
-	 			height: '200px',
-	 			// display: 'block',
-	 			transition: 'all .3s'
-	 		}, 500);
+ 			if(window.innerWidth < 1300){
+		 		$(this).children('.submenu-container').css({
+		 			opacity: '1',
+		 			height: '150px',
+		 			transition: 'all .3s'
+		 		}, 500);
+ 			} else {
+		 		$(this).children('.submenu-container').css({
+		 			opacity: '1',
+		 			height: '200px',
+		 			transition: 'all .3s'
+		 		}, 500);
+ 			}
 	 		$('.menu > ul > li').css({
 	 			opacity: '.3'
 	 		});
@@ -95,7 +102,6 @@ $(function(){
 	 		$(this).children('.submenu-container').css({
 	 			opacity: '0',
 	 			height: '0',
-	 			// display: 'none',
 	 			transition: 'all .3s'
 	 		});
 	 		$(this).children('.tiret').css({

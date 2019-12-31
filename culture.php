@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<meta charset="utf-8">
 	<title>Culture</title>
+
+	<link rel="icon" type="image/png" href="img/icon.png">
 
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" type="text/css" href="css/fonts.css">
@@ -32,22 +34,22 @@
 					<h2>All the things I've <i class="fas fa-heart"></i> this year</h2>
 				</div>
 				<div class="blob first-blob">
-					<img src="img/svg/blob-shape-one.svg">
+					<img src="img/svg/blob-shape-one.svg" alt="a-blob">
 				</div>
 				<div class="blob second-blob">
-					<img src="img/svg/blob-shape-two.svg">
+					<img src="img/svg/blob-shape-two.svg" alt="a-blob">
 				</div>
 				<div class="blob third-blob">
-					<img src="img/svg/blob-shape-three.svg">
+					<img src="img/svg/blob-shape-three.svg" alt="a-blob">
 				</div>
 				<div class="blob fourth-blob">
-					<img src="img/svg/blob-shape-four.svg">
+					<img src="img/svg/blob-shape-four.svg" alt="a-blob">
 				</div>
 				<div class="blob fifth-blob">
-					<img src="img/svg/blob-shape.svg">
+					<img src="img/svg/blob-shape.svg" alt="a-blob">
 				</div>
 				<div class="blob six-blob">
-					<img src="img/svg/blob-shape-six.svg">
+					<img src="img/svg/blob-shape-six.svg" alt="a-blob">
 				</div>
 			</div>
 		</div>
@@ -62,7 +64,7 @@
 
 						while($donnees = $affichageFilm->fetch()){
 							echo '<div class="a-movie is-animated">
-									<img src="'. htmlspecialchars($donnees['NomFichier']) .'">
+									<img src="'. htmlspecialchars($donnees['NomFichier']) .'" alt="a-film">
 									<div class="movie-infos">
 										<h5>By '. htmlspecialchars($donnees['NomArtiste']) .'</h5>
 									</div>
@@ -74,7 +76,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="section">
+		<div class="section isNight">
 			<div class="main-music">
 				<div class="left-music">
 					<h3 class="musical">Music</h3>
@@ -96,7 +98,7 @@
 
 						while($donnees = $affichageSerie->fetch()){
 							echo '<div class="a-show is-animated">
-									<img src="'. htmlspecialchars($donnees['NomFichier']) .'">
+									<img src="'. htmlspecialchars($donnees['NomFichier']) .'" alt="a-music">
 									<div class="shows-infos">
 										<p>On '. htmlspecialchars($donnees['NomArtiste']) .'</p>
 									</div>

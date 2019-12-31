@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<meta charset="utf-8">
 	<title>My Work</title>
 
-	<link rel="stylesheet" href="css/animate.css">
+	<link rel="icon" type="image/png" href="img/icon.png">
+
 	<link rel="stylesheet" type="text/css" href="css/fonts.css">
 	<link rel="stylesheet" type="text/css" href="css/fullpage.css">
 	<link rel="stylesheet" type="text/css" href="css/loader.css">
@@ -49,7 +50,7 @@
 								<div class="container">
 									<div class="right-project">
 										<div class="img-container">
-											<img src="'. htmlspecialchars($donnees['NomPhoto']) .'">
+											<img src="'. htmlspecialchars($donnees['NomPhoto']) .'" alt="'. htmlspecialchars($donnees['NomProjet']) .'">
 										</div>
 									</div>
 									<div class="left-project">
@@ -99,7 +100,7 @@
 									</div>
 									<div class="right-project">
 										<div class="img-container">
-											<img src="'. htmlspecialchars($donnees['NomPhoto']) .'">
+											<img src="'. htmlspecialchars($donnees['NomPhoto']) .'" alt="'. htmlspecialchars($donnees['NomProjet']) .'">
 										</div>
 									</div>
 								</div>						

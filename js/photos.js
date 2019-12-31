@@ -23,7 +23,17 @@ $(document).ready(function() {
 		scrollHorizontally: true,
 		navigation: true,
 		onLeave: function(index, nextIndex, direction){
+			if(!$('.section').eq(nextIndex.index).hasClass('night-one')){
 
+				$('.open-menu').removeClass('white-menu');
+				$('.logo-principal-all a img').attr('src', 'img/logo.svg');
+
+			} else if($('.section').eq(nextIndex.index).hasClass('night-one')){$
+
+				$('.open-menu').addClass('white-menu');
+				$('.logo-principal-all a img').attr('src', 'img/logo-white.svg');
+
+			}
 		}
 	});
 

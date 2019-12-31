@@ -116,6 +116,8 @@ $(function(){
  		});
  	});
 
+
+ 	//  Le dernier est passé comme ouvert
 	$('.a-dot-holder').last().addClass('is-open');
 
 	$('.a-dot-holder').mouseover(function(){
@@ -123,9 +125,7 @@ $(function(){
 	    // Alors on enleve a is-open sa classe
 	    if(!$(this).hasClass('is-open')){
 	    	$('.is-open').removeClass('is-open');
+	    	$(this).addClass('is-open');
 	    }
-	});
-	$('.a-dot').mouseleave(function(){
-		$('.a-dot-holder').last().addClass('is-open');
 	});
 });

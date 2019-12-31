@@ -124,3 +124,16 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;	
 }
+
+@media screen and (max-width: 1300px){
+	.project-wrapper .left-project .title-project p{
+		font-size: 15pt;
+	}
+	.project-wrapper .title-project h2{
+		font-size: 25pt;
+	}
+	.project-wrapper .desc p{
+		line-height: 1.5em;
+		font-size: 14pt;
+	}
+}
