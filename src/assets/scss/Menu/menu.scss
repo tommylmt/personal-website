@@ -1,0 +1,56 @@
+$navRadius: 40px;
+$navBackground: rgba($blackLight, .7);
+$navBoxShadow: 0px 4px 24px rgba($black, .14), 0px 2px 12px rgba($black, .06);;
+$navBlurLevel: blur(80px)!important;
+$navWidth: 300px;
+$navInsetMargin: 5px;
+
+nav#mainMenu {
+    border-radius: $navRadius;
+    position: fixed;
+    bottom: 50px;
+    width: $navWidth;
+    left: calc(50vw - 200px);
+    background: $navBackground;
+    box-shadow: $navBoxShadow;
+    backdrop-filter: $navBlurLevel;
+	-webkit-backdrop-filter: $navBlurLevel;
+    border: 1px solid rgba($black, .05);
+    z-index: 9999;
+
+    div.mouse-tracker {
+        position: absolute;
+        background: $white;
+        border-radius: $navRadius;
+        z-index: 1;
+        transition: left .35s;
+        top: $navInsetMargin;
+    }
+    ul {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        justify-content: space-between;
+        padding: $navInsetMargin;
+
+        li {
+            font-size: 17px;
+            padding: 13px 0;
+            list-style: none;
+            border-radius: $navRadius;
+
+            a {
+                padding: 7px 20px;
+                color: $white;
+                transition: color .4s;
+                font-family: $inter;
+            }
+
+            &.current-item:not(.stopped), &:hover {
+                a {
+                    color: $blackLight;
+                }
+            }
+        }
+    }
+}

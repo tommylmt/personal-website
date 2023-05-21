@@ -1,0 +1,12 @@
+// Core
+@import '_colors';
+@import '_fonts';
+@import '_reset';
+
+@import 'Menu/menu';
+
+main {
+    width: 80vw;
+    margin: 50px auto;
+    padding: 0 50px;
+}

@@ -1,0 +1,23 @@
+// Principals colors
+$black: #000000;
+$white: #FFFFFF;
+
+// Main color
+$blackLight: #333333;
+
+// Gray
+$brightGray: #EEEEEE;
+$gray: #DDDDDD;
+$mediumGray: #6f6f6f;
+$darkGray: #676767;
+$darkestGray: #757575;
+
+// Main gradient
+$yellow: #F5BF89;
+$orange: #F0976E;
+$red: #ED6673;
+$pink: #BD4374;
+$purple: #753776;
+$blue: #49A39C;
+
+$primaryGradient: linear-gradient(to right top, $yellow, $orange, $red, $pink, $purple, $blue);

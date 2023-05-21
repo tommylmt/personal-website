@@ -1,21 +1,24 @@
 <script setup>
+  import { ref, computed } from 'vue'
   import NavBar from './components/menu/NavBar.vue';
   import NotFound from './components/errors/Error404.vue';
+  import About from './components/about/About.vue';
 
-  let currentPath = window.location.hash;
+  const routes = {
+    "/": {name: 'About', current: true, path: "#/", component: About}, 
+    "/stack": {name: 'Stack', current: false, path: "#/stack", component: null}, 
+    "/culture": {name: 'Culture', current: false, path: "#/culture", component: null},
+  };
+  const currentPath = ref(window.location.hash);
 
-  let currentView = () => {
-    return routes[currentPath.slice(1) || '/']?.component || NotFound
-  }
+  const currentView = computed(() => {
+    let element = routes[currentPath.value.slice(1) || '/'];
 
-  const routes = [
-    {name: 'About', current: true, path: "#/", component: null}, 
-    {name: 'Stack', current: false, path: "#/stack", component: null}, 
-    {name: 'Culture', current: false, path: "#/culture", component: null},
-  ];
+    return element?.component || NotFound
+  });
 
   window.addEventListener('hashchange', () => {
-    currentPath = window.location.hash
+    currentPath.value = window.location.hash
   });
 </script>
 
@@ -23,6 +26,8 @@
   <NavBar :pages=routes />
   
   <main>
-    <component :is="currentView()" />
+    <Transition name="fade" mode="out-in">
+      <component :is="currentView" />
+    </Transition>
   </main>
 </template>
