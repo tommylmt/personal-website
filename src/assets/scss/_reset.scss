@@ -22,6 +22,7 @@ h2, h3, h4 {
 }
 p {
     @include font-rules($inter, $textSize, $darkGray, $textFontWeight);
+    line-height: 1.6em;
 }
 a, li {
     text-decoration: none;

@@ -1,7 +1,7 @@
 $navRadius: 40px;
 $navBackground: rgba($blackLight, .7);
 $navBoxShadow: 0px 4px 24px rgba($black, .14), 0px 2px 12px rgba($black, .06);;
-$navBlurLevel: blur(80px)!important;
+$navBlurLevel: blur(20px)!important;
 $navWidth: 300px;
 $navInsetMargin: 5px;
 
@@ -15,7 +15,7 @@ nav#mainMenu {
     box-shadow: $navBoxShadow;
     backdrop-filter: $navBlurLevel;
 	-webkit-backdrop-filter: $navBlurLevel;
-    border: 1px solid rgba($black, .05);
+    border: 1px solid rgba($black, .01);
     z-index: 9999;
 
     div.mouse-tracker {
