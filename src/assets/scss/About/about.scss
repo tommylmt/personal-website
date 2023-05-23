@@ -1,52 +1,65 @@
-#aboutMe {
-    display: flex;
-
-    .left {
-        width: 50%;
-
-        img {
-            width: 100%;
-            border-radius: 40px;
-            box-shadow: 0 0 50px rgba($black, .2);
-        }
-    }
-    .right {
-        margin-left: 40px;
-
-        h1 {
-            margin-bottom: 40px;
-
-            span.finger {
-                cursor: pointer;
+main {
+    #aboutMe {
+        display: flex;
+    
+        .left {
+            width: 50%;
+    
+            img {
+                width: 100%;
+                border-radius: 40px;
+                box-shadow: 0 0 50px rgba($black, .2);
             }
         }
-        p {
-            &.high-margin {
-                margin-top: 35px;
-            }
-
-            a {
-                color: $blackLight;
-                position: relative;
-                transition: all .3s;
-
-                &:after {
-                    content: '';
-                    position: absolute;
-                    left: -3px;
-                    bottom: -3px;
-                    width: 0;
-                    background: $primaryGradient;
-                    height: 2px;
-                    z-index: -2;
-                    transition: all .3s;
+        .right {
+            margin-left: 40px;
+    
+            h1 {
+                margin-bottom: 40px;
+    
+                span.finger {
+                    cursor: pointer;
                 }
-                &:hover {
+            }
+            p {
+                &.high-margin {
+                    margin-top: 35px;
+                }
+    
+                a {
+                    color: $blackLight;
+                    position: relative;
+                    transition: all .3s;
+    
                     &:after {
-                        width: calc(100% + 6px);
+                        content: '';
+                        position: absolute;
+                        left: -3px;
+                        bottom: -3px;
+                        width: 0;
+                        background: $primaryGradient;
+                        height: 2px;
+                        z-index: -2;
+                        transition: all .3s;
+                    }
+                    &:hover {
+                        &:after {
+                            width: calc(100% + 6px);
+                        }
                     }
                 }
             }
+        }
+    }
+    div.a-list {
+        margin-top: 40px;
+        display: flex;
+        
+        .left {
+            width: 50%;
+        }
+        .right {
+            margin-left: 40px;
         }
     }
 }

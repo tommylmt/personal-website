@@ -20,19 +20,23 @@
             <p>Tu peux me croiser facilement sur Toulouse et cela serait un plaisir d'échanger avec toi.</p>
         </div>
     </div>
+
+    <ListBlock :listTitle="'Expériences'" />
 </template>
 
 <script>
+import ListBlock from './ListBlock.vue';
+
 export default {
     data() {
         return {
             emoji: "🤘",
             emojisArray: ["✊", "🤘", "🤙", "✌", "🖕"],
-            iwitLink: 'https://iwit-systems.fr',
-            symfonyLink: 'https://symfony.com',
-            vueLink: 'https://vuejs.org',
-            dockerLink: 'https://docker.com',
-            traxLink: 'https://trax.thomaslamothe.com',
+            iwitLink: "https://iwit-systems.fr",
+            symfonyLink: "https://symfony.com",
+            vueLink: "https://vuejs.org",
+            dockerLink: "https://docker.com",
+            traxLink: "https://trax.thomaslamothe.com",
         };
     },
     computed: {
@@ -42,26 +46,25 @@ export default {
     },
     methods: {
         randomEmoji() {
-            this.shuffleEmojiArray().forEach((e, index) => {                
+            this.shuffleEmojiArray().forEach((e, index) => {
                 setTimeout(() => {
                     this.emoji = e;
                 }, (index + 1) * 500);
             });
-        }, 
+        },
         shuffleEmojiArray() {
             let currentIndex = this.emojisArray.length, randomIndex;
-
             while (currentIndex != 0) {
                 randomIndex = Math.floor(Math.random() * currentIndex);
                 currentIndex--;
-
                 [this.emojisArray[currentIndex], this.emojisArray[randomIndex]] = [
-                    this.emojisArray[randomIndex], this.emojisArray[currentIndex]
+                    this.emojisArray[randomIndex],
+                    this.emojisArray[currentIndex]
                 ];
             }
-
             return this.emojisArray;
         }
-    }
+    },
+    components: { ListBlock }
 }
 </script>
