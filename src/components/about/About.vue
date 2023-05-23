@@ -12,7 +12,8 @@
             <p class="high-margin">Je suis Lead Développeur chez <a :href=iwitLink target="_blank">Iwit Systems</a> à Toulouse, France.</p>
             <p>Mon travail consiste essentiellement dans le développement d'applications web métier complexes. Je bosse majoritairement avec 
                 <a target="_blank" :href=symfonyLink>Symfony</a>, 
-                <a target="_blank" :href=vueLink>Vue.js</a> et <a target="_blank" :href=dockerLink>Docker</a>.
+                <a target="_blank" :href=vueLink>Vue.js</a> et <a target="_blank" :href=dockerLink>Docker</a> le tout déployé sur une infra
+                <a :href=awsLink>AWS</a>.
             </p>
 
             <p class="high-margin">Je suis également à l'initiative de projets comme <a :href="traxLink" target="_blank">Trax</a>, Orkestrum, Cinécombles et de nombreux autres qui ne verront jamais le jour.</p>
@@ -26,17 +27,19 @@
 
 <script>
 import ListBlock from './ListBlock.vue';
+import { mainRoutes } from '@/helpers/aboutData';
 
 export default {
     data() {
         return {
             emoji: "🤘",
             emojisArray: ["✊", "🤘", "🤙", "✌", "🖕"],
-            iwitLink: "https://iwit-systems.fr",
-            symfonyLink: "https://symfony.com",
-            vueLink: "https://vuejs.org",
-            dockerLink: "https://docker.com",
-            traxLink: "https://trax.thomaslamothe.com",
+            iwitLink: mainRoutes.iwitLink,
+            symfonyLink: mainRoutes.symfonyLink,
+            vueLink: mainRoutes.vueLink,
+            dockerLink: mainRoutes.dockerLink,
+            traxLink: mainRoutes.traxLink,
+            awsLink: mainRoutes.awsLink,
         };
     },
     computed: {

@@ -5,7 +5,7 @@
   import About from './components/about/About.vue';
 
   const routes = {
-    "/": {name: 'About', current: true, path: "#/", component: About}, 
+    "/": {name: 'À propos', current: true, path: "#/", component: About},
     "/stack": {name: 'Stack', current: false, path: "#/stack", component: null}, 
     "/culture": {name: 'Culture', current: false, path: "#/culture", component: null},
   };
@@ -24,10 +24,8 @@
 
 <template>
   <NavBar :pages=routes />
-  
+
   <main>
-    <Transition name="fade" mode="out-in">
       <component :is="currentView" />
-    </Transition>
   </main>
 </template>
