@@ -26,6 +26,8 @@
   <NavBar :pages=routes />
 
   <main>
+    <Transition appear name="page-transition">
       <component :is="currentView" />
+    </Transition>
   </main>
 </template>

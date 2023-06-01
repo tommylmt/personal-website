@@ -11,4 +11,13 @@ main {
     width: 70vw;
     margin: 50px auto;
     padding: 0 50px;
+
+    .page-transition-enter-active,
+    .page-transition-leave-active {
+        transition: opacity 0.5s ease;
+    }
+    .page-transition-enter-from,
+    .page-transition-leave-to {
+        opacity: 0;
+    }
 }
