@@ -3,11 +3,12 @@
   import NavBar from './components/menu/NavBar.vue';
   import NotFound from './components/errors/Error404.vue';
   import About from './components/about/About.vue';
+  import Culture from './components/culture/Culture.vue';
 
   const routes = {
     "/": {name: 'À propos', current: true, path: "#/", component: About},
     "/stack": {name: 'Stack', current: false, path: "#/stack", component: null}, 
-    "/culture": {name: 'Culture', current: false, path: "#/culture", component: null},
+    "/culture": {name: 'Culture', current: false, path: "#/culture", component: Culture},
   };
   const currentPath = ref(window.location.hash);
 
