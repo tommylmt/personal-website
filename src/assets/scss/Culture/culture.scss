@@ -1,0 +1,43 @@
+// Core
+@import '../_colors';
+@import '../_fonts';
+@import '../_reset';
+
+body {
+    main {
+        width: 100vw!important;
+        padding: 0!important;
+        margin: 50px 0!important;
+    
+        .a-culture-block {
+            &:not(:first-child) {
+                margin-top: 45px;
+            }
+            
+            .a-culture {
+                width: 400px;
+                margin-right: 25px;
+                box-shadow: 0 0 25px rgba($black, .1);
+                border-radius: 25px;
+
+                .poster {
+                    border-radius: 25px 25px 0 0;
+                    height: 600px;
+                    background-size: cover!important;
+                    background-repeat: no-repeat;
+                }
+                .a-culture-desc {
+                    background: $brightGray;
+                    color: $black;
+                    padding: 15px 25px;
+                    border-radius: 0 0 15px 15px;
+                    border-bottom: 1px solid $gray;
+
+                    p {
+                        color: $black;
+                    }
+                }
+            }
+        }
+    }
+}
