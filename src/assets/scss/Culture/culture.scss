@@ -15,7 +15,7 @@ body {
             }
             
             .a-culture {
-                width: 400px;
+                width: 425px;
                 margin-right: 25px;
                 box-shadow: 0 0 25px rgba($black, .1);
                 border-radius: 25px;
@@ -33,6 +33,10 @@ body {
                     border-radius: 0 0 15px 15px;
                     border-bottom: 1px solid $gray;
 
+                    h6 {
+                        font-family: $inter;
+                        color: $mediumGray;
+                    }
                     p {
                         color: $black;
                     }
