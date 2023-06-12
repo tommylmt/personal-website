@@ -48,6 +48,7 @@
                     <div v-for="element in songs">
                         <img :src="element.album.cover_medium" width="100" alt="Musique">
                         <p>{{ element.title }}</p>
+                        <h6>{{ element.artist.name }}</h6>
                     </div>
                 </div>
             </div>
