@@ -38,6 +38,20 @@
                 </div>
             </div>
         </div>
+        <div class="a-culture-block">
+            <div class="a-title">
+                <h1>Musique</h1>
+                <p>Artistes que j'aime en ce moment.</p>
+            </div>
+            <div class="culture-marquee">
+                <div class="culture-wrapper">
+                    <div v-for="element in songs">
+                        <img :src="element.album.cover_medium" width="100" alt="Musique">
+                        <p>{{ element.title }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -46,7 +60,6 @@ import axios from 'axios';
 import { Vue3Marquee } from 'vue3-marquee'
 import 'vue3-marquee/dist/style.css'
 
-
 export default {
     components: {
         Vue3Marquee
@@ -54,12 +67,14 @@ export default {
     data() {
         return {
             movies: [],
-            shows: []
+            shows: [],
+            songs: [],
         };
     },
     mounted() {
         this.fetchElements('movies');
         this.fetchElements('shows');
+        this.retrieveDeezerCharts();
     },
     methods: {
         async fetchElements(endpoint) {
@@ -70,6 +85,16 @@ export default {
             } catch (e) {
                 this[endpoint] = 'Erreur lors de la récupération des films';
             };
+        },
+        async retrieveDeezerCharts() {
+            try {
+                const deezer = await axios.get('https://api.deezer.com/user/1567995002/charts');
+
+                this.songs = deezer.data.data;
+                console.log(this.songs);
+            } catch (e) {
+                this.songs = 'Erreur lors de la récupération des charts';
+            }
         }
     }
 }
