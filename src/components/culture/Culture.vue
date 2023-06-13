@@ -44,14 +44,18 @@
                 <p>Artistes que j'aime en ce moment.</p>
             </div>
             <div class="culture-marquee">
-                <div class="culture-wrapper">
-                    <div v-for="element in songs">
+                <div class="music-wrapper">
+                    <div v-for="element in songs" class="a-music">
                         <img :src="element.album.cover_medium" width="100" alt="Musique">
                         <p>{{ element.title }}</p>
                         <h6>{{ element.artist.name }}</h6>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div id="audioWrapper">
+            <audio :src="this.currentSong" controls crossorigin="anonymous"></audio>
         </div>
     </div>
 </template>
@@ -70,6 +74,7 @@ export default {
             movies: [],
             shows: [],
             songs: [],
+            currentSong: null,
         };
     },
     mounted() {

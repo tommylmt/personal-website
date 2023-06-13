@@ -14,34 +14,78 @@ body {
                 margin-top: 45px;
             }
             
-            .a-culture {
-                width: 425px;
-                margin-right: 25px;
-                box-shadow: 0 0 25px rgba($black, .1);
-                border-radius: 25px;
+            .culture-marquee {
+                margin-top: 25px;
 
-                .poster {
-                    border-radius: 25px 25px 0 0;
-                    height: 600px;
-                    background-size: cover!important;
-                    background-repeat: no-repeat;
-                }
-                .a-culture-desc {
-                    background: $brightGray;
-                    color: $black;
-                    padding: 15px 25px;
-                    border-radius: 0 0 15px 15px;
-                    border-bottom: 1px solid $gray;
-
-                    h6 {
-                        font-family: $inter;
-                        color: $mediumGray;
+                .a-culture {
+                    width: 425px;
+                    margin-right: 25px;
+                    box-shadow: 0 0 25px rgba($black, .1);
+                    border-radius: 25px;
+    
+                    .poster {
+                        border-radius: 25px 25px 0 0;
+                        height: 600px;
+                        background-size: cover!important;
+                        background-repeat: no-repeat;
                     }
-                    p {
+                    .a-culture-desc {
+                        background: $brightGray;
                         color: $black;
+                        padding: 15px 25px;
+                        border-radius: 0 0 15px 15px;
+                        border-bottom: 1px solid $gray;
+    
+                        h6 {
+                            font-family: $inter;
+                            color: $mediumGray;
+                        }
+                        p {
+                            color: $black;
+                        }
+                    }
+                }
+                .music-wrapper {
+                    display: flex;
+                    gap: 20px;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    
+                    .a-music {
+                        flex: 0 0 16%;
+                        border-radius: 25px 25px 15px 15px;
+                        background: rgba($black, .8);
+                        padding: 10px;
+                        cursor: pointer;
+                        transition: all .3s;
+
+                        img {
+                            width: 100%;
+                            border-radius: 15px;
+                            border: 2px solid transparent;
+                            transition: all .3s;
+                        }
+                        p {
+                            color: $white;
+                        }
+                        h6 {
+                            color: $mediumGray;
+                            font-family: $inter;
+                        }
+                        &:hover {
+                            transform: scale(1.1);
+                            background: $primaryGradient;
+                            
+                            img {
+                                border: 2px solid $white;
+                            }
+                        }
                     }
                 }
             }
+        }
+        #audioWrapper {
+            display: none;
         }
     }
 }
