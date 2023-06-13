@@ -10,7 +10,7 @@ nav#mainMenu {
     position: fixed;
     bottom: 50px;
     width: $navWidth;
-    left: calc(50vw - 200px);
+    left: calc(50vw - calc(330px / 2));
     background: $navBackground;
     box-shadow: $navBoxShadow;
     backdrop-filter: $navBlurLevel;
