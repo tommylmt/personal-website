@@ -45,7 +45,7 @@
             </div>
             <div class="culture-marquee">
                 <div class="music-wrapper">
-                    <div v-for="element in songs" class="a-music">
+                    <div v-for="element in songs" class="a-music" @mouseover="playMusic(element)" @mouseleave="stopMusic()">
                         <img :src="element.album.cover_medium" width="100" alt="Musique">
                         <p>{{ element.title }}</p>
                         <h6>{{ element.artist.name }}</h6>
@@ -55,7 +55,7 @@
         </div>
 
         <div id="audioWrapper">
-            <audio :src="this.currentSong" controls crossorigin="anonymous"></audio>
+            <audio :src="currentSong" controls crossorigin="anonymous" ref="audio"></audio>
         </div>
     </div>
 </template>
@@ -75,6 +75,7 @@ export default {
             shows: [],
             songs: [],
             currentSong: null,
+            playPromise: null,
         };
     },
     mounted() {
@@ -97,9 +98,19 @@ export default {
                 const deezer = await axios.get('https://api.deezer.com/user/1567995002/charts');
 
                 this.songs = deezer.data.data;
-                console.log(this.songs);
             } catch (e) {
                 this.songs = 'Erreur lors de la récupération des charts';
+            }
+        },
+        playMusic(element) {
+            this.currentSong = element.preview;
+            this.playPromise = this.$refs.audio.play();
+        },
+        stopMusic() {
+            if (this.playPromise !== undefined) {
+                this.playPromise.then(() => {
+                    this.$refs.audio.pause();
+                });
             }
         }
     }

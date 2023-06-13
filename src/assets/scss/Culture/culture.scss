@@ -85,7 +85,8 @@ body {
             }
         }
         #audioWrapper {
-            display: none;
+            position: absolute;
+            left: -100%;
         }
     }
 }
