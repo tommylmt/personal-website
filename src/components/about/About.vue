@@ -23,26 +23,24 @@
             </div>
         </div>
 
-        <ListBlock :listTitle="'Expériences'" />
+        <ListBlock v-for="(data, title) in lists" :key=title :listTitle=title :data=data />
     </div>
 </template>
 
 <script>
 import ListBlock from './ListBlock.vue';
-import { mainRoutes } from '@/helpers/aboutData';
+import { mainRoutes, education, work } from '@/helpers/aboutData';
 
 export default {
     data() {
-        return {
+        return {...{
             emoji: "🤘",
             emojisArray: ["✊", "🤘", "🤙", "✌", "🖕"],
-            iwitLink: mainRoutes.iwitLink,
-            symfonyLink: mainRoutes.symfonyLink,
-            vueLink: mainRoutes.vueLink,
-            dockerLink: mainRoutes.dockerLink,
-            traxLink: mainRoutes.traxLink,
-            awsLink: mainRoutes.awsLink,
-        };
+            lists: {
+                'Formation': education,
+                'Expériences': work,
+            },
+        }, ...mainRoutes};
     },
     computed: {
         guitarYears() {
