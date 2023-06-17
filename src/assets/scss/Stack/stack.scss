@@ -1,0 +1,32 @@
+// Core
+@import '../_colors';
+@import '../_fonts';
+@import '../_reset';
+
+body {
+  main {
+    #stackWrapper {
+      margin-top: 50px;
+
+      .stack-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+
+        .a-skill {
+          flex: 0 0 20%;
+
+          .skill-icon {
+            svg {
+              fill: $darkGray;
+            }
+          }
+          p {
+            text-align: center;
+            margin-top: 25px;
+          }
+        }
+      }
+    }
+  }
+}

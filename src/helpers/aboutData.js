@@ -58,8 +58,24 @@ const work = {
   }
 };
 
+const networks = {
+  is: {
+    name: "Instagram"
+  },
+  tw: {
+    name: "Twitter"
+  },
+  gt: {
+    name: "Github"
+  },
+  st: {
+    name: "Stack Overflow"
+  }
+};
+
 export {
   mainRoutes as mainRoutes,
   education as education,
-  work as work
+  work as work,
+  networks as networks
 }
