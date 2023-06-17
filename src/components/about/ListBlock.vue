@@ -4,6 +4,7 @@
             <p>{{ listTitle }}</p>
         </div>
         <div class="right">
+            
             <ul>
                 <li v-for="element in data">
                     <div v-if="!element.timeline">
