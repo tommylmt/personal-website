@@ -24,12 +24,15 @@
         </div>
 
         <ListBlock v-for="(data, title) in lists" :key=title :listTitle=title :data=data />
+        <ListBlock :list-title="'Sur terre'">
+            <img src="../../assets/img/location.png" id="locationImage" alt="Location">
+        </ListBlock>
     </div>
 </template>
 
 <script>
 import ListBlock from './ListBlock.vue';
-import { mainRoutes, education, work } from '@/helpers/aboutData';
+import { mainRoutes, education, work, networks } from '@/helpers/aboutData';
 
 export default {
     data() {
@@ -39,6 +42,7 @@ export default {
             lists: {
                 'Formation': education,
                 'Expériences': work,
+                'Sur l\'internet': networks,
             },
         }, ...mainRoutes};
     },

@@ -4,28 +4,29 @@
             <p>{{ listTitle }}</p>
         </div>
         <div class="right">
-            
-            <ul>
-                <li v-for="element in data">
-                    <div v-if="!element.timeline">
+            <slot>
+                <ul>
+                    <li v-for="element in data">
+                        <div v-if="!element.timeline">
                         <span class="left-element">
                             <p>{{ element.name ?? element.company }}</p>
                             <h6>{{ element.location }}</h6>
                         </span>
-                        <span class="right-element">
+                            <span class="right-element">
                             <p>{{ element.year }}</p>
                         </span>
-                    </div>
-                    <div v-else>
-                        {{ element.company }}
-                        <ul>
-                            <li v-for="subElement in element.timeline">
-                                {{ subElement.job }}
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
+                        </div>
+                        <div v-else>
+                            {{ element.company }}
+                            <ul>
+                                <li v-for="subElement in element.timeline">
+                                    {{ subElement.job }}
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </slot>
         </div>
     </div>
 </template>

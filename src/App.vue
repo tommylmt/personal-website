@@ -4,10 +4,11 @@
   import NotFound from './components/errors/Error404.vue';
   import About from './components/about/About.vue';
   import Culture from './components/culture/Culture.vue';
+  import Stack from "@/components/stack/Stack.vue";
 
   const routes = {
     "/": {name: 'À propos', current: true, path: "#/", component: About},
-    "/stack": {name: 'Stack', current: false, path: "#/stack", component: null}, 
+    "/stack": {name: 'Stack', current: false, path: "#/stack", component: Stack},
     "/culture": {name: 'Culture', current: false, path: "#/culture", component: Culture},
   };
   const currentPath = ref(window.location.hash);
