@@ -3,7 +3,7 @@
         @mouseover="onHover()" 
         @mouseleave="stopHover()"
     >
-        <a :href=path>{{ name }}</a>
+        <a :href=path @click="changeActive()" ref="link">{{ name }}</a>
     </li>
 </template>
 
@@ -22,6 +22,9 @@ export default {
         },
         stopHover() {
             this.$emit('hoverStop', this);
+        },
+        changeActive() {
+            this.$emit('active-page-change', this)
         }
     }
 }

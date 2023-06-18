@@ -14,11 +14,15 @@ main {
 
     .page-transition-enter-active,
     .page-transition-leave-active {
-        transition: opacity 0.5s ease;
+        transition: all 0.5s ease;
+        transform: scale(1);
+        opacity: 1;
     }
     .page-transition-enter-from,
     .page-transition-leave-to {
+        transition: all 0.5s ease;
         opacity: 0;
+        transform: scale(.7);
     }
     [id^="container"] {
         margin: 50px auto;

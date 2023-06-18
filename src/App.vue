@@ -1,40 +1,22 @@
 <script setup>
-  import { ref, computed } from 'vue'
+import { computed, ref } from "vue";
   import NavBar from './components/menu/NavBar.vue';
-  import NotFound from './components/errors/Error404.vue';
-  import About from './components/about/About.vue';
-  import Culture from './components/culture/Culture.vue';
-  import Stack from "@/components/stack/Stack.vue";
+  import MenuHelper from "@/utils/MenuHelper";
 
-  const routes = {
-    "/": {name: 'À propos', current: true, path: "#/", component: About},
-    "/stack": {name: 'Stack', current: false, path: "#/stack", component: Stack},
-    "/culture": {name: 'Culture', current: false, path: "#/culture", component: Culture},
-  };
-  const currentPath = ref(window.location.hash);
+  const helper = new MenuHelper();
 
-  const currentView = computed(() => {
-    let element = routes[currentPath.value.slice(1) || '/'];
-
-    return element?.component || NotFound
+  let view = ref(helper.getCurrentView());
+  let currentView = computed(() => {
+    return view.value;
   });
 
-  const setCurrentLink = hash => {
-    let element = routes[hash.slice(1) || '/'];
-    Object.keys(routes).forEach(key => { routes[key].current = false});
-
-    element.current = true;
-  };
-
-  window.addEventListener('hashchange', () => {
-    setCurrentLink(window.location.hash);
-
-    currentPath.value = window.location.hash;
+  window.addEventListener('menu.elementchange', e => {
+    view.value = e.detail.view;
   });
 </script>
 
 <template>
-  <NavBar :pages=routes />
+  <NavBar :pages=helper.routes />
 
   <main id="main">
     <Transition appear name="page-transition">

@@ -17,24 +17,23 @@ export default class MenuHelper {
     };
   }
 
+  set currentPath(path) {
+    this._currentPath = path;
+  }
+
   listenChanges() {
     window.addEventListener('hashchange', () => {
       this.currentPath = window.location.hash;
-      this.setCurrentLink(window.location.hash);
+
+      window.dispatchEvent(new CustomEvent("menu.elementchange", {detail: {
+        view: this.getCurrentView()
+      }}));
     });
   }
 
-  setCurrentLink(hash) {
-    let element = this.routes[hash.slice(1) || '/'];
-    Object.keys(this.routes).forEach(key => { this.routes[key].current = false });
-
-    element.current = true;
-  }
-
   getCurrentView() {
-    let element = this.routes[this.currentPath.slice(1) || '/'];
+    let element = this.routes[this._currentPath.slice(1) || '/'];
 
-    console.log(element);
     return element?.component || NotFound;
   }
 }
