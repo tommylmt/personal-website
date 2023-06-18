@@ -8,9 +8,9 @@
 @import 'Error/error404';
 
 main {
-    width: 70vw;
-    margin: 50px auto;
-    padding: 0 50px;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
 
     .page-transition-enter-active,
     .page-transition-leave-active {
@@ -19,5 +19,10 @@ main {
     .page-transition-enter-from,
     .page-transition-leave-to {
         opacity: 0;
+    }
+    [id^="container"] {
+        margin: 50px auto;
+        width: 70vw;
+        padding: 0 50px;
     }
 }

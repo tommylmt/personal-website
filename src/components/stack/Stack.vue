@@ -1,14 +1,16 @@
 <template>
-  <div>
-    <h1>Stack</h1>
-    <p>Liste des applications que j'utilise au quotidien.</p>
-  </div>
-  <div id="stackWrapper">
-    <div class="stack-flex">
-      <div v-for="icon in icons" class="a-skill">
-        <span v-html="icon.svg" class="skill-icon"></span>
-        <p>{{ icon.title }}</p>
-        <span>{{ icon.description }}</span>
+  <div id="container">
+    <div>
+      <h1>Stack</h1>
+      <p>Liste des applications que j'utilise au quotidien.</p>
+    </div>
+    <div id="stackWrapper">
+      <div class="stack-flex">
+        <div v-for="icon in icons" class="a-skill">
+          <span v-html="icon.svg" class="skill-icon"></span>
+          <p>{{ icon.title }}</p>
+          <span>{{ icon.description }}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -42,6 +44,6 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
   @import "@/assets/scss/Stack/stack";
 </style>

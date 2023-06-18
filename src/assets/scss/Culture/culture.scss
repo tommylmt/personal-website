@@ -13,7 +13,11 @@ body {
             &:not(:first-child) {
                 margin-top: 45px;
             }
-            
+
+            .a-title {
+                margin: 50px auto;
+                width: 70vw;
+            }
             .culture-marquee {
                 margin-top: 25px;
 
@@ -46,6 +50,8 @@ body {
                     }
                 }
                 .music-wrapper {
+                    margin: 50px auto;
+                    width: 70vw;
                     display: flex;
                     gap: 20px;
                     flex-wrap: wrap;

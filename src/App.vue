@@ -19,15 +19,24 @@
     return element?.component || NotFound
   });
 
+  const setCurrentLink = hash => {
+    let element = routes[hash.slice(1) || '/'];
+    Object.keys(routes).forEach(key => { routes[key].current = false});
+
+    element.current = true;
+  };
+
   window.addEventListener('hashchange', () => {
-    currentPath.value = window.location.hash
+    setCurrentLink(window.location.hash);
+
+    currentPath.value = window.location.hash;
   });
 </script>
 
 <template>
   <NavBar :pages=routes />
 
-  <main>
+  <main id="main">
     <Transition appear name="page-transition">
       <component :is="currentView" />
     </Transition>

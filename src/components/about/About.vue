@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="container">
         <div id="aboutMe">
             <div class="left">
                 <img src="../../assets/img/about_me.jpg" alt="Thomas Lamothe">
