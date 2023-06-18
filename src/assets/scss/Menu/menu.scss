@@ -5,52 +5,63 @@ $navBlurLevel: blur(20px)!important;
 $navWidth: 330px;
 $navInsetMargin: 5px;
 
-nav#mainMenu {
-    border-radius: $navRadius;
-    position: fixed;
-    bottom: 50px;
-    width: $navWidth;
-    left: calc(50vw - calc(330px / 2));
-    background: $navBackground;
-    box-shadow: $navBoxShadow;
-    backdrop-filter: $navBlurLevel;
-	-webkit-backdrop-filter: $navBlurLevel;
-    border: 1px solid rgba($black, .01);
-    z-index: 9999;
+nav {
+    transform: translateY(125px);
 
-    div.mouse-tracker {
-        position: absolute;
-        background: $white;
+    &#mainMenu {
+        animation: 500ms ease-in-out 250ms 1 navBarEntrance;
+        animation-fill-mode: forwards;
         border-radius: $navRadius;
-        z-index: 1;
-        transition: left .35s;
-        top: $navInsetMargin;
-    }
-    ul {
-        position: relative;
-        z-index: 3;
-        display: flex;
-        justify-content: space-between;
-        padding: $navInsetMargin;
+        position: fixed;
+        bottom: 50px;
+        width: $navWidth;
+        left: calc(50vw - calc(330px / 2));
+        background: $navBackground;
+        box-shadow: $navBoxShadow;
+        backdrop-filter: $navBlurLevel;
+        -webkit-backdrop-filter: $navBlurLevel;
+        border: 1px solid rgba($black, .01);
+        z-index: 9999;
 
-        li {
-            font-size: 17px;
-            padding: 13px 0;
-            list-style: none;
+        div.mouse-tracker {
+            position: absolute;
+            background: $white;
             border-radius: $navRadius;
+            z-index: 1;
+            transition: left .35s;
+            top: $navInsetMargin;
+        }
+        ul {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            justify-content: space-between;
+            padding: $navInsetMargin;
 
-            a {
-                padding: 7px 20px;
-                color: $white;
-                transition: color .4s;
-                font-family: $inter;
-            }
+            li {
+                font-size: 17px;
+                padding: 13px 0;
+                list-style: none;
+                border-radius: $navRadius;
 
-            &.current-item:not(.stopped), &:hover {
                 a {
-                    color: $blackLight;
+                    padding: 7px 20px;
+                    color: $white;
+                    transition: color .4s;
+                    font-family: $inter;
+                }
+
+                &.current-item:not(.stopped), &:hover {
+                    a {
+                        color: $blackLight;
+                    }
                 }
             }
         }
     }
+}
+
+@keyframes navBarEntrance {
+    from { transform: translateY(125px); }
+    to { transform: translateY(0); }
 }

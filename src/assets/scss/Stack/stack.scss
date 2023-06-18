@@ -11,15 +11,16 @@ body {
       .stack-flex {
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-between;
         gap: 50px;
 
         .a-skill {
-          flex: 0 0 20%;
+          flex: 0 0 10%;
+          text-align: center;
 
-          .skill-icon {
-            svg {
-              fill: $darkGray;
-            }
+          svg {
+            fill: $mediumGray;
+            width: 100px!important;
           }
           p {
             text-align: center;
