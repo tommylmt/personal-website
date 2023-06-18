@@ -12,6 +12,7 @@
   "dependencies": {
     "@foobar404/wave": "^2.0.4",
     "axios": "^1.4.0",
+    "howler": "^2.2.3",
     "simple-icons": "^9.1.0",
     "smooth-scrollbar": "^8.8.4",
     "vue": "^3.3.2",
