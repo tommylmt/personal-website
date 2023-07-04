@@ -3,7 +3,7 @@
         @mouseover="onHover()" 
         @mouseleave="stopHover()"
     >
-        <a :href=path @click="changeActive()" ref="link">{{ name }}</a>
+        <router-link :to=path @click="changeActive()" ref="link">{{ name }}</router-link>
     </li>
 </template>
 

@@ -61,6 +61,7 @@ export default {
         },
         shuffleEmojiArray() {
             let currentIndex = this.emojisArray.length, randomIndex;
+
             while (currentIndex != 0) {
                 randomIndex = Math.floor(Math.random() * currentIndex);
                 currentIndex--;
@@ -69,6 +70,7 @@ export default {
                     this.emojisArray[currentIndex]
                 ];
             }
+
             return this.emojisArray;
         }
     },
