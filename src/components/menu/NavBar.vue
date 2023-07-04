@@ -55,10 +55,9 @@ export default {
             this.currentWidth = `${element.clientWidth}px`;
         },
         changeActivePage(e) {
-            let element = this.localPages[e.$refs.link.getAttribute('href').slice(1) || '/'];
-            Object.keys(this.localPages).forEach(key => { this.localPages[key].current = false});
-
-            element.current = true;
+            this.localPages.forEach(element => {
+                element.current = element.path === e.$refs.link.to
+            });
         },
         getCurrentItem() {
             return document.querySelector(localSelectors.currenItem);

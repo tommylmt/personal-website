@@ -12,8 +12,8 @@ main {
     height: 100vh;
     overflow: auto;
 
-    .page-transition-enter-active,
-    .page-transition-leave-active {
+    .page-transition-enter-to,
+    .page-transition-leave-from {
         transition: all 0.5s ease;
         transform: scale(1);
         opacity: 1;
