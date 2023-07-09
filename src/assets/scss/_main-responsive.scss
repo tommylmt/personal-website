@@ -1,0 +1,20 @@
+@media screen and (max-width: $screen-lg) {
+    body {
+        main {
+            [id^="container"] {
+                width: 90vw!important;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $screen-sm) {
+    body {
+        main {
+            height: -webkit-fill-available;
+            [id^="container"] {
+                width: 100vw!important;
+            }
+        }
+    }
+}

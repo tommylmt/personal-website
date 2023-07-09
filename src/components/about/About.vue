@@ -2,7 +2,7 @@
     <div id="container">
         <div id="aboutMe">
             <div class="left">
-                <img src="../../assets/img/about_me.jpg" alt="Thomas Lamothe">
+                <img src="../../assets/img/about_me.png" alt="Thomas Lamothe">
             </div>
             <div class="right">
                 <h1>Bonjour <span @mouseover=randomEmoji() @mouseleave="this.emoji = '🤘'" class="finger">{{ emoji }}</span></h1>
@@ -14,7 +14,7 @@
                 <p>Mon travail consiste essentiellement dans le développement d'applications web métier complexes. Je bosse majoritairement avec 
                     <a target="_blank" :href=symfonyLink>Symfony</a>, 
                     <a target="_blank" :href=vueLink>Vue.js</a> et <a target="_blank" :href=dockerLink>Docker</a> le tout déployé sur une infra
-                    <a :href=awsLink>AWS</a>.
+                    <a :href=awsLink target="_blank">AWS</a>.
                 </p>
 
                 <p class="high-margin">Je suis également à l'initiative de projets comme <a :href="traxLink" target="_blank">Trax</a>, Orkestrum, Cinécombles et de nombreux autres qui ne verront jamais le jour.</p>
@@ -25,7 +25,7 @@
 
         <ListBlock v-for="(data, title) in lists" :key=title :listTitle=title :data=data />
         <ListBlock :list-title="'Sur terre'">
-            <img src="../../assets/img/location.png" id="locationImage" alt="Location">
+            <img :src="`/src/assets/img/${locationImage}`" id="locationImage" alt="Location">
         </ListBlock>
     </div>
 </template>
@@ -49,6 +49,13 @@ export default {
     computed: {
         guitarYears() {
             return new Date().getFullYear() - 2014;
+        },
+        locationImage() {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                return 'location_dark.png';
+            }
+
+            return 'location.png';
         }
     },
     methods: {
