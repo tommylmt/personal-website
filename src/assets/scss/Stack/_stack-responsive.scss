@@ -1,0 +1,28 @@
+@import '../_responsive';
+
+@media screen and (max-width: $screen-sm) {
+    body {
+        main {
+          #stackWrapper {
+            margin-top: 0!important;
+
+            .stack-flex {
+              gap: 10px!important;
+      
+              .a-skill {
+                flex: 0 0 30%;
+                margin-top: 35px;
+                
+                svg {
+                  width: 70px!important;
+                }
+                p {
+                  text-align: center;
+                  margin-top: 25px;
+                }
+              }
+            }
+          }
+        }
+    }
+}

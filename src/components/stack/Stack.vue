@@ -9,7 +9,6 @@
         <div v-for="icon in icons" class="a-skill">
           <span v-html="icon.svg" class="skill-icon"></span>
           <p>{{ icon.title }}</p>
-          <span>{{ icon.description }}</span>
         </div>
       </div>
     </div>
@@ -37,7 +36,7 @@ export default {
     },
     prepareIcons(data) {
       data.forEach(el => {
-        this.icons.push({...sicons[el.code], ...{ description: el.description }});
+        this.icons.push(sicons[el.code]);
       });
     }
   }

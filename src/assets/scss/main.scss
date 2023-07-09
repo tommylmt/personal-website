@@ -2,15 +2,20 @@
 @import '_colors';
 @import '_fonts';
 @import '_reset';
+@import '_responsive';
 
 @import 'Menu/menu';
 @import 'About/about';
 @import 'Error/error404';
 
+// Responsive
+@import "_main-responsive";
+
 main {
     width: 100vw;
     height: 100vh;
-    overflow: auto;
+    padding-bottom: 100px;
+    background: $whiteLight;
 
     .page-transition-enter-to,
     .page-transition-leave-from {

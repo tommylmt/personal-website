@@ -3,6 +3,8 @@
 @import '../_fonts';
 @import '../_reset';
 
+@import './_stack-responsive';
+
 body {
   main {
     #stackWrapper {
@@ -19,12 +21,23 @@ body {
           text-align: center;
 
           svg {
-            fill: $mediumGray;
-            width: 100px!important;
+            fill: $lightGray;
+            width: 100px;
+            transition: all .3s;
           }
           p {
             text-align: center;
             margin-top: 25px;
+            transition: all .3s;
+          }
+
+          &:hover {
+            svg {
+              fill: $primaryGradient;
+            }
+            p {
+              color: $blackLight!important;
+            }
           }
         }
       }

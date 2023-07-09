@@ -1,8 +1,3 @@
-import About from "@/components/about/About.vue";
-import Stack from "@/components/stack/Stack.vue";
-import Culture from "@/components/culture/Culture.vue";
-import NotFound from "@/components/errors/Error404.vue";
-
 export default class MenuHelper {
   get routes() {
     return [
