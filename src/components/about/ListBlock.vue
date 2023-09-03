@@ -21,7 +21,7 @@
                             <ul>
                                 <li v-for="subElement in element.timeline" :key="subElement.job">
                                     <p>{{ subElement.job }}</p>
-                                    <h6>{{ subElement.year }}</h6>
+                                    <p class="small-description">{{ subElement.year }}</p>
                                 </li>
                             </ul>
                         </div>
