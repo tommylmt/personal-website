@@ -7,10 +7,10 @@
 
 body {
     main {
-        width: 100vw!important;
-        padding: 0!important;
-        margin: 50px 0!important;
-    
+        width: 100vw !important;
+        padding: 0 !important;
+        margin: 50px 0 !important;
+
         .a-culture-block {
             &:not(:first-child) {
                 margin-top: 45px;
@@ -26,13 +26,13 @@ body {
                 .a-culture {
                     width: 425px;
                     margin-right: 25px;
-                    box-shadow: 0 0 25px rgba($blackRgb, .1);
+                    box-shadow: 0 0 25px rgba($blackRgb, 0.1);
                     border-radius: 25px;
-    
+
                     .poster {
                         border-radius: 25px 25px 0 0;
                         height: 600px;
-                        background-size: cover!important;
+                        background-size: cover !important;
                         background-repeat: no-repeat;
                     }
                     .a-culture-desc {
@@ -41,7 +41,7 @@ body {
                         padding: 15px 25px;
                         border-radius: 0 0 15px 15px;
                         border-bottom: 1px solid $gray;
-    
+
                         h6 {
                             font-family: $inter;
                             color: $mediumGray;
@@ -58,20 +58,20 @@ body {
                     gap: 20px;
                     flex-wrap: wrap;
                     justify-content: space-between;
-                    
+
                     .a-music {
                         flex: 0 0 20%;
                         border-radius: 25px 25px 15px 15px;
-                        background: rgba($blackRgb, .8);
+                        background: rgba($blackRgb, 0.8);
                         padding: 10px;
                         cursor: pointer;
-                        transition: all .3s;
+                        transition: all 0.3s;
 
                         img {
                             width: 100%;
                             border-radius: 15px;
                             border: 2px solid transparent;
-                            transition: all .3s;
+                            transition: all 0.3s;
                         }
                         p {
                             color: $white;
@@ -83,7 +83,7 @@ body {
                         &:hover {
                             transform: scale(1.1);
                             background: $primaryGradient;
-                            
+
                             img {
                                 border: 2px solid $white;
                             }

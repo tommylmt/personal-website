@@ -8,11 +8,14 @@
             <div class="culture-marquee">
                 <div class="culture-wrapper">
                     <Vue3Marquee :pauseOnHover="true">
-                        <div class="a-culture" v-for="movie in movies">
-                            <div class="poster" :style="{background: `url(${$baseUrl + movie.file})`}"></div>
+                        <div class="a-culture" v-for="movie in movies" :key="movie.artist">
+                            <div
+                                class="poster"
+                                :style="{ background: `url(${$baseUrl + movie.file})` }"
+                            ></div>
                             <div class="a-culture-desc">
                                 <h6>Réalisé par</h6>
-                                <p>{{ movie.artist}}</p>
+                                <p>{{ movie.artist }}</p>
                             </div>
                         </div>
                     </Vue3Marquee>
@@ -27,11 +30,17 @@
             <div class="culture-marquee">
                 <div class="culture-wrapper">
                     <Vue3Marquee :pauseOnHover="true">
-                        <div class="a-culture" v-for="show in shows">
-                            <div class="poster" :style="{background: `url(${$baseUrl + show.file})`, 'background-size': 'cover'}"></div>
+                        <div class="a-culture" v-for="show in shows" :key="show.artist">
+                            <div
+                                class="poster"
+                                :style="{
+                                    background: `url(${$baseUrl + show.file})`,
+                                    'background-size': 'cover'
+                                }"
+                            ></div>
                             <div class="a-culture-desc">
                                 <h6>Sortie sur</h6>
-                                <p>{{ show.artist}}</p>
+                                <p>{{ show.artist }}</p>
                             </div>
                         </div>
                     </Vue3Marquee>
@@ -45,8 +54,14 @@
             </div>
             <div class="culture-marquee">
                 <div class="music-wrapper">
-                    <div v-for="element in songs" class="a-music" @mouseover="playMusic(element)" @mouseleave="stopMusic()">
-                        <img :src="element.album.cover_medium" width="100" alt="Musique">
+                    <div
+                        v-for="element in songs"
+                        :key="element.id"
+                        class="a-music"
+                        @mouseover="playMusic(element)"
+                        @mouseleave="stopMusic()"
+                    >
+                        <img :src="element.album.cover_medium" width="100" alt="Musique" />
                         <p>{{ element.title }}</p>
                         <h6>{{ element.artist.name }}</h6>
                     </div>
@@ -61,7 +76,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
 import { Vue3Marquee } from 'vue3-marquee'
 import 'vue3-marquee/dist/style.css'
 
@@ -75,42 +90,42 @@ export default {
             shows: [],
             songs: [],
             currentSong: null,
-            playPromise: null,
-        };
+            playPromise: null
+        }
     },
     mounted() {
-        this.fetchElements('movies');
-        this.fetchElements('shows');
-        this.retrieveDeezerCharts();
+        this.fetchElements('movies')
+        this.fetchElements('shows')
+        this.retrieveDeezerCharts()
     },
     methods: {
         async fetchElements(endpoint) {
             try {
-                const response = await axios.get(`${this.$baseUrl}/api/culture/${endpoint}`);
+                const response = await axios.get(`${this.$baseUrl}/api/culture/${endpoint}`)
 
-                this[endpoint] = response.data;
+                this[endpoint] = response.data
             } catch (e) {
-                this[endpoint] = 'Erreur lors de la récupération des films';
-            };
+                this[endpoint] = 'Erreur lors de la récupération des films'
+            }
         },
         async retrieveDeezerCharts() {
             try {
-                const deezer = await axios.get('https://api.deezer.com/user/1567995002/charts');
+                const deezer = await axios.get('https://api.deezer.com/user/1567995002/charts')
 
-                this.songs = deezer.data.data;
+                this.songs = deezer.data.data
             } catch (e) {
-                this.songs = 'Erreur lors de la récupération des charts';
+                this.songs = 'Erreur lors de la récupération des charts'
             }
         },
         playMusic(element) {
-            this.currentSong = element.preview;
-            this.playPromise = this.$refs.audio.play();
+            this.currentSong = element.preview
+            this.playPromise = this.$refs.audio.play()
         },
         stopMusic() {
             if (this.playPromise !== undefined) {
                 this.playPromise.then(() => {
-                    this.$refs.audio.pause();
-                });
+                    this.$refs.audio.pause()
+                })
             }
         }
     }
@@ -118,5 +133,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    @import '@/assets/scss/Culture/culture.scss';
+@import '@/assets/scss/Culture/culture.scss';
 </style>

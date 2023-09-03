@@ -6,20 +6,20 @@
         <div class="right">
             <slot>
                 <ul>
-                    <li v-for="element in data">
+                    <li v-for="element in data" :key="element.name ?? element.company">
                         <div v-if="!element.timeline">
-                        <span class="left-element">
-                            <p>{{ element.name ?? element.company }}</p>
-                            <h6>{{ element.location }}</h6>
-                        </span>
-                        <span class="right-element">
-                            <p>{{ element.year }}</p>
-                        </span>
+                            <span class="left-element">
+                                <p>{{ element.name ?? element.company }}</p>
+                                <h6>{{ element.location }}</h6>
+                            </span>
+                            <span class="right-element">
+                                <p>{{ element.year }}</p>
+                            </span>
                         </div>
                         <div v-else>
                             {{ element.company }}
                             <ul>
-                                <li v-for="subElement in element.timeline">
+                                <li v-for="subElement in element.timeline" :key="subElement.job">
                                     {{ subElement.job }}
                                 </li>
                             </ul>
