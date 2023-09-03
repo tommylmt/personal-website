@@ -1,0 +1,30 @@
+image: node:20.05
+
+stages:
+    - deploy
+
+cache:
+    paths:
+        - node_modules/
+
+production:
+    stage: deploy
+    before_script:
+        - 'which ssh-agent || ( apk add --no-cache openssh-client )'
+        - eval $(ssh-agent -s)
+        - mkdir -p ~/.ssh
+        - chmod 700 ~/.ssh
+        - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    environment:
+        name: production
+        url: https://thomaslamothe.com
+    script:
+        - echo "$DEPLOY_KEY" | tr -d '\r' | ssh-add - > /dev/null
+        - chmod 700 ~/.ssh
+        - npm i
+        - npm run build
+        - scp -r dist/* $DEPLOY_HOST:/srv/www/thomaslamothe.com/
+    only:
+        - master
+        - develop
+    when: manual
