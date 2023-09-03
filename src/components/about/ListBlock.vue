@@ -12,7 +12,7 @@
                             <p>{{ element.name ?? element.company }}</p>
                             <h6>{{ element.location }}</h6>
                         </span>
-                            <span class="right-element">
+                        <span class="right-element">
                             <p>{{ element.year }}</p>
                         </span>
                         </div>
