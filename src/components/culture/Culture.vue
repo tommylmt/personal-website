@@ -41,7 +41,7 @@
         <div class="a-culture-block">
             <div class="a-title">
                 <h1>Musique</h1>
-                <p>Artistes que j'aime en ce moment.</p>
+                <p>Titres que j'écoute en ce moment.</p>
             </div>
             <div class="culture-marquee">
                 <div class="music-wrapper">
@@ -118,5 +118,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    @import '../../assets/scss/Culture/culture.scss';
+    @import '@/assets/scss/Culture/culture.scss';
 </style>
