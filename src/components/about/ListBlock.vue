@@ -10,17 +10,18 @@
                         <div v-if="!element.timeline">
                             <span class="left-element">
                                 <p>{{ element.name ?? element.company }}</p>
-                                <h6>{{ element.location }}</h6>
+                                <p class="small-description">{{ element.location }}</p>
                             </span>
                             <span class="right-element">
-                                <p>{{ element.year }}</p>
+                                <p class="small-description">{{ element.year }}</p>
                             </span>
                         </div>
                         <div v-else>
-                            {{ element.company }}
+                            <p class="general-title">{{ element.company }}</p>
                             <ul>
                                 <li v-for="subElement in element.timeline" :key="subElement.job">
-                                    {{ subElement.job }}
+                                    <p>{{ subElement.job }}</p>
+                                    <h6>{{ subElement.year }}</h6>
                                 </li>
                             </ul>
                         </div>
