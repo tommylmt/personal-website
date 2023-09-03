@@ -1,8 +1,8 @@
 @media screen and (max-width: $screen-lg) {
     body {
         main {
-            [id^="container"] {
-                width: 90vw!important;
+            [id^='container'] {
+                width: 90vw !important;
             }
         }
     }
@@ -11,10 +11,10 @@
 @media screen and (max-width: $screen-sm) {
     body {
         main {
-            height: 100dvh  ;
+            height: 100dvh;
 
-            [id^="container"] {
-                width: 100vw!important;
+            [id^='container'] {
+                width: 100vw !important;
             }
         }
     }

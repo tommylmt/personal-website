@@ -1,18 +1,18 @@
-import "./assets/scss/main.scss";
+import './assets/scss/main.scss'
 
 import { createApp } from 'vue'
 import App from './App.vue'
-import Scrollbar from 'smooth-scrollbar';
+import Scrollbar from 'smooth-scrollbar'
 import router from './router'
 
-const app = createApp(App);
+const app = createApp(App)
 
-app.config.globalProperties.$baseUrl = import.meta.env.VITE_API_BASE_URL;
+app.config.globalProperties.$baseUrl = import.meta.env.VITE_API_BASE_URL
 
 app.use(router)
-app.mount('#app');
+app.mount('#app')
 
-Scrollbar.init(document.querySelector("#main"), {
-  damping: 0.04,
-  renderByPixels: false
-});
+Scrollbar.init(document.querySelector('#main'), {
+    damping: 0.04,
+    renderByPixels: false
+})

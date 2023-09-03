@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import About from '@/components/about/About.vue'
-import Stack from "@/components/stack/Stack.vue";
-import Culture from "@/components/culture/Culture.vue";
+import Stack from '@/components/stack/Stack.vue'
+import Culture from '@/components/culture/Culture.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),

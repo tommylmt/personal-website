@@ -9,22 +9,25 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+
     &:focus {
-        outline: none!important;
-    }   
+        outline: none !important;
+    }
 }
 h1 {
     @include font-rules($sourceSans, $titleFontSize, $blackLight, $titleFontWeight);
 }
-h2, h3, h4 {
+h2,
+h3,
+h4 {
     @include font-rules($sourceSans, $subTitleFontSize, $blackLight, $subTitleFontWeight);
 }
 p {
     @include font-rules($inter, $textSize, $darkGray, $textFontWeight);
     line-height: 1.6em;
 }
-a, li {
+a,
+li {
     text-decoration: none;
     font-family: $inter;
     font-weight: $textFontWeight;

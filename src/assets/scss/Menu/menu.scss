@@ -1,7 +1,7 @@
 $navRadius: 40px;
-$navBackground: rgba($blackLightRgb, .7);
-$navBoxShadow: 0px 4px 24px rgba($blackRgb, .14), 0px 2px 12px rgba($blackRgb, .06);;
-$navBlurLevel: blur(20px)!important;
+$navBackground: rgba($blackLightRgb, 0.7);
+$navBoxShadow: 0px 4px 24px rgba($blackRgb, 0.14), 0px 2px 12px rgba($blackRgb, 0.06);
+$navBlurLevel: blur(20px) !important;
 $navWidth: 330px;
 $navInsetMargin: 5px;
 
@@ -20,7 +20,7 @@ nav {
         box-shadow: $navBoxShadow;
         backdrop-filter: $navBlurLevel;
         -webkit-backdrop-filter: $navBlurLevel;
-        border: 1px solid rgba($black, .01);
+        border: 1px solid rgba($black, 0.01);
         z-index: 9999;
 
         div.mouse-tracker {
@@ -28,7 +28,7 @@ nav {
             background: $white;
             border-radius: $navRadius;
             z-index: 1;
-            transition: left .35s;
+            transition: left 0.35s;
             top: $navInsetMargin;
         }
         ul {
@@ -47,11 +47,12 @@ nav {
                 a {
                     padding: 7px 20px;
                     color: $white;
-                    transition: color .4s;
+                    transition: color 0.4s;
                     font-family: $inter;
                 }
 
-                &.current-item:not(.stopped), &:hover {
+                &.current-item:not(.stopped),
+                &:hover {
                     a {
                         color: $blackLight;
                     }
@@ -62,6 +63,10 @@ nav {
 }
 
 @keyframes navBarEntrance {
-    from { transform: translateY(125px); }
-    to { transform: translateY(0); }
+    from {
+        transform: translateY(125px);
+    }
+    to {
+        transform: translateY(0);
+    }
 }

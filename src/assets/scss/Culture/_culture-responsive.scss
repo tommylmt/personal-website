@@ -5,11 +5,11 @@
         main {
             .a-culture-block {
                 .a-title {
-                    width: 90vw!important;
+                    width: 90vw !important;
                 }
                 .culture-marquee {
                     .music-wrapper {
-                        width: 90vw!important;
+                        width: 90vw !important;
                     }
                 }
             }
@@ -23,23 +23,23 @@
             .a-culture-block {
                 .culture-marquee {
                     .a-culture {
-                        width: 300px!important;
-        
+                        width: 300px !important;
+
                         .poster {
-                            height: 400px!important;
+                            height: 400px !important;
                         }
                     }
                     .music-wrapper {
-                        gap: 15px!important;
-                        
+                        gap: 15px !important;
+
                         .a-music {
-                            flex: 0 0 47%!important;
+                            flex: 0 0 47% !important;
 
                             img {
                                 width: 100%;
                                 border-radius: 15px;
                                 border: 2px solid transparent;
-                                transition: all .3s;
+                                transition: all 0.3s;
                             }
                             p {
                                 color: $white;
@@ -51,7 +51,7 @@
                             &:hover {
                                 transform: scale(1.1);
                                 background: $primaryGradient;
-                                
+
                                 img {
                                     border: 2px solid $white;
                                 }

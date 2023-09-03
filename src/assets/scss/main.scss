@@ -9,7 +9,7 @@
 @import 'Error/error404';
 
 // Responsive
-@import "_main-responsive";
+@import '_main-responsive';
 
 main {
     width: 100vw;
@@ -27,9 +27,9 @@ main {
     .page-transition-leave-to {
         transition: all 0.5s ease;
         opacity: 0;
-        transform: scale(.7);
+        transform: scale(0.7);
     }
-    [id^="container"] {
+    [id^='container'] {
         margin: 50px auto;
         width: 70vw;
         padding: 0 50px;
