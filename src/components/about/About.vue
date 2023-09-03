@@ -8,7 +8,7 @@
                 <h1>Bonjour <span @mouseover=randomEmoji() @mouseleave="this.emoji = '🤘'" class="finger">{{ emoji }}</span></h1>
 
                 <p>Je suis Thomas, ceci est mon site web. Pas mal non ? C'est... français.</p>
-                <p>Je me permets d'interrompre votre navigation parce qu'on se fout un peu de ma gueule... C'est du vol et du plagiat. J'aime pas trop les voleurs et les... fils de putes.</p>
+                <p>Je me permets d'interrompre votre navigation parce qu'on se fout un peu de ma gueule... C'est du vol et du plagiat. J'aime pas trop les voleurs et les... fils de p***s.</p>
 
                 <p class="high-margin">Je suis Lead Développeur chez <a :href=iwitLink target="_blank">Iwit Systems</a> à Toulouse, France.</p>
                 <p>Mon travail consiste essentiellement dans le développement d'applications web métier complexes. Je bosse majoritairement avec 
