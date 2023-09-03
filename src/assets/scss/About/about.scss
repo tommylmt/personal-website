@@ -87,6 +87,12 @@ main {
                     padding-left: 20px;
                     padding-bottom: 15px;
 
+                    .general-title {
+                        margin-bottom: 10px;
+                    }
+                    p.small-description {
+                        font-size: 12px;
+                    }
                     &:not(:last-child) {
                         &:after {
                             position: absolute;

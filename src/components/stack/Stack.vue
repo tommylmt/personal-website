@@ -2,7 +2,7 @@
     <div id="container">
         <div>
             <h1>Stack</h1>
-            <p>Liste des applications que j'utilise au quotidien.</p>
+            <p>Les co{r}des à mon arc</p>
         </div>
         <div id="stackWrapper">
             <div class="stack-flex">

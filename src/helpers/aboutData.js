@@ -8,14 +8,9 @@ const mainRoutes = {
 }
 
 const education = {
-    highSchool: {
-        year: '2014-2017',
-        name: 'Lycée Victor Duruy',
-        location: 'Bagnères de Bigorre, France'
-    },
-    college: {
-        year: '2017-2019',
-        name: 'I.U.T. Informatique',
+    miage: {
+        year: '2020-2021',
+        name: 'Miage',
         location: 'Université Toulouse III, Paul Sabatier'
     },
     licence: {
@@ -23,37 +18,42 @@ const education = {
         name: 'Licence R.T.A.I.',
         location: 'Université Toulouse I, Capitole'
     },
-    miage: {
-        year: '2020-2021',
-        name: 'Miage',
+    college: {
+        year: '2017-2019',
+        name: 'I.U.T. Informatique',
         location: 'Université Toulouse III, Paul Sabatier'
+    },
+    highSchool: {
+        year: '2014-2017',
+        name: 'Lycée Victor Duruy',
+        location: 'Bagnères de Bigorre, France'
     }
 }
 
 const work = {
-    mipih: {
-        year: '2019',
-        job: 'Développeur web Full-Stack PHP',
-        location: 'Toulouse, France',
-        company: 'Mipih'
-    },
     iwit: {
         company: 'Iwit Systems',
         location: 'Toulouse, France',
         timeline: [
             {
-                year: '2020',
-                job: 'Développeur web Full-Stack Symfony en alternance'
+                year: 'Depuis 2022',
+                job: 'Lead développeur web'
             },
             {
                 year: '2021',
                 job: 'Développeur web Full-Stack Symfony'
             },
             {
-                year: 'Depuis 2022',
-                job: 'Lead développeur web'
-            }
+                year: '2020',
+                job: 'Développeur web Full-Stack Symfony en alternance'
+            },
         ]
+    },
+    mipih: {
+        year: '2019',
+        job: 'Développeur web Full-Stack PHP',
+        location: 'Toulouse, France',
+        company: 'Mipih'
     }
 }
 
