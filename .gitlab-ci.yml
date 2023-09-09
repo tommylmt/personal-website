@@ -1,4 +1,4 @@
-image: node:20.05
+image: node:20.5
 
 stages:
     - deploy
