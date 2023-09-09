@@ -54,7 +54,7 @@
 
         <ListBlock v-for="(data, title) in lists" :key="title" :listTitle="title" :data="data" />
         <ListBlock :list-title="'Sur terre'">
-            <img :src="`../../assets/img/${locationImage}`" id="locationImage" alt="Location" />
+            <img :src="`/img/${locationImage}`" id="locationImage" alt="Location" />
         </ListBlock>
     </div>
 </template>
