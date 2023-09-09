@@ -1,37 +1,17 @@
-// Core
-@import '_colors';
-@import '_fonts';
-@import '_reset';
-@import '_responsive';
+@import "_colors";
+@import "_fonts";
+@import "_variables";
 
-@import 'Menu/menu';
-@import 'About/about';
-@import 'Error/error404';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-// Responsive
-@import '_main-responsive';
+body {
+    background: $dark;
 
-main {
-    width: 100vw;
-    height: 100vh;
-    padding-bottom: 100px;
-    background: $whiteLight;
-
-    .page-transition-enter-to,
-    .page-transition-leave-from {
-        transition: all 0.5s ease;
-        transform: scale(1);
-        opacity: 1;
-    }
-    .page-transition-enter-from,
-    .page-transition-leave-to {
-        transition: all 0.5s ease;
-        opacity: 0;
-        transform: scale(0.7);
-    }
-    [id^='container'] {
-        margin: 50px auto;
-        width: 70vw;
-        padding: 0 50px;
+    main {
+        padding: 70px;
     }
 }

@@ -1,5 +1,4 @@
 <script setup>
-import NavBar from './components/menu/NavBar.vue'
 import MenuHelper from '@/utils/MenuHelper'
 
 const helper = new MenuHelper()
