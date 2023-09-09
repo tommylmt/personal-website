@@ -24,7 +24,7 @@ production:
         - npm i
         - echo $DOTENV_PRODUCTION > .env.production
         - npm run build
-        - scp -r dist/* $DEPLOY_HOST:/srv/thomaslamothe.com/
+        - scp -rp dist/* $DEPLOY_HOST:/srv/thomaslamothe.com/
     only:
         - master
         - develop
