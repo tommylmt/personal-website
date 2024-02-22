@@ -110,9 +110,9 @@ export default {
         },
         async retrieveDeezerCharts() {
             try {
-                const deezer = await axios.get('https://api.deezer.com/user/1567995002/charts')
+                const response = await axios.get(`${this.$baseUrl}/api/culture/charts`)
 
-                this.songs = deezer.data.data
+                this.songs = response.data.data
             } catch (e) {
                 this.songs = 'Erreur lors de la récupération des charts'
             }
