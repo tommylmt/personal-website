@@ -9,9 +9,52 @@
 }
 
 body {
-    background: $dark;
+    padding: 30px;
+    background: #FFF;
 
     main {
+        border-radius: 32px;
+        background: $dark;
+        height: calc(100vh - 60px);
+        overflow: scroll;
         padding: 70px;
     }
+}
+
+nav#menu {
+    position: absolute;
+    top: 5px;
+    right: 60px;
+
+    div.mouse-tracker {
+        position: absolute;
+        border-radius: 10px 10px 0 0;
+        z-index: 1;
+        transition: left 0.35s, color .3s;
+    }
+    ul {
+        gap: 30px;
+        display: flex;  
+    
+        li {
+            list-style: none;
+            font-family: $cloister;
+            font-size: 20px;
+
+            a {
+                color: $dark;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+::-moz-selection {
+    color: #3F2305;
+    background: #EAC696;
+}
+
+::selection {
+    color: #3F2305;
+    background: #EAC696;
 }

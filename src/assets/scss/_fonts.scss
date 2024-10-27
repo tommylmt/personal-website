@@ -43,8 +43,18 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Cloister Blacklight';
+    src: url('../fonts/cloisterblack-webfont.woff2') format('woff2'),
+         url('../fonts/cloisterblack-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 $jmhPysche: 'JMH Psychedelic CAPS', sans-serif;
 $gruvilicious: 'Gruvilicious', sans-serif;
 $heavyHeap: 'Heavy Heap', sans-serif;
 $antikern: 'Antikern', sans-serif;
 $ancient: 'Ancient', sans-serif;
+$cloister: 'Cloister Blacklight', sans-serif;
