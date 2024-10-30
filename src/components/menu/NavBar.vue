@@ -1,11 +1,10 @@
 <template>
-    <nav id="mainMenu">
+    <nav id="mainMenu" class="fixed bottom-10 w-auto bg-slate-200/60 backdrop-blur-xl p-2 rounded-[50px] shadow-sm">
         <div
-            class="mouse-tracker"
+            class="bg-slate-900 rounded-[45px] absolute transition-all duration-300"
             :style="{ left: currentLeft, width: currentWidth, height: `${clientHeight}px` }"
         ></div>
-
-        <ul>
+        <ul class="flex gap-5">
             <MenuItem
                 v-for="page in localPages"
                 :name="page.name"
@@ -48,11 +47,11 @@ export default {
     methods: {
         handleHover(e) {
             this.moveTracker(e.$refs.listItem)
-            this.getCurrentItem().classList.add('stopped')
+            this.getCurrentItem().classList.add('text-slate-900')
         },
         retrieveCurrent() {
             this.moveTracker(this.getCurrentItem())
-            this.getCurrentItem().classList.remove('stopped')
+            this.getCurrentItem().classList.remove('text-slate-900')
         },
         moveTracker(element) {
             this.currentLeft = `${element.offsetLeft}px`

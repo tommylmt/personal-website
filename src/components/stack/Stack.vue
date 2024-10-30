@@ -42,7 +42,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-@import '@/assets/scss/Stack/stack';
-</style>
