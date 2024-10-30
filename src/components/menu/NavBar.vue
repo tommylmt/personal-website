@@ -1,10 +1,10 @@
 <template>
-    <nav id="mainMenu" class="fixed bottom-10 w-auto bg-slate-200/60 backdrop-blur-xl p-2 rounded-[50px] shadow-sm">
+    <nav id="mainMenu" class="fixed bottom-10 w-[460px] m-auto bg-slate-200/60 backdrop-blur-xl p-2 rounded-[50px] shadow-sm">
         <div
             class="bg-slate-900 rounded-[45px] absolute transition-all duration-300"
             :style="{ left: currentLeft, width: currentWidth, height: `${clientHeight}px` }"
         ></div>
-        <ul class="flex gap-5">
+        <ul class="flex gap-5 justify-between">
             <MenuItem
                 v-for="page in localPages"
                 :name="page.name"
