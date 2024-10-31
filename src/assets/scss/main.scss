@@ -10,3 +10,12 @@ $menuWidth: 460px;
     width: $menuWidth;
     left: calc(50% - calc($menuWidth /2));
 }
+
+@layer components {
+    .main-text {
+        @apply text-slate-500 leading-7 font-sans
+    }
+    .me-link {
+        @apply text-slate-800
+    }
+}
