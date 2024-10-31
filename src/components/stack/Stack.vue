@@ -1,7 +1,7 @@
 <template>
     <div id="container">
         <div>
-            <h1>Stack</h1>
+            <h1>{{ $t('stack.title') }}</h1>
             <p>Les co{r}des à mon arc</p>
         </div>
         <div id="stackWrapper">

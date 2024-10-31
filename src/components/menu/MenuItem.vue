@@ -5,7 +5,16 @@
         @mouseover="onHover()"
         @mouseleave="stopHover()"
     >
-        <router-link :to="path" @click="changeActive()" ref="link" class="font-sans font-light">{{ name }}</router-link>
+        <router-link
+            v-if="!special"
+            :to="path"
+            @click="changeActive()"
+            ref="link"
+            :class="classList"
+        >
+            {{ name }}
+        </router-link>
+        <a v-else :href="path" :class="classList" target="_blank">{{ name }}</a>
     </li>
 </template>
 
@@ -14,10 +23,11 @@ export default {
     data() {
         return {
             mainClass: 'font-sans px-5 py-2 relative hover:text-white transition-color duration-300',
-            currentClass: 'current-item text-white'
+            currentClass: 'current-item text-white',
+            classList: "font-sans font-light"
         }
     },
-    props: ['path', 'current', 'name'],
+    props: ['path', 'current', 'name', 'special'],
     methods: {
         onHover() {
             this.$emit('followItem', this)

@@ -3,6 +3,7 @@ import { fr } from '@/translations/fr'
 import { en } from '@/translations/en'
 
 export const i18n = createI18n({
+    locale: 'en',
     fallbackLocale: 'en',
     globalInjection: true,
     messages: {
