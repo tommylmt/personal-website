@@ -1,9 +1,16 @@
-<script setup>
+<script>
 import NavBar from './components/menu/NavBar.vue'
 import MenuHelper from '@/utils/MenuHelper'
 import Locale from '@/components/locale/Locale.vue'
 
-const helper = new MenuHelper()
+export default {
+    data() {
+        return {
+            helper: new MenuHelper()
+        }
+    },
+    components: { Locale, NavBar }
+}
 </script>
 
 <template>

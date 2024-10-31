@@ -44,6 +44,13 @@ export default {
         this.clientHeight = document.querySelector(localSelectors.menuListItem).clientHeight
         this.retrieveCurrent()
     },
+    watch: {
+        '$i18n.locale'() {
+            setTimeout(() => {
+                this.currentWidth = `${this.getCurrentItem()?.clientWidth}px`;
+            }, 50)
+        }
+    },
     props: ['pages'],
     methods: {
         handleHover(e) {

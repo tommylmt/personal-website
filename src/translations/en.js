@@ -6,7 +6,11 @@ export const en = {
         contact: 'Contact'
     },
     about: {
-        theEnd: 'Thank you for reaching the end'
+        theEnd: 'Thank you for reaching the end',
+        me: {
+            title: "Hi there",
+            sentence: "I'm Thomas, a french web tech lead developer currently based in Toulouse, south of France"
+        }
     },
     stack: {
         title: 'Stack',

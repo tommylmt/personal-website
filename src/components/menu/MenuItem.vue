@@ -12,9 +12,9 @@
             ref="link"
             :class="classList"
         >
-            {{ name }}
+            {{ $t(name) }}
         </router-link>
-        <a v-else :href="path" :class="classList" target="_blank">{{ name }}</a>
+        <a v-else :href="path" :class="classList" target="_blank">{{ $t(name) }}</a>
     </li>
 </template>
 
