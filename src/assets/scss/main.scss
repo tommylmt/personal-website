@@ -3,3 +3,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+$menuWidth: 460px;
+
+#mainMenu {
+    width: $menuWidth;
+    left: calc(50% - calc($menuWidth /2));
+}

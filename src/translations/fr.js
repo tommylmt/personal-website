@@ -7,5 +7,8 @@ export const fr = {
     },
     about: {
         theEnd: 'Merci, à bientôt'
+    },
+    stack: {
+        title: 'Environnement technique',
     }
 };

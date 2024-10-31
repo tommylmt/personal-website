@@ -1,5 +1,5 @@
 <template>
-    <nav id="mainMenu" class="fixed bottom-10 w-[460px] m-auto bg-slate-200/60 backdrop-blur-xl p-2 rounded-[50px] shadow-sm">
+    <nav id="mainMenu" class="fixed bottom-10 m-auto bg-slate-200/60 backdrop-blur-xl p-2 rounded-[50px] shadow-sm">
         <div
             class="bg-slate-900 rounded-[45px] absolute transition-all duration-300"
             :style="{ left: currentLeft, width: currentWidth, height: `${clientHeight}px` }"
@@ -11,6 +11,7 @@
                 :current="page.current"
                 :key="page.path"
                 :path="page.path"
+                :special="page.specialLink"
                 @followItem="($e) => handleHover($e)"
                 @hoverStop="retrieveCurrent()"
                 @active-page-change="($e) => changeActivePage($e)"
@@ -47,11 +48,11 @@ export default {
     methods: {
         handleHover(e) {
             this.moveTracker(e.$refs.listItem)
-            this.getCurrentItem().classList.add('text-slate-900')
+            this.getCurrentItem().classList.add('!text-slate-900')
         },
         retrieveCurrent() {
             this.moveTracker(this.getCurrentItem())
-            this.getCurrentItem().classList.remove('text-slate-900')
+            this.getCurrentItem().classList.remove('!text-slate-900')
         },
         moveTracker(element) {
             this.currentLeft = `${element.offsetLeft}px`

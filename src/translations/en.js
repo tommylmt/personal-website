@@ -7,5 +7,8 @@ export const en = {
     },
     about: {
         theEnd: 'Thank you for reaching the end'
+    },
+    stack: {
+        title: 'Stack',
     }
 };
