@@ -9,7 +9,8 @@ export const fr = {
         theEnd: 'Merci, à bientôt',
         me: {
             title: 'Bonjour',
-            sentence: "Je suis Thomas, un tech lead développeur web actuellement basé à Toulouse, dans le sud de la France"
+            introduction: "Je suis Thomas, un tech lead développeur web actuellement basé à Toulouse, dans le sud de la France",
+            working: 'I currently work as a tech lead developer at {0}.',
         }
     },
     stack: {
