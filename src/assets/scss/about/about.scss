@@ -1,0 +1,8 @@
+.emoji-change {
+    transform: scale(.7), rotate(45deg);
+    filter: blur(10px);
+}
+.emoji-ready {
+    transform: scale(1), rotate(0);
+    filter: blur(0);
+}

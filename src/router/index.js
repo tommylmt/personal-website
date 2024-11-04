@@ -6,6 +6,10 @@ import Culture from '@/components/culture/Culture.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
+    scrollBehavior(to) {
+        // always scroll to top
+        return { top: 0 }
+    },
     routes: [
         {
             path: '/',

@@ -1,4 +1,5 @@
 import '@/assets/scss/main.scss'
+import "@phosphor-icons/web/light";
 
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -14,7 +15,7 @@ app.use(router)
 app.use(i18n)
 app.mount('#app')
 
-Scrollbar.init(document.querySelector('#main'), {
+/** Scrollbar.init(document.querySelector('#main'), {
     damping: 0.04,
     renderByPixels: false
-})
+}) */

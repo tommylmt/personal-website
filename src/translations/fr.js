@@ -11,6 +11,12 @@ export const fr = {
             title: 'Bonjour',
             introduction: "Je suis Thomas, un tech lead développeur web actuellement basé à Toulouse, dans le sud de la France",
             working: 'I currently work as a tech lead developer at {0}.',
+        },
+        school: {
+            title: 'Formation'
+        },
+        pro: {
+            title: 'Expériences'
         }
     },
     stack: {
