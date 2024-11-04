@@ -2,7 +2,7 @@
     <div id="container">
         <div>
             <h1>{{ $t('stack.title') }}</h1>
-            <p>Les co{r}des à mon arc</p>
+            <p>{{ $t('stack.subtitle') }}</p>
         </div>
         <div id="stackWrapper">
             <div class="stack-flex">

@@ -1,5 +1,5 @@
 <template>
-    <nav id="mainMenu" class="fixed bottom-10 m-auto bg-slate-200/60 backdrop-blur-xl p-2 rounded-[50px] shadow-sm">
+    <nav id="mainMenu" class="fixed z-50 bottom-10 m-auto bg-slate-200/60 backdrop-blur-xl p-2 rounded-[50px] shadow-sm">
         <div
             class="bg-slate-900 rounded-[45px] absolute transition-all duration-300"
             :style="{ left: currentLeft, width: currentWidth, height: `${clientHeight}px` }"
