@@ -1,4 +1,5 @@
 @import 'fonts';
+@import 'responsive';
 
 @tailwind base;
 @tailwind components;
@@ -13,6 +14,11 @@ $menuWidth: 460px;
 #mainMenu {
     width: $menuWidth;
     left: calc(50% - calc($menuWidth /2));
+
+    @media screen and (max-width: $mobile) {
+        width: 90%;
+        left: 5%;
+    }
 }
 
 @layer components {

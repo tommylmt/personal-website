@@ -1,10 +1,17 @@
 <template>
-    <div class="flex bg-white border border-slate-100 shadow-lg shadow-slate-100 rounded-xl my-10 mx-auto w-7/12">
-        <div class="w-96 shrink-0">
-            <img src="../../assets/img/about_me.png" alt="Thomas Lamothe" class="rounded-s-xl">
+    <div :class="[
+        'block xl:flex bg-white border border-slate-100 shadow-lg shadow-slate-100 rounded-xl my-10 mx-auto',
+        'w-11/12 md:w-10/12 2xl:w-7/12'
+    ]">
+        <div class="w-full xl:w-96 shrink-0">
+            <img
+                src="../../assets/img/about_me.png"
+                alt="Thomas Lamothe"
+                class="rounded-xl lg:rounded-e-none"
+            >
         </div>
-        <div class="grow">
-            <div class="p-10">
+        <div class="grow-0 xl:grow">
+            <div class="p-5 xl:p-10">
                 <h1 class="font-sans font-extrabold text-5xl text-slate-900 flex gap-3">
                     {{ $t('about.me.title') }} <Emoji />
                 </h1>
