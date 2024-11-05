@@ -39,6 +39,9 @@ export const en = {
         },
         social: {
             internet: 'Find me on the internet'
+        },
+        earth: {
+            title: 'My place on earth'
         }
     },
     stack: {
