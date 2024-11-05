@@ -21,14 +21,17 @@
             </span>
         </button>
 
-        <div class="mt-20 mb-40 flex flex-wrap gap-9" v-if="icons.length > 0">
+        <div class="mt-20 mb-40" v-if="icons.length > 0">
             <draggable
                 v-model="icons"
                 tag="transition-group"
                 :item-key="e => e.title"
                 ghost-class="ghost-card"
                 :component-data="{
-                    name: 'icons'
+                    tag: 'div',
+                    name: 'icons',
+                    type: 'transition',
+                    class: 'flex flex-wrap gap-9',
                 }"
             >
                 <template #item="{ element }">
