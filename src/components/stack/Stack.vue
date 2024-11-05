@@ -27,6 +27,9 @@
                 tag="transition-group"
                 :item-key="e => e.title"
                 ghost-class="ghost-card"
+                animation="0"
+                group="stack"
+                :disabled="false"
                 :component-data="{
                     tag: 'div',
                     name: 'icons',
