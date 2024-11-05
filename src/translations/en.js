@@ -46,6 +46,7 @@ export const en = {
     },
     stack: {
         title: 'Stack',
-        subtitle: 'Elements I use everyday'
+        subtitle: 'Elements I use everyday',
+        shuffle: 'Shuffle'
     }
 };

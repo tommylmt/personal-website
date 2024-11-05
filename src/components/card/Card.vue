@@ -1,5 +1,5 @@
 <template>
-    <div class="group h-[500px] w-[22%] relative hover:shadow-lg border border-slate-50 rounded-xl cursor-help overflow-hidden">
+    <div class="group h-[500px] w-full lg:w-[25%] 2xl:w-[22%] relative hover:shadow-lg border border-slate-50 rounded-xl cursor-help overflow-hidden my-7 xl:my-0">
         <div class="w-full h-full rounded-xl transition-all duration-300 group-hover:scale-110" :style="{
             backgroundImage: `url(${img})`,
             backgroundPosition: 'center center',
