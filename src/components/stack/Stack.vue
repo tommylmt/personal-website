@@ -8,35 +8,26 @@
         <button
             :class="[
                 'absolute transition-all top-3 right-0 h-12 flex justify-center items-center rounded-3xl cursor-pointer',
-                'hover:shadow-lg',
+                'group hover:shadow-lg',
                 !displayShuffleTitle ? 'w-12' : 'w-36'
             ]"
             @mouseover="displayShuffleTitle = true"
             @mouseleave="displayShuffleTitle = false"
             @click="shuffle"
         >
-            <i class="ph-light ph-shuffle text-slate-400 text-3xl"></i>
-            <span v-show="displayShuffleTitle" class="text-slate-400 ms-3 font-sans">
+            <i class="transition-all ph-light ph-shuffle text-slate-400 text-3xl group-hover:text-slate-500"></i>
+            <span
+                v-show="displayShuffleTitle"
+                class="transition-all text-slate-400 ms-3 font-sans group-hover:text-slate-500"
+            >
                 {{ $t('stack.shuffle') }}
             </span>
         </button>
 
         <div class="mt-20 mb-40" v-if="icons.length > 0">
-            <draggable
-                v-model="icons"
-                item-key="title"
-                ghost-class="ghost"
-                :animation="200"
-                group="stack"
-                :disabled="false"
-                :component-data="{
-                    class: 'flex flex-wrap gap-9',
-                }"
-            >
-                <template #item="{ element }">
-                    <StackElement :icon="element" />
-                </template>
-            </draggable>
+            <div id="muuri">
+                <StackElement v-for="icon in icons" :icon="icon" :key="icon.title" />
+            </div>
         </div>
     </div>
 </template>
@@ -45,17 +36,18 @@
 import * as sicons from 'simple-icons'
 import axios from 'axios'
 import StackElement from '@/components/stack/StackElement.vue'
-import draggable from 'vuedraggable'
+import 'web-animations-js';
+import Muuri from "muuri";
 
 export default {
     components: {
-        StackElement,
-        draggable
+        StackElement
     },
     data() {
         return {
             icons: [],
             displayShuffleTitle: false,
+            muuri: null,
         }
     },
     mounted() {
@@ -65,23 +57,45 @@ export default {
         async retrieveSkills() {
             const res = await axios.get(`${this.$baseUrl}/api/stack/`)
 
-            this.prepareIcons(res.data)
-        },
-        prepareIcons(data) {
-            data.forEach((el) => {
-                this.icons.push(sicons[el.code])
+            this.prepareIcons(res.data).then(() => {
+                this.muuri = new Muuri('#muuri', {
+                    dragEnabled: true,
+                    sortData: {
+                        id: (item, element) => {
+                            return parseFloat(element.children[0].textContent);
+                        }
+                    }
+                });
             })
         },
+        prepareIcons(data) {
+            return new Promise((res) => {
+                data.forEach((el) => {
+                    this.icons.push(sicons[el.code])
+                })
+
+                res();
+            });
+        },
         shuffle() {
-            let currentIndex = this.icons.length;
+            this.muuri.sort(this.randomSortItems());
+        },
+        randomSortItems() {
+            let elements = this.muuri.getItems();
+            let currentIndex = elements.length;
 
             while (currentIndex != 0) {
                 let randomIndex = Math.floor(Math.random() * currentIndex);
                 currentIndex--;
-
-                [this.icons[currentIndex], this.icons[randomIndex]] = [this.icons[randomIndex], this.icons[currentIndex]];
+                [elements[currentIndex], elements[randomIndex]] = [elements[randomIndex], elements[currentIndex]];
             }
+
+            return elements;
         }
     }
 }
 </script>
+
+<style lang="scss">
+@import '@/assets/scss/stack/stack';
+</style>
