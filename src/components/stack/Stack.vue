@@ -24,16 +24,12 @@
         <div class="mt-20 mb-40" v-if="icons.length > 0">
             <draggable
                 v-model="icons"
-                tag="transition-group"
-                :item-key="e => e.title"
-                ghost-class="ghost-card"
-                animation="0"
+                item-key="title"
+                ghost-class="ghost"
+                :animation="200"
                 group="stack"
                 :disabled="false"
                 :component-data="{
-                    tag: 'div',
-                    name: 'icons',
-                    type: 'transition',
                     class: 'flex flex-wrap gap-9',
                 }"
             >
@@ -89,21 +85,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-.icons-move,
-.icons-enter-active,
-.icons-leave-active {
-    transition: all .3s ease;
-    transform: translateX(30px), scale(.3);
-}
-
-.icons-enter-from, .icons-leave-to {
-    opacity: 0;
-    transform: translateX(30px);
-}
-
-.icons-leave-active {
-    position: absolute;
-}
-</style>
