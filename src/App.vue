@@ -6,15 +6,21 @@ import Locale from '@/components/locale/Locale.vue'
 export default {
     data() {
         return {
-            helper: new MenuHelper()
+            helper: null,
         }
+    },
+    mounted() {
+        this.helper = new MenuHelper(location.pathname ?? "/");
     },
     components: { Locale, NavBar }
 }
 </script>
 
 <template>
-    <NavBar :pages="helper.routes" />
+    <div v-if="helper">
+        <NavBar :pages="helper.routes" />
+    </div>
+
     <Locale />
 
     <main id="main">

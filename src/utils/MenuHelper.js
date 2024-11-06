@@ -1,18 +1,22 @@
 export default class MenuHelper {
+    constructor(currentRoute) {
+        this.current = currentRoute;
+    }
+
     get routes() {
         return [
             {
                 name: "menu.about",
                 path: '/',
-                current: true
+                current: '/' === this.current
             }, {
                 name: "menu.stack",
                 path: '/stack',
-                current: false
+                current: '/stack' === this.current
             }, {
                 name: "menu.culture",
                 path: '/culture',
-                current: false
+                current: '/culture' === this.current
             }, {
                 name: "menu.contact",
                 path: 'mailto:thomaslamothe@free.fr',
