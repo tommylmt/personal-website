@@ -22,8 +22,8 @@
 export default {
     data() {
         return {
-            mainClass: 'font-sans px-5 py-2 relative hover:text-white transition-color duration-300',
-            currentClass: 'current-item text-white',
+            mainClass: 'font-sans px-5 py-2 relative hover:text-white dark:hover:text-slate-950 transition-color duration-300',
+            currentClass: 'current-item text-white dark:text-slate-950',
             classList: "font-sans font-light"
         }
     },

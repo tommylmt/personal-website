@@ -1,7 +1,8 @@
 <template>
     <div :class="[
         'block xl:flex bg-white border border-slate-100 shadow-lg shadow-slate-100 rounded-xl my-10 mx-auto',
-        'w-11/12 md:w-10/12 2xl:w-7/12'
+        'w-11/12 md:w-10/12 2xl:w-7/12',
+        'dark:bg-slate-950 dark:border-slate-800 dark:shadow-slate-950'
     ]">
         <div class="w-full xl:w-96 shrink-0">
             <img
@@ -12,7 +13,7 @@
         </div>
         <div class="grow-0 xl:grow">
             <div class="p-5 xl:p-10">
-                <h1 class="font-sans font-extrabold text-5xl text-slate-900 flex gap-3">
+                <h1 class="font-sans font-extrabold text-5xl text-slate-900 flex gap-3 dark:text-slate-300">
                     {{ $t('about.me.title') }} <Emoji />
                 </h1>
 

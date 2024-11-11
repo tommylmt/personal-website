@@ -26,6 +26,6 @@ $menuWidth: 460px;
         @apply text-slate-500 leading-7 font-sans
     }
     .me-link {
-        @apply text-slate-800 relative z-20 transition-all before:rounded-sm before:w-0 before:absolute before:h-full before:top-0 before:left-0 before:-z-10 hover:text-white before:transition-all hover:before:w-full px-1
+        @apply text-slate-800 relative z-20 transition-all before:rounded-sm before:w-0 before:absolute before:h-full before:top-0 before:left-0 before:-z-10 hover:text-white before:transition-all hover:before:w-full px-1 dark:text-slate-200
     }
 }
