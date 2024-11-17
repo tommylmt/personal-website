@@ -12,6 +12,10 @@
         </div>
     </div>
 
+    <div class="flex">
+        <Map />
+    </div>
+
     <div class="text-center my-40">
         <h3 class="text-slate-200 text-8xl 2xl:text-9xl font-gothic dark:text-slate-900">
             {{ $t('about.theEnd') }}
@@ -24,9 +28,11 @@ import Me from '@/components/about/Me.vue'
 import School from "@/components/about/School.vue";
 import ProSituation from "@/components/about/ProSituation.vue";
 import SocialMedia from "@/components/about/SocialMedia.vue";
+import Map from "@/components/about/Map.vue";
 
 export default {
     components: {
+        Map,
         SocialMedia,
         ProSituation,
         School,
