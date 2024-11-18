@@ -3,18 +3,7 @@
     <School />
     <ProSituation />
     <SocialMedia />
-
-    <div class="relative w-full 2xl:w-11/12 my-10 mx-auto">
-        <div class="p-6">
-            <h3 class="font-sans font-extrabold text-slate-800 dark:text-slate-400 text-3xl">
-                {{ $t('about.earth.title') }}
-            </h3>
-        </div>
-    </div>
-
-    <div class="flex">
-        <Map />
-    </div>
+    <Dragzone />
 
     <div class="text-center my-40">
         <h3 class="text-slate-200 text-8xl 2xl:text-9xl font-gothic dark:text-slate-900">
@@ -28,11 +17,11 @@ import Me from '@/components/about/Me.vue'
 import School from "@/components/about/School.vue";
 import ProSituation from "@/components/about/ProSituation.vue";
 import SocialMedia from "@/components/about/SocialMedia.vue";
-import Map from "@/components/about/Map.vue";
+import Dragzone from "@/components/about/Dragzone.vue";
 
 export default {
     components: {
-        Map,
+        Dragzone,
         SocialMedia,
         ProSituation,
         School,
