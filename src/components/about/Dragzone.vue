@@ -19,7 +19,7 @@ export default {
     },
     data() {
         return {
-            
+
         }
     },
     computed: {
@@ -37,13 +37,13 @@ export default {
                 posy = (Math.random() * (this.documentHeight - divsize)).toFixed()
             ;
 
-            $('#').css({
-                'width': divsize + 'px',
-                'height': divsize + 'px',
-                'position': 'absolute',
-                'left': posx + 'px',
-                'top': posy + 'px'
-            });
+            // $('#').css({
+            //     'width': divsize + 'px',
+            //     'height': divsize + 'px',
+            //     'position': 'absolute',
+            //     'left': posx + 'px',
+            //     'top': posy + 'px'
+            // });
         }
     }
 }
