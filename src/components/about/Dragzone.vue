@@ -1,14 +1,34 @@
 <template>
-    <div class="relative overflow-x-hidden my-20 h-[600px]" ref="dragzone">
+    <div class="relative my-20 h-[700px]" ref="dragzone">
         <Earth />
         <MyLife />
-        <PictureWrapper source="/img/me-on-earth/cat.webp" :width="300" />
-        <PictureWrapper source="/img/me-on-earth/living.webp" :width="500" />
-        <PictureWrapper source="/img/me-on-earth/nyc.webp" :width="250" />
-        <PictureWrapper source="/img/me-on-earth/office.webp" />
-        <PictureWrapper source="/img/me-on-earth/pedalboard.webp" />
-        <PictureWrapper source="/img/me-on-earth/quarterpounder.webp" />
-        <PictureWrapper source="/img/me-on-earth/replay.webp" />
+        <PictureWrapper source="/img/me-on-earth/cat.webp" :width="300" :position="{
+            bottom: '-50px',
+            left: '10px'
+        }" />
+        <PictureWrapper source="/img/me-on-earth/living.webp" :width="500" :position="{
+            top: '35%',
+            left: '18%'
+        }"/>
+        <PictureWrapper source="/img/me-on-earth/nyc.webp" :width="250" :position="{
+            right: '30%',
+            bottom: '0'
+        }" />
+        <PictureWrapper source="/img/me-on-earth/office.webp" :width="300" :position="{
+            top: '50px'
+        }" />
+        <PictureWrapper source="/img/me-on-earth/pedalboard.webp" :width="300" :position="{
+            bottom: '-100px',
+            left: '35%'
+        }" :z-index="-10" />
+        <PictureWrapper source="/img/me-on-earth/quarterpounder.webp" :width="300" :position="{
+            bottom: '-50px',
+            right: '5%'
+        }" :z-index="78" />
+        <PictureWrapper source="/img/me-on-earth/replay.webp" :width="600" :position="{
+            top: '40px',
+            left: '30%'
+        }" />
     </div>
 </template>
 

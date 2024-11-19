@@ -1,6 +1,8 @@
 <template>
     <DraggableBlock :style="{
-        width: `${width}px`
+        width: `${width}px`,
+        zIndex: zIndex,
+        ...position
     }">
         <img :src="source" alt="Image">
     </DraggableBlock>
@@ -25,6 +27,10 @@ export default{
             default: () => {
                 return {};
             }
+        },
+        zIndex: {
+            type: Number,
+            default: 0
         }
     }
 }
