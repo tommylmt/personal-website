@@ -1,0 +1,31 @@
+<template>
+    <DraggableBlock :style="{
+        width: `${width}px`
+    }">
+        <img :src="source" alt="Image">
+    </DraggableBlock>
+</template>
+
+<script>
+import DraggableBlock from "@/components/layout/DraggableBlock.vue";
+
+export default{
+    components: { DraggableBlock },
+    props: {
+        source: {
+            type: String,
+            required: true
+        },
+        width: {
+            type: Number,
+            default: 150
+        },
+        position: {
+            type: Object,
+            default: () => {
+                return {};
+            }
+        }
+    }
+}
+</script>

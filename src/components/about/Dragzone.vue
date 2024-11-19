@@ -1,50 +1,27 @@
 <template>
-    <div class="flex items-center" id="dragzone">
-        <Map />
+    <div class="relative overflow-x-hidden my-20 h-[600px]" ref="dragzone">
+        <Earth />
         <MyLife />
-        <Image />
+        <PictureWrapper source="/img/me-on-earth/cat.webp" :width="300" />
+        <PictureWrapper source="/img/me-on-earth/living.webp" :width="500" />
+        <PictureWrapper source="/img/me-on-earth/nyc.webp" :width="250" />
+        <PictureWrapper source="/img/me-on-earth/office.webp" />
+        <PictureWrapper source="/img/me-on-earth/pedalboard.webp" />
+        <PictureWrapper source="/img/me-on-earth/quarterpounder.webp" />
+        <PictureWrapper source="/img/me-on-earth/replay.webp" />
     </div>
 </template>
 
 <script>
-import Map from "@/components/about/Map.vue";
+import Earth from "@/components/about/Earth.vue";
 import MyLife from "@/components/about/MyLife.vue";
-import Image from "@/components/about/Image.vue";
+import PictureWrapper from "@/components/about/PictureWrapper.vue";
 
 export default {
     components: {
-        Image,
+        PictureWrapper,
         MyLife,
-        Map
+        Earth
     },
-    data() {
-        return {
-
-        }
-    },
-    computed: {
-        documentSize() {
-            return document.body.clientWidth;
-        },
-        documentHeight() {
-            return this.$refs.dragzone.clientHeight;
-        }
-    },
-    methods: {
-        position() {
-            let divsize = ((Math.random() * 100) + 50).toFixed(), // Check element
-                posx = (Math.random() * (this.documentSize - divsize)).toFixed(),
-                posy = (Math.random() * (this.documentHeight - divsize)).toFixed()
-            ;
-
-            // $('#').css({
-            //     'width': divsize + 'px',
-            //     'height': divsize + 'px',
-            //     'position': 'absolute',
-            //     'left': posx + 'px',
-            //     'top': posy + 'px'
-            // });
-        }
-    }
 }
 </script>

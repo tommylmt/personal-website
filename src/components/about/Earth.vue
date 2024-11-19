@@ -1,6 +1,8 @@
 <template>
-    <DraggableBlock>
-
+    <DraggableBlock :style="{
+        right: '-20px'
+    }">
+        <div id="openstreetmap"></div>
         <div class="z-[999] absolute w-full left-0 bottom-0 p-3">
             <div class="rounded-lg w-full bg-white/70 backdrop-blur-lg p-5 dark:bg-slate-950/80">
                 <p class="font-sans uppercase text-xs text-slate-500">Toulouse, France</p>
@@ -13,27 +15,15 @@
     </DraggableBlock>
 </template>
 
-<style>
-#map {
-    width: 600px!important;
-    height: 400px!important;
-}
-.leaflet-right {
-    display: none;
-}
-</style>
-
 <script>
 import 'leaflet/dist/leaflet.css';
 import DraggableBlock from "@/components/layout/DraggableBlock.vue";
-import L from 'leaflet';
+import * as L from "leaflet";
 
 export default {
     components: { DraggableBlock },
     mounted() {
-        setTimeout(() => {
-            this.initMap();
-        }, 400);
+        this.initMap();
         this.setCurrentTime();
     },
     data() {
@@ -53,7 +43,9 @@ export default {
             ;
         },
         tileSettings() {
-            return { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>' }
+            return {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+            }
         }
     },
     methods: {
@@ -65,18 +57,13 @@ export default {
                     minute: 'numeric',
                     second: 'numeric',
                 }).format(new Date());
-                this.currentDate = new Intl.DateTimeFormat([], {
-                    timeZone: 'Europe/Paris',
-                    year: 'numeric',
-                    month: 'numeric',
-                    day: 'numeric'
-                }).format(new Date());
+                this.currentDate = this.$d(new Date(), 'long');
 
                 this.setCurrentTime();
             }, 1000);
         },
         initMap() {
-            const map = L.map('map', {
+            const map = L.map('openstreetmap', {
                 trackResize: false,
                 zoomControl: false,
             }).setView([43.6128, 1.4359], 17);
@@ -92,3 +79,13 @@ export default {
     }
 }
 </script>
+
+<style>
+#openstreetmap {
+    width: 600px!important;
+    height: 400px!important;
+}
+.leaflet-right {
+    display: none;
+}
+</style>
