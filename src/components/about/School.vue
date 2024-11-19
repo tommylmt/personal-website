@@ -1,20 +1,22 @@
 <template>
     <AboutBlock :title="$t('about.school.title')">
         <Card v-for="school in timeline" :img="school.image">
-            <p class="font-sans font-semibold text-slate-800">{{ $t(school.name) }}</p>
+            <p class="font-sans font-semibold text-slate-800 dark:text-slate-200">
+                {{ $t(school.name) }}
+            </p>
             <p class="font-sans text-sm text-slate-400">
                 <i class="ph-light me-1 ph-map-pin text-red-700"></i>
                 {{ school.location }}
             </p>
-            <p class="font-sans text-slate-400 text-sm">
+            <p class="font-sans text-slate-400 text-sm ">
                 <i class="ph-light me-1 ph-graduation-cap text-red-700"></i>
                 {{ $t(school.grade) }}
             </p>
 
             <div class="flex mt-2 justify-center items-center gap-3 w-full">
-                <div class="text-xl font-light text-slate-400">{{ school.years.start }}</div>
-                <div class="w-10 h-1 bg-slate-300 rounded-xl"></div>
-                <div class="text-xl font-light text-slate-400">{{ school.years.end }}</div>
+                <div class="text-xl font-light text-slate-400 dark:text-slate-600">{{ school.years.start }}</div>
+                <div class="w-10 h-1 bg-slate-300 dark:bg-slate-800 rounded-xl"></div>
+                <div class="text-xl font-light text-slate-400 dark:text-slate-600">{{ school.years.end }}</div>
             </div>
         </Card>
     </AboutBlock>
