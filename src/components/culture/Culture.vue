@@ -10,16 +10,13 @@
         </div>
         <div class="my-5">
             <Vue3Marquee :pauseOnHover="true">
-                <div class="w-72" v-for="movie in movies" :key="movie.artist">
-                    <div
-                        class="h-96 w-full"
-                        :style="{ background: `url(${$baseUrl + movie.file})`, backgroundSize: 'cover' }"
-                    ></div>
-                    <div class="a-culture-desc">
-                        <h6>{{ $t('culture.director') }}</h6>
-                        <p>{{ movie.artist }}</p>
-                    </div>
-                </div>
+                <CulturePoster
+                    v-for="movie in movies"
+                    :key="movie.artist"
+                    translation-key="culture.director"
+                    :artist="movie.artist"
+                    :file="movie.file"
+                />
             </Vue3Marquee>
         </div>
         <div class="my-10">
@@ -33,19 +30,13 @@
             </div>
             <div class="my-5">
                 <Vue3Marquee :pauseOnHover="true">
-                    <div class="w-72" v-for="show in shows" :key="show.artist">
-                        <div
-                            class="w-full h-96"
-                            :style="{
-                                background: `url(${$baseUrl + show.file})`,
-                                backgroundSize: 'cover'
-                            }"
-                        ></div>
-                        <div class="a-culture-desc">
-                            <h6>{{ $t('culture.available') }}</h6>
-                            <p>{{ show.artist }}</p>
-                        </div>
-                    </div>
+                    <CulturePoster
+                        v-for="show in shows"
+                        :key="show.artist"
+                        translation-key="culture.available"
+                        :artist="show.artist"
+                        :file="show.file"
+                    />
                 </Vue3Marquee>
             </div>
         </div>
@@ -83,9 +74,11 @@
 import axios from 'axios'
 import { Vue3Marquee } from 'vue3-marquee'
 import 'vue3-marquee/dist/style.css'
+import CulturePoster from "@/components/culture/CulturePoster.vue";
 
 export default {
     components: {
+        CulturePoster,
         Vue3Marquee
     },
     data() {
