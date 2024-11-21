@@ -48,5 +48,16 @@ export const en = {
         title: 'Stack',
         subtitle: 'Elements I use everyday',
         shuffle: 'Shuffle'
+    },
+    culture: {
+        movies: 'Movies',
+        moviesubtitle: 'Films I recently loved',
+        director: 'Directed by',
+        tvshows: 'TV Shows',
+        tvshowsubtitle: 'Shows I recently loved',
+        music: 'Music',
+        musicsubtitle: 'Songs I listen on repeat',
+        available: 'Available on',
+        meetme: 'Meet me on',
     }
 };
