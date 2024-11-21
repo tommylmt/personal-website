@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed z-50 bottom-6 md:bottom-10 right-5">
+    <div class="fixed z-[9998] bottom-6 md:bottom-10 right-5">
         <div
             class="bg-slate-100 shadow-md min-w-12 h-12 rounded-full cursor-pointer flex justify-center items-center transition-all dark:bg-slate-800"
             @mouseover="switchLocale = true"

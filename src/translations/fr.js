@@ -10,16 +10,43 @@ export const fr = {
         me: {
             title: 'Bonjour',
             introduction: "Je suis Thomas, un tech lead développeur web actuellement basé à Toulouse, dans le sud de la France",
-            working: 'I currently work as a tech lead developer at {0}.',
+            working: 'Je travaille en tant que Tech lead developpeur chez {0}.',
+            whatido: 'Mon travaille consiste essentiellement à développer et maintenir des applications métiers complexes basées sur des architectures modernes ainsi qu\'à gérer une équipe de développeurs. Je code principalement avec {0}, {1}, {2} et {3} déployés sur des infrastructures {4}.',
+            projects: 'Je suis aussi l\'auteur de plusieurs projets tels que {0}, Orkestrum, Cinécombles ainsi que beaucoup d\'autres qui ne verront jamais le jour.',
+            hobbies: 'Par ailleurs, je suis un nerd de pop culture et de musique. Je joue de la guitare depuis {guitarYears} ans, et fais du skate. Je suis aussi un amateur de tattoos, de cinéma, de design et bière.',
+            findme: 'Je suis facilement trouvable aux meilleurs endroits de Toulouse.'
         },
         school: {
-            title: 'Formation'
+            title: 'Formation',
+            level: {
+                highschool: 'Lycée Victor Duruy',
+                dut: 'Institut Technologique de Paul Sabatier',
+                licence: 'Université Toulouse Capitole',
+                miage: 'Université Paul Sabatier'
+            },
+            graduations: {
+                bac: 'Baccalauréat Scientifique (Mention anglais)',
+                dut: 'Diplôme universitaire technologique en informatique',
+                prolicence: 'Licence profesionnelle en développement web',
+                duallicence: 'Double licence en ingénierie informatique'
+            }
         },
         pro: {
-            title: 'Expériences'
+            title: 'Expériences',
+            status: {
+                intern: 'Stage développeur web'
+            }
+        },
+        social: {
+            internet: 'Me retrouver sur l\'internet'
+        },
+        earth: {
+            title: 'à propos de moi'
         }
     },
     stack: {
         title: 'Environnement technique',
+        subtitle: 'Éléments que j\'utilise au quotidien',
+        shuffle: 'Mélanger'
     }
 };

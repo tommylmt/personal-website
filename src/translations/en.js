@@ -13,7 +13,7 @@ export const en = {
             working: 'I currently work as a tech lead developer at {0}.',
             whatido: 'My work essentially consist into building complex applications architectures and managing a developers team. I mostly write code using {0}, {1}, {2} and {3} deployed on {4} infrastructures.',
             projects: 'I\'m also the father of several projects like {0}, Orkestrum, Cinécombles and many others that, maybe, will never be released.',
-            hobbies: 'Besides that, I\'m a huge pop culture and music fan. I play guitar for {guitarYears} years, do skateboard. I\'m also a tattoo, cinema, lifestyle and beer enthusiast.',
+            hobbies: 'Besides that, I\'m a huge pop culture and music nerd. I\'ve been playing guitar for {guitarYears} years, do skateboard. I\'m also a tattoo, cinema, lifestyle and beer enthusiast.',
             findme: 'You can easily find me somewhere cool in Toulouse.'
         },
         school: {
@@ -41,7 +41,7 @@ export const en = {
             internet: 'Find me on the internet'
         },
         earth: {
-            title: 'My place on earth'
+            title: 'Me, on earth'
         }
     },
     stack: {

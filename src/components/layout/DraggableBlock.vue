@@ -1,9 +1,11 @@
 <template>
     <div :class="[
-        'rounded-xl shadow-md overflow-hidden absolute dark:shadow-slate-900 dark:shadow-lg',
+        'rounded-xl absolute',
         isDragging ? 'cursor-grabbing' : 'cursor-grab'
-    ]" :style="style" @mousedown="startDragging" @mouseup="stopDragging">
-        <slot></slot>
+    ]" :style="realStyle" ref="draggable" @mousedown="mouseDown">
+        <div class="rounded-xl overflow-hidden relative shadow-md dark:shadow-slate-900 dark:shadow-lg">
+            <slot></slot>
+        </div>
     </div>
 </template>
 
@@ -24,27 +26,34 @@ export default {
             isDragging: false,
         }
     },
+    computed: {
+        realStyle() {
+            let style = this.style;
+            style.zIndex = this.isDragging ? 5000 : (style.zIndex || 'auto');
+
+            return style;
+        }
+    },
+    mounted() {
+        window.addEventListener('mouseup', this.mouseUp, false);
+    },
     methods: {
-        startDragging(e) {
+        mouseUp() {
+            this.isDragging = false;
+            window.removeEventListener('mousemove', this.moveElement, false);
+        },
+        mouseDown(e) {
             e.preventDefault();
-
-            this.offsetX = e.clientX - e.target.getBoundingClientRect().left;
-            this.offsetY = e.clientY - e.target.getBoundingClientRect().top;
-
             this.isDragging = true;
 
-            document.addEventListener('mousemove', this.dragElement);
-        },
-        dragElement(e) {
-            e.preventDefault();
+            this.offsetX = e.clientX - this.$refs.draggable.offsetLeft;
+            this.offsetY = e.clientY - this.$refs.draggable.offsetTop;
 
-            e.target.style.left = (e.clientX - this.offsetX) + 'px';
-            e.target.style.top = (e.clientY - this.offsetY) + 'px';
+            window.addEventListener('mousemove', this.moveElement, false);
         },
-        stopDragging() {
-            this.isDragging = false;
-
-            document.removeEventListener('mousemove', this.dragElement);
+        moveElement(e) {
+            this.$refs.draggable.style.left = (e.clientX - this.offsetX) + 'px';
+            this.$refs.draggable.style.top = (e.clientY - this.offsetY) + 'px';
         }
     }
 }
