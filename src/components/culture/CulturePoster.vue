@@ -8,7 +8,7 @@
             }"
         >
             <div class="bg-white/70 shadow-lg backdrop-blur-lg w-full p-3 flex justify-between items-center rounded-lg">
-                <h6 class="text-slate-500 text-sm">{{ $t(translationKey) }}</h6>
+                <h6 class="text-slate-500 text-sm">{{ subtitle }}</h6>
                 <p class="text-slate-800 font-sans">{{ artist }}</p>
             </div>
         </div>
@@ -19,7 +19,7 @@
 export default {
     props: {
         file: { type: String, required: true },
-        translationKey: { type: String, required: true },
+        subtitle: { type: String, required: true },
         artist: { type: String, required: true }
     },
 }

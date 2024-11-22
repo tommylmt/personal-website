@@ -6,14 +6,14 @@
             </h1>
             <p class="font-sans text-slate-500 dark:text-slate-400">{{ $t('culture.moviesubtitle') }}</p>
 
-            <button class="absolute top-5 right-0">{{ $t('culture.meetme') }} SensCritique</button>
+            <MeetMe :link="links.senscritique" image="/img/culture/senscritique.png" :width="45" />
         </div>
         <div class="my-5">
             <Vue3Marquee :pauseOnHover="true">
                 <CulturePoster
                     v-for="movie in movies"
                     :key="movie.artist"
-                    translation-key="culture.director"
+                    :subtitle="`📽️ ${$t('culture.director')}`"
                     :artist="movie.artist"
                     :file="movie.file"
                 />
@@ -26,14 +26,14 @@
                 </h1>
                 <p class="font-sans text-slate-500 dark:text-slate-400">{{ $t('culture.tvshowsubtitle') }}</p>
 
-                <button class="absolute top-5 right-0">{{ $t('culture.meetme') }} TV Time</button>
+                <MeetMe :link="links.tvtime" image="/img/culture/tvtime.png" :width="100" />
             </div>
             <div class="my-5">
                 <Vue3Marquee :pauseOnHover="true">
                     <CulturePoster
                         v-for="show in shows"
                         :key="show.artist"
-                        translation-key="culture.available"
+                        :subtitle="`📺 ${$t('culture.available')}`"
                         :artist="show.artist"
                         :file="show.file"
                     />
@@ -46,27 +46,13 @@
             </h1>
             <p class="font-sans text-slate-500 dark:text-slate-400">{{ $t('culture.musicsubtitle') }}</p>
 
-            <button class="absolute top-5 right-0">{{ $t('culture.meetme') }} Deezer</button>
+            <MeetMe :link="links.deezer" image="/img/culture/deezer.svg" :width="100" />
         </div>
         <div class="my-5 mb-40">
-            <div class="flex flex-wrap justify-evenly">
-                <div
-                    v-for="element in songs"
-                    :key="element.id"
-                    class="a-music"
-                    @mouseover="playMusic(element)"
-                    @mouseleave="stopMusic()"
-                >
-                    <img :src="element.album.cover_medium" width="100" alt="Musique" />
-                    <p>{{ element.title }}</p>
-                    <h6>{{ element.artist.name }}</h6>
-                </div>
+            <div class="flex flex-wrap gap-5 justify-between">
+                <Music v-for="element in songs" :song="element" />
             </div>
         </div>
-    </div>
-
-    <div id="audioWrapper" class="hidden">
-        <audio :src="currentSong" controls crossorigin="anonymous" ref="audio"></audio>
     </div>
 </template>
 
@@ -75,9 +61,13 @@ import axios from 'axios'
 import { Vue3Marquee } from 'vue3-marquee'
 import 'vue3-marquee/dist/style.css'
 import CulturePoster from "@/components/culture/CulturePoster.vue";
+import MeetMe from "@/components/culture/MeetMe.vue";
+import Music from "@/components/culture/Music.vue";
 
 export default {
     components: {
+        Music,
+        MeetMe,
         CulturePoster,
         Vue3Marquee
     },
@@ -86,8 +76,11 @@ export default {
             movies: [],
             shows: [],
             songs: [],
-            currentSong: null,
-            playPromise: null
+            links: {
+                deezer: 'https://www.deezer.com/us/profile/1567995002',
+                tvtime: 'https://tvtime.com/r/35sjB',
+                senscritique: 'https://www.senscritique.com/tommy-dvdrip-mkv'
+            }
         }
     },
     mounted() {
@@ -98,33 +91,22 @@ export default {
     methods: {
         async fetchElements(endpoint) {
             try {
-                const response = await axios.get(`${this.$baseUrl}/api/culture/${endpoint}`)
+                const { data } = await axios.get(`${this.$baseUrl}/api/culture/${endpoint}`)
 
-                this[endpoint] = response.data
+                this[endpoint] = data
             } catch (e) {
                 this[endpoint] = 'Erreur lors de la récupération des films'
             }
         },
         async retrieveDeezerCharts() {
             try {
-                const response = await axios.get(`${this.$baseUrl}/api/culture/charts`)
+                const { data } = await axios.get(`${this.$baseUrl}/api/culture/charts`)
 
-                this.songs = response.data.data
+                this.songs = data.data
             } catch (e) {
                 this.songs = 'Erreur lors de la récupération des charts'
             }
         },
-        playMusic(element) {
-            this.currentSong = element.preview
-            this.playPromise = this.$refs.audio.play()
-        },
-        stopMusic() {
-            if (this.playPromise !== undefined) {
-                this.playPromise.then(() => {
-                    this.$refs.audio.pause()
-                })
-            }
-        }
     }
 }
 </script>
