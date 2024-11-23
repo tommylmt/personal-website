@@ -1,0 +1,59 @@
+<template>
+    <Transition name="slide">
+        <div v-if="song"
+            class="bg-slate-800/70 backdrop-blur-lg p-1 rounded-lg shadow-md fixed top-5 right-5 z-[5000] flex items-center gap-3"
+        >
+            <img :src="song.album.cover_medium" alt="Currently playing" class="rounded-md" width="60">
+            <div class="w-64 flex items-center gap-5 justify-between pe-5">
+                <div>
+                    <p class="text-white text-sm">{{ song.title }}</p>
+                    <h6 class="text-xs text-slate-400">{{ song.artist.name }}</h6>
+                </div>
+                <div class="text-white flex items-center gap-3">
+                    <i
+                        class="ph-light ph-pause text-xl cursor-pointer transition-all hover:text-slate-400"
+                        @click="pause"
+                    ></i>
+                    <i
+                        class="ph-light ph-stop text-xl cursor-pointer transition-all hover:text-slate-400"
+                        @click="stop"
+                    ></i>
+                </div>
+            </div>
+        </div>
+    </Transition>
+</template>
+
+<script>
+import { mapStores } from "pinia";
+import { useMusicStore } from "@/stores/music";
+
+export default {
+    computed: {
+        ...mapStores(useMusicStore),
+        song() {
+            return this.musicStore.currentSong;
+        }
+    },
+    methods: {
+        pause() {
+            console.log('To Be Implemented');
+        },
+        stop() {
+            this.musicStore.$reset();
+        }
+    }
+}
+</script>
+
+<style>
+.slide-enter-active,
+.slide-leave-active {
+    transition: right .3s ease-in-out;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+    right: -400px;
+}
+</style>

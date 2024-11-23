@@ -46,7 +46,18 @@ export const fr = {
     },
     stack: {
         title: 'Environnement technique',
-        subtitle: 'Éléments que j\'utilise au quotidien',
+        subtitle: 'Liste des logiciels que j\'utilisent au quotidien',
         shuffle: 'Mélanger'
+    },
+    culture: {
+        movies: 'Films',
+        moviesubtitle: 'Films que j\'ai récemment aimés',
+        director: 'Un film de',
+        tvshows: 'Séries',
+        tvshowsubtitle: 'Séries que j\'ai récemment aimées',
+        music: 'Musique',
+        musicsubtitle: 'les sons que j\'écoute en boucle en ce moment',
+        available: 'Disponible sur',
+        meetme: 'Retrouve moi sur ',
     }
 };

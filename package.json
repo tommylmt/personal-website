@@ -16,6 +16,7 @@
     "howler": "^2.2.3",
     "leaflet": "^1.9.4",
     "muuri": "^0.9.5",
+    "pinia": "^2.2.6",
     "simple-icons": "^9.1.0",
     "smooth-scrollbar": "^8.8.4",
     "vue": "^3.3.2",
