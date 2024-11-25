@@ -41,7 +41,8 @@ export const fr = {
             internet: 'Me retrouver sur l\'internet'
         },
         earth: {
-            title: 'à propos de moi'
+            title: 'à propos de moi',
+            subtitle: 'Un dump camera roll'
         }
     },
     stack: {

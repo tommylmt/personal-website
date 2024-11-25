@@ -8,6 +8,7 @@
             <h3 class="font-extrabold font-sans text-slate-700 text-3xl dark:text-slate-300">
                 {{ $t('about.earth.title') }}
             </h3>
+            <h6 class="text-slate-400">{{ $t('about.earth.subtitle') }}</h6>
         </div>
     </DraggableBlock>
 </template>

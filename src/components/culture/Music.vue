@@ -18,10 +18,8 @@
                 <i class="ph-light ph-play text-3xl"></i>
             </div>
         </div>
-        <div class="relative w-full h-52 rounded-lg" :style="{
-            background: `url(${song.album.cover_medium})`,
-            backgroundSize: 'cover',
-        }">
+        <div class="relative w-full rounded-lg">
+            <img :src="song.album.cover_medium" alt="Song" class="w-full">
             <div :class="[
                 'absolute bg-white/70 shadow-lg backdrop-blur-lg rounded-md p-2 w-[96%] left-[2%]',
                 '-bottom-40 transition-all group-hover:bottom-1 dark:bg-slate-800/70'

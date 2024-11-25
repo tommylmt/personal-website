@@ -41,7 +41,8 @@ export const en = {
             internet: 'Find me on the internet'
         },
         earth: {
-            title: 'Me, on earth'
+            title: 'Me, on earth',
+            subtitle: 'A camera roll dump'
         }
     },
     stack: {
