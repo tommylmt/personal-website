@@ -81,11 +81,13 @@ export default {
         handleHover(e) {
             this.moveTracker(e.$refs.listItem)
 
-            this.getCurrentItem().classList.add(['!text-slate-900', 'dark:text-slate-200'])
+            this.getCurrentItem().classList.remove(['text-white'])
+            this.getCurrentItem().classList.add(['text-slate-900', 'dark:text-slate-200'])
         },
         retrieveCurrent() {
             this.moveTracker(this.getCurrentItem())
-            this.getCurrentItem().classList.remove(['!text-slate-900', 'dark:text-slate-200'])
+            this.getCurrentItem().classList.add(['text-white'])
+            this.getCurrentItem().classList.remove(['text-slate-900', 'dark:text-slate-200'])
         },
         moveTracker(element) {
             this.currentLeft = `${element.offsetLeft}px`

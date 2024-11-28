@@ -27,6 +27,7 @@
 <script>
 import { mapStores } from "pinia";
 import { useMusicStore } from "@/stores/music";
+import { Howl } from 'howler';
 
 export default {
     computed: {
@@ -35,7 +36,25 @@ export default {
             return this.musicStore.currentSong;
         }
     },
+    data() {
+        return {
+            howler: null,
+        }
+    },
+    watch: {
+        'song'(newValue) {
+            if (newValue) {
+                this.play();
+            }
+        }
+    },
     methods: {
+        play() {
+            this.howler = new Howl({
+                src: [`${this.$baseUrl}/api/culture/track/${this.song.id}`]
+            })
+            this.howler.play();
+        },
         pause() {
             console.log('To Be Implemented');
         },
