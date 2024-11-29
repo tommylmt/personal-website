@@ -51,7 +51,7 @@ export default {
     methods: {
         play() {
             this.howler = new Howl({
-                src: [`${this.$baseUrl}/api/culture/track/${this.song.id}`]
+                src: [`${this.$baseUrl}/api/culture/track/${this.song.id}.mp3`]
             })
             this.howler.play();
         },
