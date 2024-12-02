@@ -11,8 +11,11 @@
                 </div>
                 <div class="text-white flex items-center gap-3">
                     <i
-                        class="ph-light ph-pause text-xl cursor-pointer transition-all hover:text-slate-400"
-                        @click="pause"
+                        :class="[
+                            'ph-light text-xl cursor-pointer transition-all hover:text-slate-400',
+                            isPlaying ? 'ph-pause' : 'ph-play',
+                        ]"
+                        @click="managePlayPause"
                     ></i>
                     <i
                         class="ph-light ph-stop text-xl cursor-pointer transition-all hover:text-slate-400"
@@ -39,11 +42,13 @@ export default {
     data() {
         return {
             howler: null,
+            isPlaying: false,
         }
     },
     watch: {
         'song'(newValue) {
             if (newValue) {
+                this.destroyHowler();
                 this.play();
             }
         }
@@ -51,14 +56,34 @@ export default {
     methods: {
         play() {
             this.howler = new Howl({
-                src: [`${this.$baseUrl}/api/culture/track/${this.song.id}.mp3`]
+                src: [`${this.$baseUrl}/api/culture/track/${this.song.id}.mp3`],
+                onend: () => {
+                    this.stop();
+                }
             })
-            this.howler.play();
+
+            this.howler.on('load', () => {
+                this.howler.fade(0, 1, 2000, this.howler.play());
+                this.isPlaying = true;
+                console.log(this.howler.duration());
+            })
         },
-        pause() {
-            console.log('To Be Implemented');
+        managePlayPause() {
+            if (this.isPlaying) {
+                this.howler.pause();
+            } else {
+                this.howler.play();
+            }
+
+            this.isPlaying = !this.isPlaying;
+        },
+        destroyHowler() {
+            if (this.howler) {
+                this.howler.unload();
+            }
         },
         stop() {
+            this.destroyHowler();
             this.musicStore.$reset();
         }
     }
