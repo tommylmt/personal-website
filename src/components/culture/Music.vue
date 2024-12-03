@@ -58,15 +58,16 @@ export default {
         },
         movePlayer(e) {
             const [width, height] = [this.$refs.music.offsetWidth, this.$refs.music.offsetHeight];
+            const [offsetX, offsetY] = [(e.offsetX - (width / 2)), (e.offsetY - (height / 2))];
 
-            if (Math.abs((e.offsetY - (height / 2))) <= 20 && Math.abs((e.offsetX - (width / 2))) <= 20) {
+            if (Math.abs(offsetY) <= 50 && Math.abs(offsetX) <= 50) {
                 this.resetPosition();
 
                 return;
             }
 
-            this.top = (e.offsetY - (height / 2)) / 4;
-            this.left = (e.offsetX - (width / 2)) / 4;
+            this.top = offsetY / 4;
+            this.left = offsetX / 4;
         },
         changeSong() {
             this.musicStore.currentSong = null;

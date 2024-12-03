@@ -20,7 +20,7 @@
         <PictureWrapper source="/img/me-on-earth/pedalboard.webp" :width="300" :position="{
             bottom: '-100px',
             left: '35%'
-        }" :z-index="-10" />
+        }" />
         <PictureWrapper source="/img/me-on-earth/quarterpounder.webp" :width="300" :position="{
             bottom: '-50px',
             right: '5%'
