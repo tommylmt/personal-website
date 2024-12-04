@@ -8,7 +8,7 @@
             <img
                 src="../../assets/img/about_me.png"
                 alt="Thomas Lamothe"
-                class="rounded-xl lg:rounded-e-none"
+                class="rounded-t-xl md:rounded-xl lg:rounded-e-none"
             >
         </div>
         <div class="grow-0 xl:grow">

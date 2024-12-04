@@ -1,7 +1,7 @@
 <template>
     <div
         :key="song.id"
-        class="relative w-1/6 rounded-lg group overflow-hidden shadow-lg transition-all scale-100 hover:scale-110 cursor-pointer"
+        class="relative w-1/2 md:w-1/6 rounded-lg group overflow-hidden shadow-lg transition-all scale-100 hover:scale-110 cursor-pointer"
         @mousemove="movePlayer"
         @mouseleave="resetPosition"
         ref="music"

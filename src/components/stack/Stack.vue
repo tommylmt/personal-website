@@ -1,13 +1,13 @@
 <template>
-    <div class="w-10/12 my-10 mx-auto relative">
-        <h1 class="font-sans font-extrabold text-5xl text-slate-800 dark:text-slate-300">
+    <div class="w-11/12 md:w-10/12 my-10 mx-auto relative">
+        <h1 class="font-sans font-extrabold text-4xl md:text-5xl text-slate-800 dark:text-slate-300">
             {{ $t('stack.title') }}
         </h1>
         <p class="font-sans text-slate-500 dark:text-slate-400">{{ $t('stack.subtitle') }}</p>
 
         <button
             :class="[
-                'absolute transition-all top-3 right-0 h-12 flex justify-center items-center rounded-3xl cursor-pointer',
+                'md:absolute transition-all top-3 right-0 h-12 flex justify-center items-center rounded-3xl cursor-pointer',
                 'group hover:shadow-lg dark:bg-slate-900',
                 !displayShuffleTitle ? 'w-12' : 'w-36'
             ]"

@@ -2,7 +2,7 @@
     <div class="item">
         <div class="item-content">
             <div :class="[
-                'group text-center bg-white transition-all rounded-xl  md:p-2',
+                'group text-center bg-white transition-all rounded-xl md:p-2',
                 'hover:shadow-lg hover:scale-110 dark:bg-slate-950',
                 isGrabbing ? 'cursor-grabbing' : 'cursor-grab'
             ]" @mousedown="isGrabbing = true" @mouseup="isGrabbing = false">

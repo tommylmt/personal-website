@@ -9,32 +9,34 @@
         </Transition>
     </div>
 
-    <nav
-        v-show="openMenu || noResponsive"
-        id="mainMenu"
-        :class="[
-            'fixed z-[9999] bottom-20 md:bottom-10 m-auto backdrop-blur-xl p-2 rounded-xl md:rounded-[50px] shadow-sm',
-            'bg-slate-200/60 dark:bg-slate-700/60'
-        ]"
-    >
-        <div
-            class="bg-slate-900 dark:bg-slate-300 rounded-xl md:rounded-[45px] absolute transition-all duration-300"
-            :style="{ left: currentLeft, width: currentWidth, top: currentTop, height: `${clientHeight}px` }"
-        ></div>
-        <ul class="md:flex gap-5 justify-between">
-            <MenuItem
-                v-for="page in localPages"
-                :name="page.name"
-                :current="page.current"
-                :key="page.path"
-                :path="page.path"
-                :special="page.specialLink"
-                @followItem="($e) => handleHover($e)"
-                @hoverStop="retrieveCurrent()"
-                @active-page-change="($e) => changeActivePage($e)"
-            />
-        </ul>
-    </nav>
+    <Transition name="toggle-menu" @after-enter="retrieveCurrent">
+        <nav
+            v-show="openMenu || noResponsive"
+            id="mainMenu"
+            :class="[
+                'fixed z-[9999] bottom-20 md:bottom-10 m-auto backdrop-blur-xl p-2 rounded-xl md:rounded-[50px] shadow-sm',
+                'bg-slate-200/60 dark:bg-slate-700/60',
+            ]"
+        >
+            <div
+                class="bg-slate-900 dark:bg-slate-300 rounded-xl md:rounded-[45px] absolute transition-all duration-300"
+                :style="{ left: currentLeft, width: currentWidth, top: currentTop, height: `${clientHeight}px` }"
+            ></div>
+            <ul class="md:flex gap-5 justify-between">
+                <MenuItem
+                    v-for="page in localPages"
+                    :name="page.name"
+                    :current="page.current"
+                    :key="page.path"
+                    :path="page.path"
+                    :special="page.specialLink"
+                    @followItem="($e) => handleHover($e)"
+                    @hoverStop="retrieveCurrent()"
+                    @active-page-change="($e) => changeActivePage($e)"
+                />
+            </ul>
+        </nav>
+    </Transition>
 </template>
 
 <script>
@@ -69,7 +71,7 @@ export default {
                 this.currentWidth = `${this.getCurrentItem()?.clientWidth}px`;
                 this.currentLeft = `${this.getCurrentItem()?.offsetLeft}px`
             }, 50)
-        }
+        },
     },
     computed: {
         noResponsive() {
@@ -93,6 +95,7 @@ export default {
             this.currentLeft = `${element.offsetLeft}px`
             this.currentWidth = `${element.clientWidth}px`
             this.currentTop = `${element.offsetTop}px`
+            this.clientHeight = element.clientHeight
         },
         changeActivePage(e) {
             this.localPages.forEach((element) => {
