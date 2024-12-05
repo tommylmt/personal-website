@@ -1,7 +1,10 @@
 <template>
     <div
         :key="song.id"
-        class="relative w-1/2 md:w-1/6 rounded-lg group overflow-hidden shadow-lg transition-all scale-100 hover:scale-110 cursor-pointer"
+        :class="[
+            'relative rounded-lg group overflow-hidden transition-all scale-100 hover:scale-110 cursor-pointer',
+            'w-1/2 md:w-1/6 p-2 md:p-0 md:shadow-lg'
+        ]"
         @mousemove="movePlayer"
         @mouseleave="resetPosition"
         ref="music"
@@ -18,7 +21,7 @@
                 <i class="ph-light ph-play text-3xl"></i>
             </div>
         </div>
-        <div class="relative w-full rounded-lg">
+        <div class="relative w-full rounded-lg shadow-lg md:shadow-none overflow-hidden md:overflow-visible">
             <img :src="song.album.cover_medium" alt="Song" class="w-full">
             <div :class="[
                 'absolute bg-white/70 shadow-lg backdrop-blur-lg rounded-md p-2 w-[96%] left-[2%]',

@@ -1,10 +1,10 @@
 <template>
-    <div class="relative my-20 h-[700px]" ref="dragzone">
+    <div class="relative my-20 h-[700px] overflow-x-scroll md:overflow-x-visible flex gap-5 items-center" ref="dragzone">
         <Earth />
         <MyLife />
         <PictureWrapper source="/img/me-on-earth/cat.webp" :width="300" :position="{
             bottom: '-50px',
-            left: '10px'
+            left: '45px'
         }" />
         <PictureWrapper source="/img/me-on-earth/living.webp" :width="500" :position="{
             top: '35%',

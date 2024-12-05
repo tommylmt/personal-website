@@ -1,6 +1,6 @@
 <template>
     <div :class="[
-        'rounded-xl absolute',
+        'rounded-xl md:absolute transition-shadow hover:shadow-2xl',
         isDragging ? 'cursor-grabbing' : 'cursor-grab'
     ]" :style="realStyle" ref="draggable" @mousedown="mouseDown">
         <div class="rounded-xl overflow-hidden relative shadow-md dark:shadow-slate-900 dark:shadow-lg">
@@ -24,12 +24,16 @@ export default {
             offsetX: null,
             offsetY: null,
             isDragging: false,
+            left: null,
+            top: null,
         }
     },
     computed: {
         realStyle() {
             let style = this.style;
             style.zIndex = this.isDragging ? 5000 : (style.zIndex || 'auto');
+            style.left = this.left || this.style.left;
+            style.top = this.top || this.style.top;
 
             return style;
         }
@@ -52,8 +56,11 @@ export default {
             window.addEventListener('mousemove', this.moveElement, false);
         },
         moveElement(e) {
-            this.$refs.draggable.style.left = (e.clientX - this.offsetX) + 'px';
-            this.$refs.draggable.style.top = (e.clientY - this.offsetY) + 'px';
+            this.left = (e.clientX - this.offsetX) + 'px';
+            this.top = (e.clientY - this.offsetY) + 'px';
+
+            this.$refs.draggable.style.left = this.left;
+            this.$refs.draggable.style.top = this.top;
         }
     }
 }

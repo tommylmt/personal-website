@@ -33,3 +33,7 @@ export default {
         </router-view>
     </main>
 </template>
+
+<style>
+
+</style>

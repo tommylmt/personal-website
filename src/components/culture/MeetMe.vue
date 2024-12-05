@@ -3,8 +3,8 @@
         :href="link"
         target="_blank"
         :class="[
-            'transition-all absolute rounded-3xl px-6 w-fit h-12 md:top-5 top-0 right-0 justify-center flex items-center gap-2 font-sans group shadow-lg',
-            'shadow-slate-300 bg-slate-900 dark:bg-slate-800 dark:shadow-none'
+            'transition-all absolute rounded-3xl px-6 w-fit h-12  justify-center flex items-center gap-2 font-sans group shadow-lg',
+            'shadow-slate-300 bg-slate-900 dark:bg-slate-800 dark:shadow-none top-3 md:top-5 right-3 md:right-0'
         ]"
     >
         <span class="transition-all text-slate-300 font-sans group-hover:text-slate-200 hidden md:inline">

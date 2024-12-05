@@ -1,6 +1,6 @@
 <template>
-    <div class="w-10/12 my-10 mx-auto relative">
-        <div class="relative">
+    <div class="w-full md:w-10/12 my-10 mx-auto relative">
+        <div class="relative p-3 md:p-0">
             <h1 class="font-sans font-extrabold text-5xl text-slate-800 dark:text-slate-300">
                 {{ $t('culture.movies') }}
             </h1>
@@ -20,7 +20,7 @@
             </Vue3Marquee>
         </div>
         <div class="my-10">
-            <div class="relative">
+            <div class="relative p-3 md:p-0">
                 <h1 class="font-sans font-extrabold text-5xl text-slate-800 dark:text-slate-300">
                     {{ $t('culture.tvshows') }}
                 </h1>
@@ -40,7 +40,7 @@
                 </Vue3Marquee>
             </div>
         </div>
-        <div class="relative">
+        <div class="relative p-3 md:p-0">
             <h1 class="font-sans font-extrabold text-5xl text-slate-800 dark:text-slate-300">
                 {{ $t('culture.music') }}
             </h1>
@@ -49,7 +49,7 @@
             <MeetMe :link="links.deezer" image="/img/culture/deezer.svg" :width="100" />
         </div>
         <div class="my-7 mb-40">
-            <div class="flex flex-wrap gap-3 gap-y-10 justify-between">
+            <div class="flex flex-wrap gap-y-10 md:gap-10 justify-between p-3 md:p-0">
                 <Music v-for="element in songs" :song="element" />
             </div>
         </div>

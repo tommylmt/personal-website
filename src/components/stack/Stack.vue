@@ -79,6 +79,7 @@ export default {
         },
         shuffle() {
             this.muuri.sort(this.randomSortItems());
+            this.muuri.layout();
         },
         randomSortItems() {
             let elements = this.muuri.getItems();
