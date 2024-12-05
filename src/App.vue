@@ -27,13 +27,9 @@ export default {
 
     <main id="main">
         <router-view v-slot="{ Component, route }">
-            <Transition name="page-transition">
+            <Transition name="page-transition" appear>
                 <component :is="Component" :key="route.path" />
             </Transition>
         </router-view>
     </main>
 </template>
-
-<style>
-
-</style>

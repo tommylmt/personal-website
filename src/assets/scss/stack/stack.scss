@@ -1,18 +1,6 @@
-.icons-move,
-.icons-enter-active,
-.icons-leave-active {
-    transition: all .3s ease;
-    transform: translateX(30px), scale(.3);
-}
-.icons-enter-from, .icons-leave-to {
-    opacity: 0;
-    transform: translateX(30px);
-}
-.icons-leave-active {
-    position: absolute;
-}
 #muuri {
     position: relative;
+    width: 100%;
 }
 .item {
     display: block;
