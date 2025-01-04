@@ -17,7 +17,12 @@
                     {{ $t('about.me.title') }} <Emoji />
                 </h1>
 
-                <p class="mt-4 main-text">{{ $t('about.me.introduction') }}</p>
+                <p class="main-text mt-4">{{ $t('about.me.introduction') }}</p>
+
+                <div class="bg-slate-100 rounded-md p-2 mt-2">
+                    <p class="bg-red-600/30 text-red-600 p-1 rounded-sm text-sm"><span class="me-2">-</span> <span class="line-through">{{ $t('about.me.deleted') }}</span></p>
+                    <p class="bg-green-500/30 mt-2 text-green-600 p-1 rounded-sm text-sm"><span class="me-2">+</span> {{ $t('about.me.added') }}</p>
+                </div>
 
                 <i18n-t keypath="about.me.working" class="mt-2 main-text" tag="p">
                     <a :href="iwitLink" target="_blank" class="me-link before:bg-blue-800/90">Iwit Systems</a>

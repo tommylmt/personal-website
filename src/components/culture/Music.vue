@@ -13,6 +13,7 @@
             <div
                 class="w-16 h-16 bg-white rounded-full flex items-center justify-center relative shadow-lg hover:bg-blue-600 group text-slate-800 hover:text-white transition-all"
                 @click="changeSong"
+                @mousemove="resetPosition"
                 :style="{
                     left: `${left}px`,
                     top: `${top}px`

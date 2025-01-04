@@ -1,7 +1,9 @@
 <template>
     <DraggableBlock :style="{
         right: '-20px',
-        top: '-25px'
+        top: '-25px',
+        zIndex: 400,
+        width: '600px'
     }">
         <div id="openstreetmap"></div>
         <div class="z-[999] absolute w-full left-0 bottom-0 p-3">

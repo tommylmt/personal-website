@@ -105,6 +105,8 @@ export default {
             if (this.howler) {
                 this.howler.unload();
             }
+
+            this.tracker = 0;
         },
         stop() {
             this.destroyHowler();

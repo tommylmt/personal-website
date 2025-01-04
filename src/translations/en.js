@@ -9,7 +9,9 @@ export const en = {
         theEnd: 'Thank you for reaching the end',
         me: {
             title: "Hi there",
-            introduction: "I'm Thomas, a french web tech lead developer currently based in Toulouse, south of France",
+            introduction: "I'm Thomas,",
+            deleted: 'yet another random pseudo Carhartt kid in tech',
+            added: 'a french web tech lead developer currently based in Toulouse, south of France',
             working: 'I currently work as a tech lead developer at {0}.',
             whatido: 'My work essentially consist into building complex applications architectures and managing a developers team. I mostly write code using {0}, {1}, {2} and {3} deployed on {4} infrastructures.',
             projects: 'I\'m also the father of several projects like {0}, Orkestrum, Cinécombles and many others that, maybe, will never be released.',
