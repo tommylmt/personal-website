@@ -6,6 +6,9 @@ import App from './App.vue'
 import router from './router'
 import { i18n } from '@/utils/lang'
 import { createPinia } from 'pinia'
+import { Observer } from 'tailwindcss-intersect';
+
+Observer.start();
 
 const app = createApp(App)
 
