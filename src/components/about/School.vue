@@ -1,15 +1,15 @@
 <template>
-    <AboutBlock :title="$t('about.school.title')">
+    <AboutBlock :title="'🎓 ' + $t('about.school.title')">
         <Card v-for="school in timeline" :img="school.image">
             <p class="font-sans font-semibold text-slate-800 dark:text-slate-200">
                 {{ $t(school.name) }}
             </p>
             <p class="font-sans text-sm text-slate-400">
-                <i class="ph-light me-1 ph-map-pin text-red-700"></i>
+                <span class="me-1">📍</span>
                 {{ school.location }}
             </p>
             <p class="font-sans text-slate-400 text-sm ">
-                <i class="ph-light me-1 ph-graduation-cap text-red-700"></i>
+                <span class="me-1">🎓</span>
                 {{ $t(school.grade) }}
             </p>
 

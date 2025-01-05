@@ -1,6 +1,3 @@
-import tailwindcssMotion from "tailwindcss-motion";
-import tailwindIntersect from 'tailwindcss-intersect';
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -17,6 +14,6 @@ module.exports = {
       sans: ['Geist', 'sans-serif']
     }
   },
-  plugins: [tailwindcssMotion, tailwindIntersect],
+  plugins: [require('tailwindcss-motion'), require('tailwindcss-intersect')],
 }
 

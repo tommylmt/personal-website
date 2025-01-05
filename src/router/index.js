@@ -13,7 +13,11 @@ const router = createRouter({
         {
             path: '/',
             name: 'about',
-            component: About
+            component: About,
+            meta: {
+                title: 'seo.title.about',
+                description: 'seo.meta.description.about'
+            }
         },
         {
             path: '/stack',

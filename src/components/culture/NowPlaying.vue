@@ -61,7 +61,7 @@ export default {
     watch: {
         'song'(newValue) {
             if (newValue) {
-                this.destroyHowler();
+                this.stop(false);
                 this.play();
             }
         }
@@ -108,11 +108,14 @@ export default {
 
             this.tracker = 0;
         },
-        stop() {
+        stop(resetStore = true) {
             this.destroyHowler();
-            this.musicStore.$reset();
-            this.duration = this.tracker = 0;
 
+            if (resetStore) {
+                this.musicStore.$reset();
+            }
+
+            this.duration = this.tracker = 0;
             clearTimeout(this.timeoutId);
         }
     }

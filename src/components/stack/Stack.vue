@@ -66,6 +66,7 @@ export default {
                         }
                     }
                 });
+                this.muuri.refreshItems().layout();
             })
         },
         prepareIcons(data) {
@@ -79,7 +80,7 @@ export default {
         },
         shuffle() {
             this.muuri.sort(this.randomSortItems());
-            this.muuri.layout();
+            this.muuri.refreshItems().layout();
         },
         randomSortItems() {
             let elements = this.muuri.getItems();

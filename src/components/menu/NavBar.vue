@@ -1,8 +1,7 @@
 <template>
     <div :class="[
         'md:hidden fixed left-5 w-12 h-12 rounded-full flex items-center justify-center',
-        'bg-slate-200/60 dark:bg-slate-700/60 backdrop-blur-xl z-[9999] transition-all',
-         mobileClass ?? '-bottom-36'
+        'bg-slate-200/60 dark:bg-slate-700/60 backdrop-blur-xl z-[9999] transition-all bottom-6',
     ]" @click="openMenu = !openMenu">
         <Transition name="toggle-menu">
             <i class="ph-light ph-list text-3xl z-50 text-slate-900 dark:text-white absolute" v-if="!openMenu"></i>
@@ -16,8 +15,8 @@
             id="mainMenu"
             :class="[
                 'fixed z-[9999] bottom-20 m-auto backdrop-blur-xl p-2 rounded-xl md:rounded-[50px] shadow-sm',
-                'bg-slate-200/60 dark:bg-slate-700/60 transition-all',
-                navClass ?? 'md:-bottom-36'
+                'bg-slate-200/60 dark:bg-slate-700/60 transition-all md:bottom-10',
+                'md:motion-translate-y-in-[150px] md:motion-scale-in-0 md:motion-blur-in md:motion-delay-500 motion-duration-300'
             ]"
         >
             <div
@@ -59,17 +58,11 @@ export default {
             currentTop: 0,
             currentWidth: '50px',
             openMenu: false,
-            navClass: null,
-            mobileClass: null,
             clientHeight: 0,
             localPages: this.pages
         }
     },
     mounted() {
-        setTimeout(() => {
-            this.navClass = 'md:bottom-10'
-            this.mobileClass = 'bottom-6'
-        }, 200);
         this.clientHeight = document.querySelector(localSelectors.menuListItem).clientHeight
         this.retrieveCurrent()
     },

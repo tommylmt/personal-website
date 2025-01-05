@@ -1,5 +1,5 @@
 <template>
-    <AboutBlock :title="$t('about.social.internet')" custom-class="flex p-3 2xl:p-0 justify-center gap-3 lg:gap-40 my-20">
+    <AboutBlock :title="'📌 ' +$t('about.social.internet')" custom-class="flex p-3 2xl:p-0 justify-center gap-3 lg:gap-40 my-20">
         <div v-for="social in socials">
             <a :href="social.link" class="text-6xl text-slate-300 transition-all hover:text-slate-400" target="_blank">
                 <i :class="[social.icon, 'cursor-pointer']"></i>

@@ -2,7 +2,8 @@
     <div :class="[
         'block xl:flex bg-white border border-slate-100 shadow-lg shadow-slate-100 rounded-xl my-10 mx-auto',
         'w-11/12 md:w-10/12 2xl:w-7/12',
-        'dark:bg-slate-950 dark:border-slate-800 dark:shadow-slate-950'
+        'dark:bg-slate-950 dark:border-slate-800 dark:shadow-slate-950',
+        'motion-scale-in-75 motion-opacity-in-0 motion-blur-in'
     ]">
         <div class="w-full xl:w-96 shrink-0">
             <img
@@ -18,7 +19,10 @@
                 </h1>
 
                 <i18n-t keypath="about.me.introduction" class="mt-4 main-text text-xl" tag="p">
-                    <span class="italic relative before:absolute before:h-[2px] before:top-1/2 before:w-full before:transition-all before:bg-slate-800 before:delay-100 ">
+                    <span :class="[
+                        'italic relative overflow-hidden',
+                        'before:absolute before:h-[2px] before:top-1/2 before:w-full before:motion-translate-x-in-100 before:motion-delay-500 before:bg-slate-700'
+                    ]">
                         {{ $t('about.me.random') }}
                     </span>
                 </i18n-t>

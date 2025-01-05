@@ -6,7 +6,10 @@
     <Dragzone />
 
     <div class="text-center my-40">
-        <h3 class="text-slate-200 text-8xl 2xl:text-9xl font-gothic dark:text-slate-900">
+        <h3 :class="[
+            'text-slate-200 text-8xl 2xl:text-9xl font-gothic dark:text-slate-900',
+            'intersect:motion-preset-slide-up intersect:motion-scale-in-75 intersect:motion-opacity-in-0 motion-duration-500'
+        ]">
             {{ $t('about.theEnd') }}
         </h3>
     </div>

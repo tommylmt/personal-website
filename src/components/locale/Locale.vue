@@ -1,5 +1,8 @@
 <template>
-    <div :class="['fixed z-[9998] right-5 transition-all', bottomClass ?? '-bottom-36']">
+    <div :class="[
+        'fixed z-[9998] right-5 transition-all bottom-6 md:bottom-10 motion-duration-200',
+        'md:motion-translate-y-in-[150px] md:motion-scale-in-0 md:motion-blur-in md:motion-delay-700'
+    ]">
         <div
             class="bg-slate-100 shadow-md min-w-12 h-12 rounded-full cursor-pointer flex justify-center items-center transition-all dark:bg-slate-800"
             @mouseover="switchLocale = true"
@@ -33,7 +36,6 @@ import Us from '@/assets/img/usa.png'
 export default {
     data() {
         return {
-            bottomClass: null,
             switchLocale: false,
             locales: [{
                 icon: Fr,
@@ -43,11 +45,6 @@ export default {
                 lang: 'en'
             }]
         }
-    },
-    mounted() {
-        setTimeout(() => {
-            this.bottomClass = 'bottom-6 md:bottom-10';
-        }, 300);
     },
     computed: {
         currentLocale() {
