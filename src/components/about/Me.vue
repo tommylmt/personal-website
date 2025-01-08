@@ -1,33 +1,32 @@
 <template>
     <div :class="[
-        'block xl:flex bg-white border border-slate-100 shadow-lg shadow-slate-100 rounded-xl my-10 mx-auto',
-        'w-11/12 md:w-10/12 2xl:w-7/12',
+        'block md:flex bg-white border border-slate-100 shadow-lg shadow-slate-100 rounded-xl my-10 mx-auto',
+        'w-11/12 md:w-10/12 xl:w-9/12 2xl:w-7/12',
         'dark:bg-slate-950 dark:border-slate-800 dark:shadow-slate-950',
         'motion-scale-in-75 motion-opacity-in-0 motion-blur-in'
     ]">
-        <div class="w-full xl:w-96 shrink-0">
+        <div class="w-full md:w-64 lg:w-80 2xl:w-96 shrink-0 p-0 md:p-2 2xl:p-0">
             <img
                 src="../../assets/img/about_me.png"
                 alt="Thomas Lamothe"
-                class="rounded-t-xl md:rounded-xl lg:rounded-e-none"
+                class="rounded-t-xl md:rounded-xl 2xl:rounded-e-none"
             >
         </div>
-        <div class="grow-0 xl:grow">
-            <div class="p-5 xl:p-10">
+        <div class="grow-0 lg:grow">
+            <div class="p-5 2xl:p-10">
                 <h1 class="font-sans font-extrabold text-5xl text-slate-900 flex gap-3 dark:text-slate-300">
                     {{ $t('about.me.title') }} <Emoji />
                 </h1>
 
                 <i18n-t keypath="about.me.introduction" class="mt-4 main-text text-xl" tag="p">
                     <span :class="[
-                        'italic relative overflow-hidden',
-                        'before:absolute before:h-[2px] before:top-1/2 before:w-full before:motion-translate-x-in-100 before:motion-delay-500 before:bg-slate-700'
+                        'italic line-through overflow-hidden',
                     ]">
                         {{ $t('about.me.random') }}
                     </span>
                 </i18n-t>
 
-                <div class="my-4 mx-auto w-64 h-[1px] bg-slate-200"></div>
+                <div class="my-3 mx-auto w-64 h-[1px] bg-slate-200 dark:bg-slate-700"></div>
 
                 <i18n-t keypath="about.me.working" class="mt-2 main-text" tag="p">
                     <a :href="iwitLink" target="_blank" class="me-link before:bg-blue-800/90">Iwit Systems</a>

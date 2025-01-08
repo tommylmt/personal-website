@@ -49,7 +49,7 @@
             <MeetMe :link="links.deezer" image="/img/culture/deezer.svg" :width="100" />
         </div>
         <div class="my-7 mb-40">
-            <div class="flex flex-wrap gap-y-10 md:gap-10 justify-between p-3 md:p-0">
+            <div class="flex flex-wrap gap-y-10 md:gap-x-5 xl:gap-10 justify-between p-3 md:p-0">
                 <Music v-for="element in songs" :song="element" />
             </div>
         </div>

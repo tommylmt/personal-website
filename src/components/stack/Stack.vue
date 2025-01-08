@@ -24,7 +24,7 @@
             </span>
         </button>
 
-        <div class="mt-10 lg:mt-20 mb-40" v-if="icons.length > 0">
+        <div class="mt-5 lg:mt-5 mb-40" v-if="icons.length > 0">
             <div id="muuri">
                 <StackElement v-for="icon in icons" :icon="icon" :key="icon.title" />
             </div>

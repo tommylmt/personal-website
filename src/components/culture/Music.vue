@@ -3,15 +3,18 @@
         :key="song.id"
         :class="[
             'relative rounded-lg group overflow-hidden transition-all scale-100 hover:scale-110 cursor-pointer',
-            'w-1/2 md:w-1/6 p-2 md:p-0 md:shadow-lg'
+            'w-1/2 md:w-1/5 lg:w-1/6 p-2 md:p-0 md:shadow-lg'
         ]"
         @mousemove="movePlayer"
         @mouseleave="resetPosition"
         ref="music"
     >
-        <div class="rounded-lg absolute bg-slate-800/40 backdrop-blur-lg w-full h-full z-30 opacity-0 group-hover:opacity-100 group-hover:delay-700 transition-all duration-100 flex items-center justify-center">
+        <div class="rounded-lg absolute bg-slate-800/40 backdrop-blur-lg w-full h-full z-30 opacity-0 group-hover:opacity-100 group-hover:delay-700 transition-all duration-100 items-center justify-center hidden md:flex">
             <div
-                class="w-16 h-16 bg-white rounded-full flex items-center justify-center relative shadow-lg hover:bg-blue-600 group text-slate-800 hover:text-white transition-all"
+                :class="[
+                    'w-16 h-16 bg-white rounded-full flex items-center justify-center relative shadow-lg',
+                    'hover:bg-blue-600 group text-slate-800 hover:text-white transition-all',
+                ]"
                 @click="changeSong"
                 @mousemove="resetPosition"
                 :style="{

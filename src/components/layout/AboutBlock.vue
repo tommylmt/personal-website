@@ -20,7 +20,7 @@ export default {
         },
         customClass: {
             type: [String, Array, Object],
-            default: 'lg:flex gap-5 p-3 2xl:p-0',
+            default: 'md:flex gap-5 p-3 2xl:p-0',
         }
     }
 }
