@@ -6,7 +6,7 @@
             </h1>
             <p class="font-sans text-slate-500 dark:text-slate-400">{{ $t('culture.moviesubtitle') }}</p>
 
-            <MeetMe :link="links.senscritique" image="/img/culture/senscritique.png" :width="45" />
+            <MeetMe :link="links.senscritique" image="/img/culture/senscritique.webp" :width="45" />
         </div>
         <div class="my-5">
             <Vue3Marquee :pauseOnHover="true">
@@ -26,7 +26,7 @@
                 </h1>
                 <p class="font-sans text-slate-500 dark:text-slate-400">{{ $t('culture.tvshowsubtitle') }}</p>
 
-                <MeetMe :link="links.tvtime" image="/img/culture/tvtime.png" :width="100" />
+                <MeetMe :link="links.tvtime" image="/img/culture/tvtime.webp" :width="30" />
             </div>
             <div class="my-5">
                 <Vue3Marquee :pauseOnHover="true">
@@ -48,7 +48,7 @@
 
             <MeetMe :link="links.deezer" image="/img/culture/deezer.svg" :width="100" />
         </div>
-        <div class="my-7 mb-40">
+        <div class="my-7 mb-20 md:mb-40">
             <div class="flex flex-wrap gap-y-10 md:gap-x-5 xl:gap-10 justify-between p-3 md:p-0">
                 <Music v-for="element in songs" :song="element" />
             </div>

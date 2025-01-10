@@ -5,7 +5,7 @@
         'dark:bg-slate-950 dark:border-slate-800 dark:shadow-slate-950',
         'motion-scale-in-75 motion-opacity-in-0 motion-blur-in'
     ]">
-        <div class="w-full md:w-64 lg:w-80 2xl:w-96 shrink-0 p-0 md:p-2 2xl:p-0">
+        <div class="w-full md:w-64 lg:w-80 2xl:w-2/5 shrink-0 p-0 md:p-2 2xl:p-0">
             <img
                 src="../../assets/img/about_me.png"
                 alt="Thomas Lamothe"
@@ -13,7 +13,7 @@
             >
         </div>
         <div class="grow-0 lg:grow">
-            <div class="p-5 2xl:p-10">
+            <div class="p-5 2xl:p-10 2xl:pb-0">
                 <h1 class="font-sans font-extrabold text-5xl text-slate-900 flex gap-3 dark:text-slate-300">
                     {{ $t('about.me.title') }} <Emoji />
                 </h1>

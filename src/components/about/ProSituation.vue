@@ -40,7 +40,7 @@ export default {
                 name: 'Freelance',
                 location: 'My office',
                 image: '/img/pro/freelance.webp',
-                years: { start: 2017, end: 'now' },
+                years: { start: 2017, end: 2022 },
                 work: 'about.pro.status.freelance'
             }]
         }

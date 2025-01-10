@@ -9,7 +9,8 @@ export const fr = {
         theEnd: 'Merci, à bientôt',
         me: {
             title: 'Bonjour',
-            introduction: "Je suis Thomas, un tech lead développeur web",
+            introduction: "Je suis Thomas, {0} un tech lead développeur web",
+            random: 'encore un random en Carhartt dans la tech',
             working: 'Je travaille en tant que Tech lead developpeur chez {0} à Toulouse, France.',
             whatido: 'Mon travaille consiste à développer et maintenir des applications métiers et des architectures modernes ainsi qu\'à gérer une équipe de développeurs. Je code principalement avec {0}, {1}, {2} et {3} déployés sur des infrastructures {4}.',
             projects: 'Je suis l\'auteur de plusieurs projets tels que {0}, Orkestrum, Cinécombles ainsi que beaucoup d\'autres qui ne verront jamais le jour.',
@@ -34,7 +35,8 @@ export const fr = {
         pro: {
             title: 'Expériences',
             status: {
-                intern: 'Stage développeur web'
+                intern: 'Stage développeur web',
+                freelance: 'Développeur Full-Stack freelance'
             }
         },
         social: {

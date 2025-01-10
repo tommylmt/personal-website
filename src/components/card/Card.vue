@@ -1,8 +1,8 @@
 <template>
     <div :class="[
-        'group h-[500px] md:h-[375px] xl:h-[375px] 2xl:h-[500px] w-full xl:w-[25%] 2xl:w-[22%] relative hover:shadow-lg border rounded-xl cursor-help overflow-hidden my-7 xl:my-0',
-        'border-slate-50 dark:border-slate-900',
-        'intersect:motion-preset-slide-up'
+        'group relative hover:shadow-lg border rounded-xl cursor-help overflow-hidden my-7 xl:my-0',
+        'h-[500px] md:h-[275px] xl:h-[375px] 2xl:h-[500px] w-full md:w-[48%] lg:w-[22%]',
+        'border-slate-50 dark:border-slate-900 intersect:motion-preset-slide-up',
     ]">
         <div class="w-full h-full rounded-xl transition-all duration-300 group-hover:scale-110" :style="{
             backgroundImage: `url(${img})`,
