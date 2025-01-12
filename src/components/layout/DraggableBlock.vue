@@ -2,9 +2,7 @@
     <div :class="[
         'rounded-xl md:absolute transition-shadow hover:shadow-2xl transition-transform scale-100',
         isDragging ? 'cursor-grabbing' : 'cursor-grab',
-        {'scale-125': isActive},
-        { 'scale-90 blur-lg' : isAnotherActive }
-    ]" :style="realStyle" ref="draggable" @mousedown="mouseDown" @mouseenter="timeout" @mouseleave="resetTimeout">
+    ]" :style="realStyle" ref="draggable" @mousedown="mouseDown">
         <div class="rounded-xl overflow-hidden relative shadow-md dark:shadow-slate-900 dark:shadow-lg">
             <slot></slot>
         </div>
@@ -13,7 +11,6 @@
 
 <script>
 import {mapStores} from "pinia";
-import {useImagesStore} from "@/stores/images";
 
 export default {
     props: {
@@ -44,33 +41,11 @@ export default {
 
             return style;
         },
-        isAnotherActive() {
-            return this.imagesStore.isActive && !this.isActive;
-        },
-        ...mapStores(useImagesStore)
     },
     mounted() {
         window.addEventListener('mouseup', this.mouseUp, false);
     },
     methods: {
-        timeout() {
-            this.timeoutId = setTimeout(() => {
-                this.imagesStore.toggle();
-                this.isActive = true;
-            }, 4000);
-        },
-        resetTimeout() {
-            if (this.timeoutId) {
-                clearTimeout(this.timeoutId);
-            }
-
-            this.timeoutId = null;
-            this.isActive = false;
-
-            if (this.imagesStore.isActive) {
-                this.imagesStore.toggle();
-            }
-        },
         mouseUp() {
             this.isDragging = false;
             window.removeEventListener('mousemove', this.moveElement, false);

@@ -25,7 +25,7 @@
         </button>
 
         <div class="mt-5 lg:mt-5 mb-20 md:mb-40" v-if="icons.length > 0">
-            <div id="muuri">
+            <div id="muuri" class="grid-stack">
                 <StackElement v-for="icon in icons" :icon="icon" :key="icon.title" />
             </div>
         </div>
@@ -36,8 +36,9 @@
 import * as sicons from 'simple-icons'
 import axios from 'axios'
 import StackElement from '@/components/stack/StackElement.vue'
-import 'web-animations-js';
-import Muuri from "muuri";
+import 'gridstack/dist/gridstack.min.css';
+import { GridStack } from 'gridstack';
+
 
 export default {
     components: {
@@ -47,7 +48,6 @@ export default {
         return {
             icons: [],
             displayShuffleTitle: false,
-            muuri: null,
         }
     },
     mounted() {
@@ -58,15 +58,7 @@ export default {
             const res = await axios.get(`${this.$baseUrl}/api/stack/`)
 
             this.prepareIcons(res.data).then(() => {
-                this.muuri = new Muuri('#muuri', {
-                    dragEnabled: true,
-                    sortData: {
-                        id: (item, element) => {
-                            return parseFloat(element.children[0].textContent);
-                        }
-                    }
-                });
-                this.muuri.refreshItems().layout();
+                GridStack.init();
             })
         },
         prepareIcons(data) {
@@ -79,8 +71,7 @@ export default {
             });
         },
         shuffle() {
-            this.muuri.sort(this.randomSortItems());
-            this.muuri.refreshItems().layout();
+            this.randomSortItems();
         },
         randomSortItems() {
             let elements = this.muuri.getItems();
@@ -92,7 +83,7 @@ export default {
                 [elements[currentIndex], elements[randomIndex]] = [elements[randomIndex], elements[currentIndex]];
             }
 
-            return elements;
+            this.icons = elements;
         }
     }
 }

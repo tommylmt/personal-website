@@ -1,6 +1,6 @@
 <template>
-    <div class="item">
-        <div class="item-content">
+    <div class="item grid-stack-item">
+        <div class="grid-stack-item-conten">
             <div :class="[
                 'group text-center bg-white transition-all rounded-xl md:p-2',
                 'hover:shadow-lg hover:scale-110 dark:bg-slate-950',
