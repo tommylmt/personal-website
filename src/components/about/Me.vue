@@ -10,6 +10,7 @@
                 src="../../assets/img/about_me.webp"
                 alt="Thomas Lamothe"
                 class="rounded-t-xl md:rounded-xl 2xl:rounded-e-none"
+                fetchpriority="high"
             >
         </div>
         <div class="grow-0 lg:grow">
