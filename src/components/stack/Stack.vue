@@ -14,6 +14,8 @@
             @mouseover="displayShuffleTitle = true"
             @mouseleave="displayShuffleTitle = false"
             @click="shuffle"
+            role="button"
+            :aria-label="$t('stack.shuffle')"
         >
             <i class="transition-all ph-light ph-shuffle text-slate-400 text-3xl group-hover:text-slate-500"></i>
             <span
@@ -25,7 +27,7 @@
         </button>
 
         <div class="mt-5 lg:mt-5 mb-20 md:mb-40" v-if="icons.length > 0">
-            <div id="muuri" class="grid-stack">
+            <div id="muuri">
                 <StackElement v-for="icon in icons" :icon="icon" :key="icon.title" />
             </div>
         </div>
@@ -36,9 +38,8 @@
 import * as sicons from 'simple-icons'
 import axios from 'axios'
 import StackElement from '@/components/stack/StackElement.vue'
-import 'gridstack/dist/gridstack.min.css';
-import { GridStack } from 'gridstack';
-
+import 'web-animations-js';
+import Muuri from "muuri";
 
 export default {
     components: {
@@ -48,6 +49,7 @@ export default {
         return {
             icons: [],
             displayShuffleTitle: false,
+            muuri: null,
         }
     },
     mounted() {
@@ -58,7 +60,19 @@ export default {
             const res = await axios.get(`${this.$baseUrl}/api/stack/`)
 
             this.prepareIcons(res.data).then(() => {
-                GridStack.init();
+                this.muuri = new Muuri('#muuri', {
+                    layout: {
+                        fillGaps: true,
+                        rounding: true,
+                    },
+                    layoutOnResize: true,
+                    dragEnabled: true,
+                    sortData: {
+                        id: (item, element) => {
+                            return parseFloat(element.children[0].textContent);
+                        }
+                    }
+                });
             })
         },
         prepareIcons(data) {
@@ -71,7 +85,8 @@ export default {
             });
         },
         shuffle() {
-            this.randomSortItems();
+            this.muuri.sort(this.randomSortItems());
+            this.muuri.refreshItems().layout();
         },
         randomSortItems() {
             let elements = this.muuri.getItems();
@@ -83,7 +98,7 @@ export default {
                 [elements[currentIndex], elements[randomIndex]] = [elements[randomIndex], elements[currentIndex]];
             }
 
-            this.icons = elements;
+            return elements;
         }
     }
 }

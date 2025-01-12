@@ -11,7 +11,7 @@
                 'shadow-lg backdrop-blur-lg w-full p-3 flex justify-between items-center rounded-lg',
                 'bg-white/70 dark:bg-slate-800/70'
             ]">
-                <h6 class="text-slate-500 dark:text-slate-300 text-sm">{{ subtitle }}</h6>
+                <p class="text-slate-500 dark:text-slate-300 text-sm">{{ subtitle }}</p>
                 <p class="text-slate-800 dark:text-slate-100 font-sans">{{ artist }}</p>
             </div>
         </div>

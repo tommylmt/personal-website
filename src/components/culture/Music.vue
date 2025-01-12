@@ -32,7 +32,7 @@
                 '-bottom-40 transition-all group-hover:bottom-1 dark:bg-slate-800/70'
             ]">
                 <p class="text-sm text-slate-800 dark:text-white">{{ song.title }}</p>
-                <h6 class="text-xs text-slate-500 dark:text-slate-400">{{ song.artist.name }}</h6>
+                <p class="text-xs text-slate-500 dark:text-slate-400">{{ song.artist.name }}</p>
             </div>
         </div>
     </div>

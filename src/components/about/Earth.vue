@@ -74,6 +74,7 @@ export default {
 
             L.tileLayer(this.tileTheme, this.tileSettings).addTo(map);
             L.marker([43.6107, 1.4353], {
+                title: 'Home',
                 icon: L.divIcon({
                     className: 'p-2 rounded-full bg-blue-500 border-4 border-white shadow-md'
                 })

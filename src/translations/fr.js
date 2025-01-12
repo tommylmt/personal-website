@@ -34,9 +34,17 @@ export const fr = {
         },
         pro: {
             title: 'Expériences',
+            duration: {
+                now: 'auj.',
+            },
+            location: {
+                office: 'Mon bureau',
+                toulouse: 'Toulouse, France',
+            },
             status: {
                 intern: 'Stage développeur web',
-                freelance: 'Développeur Full-Stack freelance'
+                freelance: 'Développeur Full-Stack freelance',
+                lead: 'Tech lead developer web'
             }
         },
         social: {

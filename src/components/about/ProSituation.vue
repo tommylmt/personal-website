@@ -10,13 +10,15 @@
 
             <p class="font-sans text-sm text-slate-500">
                 <span class="me-1">📍</span>
-                {{ element.location }}
+                {{ $t(element.location) }}
             </p>
 
             <div class="flex mt-2 justify-center items-center gap-3 w-full">
                 <div class="text-xl font-light text-slate-400 dark:text-slate-600">{{ element.years.start }}</div>
                 <div class="w-10 h-1 bg-slate-300 dark:bg-slate-800 rounded-xl"></div>
-                <div class="text-xl font-light text-slate-400 dark:text-slate-600">{{ element.years.end }}</div>
+                <div class="text-xl font-light text-slate-400 dark:text-slate-600">
+                    {{ isNaN(element.years.end) ? $t(element.years.end) : element.years.end }}
+                </div>
             </div>
         </Card>
     </AboutBlock>
@@ -32,16 +34,22 @@ export default {
         return {
             xp: [{
                 name: 'Mipih',
-                location: 'Toulouse, France',
+                location: 'about.pro.location.toulouse',
                 image: '/img/pro/mipih.webp',
                 years: { start: 2019, end: 2019 },
                 work: 'about.pro.status.intern'
             }, {
                 name: 'Freelance',
-                location: 'My office',
+                location: 'about.pro.location.office',
                 image: '/img/pro/freelance.webp',
                 years: { start: 2017, end: 2022 },
                 work: 'about.pro.status.freelance'
+            }, {
+                name: 'Iwit Systems',
+                location: 'about.pro.location.toulouse',
+                image: '/img/pro/iwit.jpg',
+                years: { start: 2020, end: 'about.pro.duration.now' },
+                work: 'about.pro.status.lead'
             }]
         }
     }

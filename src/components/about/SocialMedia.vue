@@ -1,7 +1,12 @@
 <template>
     <AboutBlock :title="'📌 ' +$t('about.social.internet')" custom-class="flex p-3 2xl:p-0 justify-center gap-3 lg:gap-40 my-20">
         <div v-for="social in socials">
-            <a :href="social.link" class="text-6xl text-slate-300 transition-all hover:text-slate-400" target="_blank">
+            <a
+                :href="social.link"
+                class="text-6xl text-slate-300 transition-all hover:text-slate-400"
+                target="_blank"
+                :aria-label="social.label"
+            >
                 <i :class="[social.icon, 'cursor-pointer']"></i>
             </a>
         </div>
@@ -19,18 +24,23 @@ export default {
             socials: [{
                 link: 'https://x.com/TommyFromCC',
                 icon: 'ph-light ph-x-logo',
+                label: 'X (Twitter)',
             }, {
                 link: 'https://gitlab.com/Tommy31',
-                icon: 'ph-light ph-gitlab-logo-simple'
+                icon: 'ph-light ph-gitlab-logo-simple',
+                label: 'Gitlab',
             }, {
                 link: 'https://github.com/tommylmt',
                 icon: 'ph-light ph-github-logo',
+                label: 'Github',
             }, {
                 link: 'https://stackoverflow.com/users/5301593/thomas-lamothe',
-                icon: 'ph-light ph-stack-overflow-logo'
+                icon: 'ph-light ph-stack-overflow-logo',
+                label: 'Stack Overflow',
             }, {
                 link: 'https://www.linkedin.com/in/thomas-lamothe8/',
-                icon: 'ph-light ph-linkedin-logo'
+                icon: 'ph-light ph-linkedin-logo',
+                label: 'Linkedin',
             }]
         }
     }

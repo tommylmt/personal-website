@@ -30,8 +30,8 @@
 </template>
 
 <script>
-import Fr from '@/assets/img/france.png'
-import Us from '@/assets/img/usa.png'
+import Fr from '@/assets/img/france.webp'
+import Us from '@/assets/img/usa.webp'
 
 export default {
     data() {

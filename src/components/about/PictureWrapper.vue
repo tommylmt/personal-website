@@ -4,7 +4,7 @@
         zIndex: zIndex,
         ...position
     }">
-        <img :src="source" alt="Image">
+        <img :src="source" alt="Image" :width="width">
     </DraggableBlock>
 </template>
 

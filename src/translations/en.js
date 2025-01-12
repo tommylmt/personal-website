@@ -34,9 +34,17 @@ export const en = {
         },
         pro: {
             title: 'XPeriences',
+            duration: {
+                now: 'now',
+            },
+            location: {
+                office: 'My office',
+                toulouse: 'Toulouse, France',
+            },
             status: {
                 intern: 'Web development internship',
-                freelance: 'Freelance Full-Stack develooer'
+                freelance: 'Freelance Full-Stack develooer',
+                lead: 'Web tech lead developer'
             }
         },
         social: {
