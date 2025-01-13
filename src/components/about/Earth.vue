@@ -12,7 +12,12 @@
                 <p class="text-4xl font-light text-slate-900 dark:text-slate-300" v-if="currentTime">
                     {{ currentTime }}
                 </p>
-                <p class="text-xs font-light text-slate-400">{{ currentDate }}</p>
+                <i18n-d
+                    tag="p"
+                    class="text-xs font-light text-slate-400"
+                    :value="currentDate"
+                    format="long"
+                ></i18n-d>
             </div>
         </div>
     </DraggableBlock>
@@ -32,7 +37,7 @@ export default {
     data() {
         return {
             currentTime: '',
-            currentDate: '',
+            currentDate: new Date(),
         }
     },
     computed: {
@@ -60,7 +65,7 @@ export default {
                     minute: 'numeric',
                     second: 'numeric',
                 }).format(new Date());
-                this.currentDate = this.$d(new Date(), 'long');
+                this.currentDate = new Date();
 
                 this.setCurrentTime();
             }, 1000);

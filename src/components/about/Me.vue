@@ -7,7 +7,7 @@
     ]">
         <div class="w-full md:w-64 lg:w-80 2xl:w-2/5 shrink-0 p-0 md:p-2 2xl:p-0">
             <img
-                src="../../assets/img/about_me.webp"
+                src="/img/about/about_me.webp"
                 alt="Thomas Lamothe"
                 class="rounded-t-xl md:rounded-xl 2xl:rounded-e-none"
                 fetchpriority="high"
