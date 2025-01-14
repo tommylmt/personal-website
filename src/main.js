@@ -11,6 +11,7 @@ import { Observer } from 'tailwindcss-intersect';
 const app = createApp(App)
 
 app.config.globalProperties.$baseUrl = import.meta.env.VITE_API_BASE_URL
+app.config.performance = true;
 
 Observer.start();
 

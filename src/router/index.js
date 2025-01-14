@@ -1,9 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import About from '@/components/about/About.vue'
-import Stack from '@/components/stack/Stack.vue'
-import Culture from '@/components/culture/Culture.vue'
-
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     scrollBehavior(to) {
@@ -13,7 +9,7 @@ const router = createRouter({
         {
             path: '/',
             name: 'about',
-            component: About,
+            component: () => import("@/components/about/About.vue"),
             meta: {
                 title: 'seo.title.about',
                 description: 'seo.meta.description.about'
@@ -22,12 +18,12 @@ const router = createRouter({
         {
             path: '/stack',
             name: 'stack',
-            component: Stack
+            component: () => import('@/components/stack/Stack.vue')
         },
         {
             path: '/culture',
             name: 'culture',
-            component: Culture
+            component: () => import('@/components/culture/Culture.vue')
         }
     ]
 })
