@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
   <head>
-    <title>Thomas Lamothe | French web tech lead.</title>
+    <title>Thomas Lamothe | Web tech lead</title>
 
-    <meta name="title" content="Thomas Lamothe - Lead Développeur web à Toulouse">
-    <meta name="description" content="Je développe des applications web métiers et grand publique complexes. Je travaille majoritairement avec Symfony, Vue et Docker.">
-
+    <meta name="title" content="Thomas Lamothe | Web tech lead">
     <meta name=”robots” content="index, follow">
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,13 +13,20 @@
     <link rel="icon" href="/img/icon.png">
     <link rel="preconnect" href="https://admin.thomaslamothe.com">
 
-<!--    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K6H9FVRPH4"></script>-->
-<!--    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-K6H9FVRPH4');
-    </script>-->
+    <% if (!isDev) { %>
+      <meta http-equiv="Content-Security-Policy" content="default-src https: 'unsafe-inline' 'unsafe-eval' data:" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-K6H9FVRPH4"></script>
+      <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-K6H9FVRPH4', {
+              'page_title': document.title,
+              'page_path': window.location.pathname
+          });
+      </script>
+    <% } %>
   </head>
   <body class="dark:bg-slate-950 overflow-x-hidden">
     <div id="app"></div>
