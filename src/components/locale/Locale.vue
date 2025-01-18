@@ -32,6 +32,7 @@
 <script>
 import Fr from '@/assets/img/france.webp'
 import Us from '@/assets/img/usa.webp'
+import { processSeo } from "@/utils/seo";
 
 export default {
     data() {
@@ -44,6 +45,11 @@ export default {
                 icon: Us,
                 lang: 'en'
             }]
+        }
+    },
+    watch: {
+        '$i18n.locale'() {
+            processSeo(this.$route.meta);
         }
     },
     computed: {

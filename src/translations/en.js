@@ -5,6 +5,48 @@ export const en = {
         culture: 'Culture',
         contact: 'Contact'
     },
+    seo: {
+        title: {
+            about: 'Thomas Lamothe - Tech Lead developer',
+            stack: 'My Stack',
+            culture: 'Things I love',
+        },
+        meta: {
+            about: {
+                description: 'I\'m Thomas, a french web tech lead. I mainly maintain and scale complex apps infrastructures and manage a team of developers',
+                twitter: {
+                    title: 'Thomas Lamothe - Tech Lead developer',
+                    description: 'I\'m Thomas, a french web tech lead. I mainly maintain and scale complex apps infrastructures and manage a team of developers'
+                },
+                og: {
+                    title: 'Thomas Lamothe - Tech Lead developer',
+                    description: 'I\'m Thomas, a french web tech lead. I mainly maintain and scale complex apps infrastructures and manage a team of developers',
+                }
+            },
+            stack: {
+                description: 'A (messy) list of all the stack I\'m used to',
+                twitter: {
+                    title: 'My Stack',
+                    description: 'A (messy) list of all the stack I\'m used to'
+                },
+                og: {
+                    title: 'My Stack',
+                    description: 'A (messy) list of all the stack I\'m used to',
+                }
+            },
+            culture: {
+                description: 'All the pop culture things I recently loved',
+                twitter: {
+                    title: 'Things I love',
+                    description: 'All the pop culture things I recently loved'
+                },
+                og: {
+                    title: 'Things I love',
+                    description: 'All the pop culture things I recently loved',
+                }
+            }
+        }
+    },
     about: {
         theEnd: 'Thank you for reaching the end',
         me: {

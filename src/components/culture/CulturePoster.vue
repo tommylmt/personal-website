@@ -3,7 +3,7 @@
         <div
             class="w-full h-[500px] rounded-lg flex items-end p-1"
             :style="{
-                background: `url(${$baseUrl + file})`,
+                background: `url(${$baseUrl + '/cdn' + file})`,
                 backgroundSize: 'cover'
             }"
         >

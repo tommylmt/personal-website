@@ -1,9 +1,9 @@
 <template>
     <div class="w-11/12 md:w-10/12 my-10 mx-auto relative">
-        <h1 class="font-sans font-extrabold text-4xl md:text-5xl text-slate-800 dark:text-slate-300">
+        <h1 class="font-sans font-extrabold text-4xl md:text-5xl text-slate-800 dark:text-slate-300" data-aos="fade-up">
             {{ $t('stack.title') }}
         </h1>
-        <p class="font-sans text-slate-500 dark:text-slate-400">{{ $t('stack.subtitle') }}</p>
+        <p class="font-sans text-slate-500 dark:text-slate-400" data-aos="fade-up" data-aos-delay="100">{{ $t('stack.subtitle') }}</p>
 
         <button
             :class="[
@@ -26,7 +26,7 @@
             </span>
         </button>
 
-        <div class="mt-5 lg:mt-5 mb-20 md:mb-40" v-if="icons.length > 0">
+        <div class="mt-5 lg:mt-5 mb-20 md:mb-40" data-aos="fade-up" data-aos-delay="200" v-if="icons.length > 0">
             <div id="muuri">
                 <StackElement v-for="icon in icons" :icon="icon" :key="icon.title" />
             </div>

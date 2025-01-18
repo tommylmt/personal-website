@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="relative w-full rounded-lg shadow-lg md:shadow-none overflow-hidden md:overflow-visible">
-            <img :src="song.album.cover_medium" alt="Song" class="w-full">
+            <img :src="song.album.cover_medium" alt="Song" class="w-full" crossorigin>
             <div :class="[
                 'absolute bg-white/70 shadow-lg backdrop-blur-lg rounded-md p-2 w-[96%] left-[2%]',
                 '-bottom-40 transition-all group-hover:bottom-1 dark:bg-slate-800/70'

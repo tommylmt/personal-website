@@ -22,6 +22,10 @@ export default {
         icon: {
             type: Object,
             required: true,
+        },
+        delay: {
+            type: Number,
+            default: 0
         }
     },
     data() {

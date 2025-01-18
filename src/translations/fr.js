@@ -5,6 +5,48 @@ export const fr = {
         culture: 'Culture',
         contact: 'Contact'
     },
+    seo: {
+        title: {
+            about: 'Thomas Lamothe - Tech Lead développeur',
+            stack: 'Environnement technique',
+            culture: 'Éléments que j\'ai récemment aimé',
+        },
+        meta: {
+            about: {
+                description: 'Je suis lead développeur. Je maintiens et fais évoluer des applications complexes et dirige une équipe de développeurs.',
+                twitter: {
+                    title: 'Thomas Lamothe - Tech Lead développeur',
+                    description: 'Je suis lead développeur. Je maintiens et fais évoluer des applications complexes et dirige une équipe de développeurs.'
+                },
+                og: {
+                    title: 'Thomas Lamothe - Tech Lead développeur',
+                    description: 'Je suis lead développeur. Je maintiens et fais évoluer des applications complexes et dirige une équipe de développeurs.',
+                }
+            },
+            stack: {
+                description: 'Une liste (bien borderlique) de la stack que j\'utilise',
+                twitter: {
+                    title: 'Environnement technique',
+                    description: 'Une liste (bien borderlique) de la stack que j\'utilise'
+                },
+                og: {
+                    title: 'Environnement technique',
+                    description: 'Une liste (bien borderlique) de la stack que j\'utilise',
+                }
+            },
+            culture: {
+                description: 'Tous mes coups de coeur culturels que j\'ai eu récemment.',
+                twitter: {
+                    title: 'Éléments que j\'ai récemment aimé',
+                    description: 'Tous mes coups de coeur culturels que j\'ai eu récemment.'
+                },
+                og: {
+                    title: 'Éléments que j\'ai récemment aimé',
+                    description: 'Tous mes coups de coeur culturels que j\'ai eu récemment.',
+                }
+            }
+        }
+    },
     about: {
         theEnd: 'Merci, à bientôt',
         me: {

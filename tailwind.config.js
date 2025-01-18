@@ -14,6 +14,5 @@ module.exports = {
       sans: ['Geist', 'sans-serif']
     }
   },
-  plugins: [require('tailwindcss-motion'), require('tailwindcss-intersect')],
+  plugins: [require('tailwindcss-motion')],
 }
-

@@ -1,6 +1,6 @@
 <template>
     <AboutBlock :title="'💻 ' + $t('about.pro.title')">
-        <Card v-for="element in xp" :img="element.image">
+        <Card v-for="(element, index) in xp" :img="element.image" :delay="100 * index">
             <p class="font-sans text-slate-800 dark:text-slate-200">
                 {{ element.name }}
             </p>
