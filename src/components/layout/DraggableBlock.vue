@@ -20,6 +20,10 @@ export default {
                 return {};
             }
         },
+        hideMobile: {
+            type: Boolean,
+            default: false,
+        }
     },
     data() {
         return {
@@ -38,6 +42,14 @@ export default {
             style.zIndex = this.isActive ? 5000 : this.isDragging ? 5000 : (style.zIndex || 'auto');
             style.left = this.left || this.style.left;
             style.top = this.top || this.style.top;
+
+            if (window.innerWidth < 765) {
+                if (this.hideMobile) {
+                    style.display = 'none';
+                } else if (this.style.width) {
+                    style.flex = `0 0 ${this.style.width}`;
+                }
+            }
 
             return style;
         },

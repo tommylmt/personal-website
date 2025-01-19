@@ -16,7 +16,7 @@
         <div class="grow-0 lg:grow">
             <div class="p-5 2xl:p-10 2xl:pb-0">
                 <h1 class="font-vintage text-6xl flex gap-3 items-center mt-3 md:mt-0">
-                    <span class="text-8xl tracking-wide text-slate-800 dark:text-slate-400 title-shadow dark:title-shadow-dark">
+                    <span class="text-8xl text-slate-800 dark:text-slate-400 title-shadow dark:title-shadow-dark">
                         {{ $t('about.me.title') }}
                     </span>
                     <Emoji />

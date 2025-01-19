@@ -4,7 +4,7 @@
         top: '-25px',
         zIndex: 400,
         width: '600px'
-    }">
+    }" :hide-mobile="true">
         <div id="openstreetmap"></div>
         <div class="z-[999] absolute w-full left-0 bottom-0 p-3">
             <div class="rounded-lg w-full bg-white/70 backdrop-blur-lg p-5 dark:bg-slate-600/50">
