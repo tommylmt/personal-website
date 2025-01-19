@@ -1,14 +1,16 @@
 <template>
     <div class="w-full md:w-10/12 my-10 mx-auto relative">
         <div class="relative p-3 md:p-0">
-            <h1 class="font-sans font-extrabold text-5xl text-slate-800 dark:text-slate-300">
+            <h1 class="font-sans font-extrabold text-5xl text-slate-800 dark:text-slate-300" data-aos="fade-up">
                 {{ $t('culture.movies') }}
             </h1>
-            <p class="font-sans text-slate-500 dark:text-slate-400">{{ $t('culture.moviesubtitle') }}</p>
+            <p class="font-sans text-slate-500 dark:text-slate-400" data-aos="fade-up" data-aos-delay="100">
+                {{ $t('culture.moviesubtitle') }}
+            </p>
 
             <MeetMe :link="links.senscritique" image="/img/culture/senscritique.webp" :width="45" />
         </div>
-        <div class="my-5">
+        <div class="my-5" data-aos="fade-up" data-aos-delay="200">
             <Vue3Marquee :pauseOnHover="true">
                 <CulturePoster
                     v-for="movie in movies"
@@ -21,14 +23,16 @@
         </div>
         <div class="my-10">
             <div class="relative p-3 md:p-0">
-                <h1 class="font-sans font-extrabold text-5xl text-slate-800 dark:text-slate-300">
+                <h1 class="font-sans font-extrabold text-5xl text-slate-800 dark:text-slate-300" data-aos="fade-up">
                     {{ $t('culture.tvshows') }}
                 </h1>
-                <p class="font-sans text-slate-500 dark:text-slate-400">{{ $t('culture.tvshowsubtitle') }}</p>
+                <p class="font-sans text-slate-500 dark:text-slate-400" data-aos="fade-up" data-aos-delay="100">
+                    {{ $t('culture.tvshowsubtitle') }}
+                </p>
 
                 <MeetMe :link="links.tvtime" image="/img/culture/tvtime.webp" :width="30" />
             </div>
-            <div class="my-5">
+            <div class="my-5" data-aos="fade-up" data-aos-delay="200">
                 <Vue3Marquee :pauseOnHover="true">
                     <CulturePoster
                         v-for="show in shows"

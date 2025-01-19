@@ -77,7 +77,7 @@ export default {
         },
         prepareIcons(data) {
             return new Promise((res) => {
-                data.sort((a, b) => a.title.localeCompare(b.title)).forEach((el) => {
+                data.sort((a, b) => a.title.localeCompare(b.title)).forEach(async (el) => {
                     this.icons.push(sicons[el.code])
                 })
 

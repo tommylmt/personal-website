@@ -2,7 +2,6 @@
     <div
         class="relative my-20 md:h-[700px] p-3 md:p-0 overflow-x-scroll md:overflow-x-visible flex gap-5 items-center"
         ref="dragzone"
-        data-aos="fade-in"
     >
         <Earth />
         <MyLife />

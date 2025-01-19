@@ -1,7 +1,14 @@
 @font-face {
-    font-family: 'Cloister Blacklight';
-    src: url('../fonts/cloisterblack.woff2') format('woff2'),
-         url('../fonts/cloisterblack.woff') format('woff');
+    font-family: 'Aktura Regular';
+    src: url('../fonts/Aktura-Regular.woff2') format('woff2'),
+        url('../fonts/Aktura-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Midway Retro';
+    src: url('../fonts/Midway.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;

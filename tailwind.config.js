@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        gothic: ['Cloister Blacklight', 'serif']
+        gothic: ['Aktura Regular', 'serif'],
+        vintage: ['Midway Retro', 'cursive']
       }
     },
     fontFamily: {

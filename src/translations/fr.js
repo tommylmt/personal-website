@@ -99,7 +99,7 @@ export const fr = {
     },
     stack: {
         title: 'Environnement technique',
-        subtitle: 'Liste des logiciels que j\'utilisent au quotidien',
+        subtitle: 'Liste des logiciels que j\'utilise au quotidien',
         shuffle: 'Mélanger'
     },
     culture: {
