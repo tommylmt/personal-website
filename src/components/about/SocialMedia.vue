@@ -24,9 +24,9 @@ export default {
     data() {
         return {
             socials: [{
-                link: 'https://x.com/TommyFromCC',
-                icon: 'ph-light ph-x-logo',
-                label: 'X (Twitter)',
+                link: 'https://www.threads.net/@tommy.lmt',
+                icon: 'ph-light ph-threads-logo',
+                label: 'Threads',
             }, {
                 link: 'https://gitlab.com/Tommy31',
                 icon: 'ph-light ph-gitlab-logo-simple',
