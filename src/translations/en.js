@@ -112,5 +112,9 @@ export const en = {
         musicsubtitle: 'Songs I listen on repeat',
         available: 'Available on',
         meetme: 'Meet me on',
+        errors: {
+            fetching: 'An error occured while fetching culture data',
+            charts: 'An error occured while fetching music charts'
+        }
     }
 };
