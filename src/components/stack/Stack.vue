@@ -57,7 +57,7 @@ export default {
     },
     methods: {
         async retrieveSkills() {
-            const res = await axios.get(`${this.$baseUrl}/api/stack/`)
+            const res = await axios.get(`${this.$baseUrl}/api/stack`)
 
             this.prepareIcons(res.data).then(() => {
                 this.muuri = new Muuri('#muuri', {
