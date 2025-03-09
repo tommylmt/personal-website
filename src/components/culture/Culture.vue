@@ -11,7 +11,8 @@
             <MeetMe :link="links.senscritique" image="/img/culture/senscritique.webp" :width="45" />
         </div>
         <div class="my-5" data-aos="fade-up" data-aos-delay="200">
-            <Vue3Marquee :pauseOnHover="true">
+            <ErrorBanner v-if="errors" :title="errors" />
+            <Vue3Marquee :pauseOnHover="true" v-else>
                 <CulturePoster
                     v-for="movie in movies"
                     :key="movie.artist"
@@ -33,7 +34,8 @@
                 <MeetMe :link="links.tvtime" image="/img/culture/tvtime.webp" :width="30" />
             </div>
             <div class="my-5" data-aos="fade-up" data-aos-delay="200">
-                <Vue3Marquee :pauseOnHover="true">
+                <ErrorBanner v-if="errors" :title="errors" />
+                <Vue3Marquee :pauseOnHover="true" v-else>
                     <CulturePoster
                         v-for="show in shows"
                         :key="show.artist"
@@ -53,7 +55,8 @@
             <MeetMe :link="links.deezer" image="/img/culture/deezer.svg" :width="100" />
         </div>
         <div class="my-7 mb-20 md:mb-40">
-            <div class="flex flex-wrap gap-y-10 md:gap-x-5 xl:gap-10 justify-between p-3 md:p-0">
+            <ErrorBanner v-if="errorSongs" :title="errorSongs" />
+            <div class="flex flex-wrap gap-y-10 md:gap-x-5 xl:gap-10 justify-between p-3 md:p-0" v-else>
                 <Music v-for="element in songs" :song="element" />
             </div>
         </div>
@@ -67,9 +70,12 @@ import 'vue3-marquee/dist/style.css'
 import CulturePoster from "@/components/culture/CulturePoster.vue";
 import MeetMe from "@/components/culture/MeetMe.vue";
 import Music from "@/components/culture/Music.vue";
+import ErrorBanner from "@/components/errors/ErrorBanner.vue";
+import {MEDIA_TYPE} from "@/utils/constants";
 
 export default {
     components: {
+        ErrorBanner,
         Music,
         MeetMe,
         CulturePoster,
@@ -79,6 +85,8 @@ export default {
         return {
             movies: [],
             shows: [],
+            errors: false,
+            errorSongs: false,
             songs: [],
             links: {
                 deezer: 'https://www.deezer.com/us/profile/1567995002',
@@ -88,27 +96,27 @@ export default {
         }
     },
     mounted() {
-        this.fetchElements('movies')
-        this.fetchElements('shows')
+        this.fetchElements()
         this.retrieveDeezerCharts()
     },
     methods: {
-        async fetchElements(endpoint) {
+        async fetchElements() {
             try {
-                const { data } = await axios.get(`${this.$baseUrl}/api/culture/${endpoint}`)
+                const { data } = await axios.get(`${this.$baseUrl}/api/culture`)
 
-                this[endpoint] = data
+                this.movies = data.filter(media => media.media_type.slug === MEDIA_TYPE.Movie);
+                this.shows = data.filter(media => media.media_type.slug === MEDIA_TYPE.TvShows);
             } catch (e) {
-                this[endpoint] = 'Erreur lors de la récupération des films'
+                this.errors = 'culture.errors.fetching'
             }
         },
         async retrieveDeezerCharts() {
             try {
-                const { data } = await axios.get(`${this.$baseUrl}/api/culture/charts`)
+                const { data } = await axios.get(`${this.$baseUrl}/api/charts`)
 
-                this.songs = data.data
+                this.songs = data
             } catch (e) {
-                this.songs = 'Erreur lors de la récupération des charts'
+                this.errorSongs = 'culture.errors.charts'
             }
         },
     }

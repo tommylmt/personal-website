@@ -5,30 +5,30 @@
     >
         <Earth />
         <MyLife />
-        <PictureWrapper source="/img/me-on-earth/cat.webp" :width="350" :position="{
+        <PictureWrapper :source="prefix(pictures['bottom-left'])" :width="350" :position="{
             top: 'calc(70% - 100px)',
             left: '45px'
         }" />
-        <PictureWrapper source="/img/me-on-earth/living.webp" :width="500" :position="{
+        <PictureWrapper :source="prefix(pictures['middle-left'])" :width="500" :position="{
             top: '40%',
             left: '18%'
         }"/>
-        <PictureWrapper source="/img/me-on-earth/nyc.webp" :width="400" :position="{
+        <PictureWrapper :source="prefix(pictures['middle-right'])" :width="400" :position="{
             right: '30%',
             top: '40%'
         }" />
-        <PictureWrapper source="/img/me-on-earth/office.webp" :width="350" :position="{
+        <PictureWrapper :source="prefix(pictures['up-left'])" :width="350" :position="{
             top: '0'
         }" />
-        <PictureWrapper source="/img/me-on-earth/pedalboard.webp" :width="300" :position="{
+        <PictureWrapper :source="prefix(pictures['center'])" :width="300" :position="{
             top: 'calc(50%)',
             left: '35%'
         }" />
-        <PictureWrapper source="/img/me-on-earth/quarterpounder.webp" :width="400" :position="{
+        <PictureWrapper :source="prefix(pictures['under-map'])" :width="400" :position="{
             top: 'calc(30% + 15px)',
             right: '50px'
         }" :z-index="78" />
-        <PictureWrapper source="/img/me-on-earth/replay.webp" :width="600" :position="{
+        <PictureWrapper :source="prefix(pictures['middle-top'])" :width="600" :position="{
             top: '40px',
             left: '30%'
         }" />
@@ -39,6 +39,7 @@
 import Earth from "@/components/about/Earth.vue";
 import MyLife from "@/components/about/MyLife.vue";
 import PictureWrapper from "@/components/about/PictureWrapper.vue";
+import axios from "axios";
 
 export default {
     components: {
@@ -46,5 +47,18 @@ export default {
         MyLife,
         Earth
     },
+    async mounted() {
+        this.pictures = await axios.get(`${this.$baseUrl}/api/camera-roll`).then(res => res.data);
+    },
+    data() {
+        return {
+            pictures: {}
+        }
+    },
+    methods: {
+        prefix(img) {
+            return `${this.$baseUrl}${img}`;
+        }
+    }
 }
 </script>

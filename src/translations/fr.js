@@ -112,5 +112,9 @@ export const fr = {
         musicsubtitle: 'les sons que j\'écoute en boucle en ce moment',
         available: 'Disponible sur',
         meetme: 'Retrouve moi sur ',
+        errors: {
+            fetching: 'Une erreur s\'est produite lors de la récupération des films et séries',
+            charts: 'Une erreur s\'est produite lors de la récupération des musiques'
+        }
     }
 };
