@@ -4,7 +4,8 @@
         zIndex: zIndex,
         ...position
     }">
-        <img :src="source" alt="Image" :width="width" loading="lazy">
+        <div v-if="isLoading" :class="`w-[${width}px] bg-slate-50 animate-pulse h-[300px]`"></div>
+        <img v-else :src="source" alt="Image" :width="width" loading="lazy">
     </DraggableBlock>
 </template>
 
@@ -32,6 +33,10 @@ export default{
             type: Number,
             default: 0
         },
+        isLoading: {
+            type: Boolean,
+            default: false,
+        }
     }
 }
 </script>

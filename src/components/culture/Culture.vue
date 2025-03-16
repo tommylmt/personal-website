@@ -12,7 +12,7 @@
         </div>
         <div class="my-5" data-aos="fade-up" data-aos-delay="200">
             <ErrorBanner v-if="errors" :title="errors" />
-            <Vue3Marquee :pauseOnHover="true" v-else>
+            <Vue3Marquee :pauseOnHover="true" :duration="speedForElements(movies)" v-else>
                 <CulturePoster
                     v-for="movie in movies"
                     :key="movie.artist"
@@ -35,7 +35,7 @@
             </div>
             <div class="my-5" data-aos="fade-up" data-aos-delay="200">
                 <ErrorBanner v-if="errors" :title="errors" />
-                <Vue3Marquee :pauseOnHover="true" v-else>
+                <Vue3Marquee :pauseOnHover="true" :duration="speedForElements(shows)" v-else>
                     <CulturePoster
                         v-for="show in shows"
                         :key="show.artist"
@@ -56,7 +56,7 @@
         </div>
         <div class="my-7 mb-20 md:mb-40">
             <ErrorBanner v-if="errorSongs" :title="errorSongs" />
-            <div class="flex flex-wrap gap-y-10 md:gap-x-5 xl:gap-10 justify-between p-3 md:p-0" v-else>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-6 xl:gap-10 p-3 md:p-0" v-else>
                 <Music v-for="element in songs" :song="element" />
             </div>
         </div>
@@ -100,6 +100,9 @@ export default {
         this.retrieveDeezerCharts()
     },
     methods: {
+        speedForElements(elements) {
+            return (20 / 5) * elements.length;
+        },
         async fetchElements() {
             try {
                 const { data } = await axios.get(`${this.$baseUrl}/api/culture`)

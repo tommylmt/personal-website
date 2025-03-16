@@ -3,7 +3,7 @@
         :key="song.id"
         :class="[
             'relative rounded-lg group overflow-hidden transition-all scale-100 hover:scale-110 cursor-pointer',
-            'w-1/2 md:w-1/5 lg:w-1/6 p-2 md:p-0 md:shadow-lg'
+            'col-span-1 p-2 md:p-0 md:shadow-lg'
         ]"
         @mousemove="movePlayer"
         @mouseleave="resetPosition"

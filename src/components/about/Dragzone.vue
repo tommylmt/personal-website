@@ -5,30 +5,30 @@
     >
         <Earth />
         <MyLife />
-        <PictureWrapper :source="prefix(pictures['bottom-left'])" :width="350" :position="{
+        <PictureWrapper :is-loading="isLoading" :source="prefix(pictures['bottom-left'])" :width="350" :position="{
             top: 'calc(70% - 100px)',
             left: '45px'
         }" />
-        <PictureWrapper :source="prefix(pictures['middle-left'])" :width="500" :position="{
+        <PictureWrapper :is-loading="isLoading" :source="prefix(pictures['middle-left'])" :width="500" :position="{
             top: '40%',
             left: '18%'
         }"/>
-        <PictureWrapper :source="prefix(pictures['middle-right'])" :width="400" :position="{
+        <PictureWrapper :is-loading="isLoading" :source="prefix(pictures['middle-right'])" :width="400" :position="{
             right: '30%',
             top: '40%'
         }" />
-        <PictureWrapper :source="prefix(pictures['up-left'])" :width="350" :position="{
+        <PictureWrapper :is-loading="isLoading" :source="prefix(pictures['up-left'])" :width="350" :position="{
             top: '0'
         }" />
-        <PictureWrapper :source="prefix(pictures['center'])" :width="300" :position="{
+        <PictureWrapper :is-loading="isLoading" :source="prefix(pictures['center'])" :width="300" :position="{
             top: 'calc(50%)',
             left: '35%'
         }" />
-        <PictureWrapper :source="prefix(pictures['under-map'])" :width="400" :position="{
+        <PictureWrapper :is-loading="isLoading" :source="prefix(pictures['under-map'])" :width="400" :position="{
             top: 'calc(30% + 15px)',
             right: '50px'
         }" :z-index="78" />
-        <PictureWrapper :source="prefix(pictures['middle-top'])" :width="600" :position="{
+        <PictureWrapper :is-loading="isLoading" :source="prefix(pictures['middle-top'])" :width="600" :position="{
             top: '40px',
             left: '30%'
         }" />
@@ -49,10 +49,12 @@ export default {
     },
     async mounted() {
         this.pictures = await axios.get(`${this.$baseUrl}/api/camera-roll`).then(res => res.data);
+        this.isLoading = false;
     },
     data() {
         return {
-            pictures: {}
+            pictures: {},
+            isLoading: true,
         }
     },
     methods: {
