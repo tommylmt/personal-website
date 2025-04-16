@@ -1,11 +1,6 @@
 <template>
     <AboutBlock :title="'🎓 ' + $t('about.school.title')">
-        <Card
-            v-for="(school, index) in timeline"
-            :img="school.image"
-            :delay="100 * index"
-            :key="index"
-        >
+        <Card v-for="(school, index) in timeline" :img="school.image" :delay="100 * index" :key="index">
             <p class="font-sans font-semibold text-slate-800 dark:text-slate-200">
                 {{ $t(school.name) }}
             </p>

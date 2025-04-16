@@ -1,17 +1,10 @@
 <template>
     <div class="w-full md:w-10/12 my-10 mx-auto relative">
         <div class="relative p-3 md:p-0">
-            <h1
-                class="font-sans font-extrabold text-5xl text-slate-800 dark:text-slate-300"
-                data-aos="fade-up"
-            >
+            <h1 class="font-sans font-extrabold text-5xl text-slate-800 dark:text-slate-300" data-aos="fade-up">
                 {{ $t('culture.movies') }}
             </h1>
-            <p
-                class="font-sans text-slate-500 dark:text-slate-400"
-                data-aos="fade-up"
-                data-aos-delay="100"
-            >
+            <p class="font-sans text-slate-500 dark:text-slate-400" data-aos="fade-up" data-aos-delay="100">
                 {{ $t('culture.moviesubtitle') }}
             </p>
 
@@ -31,17 +24,10 @@
         </div>
         <div class="my-10">
             <div class="relative p-3 md:p-0">
-                <h1
-                    class="font-sans font-extrabold text-5xl text-slate-800 dark:text-slate-300"
-                    data-aos="fade-up"
-                >
+                <h1 class="font-sans font-extrabold text-5xl text-slate-800 dark:text-slate-300" data-aos="fade-up">
                     {{ $t('culture.tvshows') }}
                 </h1>
-                <p
-                    class="font-sans text-slate-500 dark:text-slate-400"
-                    data-aos="fade-up"
-                    data-aos-delay="100"
-                >
+                <p class="font-sans text-slate-500 dark:text-slate-400" data-aos="fade-up" data-aos-delay="100">
                     {{ $t('culture.tvshowsubtitle') }}
                 </p>
 
@@ -72,10 +58,7 @@
         </div>
         <div class="my-7 mb-20 md:mb-40">
             <ErrorBanner v-if="errorSongs" :title="errorSongs" />
-            <div
-                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-6 xl:gap-10 p-3 md:p-0"
-                v-else
-            >
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-6 xl:gap-10 p-3 md:p-0" v-else>
                 <Music v-for="element in songs" :song="element" :key="element.id" />
             </div>
         </div>
