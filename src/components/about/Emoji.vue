@@ -1,9 +1,5 @@
 <template>
-    <div @mouseover="randomEmoji()"
-         @mouseleave="stopAnimation"
-         class="cursor-pointer"
-         :class="['transition-all', emojiClass]"
-    >
+    <div @mouseover="randomEmoji()" @mouseleave="stopAnimation" class="cursor-pointer" :class="['transition-all', emojiClass]">
         {{ emoji }}
     </div>
 </template>
@@ -20,31 +16,35 @@ export default {
     },
     watch: {
         emoji() {
-            this.emojiClass = 'emoji-change';
+            this.emojiClass = 'emoji-change'
 
             setTimeout(() => {
-                this.emojiClass = 'emoji-ready';
-            }, 250);
+                this.emojiClass = 'emoji-ready'
+            }, 250)
         }
     },
     methods: {
         randomEmoji() {
-            let globalIndex = 0;
+            let globalIndex = 0
 
             this.emojis.forEach((e, index) => {
-                this.timeouts.push(setTimeout(() => {
-                    this.emoji = e
-                }, (index + 1) * 500))
+                this.timeouts.push(
+                    setTimeout(() => {
+                        this.emoji = e
+                    }, (index + 1) * 500)
+                )
 
-                globalIndex = index;
+                globalIndex = index
             })
 
-            this.timeouts.push(setTimeout(() => {
-                this.randomEmoji();
-            }, (globalIndex + 1) * 500))
+            this.timeouts.push(
+                setTimeout(() => {
+                    this.randomEmoji()
+                }, (globalIndex + 1) * 500)
+            )
         },
         stopAnimation() {
-            this.timeouts.forEach(t => clearTimeout(t));
+            this.timeouts.forEach((t) => clearTimeout(t))
             this.emoji = '🤙'
         }
     }

@@ -3,7 +3,9 @@
         <h1 class="font-sans font-extrabold text-4xl md:text-5xl text-slate-800 dark:text-slate-300" data-aos="fade-up">
             {{ $t('stack.title') }}
         </h1>
-        <p class="font-sans text-slate-500 dark:text-slate-400" data-aos="fade-up" data-aos-delay="100">{{ $t('stack.subtitle') }}</p>
+        <p class="font-sans text-slate-500 dark:text-slate-400" data-aos="fade-up" data-aos-delay="100">
+            {{ $t('stack.subtitle') }}
+        </p>
 
         <button
             :class="[
@@ -18,10 +20,7 @@
             :aria-label="$t('stack.shuffle')"
         >
             <i class="transition-all ph-light ph-shuffle text-slate-400 text-3xl group-hover:text-slate-500"></i>
-            <span
-                v-show="displayShuffleTitle"
-                class="transition-all text-slate-400 ms-3 font-sans group-hover:text-slate-500"
-            >
+            <span v-show="displayShuffleTitle" class="transition-all text-slate-400 ms-3 font-sans group-hover:text-slate-500">
                 {{ $t('stack.shuffle') }}
             </span>
         </button>
@@ -38,8 +37,8 @@
 import * as sicons from 'simple-icons'
 import axios from 'axios'
 import StackElement from '@/components/stack/StackElement.vue'
-import 'web-animations-js';
-import Muuri from "muuri";
+import 'web-animations-js'
+import Muuri from 'muuri'
 
 export default {
     components: {
@@ -49,7 +48,7 @@ export default {
         return {
             icons: [],
             displayShuffleTitle: false,
-            muuri: null,
+            muuri: null
         }
     },
     mounted() {
@@ -63,16 +62,16 @@ export default {
                 this.muuri = new Muuri('#muuri', {
                     layout: {
                         fillGaps: true,
-                        rounding: true,
+                        rounding: true
                     },
                     layoutOnResize: true,
                     dragEnabled: true,
                     sortData: {
                         id: (item, element) => {
-                            return parseFloat(element.children[0].textContent);
+                            return parseFloat(element.children[0].textContent)
                         }
                     }
-                });
+                })
             })
         },
         prepareIcons(data) {
@@ -81,24 +80,24 @@ export default {
                     this.icons.push(sicons[el.code])
                 })
 
-                res();
-            });
+                res()
+            })
         },
         shuffle() {
-            this.muuri.sort(this.randomSortItems());
-            this.muuri.refreshItems().layout();
+            this.muuri.sort(this.randomSortItems())
+            this.muuri.refreshItems().layout()
         },
         randomSortItems() {
-            let elements = this.muuri.getItems();
-            let currentIndex = elements.length;
+            let elements = this.muuri.getItems()
+            let currentIndex = elements.length
 
             while (currentIndex != 0) {
-                let randomIndex = Math.floor(Math.random() * currentIndex);
-                currentIndex--;
-                [elements[currentIndex], elements[randomIndex]] = [elements[randomIndex], elements[currentIndex]];
+                let randomIndex = Math.floor(Math.random() * currentIndex)
+                currentIndex--
+                ;[elements[currentIndex], elements[randomIndex]] = [elements[randomIndex], elements[currentIndex]]
             }
 
-            return elements;
+            return elements
         }
     }
 }

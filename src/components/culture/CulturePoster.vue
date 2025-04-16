@@ -7,10 +7,12 @@
                 backgroundSize: 'cover'
             }"
         >
-            <div :class="[
-                'shadow-lg backdrop-blur-lg w-full p-3 flex justify-between items-center rounded-lg',
-                'bg-white/70 dark:bg-slate-800/70'
-            ]">
+            <div
+                :class="[
+                    'shadow-lg backdrop-blur-lg w-full p-3 flex justify-between items-center rounded-lg',
+                    'bg-white/70 dark:bg-slate-800/70'
+                ]"
+            >
                 <p class="text-slate-500 dark:text-slate-300 text-sm">{{ subtitle }}</p>
                 <p class="text-slate-800 dark:text-slate-100 font-sans">{{ artist }}</p>
             </div>
@@ -24,6 +26,6 @@ export default {
         file: { type: String, required: true },
         subtitle: { type: String, required: true },
         artist: { type: String, required: true }
-    },
+    }
 }
 </script>

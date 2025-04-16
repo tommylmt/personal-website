@@ -1,18 +1,20 @@
 <template>
-    <DraggableBlock :style="{
-        width: `${width}px`,
-        zIndex: zIndex,
-        ...position
-    }">
+    <DraggableBlock
+        :style="{
+            width: `${width}px`,
+            zIndex: zIndex,
+            ...position
+        }"
+    >
         <div v-if="isLoading" :class="`w-[${width}px] bg-slate-50 animate-pulse h-[300px]`"></div>
-        <img v-else :src="source" alt="Image" :width="width" loading="lazy">
+        <img v-else :src="source" alt="Image" :width="width" loading="lazy" />
     </DraggableBlock>
 </template>
 
 <script>
-import DraggableBlock from "@/components/layout/DraggableBlock.vue";
+import DraggableBlock from '@/components/layout/DraggableBlock.vue'
 
-export default{
+export default {
     components: { DraggableBlock },
     props: {
         source: {
@@ -26,7 +28,7 @@ export default{
         position: {
             type: Object,
             default: () => {
-                return {};
+                return {}
             }
         },
         zIndex: {
@@ -35,7 +37,7 @@ export default{
         },
         isLoading: {
             type: Boolean,
-            default: false,
+            default: false
         }
     }
 }
