@@ -1,10 +1,17 @@
 <template>
     <div class="w-full md:w-10/12 my-10 mx-auto relative">
         <div class="relative p-3 md:p-0">
-            <h1 class="font-sans font-extrabold text-5xl text-slate-800 dark:text-slate-300" data-aos="fade-up">
+            <h1
+                class="font-sans font-extrabold text-5xl text-slate-800 dark:text-slate-300"
+                data-aos="fade-up"
+            >
                 {{ $t('culture.movies') }}
             </h1>
-            <p class="font-sans text-slate-500 dark:text-slate-400" data-aos="fade-up" data-aos-delay="100">
+            <p
+                class="font-sans text-slate-500 dark:text-slate-400"
+                data-aos="fade-up"
+                data-aos-delay="100"
+            >
                 {{ $t('culture.moviesubtitle') }}
             </p>
 
@@ -24,10 +31,17 @@
         </div>
         <div class="my-10">
             <div class="relative p-3 md:p-0">
-                <h1 class="font-sans font-extrabold text-5xl text-slate-800 dark:text-slate-300" data-aos="fade-up">
+                <h1
+                    class="font-sans font-extrabold text-5xl text-slate-800 dark:text-slate-300"
+                    data-aos="fade-up"
+                >
                     {{ $t('culture.tvshows') }}
                 </h1>
-                <p class="font-sans text-slate-500 dark:text-slate-400" data-aos="fade-up" data-aos-delay="100">
+                <p
+                    class="font-sans text-slate-500 dark:text-slate-400"
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                >
                     {{ $t('culture.tvshowsubtitle') }}
                 </p>
 
@@ -50,14 +64,19 @@
             <h1 class="font-sans font-extrabold text-5xl text-slate-800 dark:text-slate-300">
                 {{ $t('culture.music') }}
             </h1>
-            <p class="font-sans text-slate-500 dark:text-slate-400">{{ $t('culture.musicsubtitle') }}</p>
+            <p class="font-sans text-slate-500 dark:text-slate-400">
+                {{ $t('culture.musicsubtitle') }}
+            </p>
 
             <MeetMe :link="links.deezer" image="/img/culture/deezer.svg" :width="100" />
         </div>
         <div class="my-7 mb-20 md:mb-40">
             <ErrorBanner v-if="errorSongs" :title="errorSongs" />
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-6 xl:gap-10 p-3 md:p-0" v-else>
-                <Music v-for="element in songs" :song="element" />
+            <div
+                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-6 xl:gap-10 p-3 md:p-0"
+                v-else
+            >
+                <Music v-for="element in songs" :song="element" :key="element.id" />
             </div>
         </div>
     </div>
@@ -67,11 +86,11 @@
 import axios from 'axios'
 import { Vue3Marquee } from 'vue3-marquee'
 import 'vue3-marquee/dist/style.css'
-import CulturePoster from "@/components/culture/CulturePoster.vue";
-import MeetMe from "@/components/culture/MeetMe.vue";
-import Music from "@/components/culture/Music.vue";
-import ErrorBanner from "@/components/errors/ErrorBanner.vue";
-import {MEDIA_TYPE} from "@/utils/constants";
+import CulturePoster from '@/components/culture/CulturePoster.vue'
+import MeetMe from '@/components/culture/MeetMe.vue'
+import Music from '@/components/culture/Music.vue'
+import ErrorBanner from '@/components/errors/ErrorBanner.vue'
+import { MEDIA_TYPE } from '@/utils/constants'
 
 export default {
     components: {
@@ -101,14 +120,14 @@ export default {
     },
     methods: {
         speedForElements(elements) {
-            return (20 / 5) * elements.length;
+            return (20 / 5) * elements.length
         },
         async fetchElements() {
             try {
                 const { data } = await axios.get(`${this.$baseUrl}/api/culture`)
 
-                this.movies = data.filter(media => media.media_type.slug === MEDIA_TYPE.Movie);
-                this.shows = data.filter(media => media.media_type.slug === MEDIA_TYPE.TvShows);
+                this.movies = data.filter((media) => media.media_type.slug === MEDIA_TYPE.Movie)
+                this.shows = data.filter((media) => media.media_type.slug === MEDIA_TYPE.TvShows)
             } catch (e) {
                 this.errors = 'culture.errors.fetching'
             }
@@ -121,7 +140,7 @@ export default {
             } catch (e) {
                 this.errorSongs = 'culture.errors.charts'
             }
-        },
+        }
     }
 }
 </script>

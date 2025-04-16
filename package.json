@@ -6,8 +6,9 @@
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore --ignore-pattern '*.config.js'",
+    "format": "prettier --write src/",
+    "prepare": "husky"
   },
   "dependencies": {
     "@foobar404/wave": "^2.0.4",
