@@ -100,7 +100,15 @@ export const fr = {
     stack: {
         title: 'Environnement technique',
         subtitle: 'Liste des logiciels que j\'utilise au quotidien',
-        shuffle: 'Mélanger'
+        shuffle: 'Mélanger',
+        filter: 'Filtrer',
+        types: {
+            beginner: 'Débutant',
+            advanced: 'Avancé',
+            expert: 'Expert',
+            misc: 'Divers',
+            specialist: 'Spécialiste',
+        }
     },
     culture: {
         movies: 'Films',

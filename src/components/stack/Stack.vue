@@ -5,26 +5,29 @@
         </h1>
         <p class="font-sans text-slate-500 dark:text-slate-400" data-aos="fade-up" data-aos-delay="100">{{ $t('stack.subtitle') }}</p>
 
-        <button
-            :class="[
-                'md:absolute transition-all top-3 right-0 h-12 flex justify-center items-center rounded-3xl cursor-pointer',
-                'group hover:shadow-lg dark:bg-slate-900',
-                !displayShuffleTitle ? 'w-12' : 'w-36'
-            ]"
-            @mouseover="displayShuffleTitle = true"
-            @mouseleave="displayShuffleTitle = false"
-            @click="shuffle"
-            role="button"
-            :aria-label="$t('stack.shuffle')"
-        >
-            <i class="transition-all ph-light ph-shuffle text-slate-400 text-3xl group-hover:text-slate-500"></i>
-            <span
-                v-show="displayShuffleTitle"
-                class="transition-all text-slate-400 ms-3 font-sans group-hover:text-slate-500"
+        <div class="md:absolute top-3 right-0 flex gap-3 items-center">
+            <button
+                :class="[
+                    'transition-all h-12 flex justify-center items-center rounded-3xl cursor-pointer',
+                    'group hover:shadow-lg dark:bg-slate-900',
+                    !displayShuffleTitle ? 'w-12' : 'w-36'
+                ]"
+                @mouseover="displayShuffleTitle = true"
+                @mouseleave="displayShuffleTitle = false"
+                @click="shuffle"
+                role="button"
+                :aria-label="$t('stack.shuffle')"
             >
-                {{ $t('stack.shuffle') }}
-            </span>
-        </button>
+                <i class="transition-all ph-light ph-shuffle text-slate-400 text-3xl group-hover:text-slate-500"></i>
+                <span
+                    v-show="displayShuffleTitle"
+                    class="transition-all text-slate-400 ms-3 font-sans group-hover:text-slate-500"
+                >
+                    {{ $t('stack.shuffle') }}
+                </span>
+            </button>
+            <FilterDropdown :types="skillTypes" @click-filter="t => filter(t)" />
+        </div>
 
         <div class="mt-5 lg:mt-5 mb-20 md:mb-40" data-aos="fade-up" data-aos-delay="200" v-if="icons.length > 0">
             <div id="muuri">
@@ -40,9 +43,11 @@ import axios from 'axios'
 import StackElement from '@/components/stack/StackElement.vue'
 import 'web-animations-js';
 import Muuri from "muuri";
+import FilterDropdown from "@/components/stack/FilterDropdown.vue";
 
 export default {
     components: {
+        FilterDropdown,
         StackElement
     },
     data() {
@@ -50,6 +55,7 @@ export default {
             icons: [],
             displayShuffleTitle: false,
             muuri: null,
+            skillTypes: [],
         }
     },
     mounted() {
@@ -57,9 +63,9 @@ export default {
     },
     methods: {
         async retrieveSkills() {
-            const res = await axios.get(`${this.$baseUrl}/api/stack`)
+            const { data } = await axios.get(`${this.$baseUrl}/api/stack`)
 
-            this.prepareIcons(res.data).then(() => {
+            this.prepareIcons(data).then(() => {
                 this.muuri = new Muuri('#muuri', {
                     layout: {
                         fillGaps: true,
@@ -68,7 +74,7 @@ export default {
                     layoutOnResize: true,
                     dragEnabled: true,
                     sortData: {
-                        id: (item, element) => {
+                        id: (_, element) => {
                             return parseFloat(element.children[0].textContent);
                         }
                     }
@@ -78,8 +84,9 @@ export default {
         prepareIcons(data) {
             return new Promise((res) => {
                 data.sort((a, b) => a.title.localeCompare(b.title)).forEach(async (el) => {
-                    this.icons.push(sicons[el.code])
+                    this.icons.push({...sicons[el.code], ...{type: el.skill_type.name}})
                 })
+                this.skillTypes = [...new Set(data.map(s => s.skill_type.name))].sort((a, b) => a.localeCompare(b));
 
                 res();
             });
@@ -87,6 +94,15 @@ export default {
         shuffle() {
             this.muuri.sort(this.randomSortItems());
             this.muuri.refreshItems().layout();
+        },
+        filter(type) {
+            if (!type) {
+                this.muuri.show(this.muuri.getItems());
+
+                return;
+            }
+
+            this.muuri.filter(item => item.getElement().dataset.type === type);
         },
         randomSortItems() {
             let elements = this.muuri.getItems();

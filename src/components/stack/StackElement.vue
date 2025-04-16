@@ -1,5 +1,5 @@
 <template>
-    <div class="item">
+    <div class="item" :data-type="icon.type">
         <div class="item-content">
             <div :class="[
                 'group text-center bg-white transition-all rounded-xl md:p-2',

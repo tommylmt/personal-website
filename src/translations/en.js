@@ -100,7 +100,15 @@ export const en = {
     stack: {
         title: 'Stack',
         subtitle: 'Elements I use everyday',
-        shuffle: 'Shuffle'
+        shuffle: 'Shuffle',
+        filter: 'Filter',
+        types: {
+            beginner: 'Begginer',
+            advanced: 'Advanced',
+            expert: 'Expert',
+            misc: 'Miscellaneous',
+            specialist: 'Specialist',
+        }
     },
     culture: {
         movies: 'Movies',
