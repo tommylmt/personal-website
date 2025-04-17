@@ -1,23 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { nextTick } from "vue";
-import { processSeo } from "@/utils/seo";
+import { nextTick } from 'vue'
+import { processSeo } from '@/utils/seo'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
-    scrollBehavior(to) {
+    scrollBehavior() {
         return { top: 0 }
     },
     routes: [
         {
             path: '/',
             name: 'about',
-            component: () => import("@/components/about/About.vue"),
+            component: () => import('@/components/about/About.vue'),
             meta: {
                 title: 'seo.title.about',
                 seo: {
                     description: 'seo.meta.about.description',
                     'twitter:title': 'seo.meta.about.twitter.title',
-                    'twitter:description': 'seo.meta.about.twitter.description',
+                    'twitter:description': 'seo.meta.about.twitter.description'
                 },
                 og: {
                     'og:title': 'seo.meta.about.og.title',
@@ -35,7 +35,7 @@ const router = createRouter({
                 seo: {
                     description: 'seo.meta.stack.description',
                     'twitter:title': 'seo.meta.stack.twitter.title',
-                    'twitter:description': 'seo.meta.stack.twitter.description',
+                    'twitter:description': 'seo.meta.stack.twitter.description'
                 },
                 og: {
                     'og:title': 'seo.meta.stack.og.title',
@@ -53,7 +53,7 @@ const router = createRouter({
                 seo: {
                     description: 'seo.meta.culture.description',
                     'twitter:title': 'seo.meta.culture.twitter.title',
-                    'twitter:description': 'seo.meta.culture.twitter.description',
+                    'twitter:description': 'seo.meta.culture.twitter.description'
                 },
                 og: {
                     'og:title': 'seo.meta.culture.og.title',
@@ -67,8 +67,8 @@ const router = createRouter({
 
 router.afterEach((to) => {
     nextTick(() => {
-        processSeo(to.meta);
+        processSeo(to.meta)
     })
-});
+})
 
 export default router

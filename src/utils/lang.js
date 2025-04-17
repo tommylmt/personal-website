@@ -3,7 +3,7 @@ import { fr } from '@/translations/fr'
 import { en } from '@/translations/en'
 
 export const i18n = createI18n({
-    locale: navigator.language.substring(0,2),
+    locale: navigator.language.substring(0, 2),
     fallbackLocale: 'en',
     globalInjection: true,
     datetimeFormats: {
@@ -11,7 +11,7 @@ export const i18n = createI18n({
             long: { year: 'numeric', month: 'long', day: 'numeric' }
         },
         en: {
-            long: { year: 'numeric', month: 'long', day: 'numeric', }
+            long: { year: 'numeric', month: 'long', day: 'numeric' }
         }
     },
     messages: {

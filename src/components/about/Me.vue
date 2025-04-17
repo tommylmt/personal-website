@@ -1,17 +1,19 @@
 <template>
-    <div :class="[
-        'block md:flex bg-white border border-slate-100 shadow-lg shadow-slate-100 rounded-xl my-10 mx-auto',
-        'w-11/12 md:w-10/12 xl:w-9/12 2xl:w-7/12',
-        'dark:bg-slate-950 dark:border-slate-800 dark:shadow-slate-950',
-        'motion-scale-in-75 motion-opacity-in-0 motion-blur-in'
-    ]">
+    <div
+        :class="[
+            'block md:flex bg-white border border-slate-100 shadow-lg shadow-slate-100 rounded-xl my-10 mx-auto',
+            'w-11/12 md:w-10/12 xl:w-9/12 2xl:w-7/12',
+            'dark:bg-slate-950 dark:border-slate-800 dark:shadow-slate-950',
+            'motion-scale-in-75 motion-opacity-in-0 motion-blur-in'
+        ]"
+    >
         <div class="w-full md:w-64 lg:w-80 2xl:w-2/5 shrink-0 p-0 md:p-2 2xl:p-0">
             <img
                 src="/img/about/about_me.webp"
                 alt="Thomas Lamothe"
                 class="rounded-t-xl md:rounded-xl 2xl:rounded-e-none"
                 fetchpriority="high"
-            >
+            />
         </div>
         <div class="grow-0 lg:grow">
             <div class="p-5 2xl:p-10 2xl:pb-0">
@@ -23,9 +25,7 @@
                 </h1>
 
                 <i18n-t keypath="about.me.introduction" class="mt-4 main-text text-xl" tag="p">
-                    <span :class="[
-                        'italic line-through overflow-hidden',
-                    ]">
+                    <span :class="['italic line-through overflow-hidden']">
                         {{ $t('about.me.random') }}
                     </span>
                 </i18n-t>
@@ -48,7 +48,9 @@
                     <a :href="trax" target="_blank" class="me-link before:bg-violet-400/90">Trax</a>
                 </i18n-t>
 
-                <p class="mt-2 main-text">{{ $t('about.me.hobbies', { guitarYears: guitarYears }) }}</p>
+                <p class="mt-2 main-text">
+                    {{ $t('about.me.hobbies', { guitarYears: guitarYears }) }}
+                </p>
                 <p class="mt-2 main-text">{{ $t('about.me.findme') }}</p>
             </div>
         </div>
@@ -56,7 +58,7 @@
 </template>
 
 <script>
-import Emoji from '@/components/about/Emoji.vue';
+import Emoji from '@/components/about/Emoji.vue'
 
 export default {
     components: {
@@ -75,7 +77,7 @@ export default {
     },
     computed: {
         guitarYears() {
-            return new Date().getFullYear() - 2014;
+            return new Date().getFullYear() - 2014
         }
     }
 }

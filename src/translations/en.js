@@ -9,29 +9,32 @@ export const en = {
         title: {
             about: 'Thomas Lamothe - Tech Lead developer',
             stack: 'My Stack',
-            culture: 'Things I love',
+            culture: 'Things I love'
         },
         meta: {
             about: {
-                description: 'I\'m Thomas, a french web tech lead. I mainly maintain and scale complex apps infrastructures and manage a team of developers',
+                description:
+                    "I'm Thomas, a french web tech lead. I mainly maintain and scale complex apps infrastructures and manage a team of developers",
                 twitter: {
                     title: 'Thomas Lamothe - Tech Lead developer',
-                    description: 'I\'m Thomas, a french web tech lead. I mainly maintain and scale complex apps infrastructures and manage a team of developers'
+                    description:
+                        "I'm Thomas, a french web tech lead. I mainly maintain and scale complex apps infrastructures and manage a team of developers"
                 },
                 og: {
                     title: 'Thomas Lamothe - Tech Lead developer',
-                    description: 'I\'m Thomas, a french web tech lead. I mainly maintain and scale complex apps infrastructures and manage a team of developers',
+                    description:
+                        "I'm Thomas, a french web tech lead. I mainly maintain and scale complex apps infrastructures and manage a team of developers"
                 }
             },
             stack: {
-                description: 'A (messy) list of all the stack I\'m used to',
+                description: "A (messy) list of all the stack I'm used to",
                 twitter: {
                     title: 'My Stack',
-                    description: 'A (messy) list of all the stack I\'m used to'
+                    description: "A (messy) list of all the stack I'm used to"
                 },
                 og: {
                     title: 'My Stack',
-                    description: 'A (messy) list of all the stack I\'m used to',
+                    description: "A (messy) list of all the stack I'm used to"
                 }
             },
             culture: {
@@ -42,7 +45,7 @@ export const en = {
                 },
                 og: {
                     title: 'Things I love',
-                    description: 'All the pop culture things I recently loved',
+                    description: 'All the pop culture things I recently loved'
                 }
             }
         }
@@ -50,13 +53,16 @@ export const en = {
     about: {
         theEnd: 'Thank you for reaching the end',
         me: {
-            title: "Hi there",
+            title: 'Hi there',
             introduction: "I'm Thomas, {0} a french web tech lead developer",
             random: 'yet another random Carhartt kid in tech',
             working: 'I currently work as a tech lead developer at {0} in Toulouse, France.',
-            whatido: 'My work essentially consist into building complex applications architectures and managing a developers team. I mostly write code using {0}, {1}, {2} and {3} shipped on {4} infrastructures.',
-            projects: 'I\'m also the father of several projects like {0}, Orkestrum, Cinécombles and many others that, maybe, will never be released.',
-            hobbies: 'Besides that, I\'m a huge pop culture and music nerd. I\'ve been playing guitar for {guitarYears} years, do skateboard. I\'m also a tattoo, cinema, lifestyle and beer enthusiast.',
+            whatido:
+                'My work essentially consist into building complex applications architectures and managing a developers team. I mostly write code using {0}, {1}, {2} and {3} shipped on {4} infrastructures.',
+            projects:
+                "I'm also the father of several projects like {0}, Orkestrum, Cinécombles and many others that, maybe, will never be released.",
+            hobbies:
+                "Besides that, I'm a huge pop culture and music nerd. I've been playing guitar for {guitarYears} years, do skateboard. I'm also a tattoo, cinema, lifestyle and beer enthusiast.",
             findme: 'You can easily find me somewhere cool in Toulouse.'
         },
         school: {
@@ -64,12 +70,12 @@ export const en = {
             level: {
                 highschool: 'Victor Duruy High School',
                 dut: 'Paul Sabatier Technology Institute',
-                licence: 'Toulouse\'s Capitole College',
+                licence: "Toulouse's Capitole College",
                 miage: 'Paul Sabatier College'
             },
             graduations: {
                 bac: 'Scientific High School Diploma (English mention)',
-                dut: 'Associate\'s degree in computer science',
+                dut: "Associate's degree in computer science",
                 prolicence: 'Professionnal Bachelor in computer science',
                 duallicence: 'Dual Bachelor in computer engineering'
             }
@@ -77,11 +83,11 @@ export const en = {
         pro: {
             title: 'XPeriences',
             duration: {
-                now: 'now',
+                now: 'now'
             },
             location: {
                 office: 'My office',
-                toulouse: 'Toulouse, France',
+                toulouse: 'Toulouse, France'
             },
             status: {
                 intern: 'Web development internship',
@@ -107,7 +113,7 @@ export const en = {
             advanced: 'Advanced',
             expert: 'Expert',
             misc: 'Miscellaneous',
-            specialist: 'Specialist',
+            specialist: 'Specialist'
         }
     },
     culture: {
@@ -125,4 +131,4 @@ export const en = {
             charts: 'An error occured while fetching music charts'
         }
     }
-};
+}

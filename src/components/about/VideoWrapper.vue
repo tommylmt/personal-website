@@ -1,13 +1,11 @@
 <template>
-    <DraggableBlock>
-
-    </DraggableBlock>
+    <DraggableBlock> </DraggableBlock>
 </template>
 
 <script>
-import DraggableBlock from "@/components/layout/DraggableBlock.vue";
+import DraggableBlock from '@/components/layout/DraggableBlock.vue'
 
-export default{
-    components: {DraggableBlock}
+export default {
+    components: { DraggableBlock }
 }
 </script>

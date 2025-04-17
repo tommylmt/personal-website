@@ -6,10 +6,7 @@
     <Dragzone />
 
     <div class="text-center my-20 md:my-40">
-        <h3
-            :class="['text-slate-200 text-8xl 2xl:text-9xl font-gothic dark:text-slate-900 pt-10']"
-            data-aos="fade-up"
-        >
+        <h3 :class="['text-slate-200 text-8xl 2xl:text-9xl font-gothic dark:text-slate-900 pt-10']" data-aos="fade-up">
             {{ $t('about.theEnd') }}
         </h3>
     </div>
@@ -17,10 +14,10 @@
 
 <script>
 import Me from '@/components/about/Me.vue'
-import School from "@/components/about/School.vue";
-import ProSituation from "@/components/about/ProSituation.vue";
-import SocialMedia from "@/components/about/SocialMedia.vue";
-import Dragzone from "@/components/about/Dragzone.vue";
+import School from '@/components/about/School.vue'
+import ProSituation from '@/components/about/ProSituation.vue'
+import SocialMedia from '@/components/about/SocialMedia.vue'
+import Dragzone from '@/components/about/Dragzone.vue'
 
 export default {
     components: {
@@ -34,5 +31,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/assets/scss/about/about";
+@import '@/assets/scss/about/about';
 </style>

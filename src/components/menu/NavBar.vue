@@ -1,8 +1,11 @@
 <template>
-    <div :class="[
-        'md:hidden fixed left-5 w-12 h-12 rounded-full flex items-center justify-center',
-        'bg-slate-200/60 dark:bg-slate-700/60 backdrop-blur-xl z-[9999] transition-all bottom-6',
-    ]" @click="openMenu = !openMenu">
+    <div
+        :class="[
+            'md:hidden fixed left-5 w-12 h-12 rounded-full flex items-center justify-center',
+            'bg-slate-200/60 dark:bg-slate-700/60 backdrop-blur-xl z-[9999] transition-all bottom-6'
+        ]"
+        @click="openMenu = !openMenu"
+    >
         <Transition name="toggle-menu">
             <i class="ph-light ph-list text-3xl z-50 text-slate-900 dark:text-white absolute" v-if="!openMenu"></i>
             <i class="ph-light ph-x text-3xl z-50 text-slate-900 dark:text-white absolute" v-else></i>
@@ -21,7 +24,12 @@
         >
             <div
                 class="bg-slate-900 dark:bg-slate-300 rounded-xl md:rounded-[45px] absolute transition-all duration-300"
-                :style="{ left: currentLeft, width: currentWidth, top: currentTop, height: `${clientHeight}px` }"
+                :style="{
+                    left: currentLeft,
+                    width: currentWidth,
+                    top: currentTop,
+                    height: `${clientHeight}px`
+                }"
             ></div>
             <ul class="md:flex gap-5 justify-between">
                 <MenuItem
@@ -69,14 +77,14 @@ export default {
     watch: {
         '$i18n.locale'() {
             setTimeout(() => {
-                this.currentWidth = `${this.getCurrentItem()?.clientWidth}px`;
+                this.currentWidth = `${this.getCurrentItem()?.clientWidth}px`
                 this.currentLeft = `${this.getCurrentItem()?.offsetLeft}px`
             }, 50)
-        },
+        }
     },
     computed: {
         noResponsive() {
-            return window.innerWidth >= 768;
+            return window.innerWidth >= 768
         }
     },
     props: ['pages'],

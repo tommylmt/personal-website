@@ -10,7 +10,7 @@
         <span class="transition-all text-slate-300 font-sans group-hover:text-slate-200 hidden md:inline">
             {{ $t('culture.meetme') }}
         </span>
-        <img :src="image" alt="Culture image" :width="width">
+        <img :src="image" alt="Culture image" :width="width" />
     </a>
 </template>
 
@@ -19,7 +19,7 @@ export default {
     props: {
         image: {
             type: String,
-            required: true,
+            required: true
         },
         width: {
             type: Number,

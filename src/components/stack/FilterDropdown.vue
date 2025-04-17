@@ -40,32 +40,32 @@
 </template>
 
 <script>
-import "@phosphor-icons/web/fill";
+import '@phosphor-icons/web/fill'
 
 export default {
     props: {
         types: {
             type: Array,
-            required: true,
+            required: true
         }
     },
     data() {
         return {
             isButtonHovered: false,
             displayDropdown: false,
-            currentFilter: null,
+            currentFilter: null
         }
     },
     emits: ['clickFilter'],
     methods: {
         filter(type) {
-            this.currentFilter = this.currentFilter === type ? null : type;
+            this.currentFilter = this.currentFilter === type ? null : type
 
-            this.$emit('clickFilter', this.currentFilter);
-            this.displayDropdown = false;
+            this.$emit('clickFilter', this.currentFilter)
+            this.displayDropdown = false
         },
         slugify(name) {
-            return name.toLowerCase();
+            return name.toLowerCase()
         }
     }
 }
