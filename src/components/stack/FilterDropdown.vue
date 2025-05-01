@@ -5,6 +5,7 @@
             @mouseleave="isButtonHovered = false"
             role="button"
             @click="displayDropdown = !displayDropdown"
+            :aria-label="$t('stack.filter')"
             :class="[
                 'transition-all h-12 flex justify-center items-center rounded-3xl cursor-pointer',
                 'group dark:bg-slate-900',
@@ -24,7 +25,7 @@
         </button>
         <ul
             class="dropdown absolute right-0 z-50 p-2 shadow-slate-200 transition-all shadow-lg rounded-lg bg-white w-52"
-            :class="[displayDropdown ? 'top-[60px] opacity-100' : 'top-[80px] opacity-0']"
+            :class="[displayDropdown ? 'top-[60px] opacity-100 z-40' : 'top-[80px] opacity-0 -z-20']"
         >
             <li
                 v-for="type in types"

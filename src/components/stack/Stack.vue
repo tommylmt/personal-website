@@ -7,7 +7,7 @@
             {{ $t('stack.subtitle') }}
         </p>
 
-        <div class="md:absolute top-3 right-0 flex gap-3 items-center">
+        <div class="md:absolute top-3 right-0 flex justify-center md:justify-normal gap-3 items-center">
             <button
                 :class="[
                     'transition-all h-12 flex justify-center items-center rounded-3xl cursor-pointer',
