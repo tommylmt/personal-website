@@ -54,7 +54,7 @@
                 {{ $t('culture.musicsubtitle') }}
             </p>
 
-            <MeetMe :link="links.deezer" image="/img/culture/deezer.svg" :width="100" />
+            <MeetMe :link="links.spotify" image="/img/culture/spotify.svg" :width="30" />
         </div>
         <div class="my-7 mb-20 md:mb-40">
             <ErrorBanner v-if="errorSongs" :title="errorSongs" />
@@ -91,7 +91,7 @@ export default {
             errorSongs: false,
             songs: [],
             links: {
-                deezer: 'https://www.deezer.com/us/profile/1567995002',
+                spotify: 'https://open.spotify.com/user/313guoevms7cob2dvjizsmwfk4o4',
                 tvtime: 'https://tvtime.com/r/35sjB',
                 senscritique: 'https://www.senscritique.com/tommy-dvdrip-mkv'
             }
