@@ -27,16 +27,22 @@
                 <i class="ph-light ph-play text-3xl"></i>
             </div>
         </div>
-        <div class="relative w-full rounded-lg shadow-lg md:shadow-none overflow-hidden md:overflow-visible">
-            <img :src="song.album.cover_medium" alt="Song" class="w-full" crossorigin />
+        <div class="relative w-full rounded-lg shadow-lg h-full md:shadow-none overflow-hidden md:overflow-visible">
+            <img :src="getImage(song.album)" alt="Song" class="w-full" crossorigin />
             <div
                 :class="[
-                    'absolute bg-white/70 shadow-lg backdrop-blur-lg rounded-md p-2 w-[96%] left-[2%]',
-                    '-bottom-40 transition-all group-hover:bottom-1 dark:bg-slate-800/70'
+                    'absolute rounded-md p-3 pt-5 bg-gradient-to-t from-black to-transparent w-full left-0',
+                    'opacity-0 bottom-0 transition-all group-hover:opacity-100 flex gap-3 items-center'
                 ]"
             >
-                <p class="text-sm text-slate-800 dark:text-white">{{ song.title }}</p>
-                <p class="text-xs text-slate-500 dark:text-slate-400">{{ song.artist.name }}</p>
+                <div
+                    class="w-10 h-10 rounded-full shadow-lg"
+                    :style="{ background: `url(${getImage(song.artist, 'small')})`, backgroundSize: 'cover' }"
+                ></div>
+                <div>
+                    <p class="text-sm text-white">{{ song.name }}</p>
+                    <p class="text-xs text-white/70">{{ song.artist.name }}</p>
+                </div>
             </div>
         </div>
     </div>
@@ -56,7 +62,12 @@ export default {
     data() {
         return {
             top: 0,
-            left: 0
+            left: 0,
+            sizes: {
+                large: 0,
+                medium: 1,
+                small: 2
+            }
         }
     },
     computed: {
@@ -66,6 +77,9 @@ export default {
         resetPosition() {
             this.top = 0
             this.left = 0
+        },
+        getImage(entry, size = 'large') {
+            return entry.images[this.sizes[size]].url
         },
         movePlayer(e) {
             const [width, height] = [this.$refs.music.offsetWidth, this.$refs.music.offsetHeight]

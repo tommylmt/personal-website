@@ -4,11 +4,11 @@
             v-if="song"
             class="bg-slate-800/70 backdrop-blur-lg p-1 rounded-lg shadow-md fixed top-5 right-5 z-[5000] flex items-center gap-3"
         >
-            <img :src="song.album.cover_medium" alt="Currently playing" class="rounded-md" width="60" />
+            <img :src="song.album.images[2].url" alt="Currently playing" class="rounded-md" width="60" />
             <div class="w-64 pe-5">
                 <div class="flex items-center gap-5 justify-between">
                     <div>
-                        <p class="text-white text-sm">{{ song.title }}</p>
+                        <p class="text-white text-sm">{{ song.name }}</p>
                         <h6 class="text-xs text-slate-300">{{ song.artist.name }}</h6>
                     </div>
                     <div class="text-white flex items-center gap-3">
