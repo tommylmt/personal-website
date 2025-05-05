@@ -11,6 +11,7 @@
     >
         <div
             class="rounded-lg absolute bg-slate-800/40 backdrop-blur-lg w-full h-full z-30 opacity-0 group-hover:opacity-100 group-hover:delay-700 transition-all duration-100 items-center justify-center hidden md:flex"
+            v-if="song.preview_url"
         >
             <div
                 :class="[
@@ -28,7 +29,7 @@
             </div>
         </div>
         <div class="relative w-full rounded-lg shadow-lg h-full md:shadow-none overflow-hidden md:overflow-visible">
-            <img :src="getImage(song.album)" alt="Song" class="w-full" crossorigin />
+            <img :src="getImage(song.album)" alt="Song" class="w-full h-full" crossorigin />
             <div
                 :class="[
                     'absolute rounded-md p-3 pt-5 bg-gradient-to-t from-black to-transparent w-full left-0',
@@ -36,7 +37,7 @@
                 ]"
             >
                 <div
-                    class="w-10 h-10 rounded-full shadow-lg"
+                    class="w-10 h-10 rounded-full shadow-lg shrink-0 border border-white/40"
                     :style="{ background: `url(${getImage(song.artist, 'small')})`, backgroundSize: 'cover' }"
                 ></div>
                 <div>
