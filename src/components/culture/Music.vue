@@ -6,6 +6,20 @@
             'col-span-1 p-2 md:p-0 md:shadow-lg'
         ]"
     >
+        <div
+            :class="[
+                'absolute w-full h-full top-0 left-0 backdrop-blur-md z-10 p-4 transition-all delay-700',
+                'flex justify-center items-center  opacity-0 group-hover:opacity-100'
+            ]"
+        >
+            <div class="text-center">
+                <div
+                    :style="{ background: `url(${getImage(song.artist, 'medium')})`, backgroundSize: 'cover' }"
+                    class="rounded-full w-24 h-24 shadow-md m-auto border-2 border-white/70"
+                ></div>
+                <p class="font-sans text-white text-xs uppercase p-1 rounded-md bg-slate-900 -translate-y-4">{{ song.artist.name }}</p>
+            </div>
+        </div>
         <div class="relative w-full rounded-lg shadow-lg h-full md:shadow-none overflow-hidden md:overflow-visible">
             <img :src="getImage(song.album)" alt="Song" class="w-full h-full" crossorigin />
             <div
