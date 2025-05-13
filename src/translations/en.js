@@ -126,6 +126,7 @@ export const en = {
         musicsubtitle: 'Songs I listen on repeat',
         available: 'Available on',
         meetme: 'Meet me on',
+        listenon: 'Listen on Spotify',
         errors: {
             fetching: 'An error occured while fetching culture data',
             charts: 'An error occured while fetching music charts'

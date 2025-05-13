@@ -13,7 +13,7 @@
             ]"
         >
             <i
-                :class="[currentFilter ? 'ph-fill text-slate-800' : 'ph-light text-slate-400', 'ph-funnel']"
+                :class="[currentFilter ? 'ph-fill text-slate-800 dark:text-white' : 'ph-light text-slate-400', 'ph-funnel']"
                 class="transition-all text-3xl group-hover:text-slate-500"
             ></i>
             <span
@@ -24,7 +24,7 @@
             </span>
         </button>
         <ul
-            class="dropdown absolute right-0 z-50 p-2 shadow-slate-200 transition-all shadow-lg rounded-lg bg-white w-52"
+            class="dropdown absolute right-0 z-50 p-2 shadow-slate-200 transition-all shadow-lg rounded-lg bg-white w-52 dark:bg-slate-800 dark:shadow-slate-900"
             :class="[displayDropdown ? 'top-[60px] opacity-100 z-40' : 'top-[80px] opacity-0 -z-20']"
         >
             <li
@@ -32,7 +32,11 @@
                 :key="type"
                 @click="filter(type)"
                 class="px-4 py-2 text-sm rounded-md cursor-pointer transition-all"
-                :class="[currentFilter === type ? 'bg-slate-900 text-white' : 'bg-white text-slate-800 hover:bg-slate-50']"
+                :class="[
+                    currentFilter === type
+                        ? 'bg-slate-900 text-white dark:bg-white/70 dark:text-slate-900'
+                        : 'bg-white text-slate-800 hover:bg-slate-50 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700'
+                ]"
             >
                 {{ $t(`stack.types.${slugify(type)}`) }}
             </li>

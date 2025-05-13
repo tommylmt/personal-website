@@ -9,7 +9,8 @@
         <div
             :class="[
                 'absolute w-full h-full top-0 left-0 backdrop-blur-md z-10 p-4 transition-all delay-700',
-                'flex justify-center items-center  opacity-0 group-hover:opacity-100'
+                'justify-center items-center opacity-0 group-hover:opacity-100',
+                'hidden md:flex'
             ]"
         >
             <div class="text-center">
@@ -17,7 +18,23 @@
                     :style="{ background: `url(${getImage(song.artist, 'medium')})`, backgroundSize: 'cover' }"
                     class="rounded-full w-24 h-24 shadow-md m-auto border-2 border-white/70"
                 ></div>
-                <p class="font-sans text-white text-xs uppercase p-1 rounded-md bg-slate-900 -translate-y-4">{{ song.artist.name }}</p>
+                <p
+                    :class="[
+                        'font-sans bg-white text-xs uppercase p-1 rounded-md m-auto w-fit ',
+                        'shadow-sm text-slate-900 -translate-y-4'
+                    ]"
+                >
+                    {{ song.artist.name }}
+                </p>
+
+                <a
+                    :href="song.external_urls.spotify"
+                    target="_blank"
+                    :class="['px-3 py-1 text-sm rounded-3xl text-white w-fit m-auto', 'flex items-center gap-1 bg-black transition-all']"
+                >
+                    <i class="ph-light ph-spotify-logo text-lg text-lime-500"></i>
+                    {{ $t('culture.listenon') }}
+                </a>
             </div>
         </div>
         <div class="relative w-full rounded-lg shadow-lg h-full md:shadow-none overflow-hidden md:overflow-visible">
