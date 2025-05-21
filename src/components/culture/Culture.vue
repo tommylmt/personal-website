@@ -35,7 +35,7 @@
             </div>
             <div class="my-5" data-aos="fade-up" data-aos-delay="200">
                 <ErrorBanner v-if="errors" :title="errors" />
-                <Vue3Marquee :pauseOnHover="true" :duration="speedForElements(shows)" v-else>
+                <Vue3Marquee direction="reverse" :pauseOnHover="true" :duration="speedForElements(shows)" v-else>
                     <CulturePoster
                         v-for="show in shows"
                         :key="show.artist"

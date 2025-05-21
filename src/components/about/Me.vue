@@ -33,19 +33,19 @@
                 <div class="my-3 mx-auto w-64 h-[1px] bg-slate-200 dark:bg-slate-700"></div>
 
                 <i18n-t keypath="about.me.working" class="mt-2 main-text" tag="p">
-                    <a :href="iwitLink" target="_blank" class="me-link before:bg-blue-800/90">Iwit Systems</a>
+                    <LinkPreview :url="iwitLink">Iwit Systems</LinkPreview>
                 </i18n-t>
 
                 <i18n-t keypath="about.me.whatido" tag="p" class="main-text">
-                    <a :href="symfony" target="_blank" class="me-link before:bg-slate-800/90">Symfony</a>
-                    <a :href="vue" target="_blank" class="me-link before:bg-emerald-500/90">Vue.js</a>
-                    <a :href="tailwind" target="_blank" class="me-link before:bg-cyan-400/90">Tailwind</a>
-                    <a :href="docker" target="_blank" class="me-link before:bg-blue-600/90">Docker</a>
-                    <a :href="aws" target="_blank" class="me-link before:bg-yellow-400/90">AWS</a>
+                    <LinkPreview :url="symfony">Symfony</LinkPreview>
+                    <LinkPreview :url="vue">Vue.js</LinkPreview>
+                    <LinkPreview :url="tailwind">Tailwind</LinkPreview>
+                    <LinkPreview :url="docker">Docker</LinkPreview>
+                    <LinkPreview :url="aws">AWS</LinkPreview>
                 </i18n-t>
 
                 <i18n-t keypath="about.me.projects" tag="p" class="main-text">
-                    <a :href="trax" target="_blank" class="me-link before:bg-violet-400/90">Trax</a>
+                    <LinkPreview :url="trax">Trax</LinkPreview>
                 </i18n-t>
 
                 <p class="mt-2 main-text">
@@ -59,9 +59,11 @@
 
 <script>
 import Emoji from '@/components/about/Emoji.vue'
+import LinkPreview from '@/components/ui/LinkPreview.vue'
 
 export default {
     components: {
+        LinkPreview,
         Emoji
     },
     data() {
