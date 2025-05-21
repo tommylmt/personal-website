@@ -1,15 +1,16 @@
 <template>
     <div class="w-96 p-3">
         <div
-            class="w-full h-[500px] rounded-lg flex items-end p-1"
+            class="w-full h-[500px] rounded-3xl flex items-end p-5"
             :style="{
                 background: `url(${$baseUrl + '/cdn' + file})`,
-                backgroundSize: 'cover'
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
             }"
         >
             <div
                 :class="[
-                    'shadow-lg backdrop-blur-lg w-full p-3 flex justify-between items-center rounded-lg',
+                    'shadow-lg backdrop-blur-lg w-full p-3 flex justify-between items-center rounded-2xl',
                     'bg-white/70 dark:bg-slate-800/70'
                 ]"
             >
