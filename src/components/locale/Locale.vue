@@ -38,11 +38,11 @@ export default {
             locales: [
                 {
                     icon: Fr,
-                    lang: 'fr'
+                    lang: 'fr-FR'
                 },
                 {
                     icon: Us,
-                    lang: 'en'
+                    lang: 'en-US'
                 }
             ]
         }

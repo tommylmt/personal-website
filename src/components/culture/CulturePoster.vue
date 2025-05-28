@@ -1,7 +1,8 @@
 <template>
     <div class="w-96 p-3">
         <div
-            class="w-full h-[500px] rounded-3xl flex items-end p-5"
+            class="w-full h-[500px] rounded-3xl flex items-end p-5 cursor-pointer"
+            @click="openDetails"
             :style="{
                 background: `url(${$baseUrl + '/cdn' + file})`,
                 backgroundSize: 'cover',
@@ -22,11 +23,25 @@
 </template>
 
 <script>
+import { mapStores } from 'pinia'
+import { useCultureStore } from '@/stores/cultureStore'
+
 export default {
     props: {
         file: { type: String, required: true },
         subtitle: { type: String, required: true },
-        artist: { type: String, required: true }
+        artist: { type: String, required: true },
+        uuid: { type: [String, null], required: false, default: null }
+    },
+    computed: {
+        ...mapStores(useCultureStore)
+    },
+    methods: {
+        openDetails() {
+            if (this.uuid) {
+                this.cultureStore.uuid = this.uuid
+            }
+        }
     }
 }
 </script>

@@ -54,7 +54,7 @@ const props = defineProps({
         default: () => ({ first: '#9E7AFF', second: '#FE8BBB' })
     },
     textClass: {
-        type: String,
+        type: [String, Array],
         default: ''
     }
 })

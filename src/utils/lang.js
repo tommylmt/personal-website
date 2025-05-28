@@ -3,19 +3,19 @@ import { fr } from '@/translations/fr'
 import { en } from '@/translations/en'
 
 export const i18n = createI18n({
-    locale: navigator.language.substring(0, 2),
-    fallbackLocale: 'en',
+    locale: navigator.language,
+    fallbackLocale: 'en-US',
     globalInjection: true,
     datetimeFormats: {
-        fr: {
+        'fr-FR': {
             long: { year: 'numeric', month: 'long', day: 'numeric' }
         },
-        en: {
+        'en-US': {
             long: { year: 'numeric', month: 'long', day: 'numeric' }
         }
     },
     messages: {
-        fr: fr,
-        en: en
+        'fr-FR': fr,
+        'en-US': en
     }
 })

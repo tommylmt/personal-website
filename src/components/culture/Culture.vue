@@ -19,6 +19,7 @@
                     :subtitle="`📽️ ${$t('culture.director')}`"
                     :artist="movie.artist"
                     :file="movie.file"
+                    :uuid="movie.unique_id"
                 />
             </Vue3Marquee>
         </div>
@@ -42,6 +43,7 @@
                         :subtitle="`📺 ${$t('culture.available')}`"
                         :artist="show.artist"
                         :file="show.file"
+                        :uuid="show.unique_id"
                     />
                 </Vue3Marquee>
             </div>
@@ -63,6 +65,8 @@
             </div>
         </div>
     </div>
+
+    <CultureDetailModal />
 </template>
 
 <script>
@@ -74,9 +78,11 @@ import MeetMe from '@/components/culture/MeetMe.vue'
 import Music from '@/components/culture/Music.vue'
 import ErrorBanner from '@/components/errors/ErrorBanner.vue'
 import { MEDIA_TYPE } from '@/utils/constants'
+import CultureDetailModal from '@/components/culture/CultureDetailModal.vue'
 
 export default {
     components: {
+        CultureDetailModal,
         ErrorBanner,
         Music,
         MeetMe,
