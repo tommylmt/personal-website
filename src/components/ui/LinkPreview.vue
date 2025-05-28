@@ -71,7 +71,6 @@ export default {
             }
         }
     },
-
     computed: {
         previewSrc() {
             if (this.isStatic) return this.imageSrc
