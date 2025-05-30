@@ -18,7 +18,7 @@
             id="mainMenu"
             :class="[
                 'fixed z-[9999] bottom-20 m-auto backdrop-blur-xl p-2 rounded-xl md:rounded-[50px] shadow-sm',
-                'bg-white/60 border border-slate-100/70 dark:bg-slate-700/60 transition-all md:bottom-10',
+                'bg-white/60 border border-slate-100/70 dark:border-slate-700 dark:bg-slate-700/60 transition-all md:bottom-10',
                 'md:motion-translate-y-in-[150px] md:motion-scale-in-0 md:motion-blur-in md:motion-delay-500 motion-duration-300'
             ]"
         >
