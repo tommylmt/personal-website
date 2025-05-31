@@ -1,6 +1,6 @@
 <template>
     <AnimatePresence :initial="true">
-        <div v-if="isOpen" class="fixed h-screen inset-0 z-[9999] overflow-auto">
+        <Motion as="div" v-if="isOpen" class="fixed h-screen inset-0 z-[9999] overflow-auto xl:p-0 p-3">
             <Motion
                 v-if="isOpen"
                 :initial="{ opacity: 0 }"
@@ -16,7 +16,10 @@
                 :exit="{ opacity: 0, scale: 0 }"
                 key="filmModal"
                 as="div"
-                class="bg-white p-10 rounded-3xl shadow-lg w-1/2 my-10 left-1/4 relative z-50 dark:bg-slate-950"
+                :class="[
+                    'bg-white p-10 rounded-3xl shadow-lg relative z-50 dark:bg-slate-950',
+                    'w-full xl:w-2/3 2xl:w-1/2 mx-auto xl:my-10'
+                ]"
             >
                 <span
                     @click="close"
@@ -28,76 +31,71 @@
                     <i class="ph-light ph-x text-white text-lg dark:text-black"></i>
                 </span>
 
-                <div
-                    :style="{ background: `url(${getImage(data.backdrop_path)})`, backgroundSize: 'cover' }"
-                    class="rounded-2xl p-10 h-[450px]"
-                ></div>
+                <CultureDetailModalLoader v-if="isLoading" />
+                <template v-else>
+                    <div
+                        :style="{ background: `url(${getImage(data.backdrop_path)})`, backgroundSize: 'cover' }"
+                        class="rounded-2xl p-10 h-[450px]"
+                    ></div>
 
-                <h2 class="font-sans text-8xl text-slate-900 font-bold dark:text-slate-200">
-                    {{ data.title ?? data.name }}
-                </h2>
+                    <h2 class="font-sans text-6xl text-slate-900 font-bold dark:text-slate-200 mt-3">
+                        {{ data.title ?? data.name }}
+                    </h2>
 
-                <div class="flex gap-2 mt-3 items-center">
-                    <div v-if="data.networks" class="flex gap-2 my-3">
-                        <img
-                            v-for="network in data.networks"
-                            :key="network.id"
-                            :src="getImage(network.logo_path, 'w45')"
-                            :alt="network.name"
-                        />
-                    </div>
-
-                    <span class="border text-xs border-slate-400 rounded-xl py-1 px-3 bg-white dark:bg-slate-950 dark:text-slate-200">
-                        {{ releaseYear }}
-                    </span>
-
-                    <ul class="flex gap-1">
-                        <li
-                            v-for="genre in data.genres"
-                            :key="genre.id"
-                            class="px-3 rounded-xl py-1 text-white text-xs bg-slate-950 dark:bg-white dark:text-slate-950"
-                        >
-                            {{ genre.name }}
-                        </li>
-                    </ul>
-                </div>
-
-                <p class="text-slate-500 leading-7 mt-2">{{ data.overview }}</p>
-
-                <template v-if="data.cast?.length > 0">
-                    <h3 class="text-7xl mt-4 text-slate-900 font-bold mb-2 dark:text-slate-200">Cast</h3>
-
-                    <div class="flex gap-1">
-                        <div
-                            v-for="actor in data.cast.slice(0, 5)"
-                            :key="actor.id"
-                            class="bg-slate-100 basis-1/5 rounded-3xl p-3 dark:bg-slate-900"
-                        >
-                            <img :src="getImage(actor.profile_path, 'w185')" :alt="actor.name" class="w-full rounded-2xl" />
-                            <p class="text-slate-800 text-sm font-bold dark:text-slate-300">{{ actor.name }}</p>
-                            <p class="text-slate-500 text-xs">{{ actor.character }}</p>
+                    <div class="flex gap-2 mt-3 items-center">
+                        <div v-if="data.networks" class="flex gap-2 my-3">
+                            <img
+                                v-for="network in data.networks"
+                                :key="network.id"
+                                :src="getImage(network.logo_path, 'w45')"
+                                :alt="network.name"
+                            />
                         </div>
+
+                        <span class="border text-xs border-slate-400 rounded-xl py-1 px-3 bg-white dark:bg-slate-950 dark:text-slate-200">
+                            {{ releaseYear }}
+                        </span>
+
+                        <ul class="flex gap-1">
+                            <li
+                                v-for="genre in data.genres"
+                                :key="genre.id"
+                                class="px-3 rounded-xl py-1 text-white text-xs bg-slate-950 dark:bg-white dark:text-slate-950"
+                            >
+                                {{ genre.name }}
+                            </li>
+                        </ul>
                     </div>
-                </template>
 
-                <template v-if="directors()">
-                    <h3 class="text-7xl mt-4 text-slate-900 font-bold mb-2 dark:text-slate-200">Directed by</h3>
+                    <p class="text-slate-500 leading-7 mt-2">{{ data.overview }}</p>
 
-                    <div class="flex gap-1">
-                        <div
-                            v-for="showrunner in directors()"
-                            :key="showrunner.id"
-                            class="bg-slate-100 basis-1/5 rounded-3xl p-3 dark:bg-slate-900"
-                        >
-                            <img :src="getImage(showrunner.profile_path, 'w185')" :alt="showrunner.name" class="w-full rounded-2xl" />
-                            <p class="text-slate-800 text-sm font-bold dark:text-slate-300">
-                                {{ showrunner.name }}
-                            </p>
+                    <template v-if="data.cast?.length > 0">
+                        <h3 class="text-5xl mt-8 text-slate-900 font-bold mb-5 dark:text-slate-200">Cast</h3>
+
+                        <div class="flex gap-3">
+                            <div v-for="actor in data.cast.slice(0, 5)" :key="actor.id" class="basis-1/5">
+                                <img :src="getImage(actor.profile_path, 'w185')" :alt="actor.name" class="w-full rounded-2xl" />
+                                <p class="text-slate-800 text-sm font-bold dark:text-slate-300 mt-2">{{ actor.name }}</p>
+                                <p class="text-slate-500 text-xs">{{ actor.character }}</p>
+                            </div>
                         </div>
-                    </div>
+                    </template>
+
+                    <template v-if="directors()">
+                        <h3 class="text-5xl mt-8 text-slate-900 font-bold mb-5 dark:text-slate-200">Directed by</h3>
+
+                        <div class="flex gap-3">
+                            <div v-for="showrunner in directors()" :key="showrunner.id" class="basis-1/5">
+                                <img :src="getImage(showrunner.profile_path, 'w185')" :alt="showrunner.name" class="w-full rounded-2xl" />
+                                <p class="text-slate-800 text-sm font-bold dark:text-slate-300 mt-2">
+                                    {{ showrunner.name }}
+                                </p>
+                            </div>
+                        </div>
+                    </template>
                 </template>
             </Motion>
-        </div>
+        </Motion>
     </AnimatePresence>
 </template>
 
@@ -106,12 +104,14 @@ import { AnimatePresence, Motion } from 'motion-v'
 import { mapStores } from 'pinia'
 import { useCultureStore } from '@/stores/cultureStore'
 import axios from 'axios'
+import CultureDetailModalLoader from '@/components/culture/CultureDetailModalLoader.vue'
 
 export default {
-    components: { AnimatePresence, Motion },
+    components: { CultureDetailModalLoader, AnimatePresence, Motion },
     data() {
         return {
             isOpen: false,
+            isLoading: true,
             data: {}
         }
     },
@@ -145,6 +145,7 @@ export default {
             this.data = {}
             this.cultureStore.$reset()
             this.isOpen = false
+            this.isLoading = true
             document.body.style.overflowY = 'auto'
         },
         getImage(path, size = 'original') {
@@ -154,6 +155,7 @@ export default {
             const { data } = await axios.get(`${this.$baseUrl}/api/${this.$i18n.locale}/culture/${uuid}/details`)
 
             this.data = data
+            this.isLoading = false
         }
     }
 }

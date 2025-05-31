@@ -35,4 +35,7 @@ $menuWidth: 460px;
     .title-shadow-dark {
         text-shadow: 3px 3px #1e293b;
     }
+    .culture-loader {
+        @apply animate-pulse bg-slate-200 dark:bg-slate-800;
+    }
 }
