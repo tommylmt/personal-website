@@ -12,16 +12,26 @@
         </div>
         <div class="my-5" data-aos="fade-up" data-aos-delay="200">
             <ErrorBanner v-if="errors" :title="errors" />
-            <Vue3Marquee :pauseOnHover="true" :duration="speedForElements(movies)" v-else>
-                <CulturePoster
-                    v-for="movie in movies"
-                    :key="movie.artist"
-                    :subtitle="`📽️ ${$t('culture.director')}`"
-                    :artist="movie.artist"
-                    :file="movie.file"
-                    :uuid="movie.unique_id"
-                />
-            </Vue3Marquee>
+
+            <div
+                :class="[
+                    'relative',
+                    'before:w-1/6 before:absolute before:left-0 before:h-full before:bg-gradient-to-r before:z-20 before:from-white before:to-transparent before:pointer-events-none',
+                    'after:w-1/6 after:absolute after:right-0 after:h-full after:bg-gradient-to-l after:from-white after:to-transparent after:z-20 after:top-0 after:pointer-events-none'
+                ]"
+                v-else
+            >
+                <Vue3Marquee :pauseOnHover="true" :duration="speedForElements(movies)">
+                    <CulturePoster
+                        v-for="movie in movies"
+                        :key="movie.artist"
+                        :subtitle="`📽️ ${$t('culture.director')}`"
+                        :artist="movie.artist"
+                        :file="movie.file"
+                        :uuid="movie.unique_id"
+                    />
+                </Vue3Marquee>
+            </div>
         </div>
         <div class="my-10">
             <div class="relative p-3 md:p-0">
@@ -36,16 +46,26 @@
             </div>
             <div class="my-5" data-aos="fade-up" data-aos-delay="200">
                 <ErrorBanner v-if="errors" :title="errors" />
-                <Vue3Marquee direction="reverse" :pauseOnHover="true" :duration="speedForElements(shows)" v-else>
-                    <CulturePoster
-                        v-for="show in shows"
-                        :key="show.artist"
-                        :subtitle="`📺 ${$t('culture.available')}`"
-                        :artist="show.artist"
-                        :file="show.file"
-                        :uuid="show.unique_id"
-                    />
-                </Vue3Marquee>
+
+                <div
+                    :class="[
+                        'relative',
+                        'before:w-1/6 before:absolute before:left-0 before:h-full before:bg-gradient-to-r before:z-20 before:from-white before:to-transparent before:pointer-events-none',
+                        'after:w-1/6 after:absolute after:right-0 after:h-full after:bg-gradient-to-l after:from-white after:to-transparent after:z-20 after:top-0 after:pointer-events-none'
+                    ]"
+                    v-else
+                >
+                    <Vue3Marquee direction="reverse" :pauseOnHover="true" :duration="speedForElements(shows)">
+                        <CulturePoster
+                            v-for="show in shows"
+                            :key="show.artist"
+                            :subtitle="`📺 ${$t('culture.available')}`"
+                            :artist="show.artist"
+                            :file="show.file"
+                            :uuid="show.unique_id"
+                        />
+                    </Vue3Marquee>
+                </div>
             </div>
         </div>
         <div class="relative p-3 md:p-0">
