@@ -130,6 +130,11 @@ export const fr = {
         errors: {
             fetching: "Une erreur s'est produite lors de la récupération des films et séries",
             charts: "Une erreur s'est produite lors de la récupération des musiques"
-        }
+        },
+        details: {
+            casting: 'Casting',
+            directors: 'Réalisé par'
+        },
+        cursor: 'Détails'
     }
 }

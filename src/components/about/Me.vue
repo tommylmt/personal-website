@@ -1,7 +1,7 @@
 <template>
     <div
         :class="[
-            'block md:flex bg-white border border-slate-100 shadow-lg shadow-slate-100 rounded-xl my-10 mx-auto',
+            'block md:flex bg-white border border-slate-100 shadow-lg shadow-slate-100 rounded-3xl my-10 mx-auto',
             'w-11/12 md:w-10/12 xl:w-9/12 2xl:w-7/12',
             'dark:bg-slate-950 dark:border-slate-800 dark:shadow-slate-950',
             'motion-scale-in-75 motion-opacity-in-0 motion-blur-in'
@@ -11,7 +11,7 @@
             <img
                 src="/img/about/about_me.webp"
                 alt="Thomas Lamothe"
-                class="rounded-t-xl md:rounded-xl 2xl:rounded-e-none"
+                class="rounded-t-3xl md:rounded-3xl 2xl:rounded-e-none"
                 fetchpriority="high"
             />
         </div>

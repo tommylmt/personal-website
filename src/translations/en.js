@@ -130,6 +130,11 @@ export const en = {
         errors: {
             fetching: 'An error occured while fetching culture data',
             charts: 'An error occured while fetching music charts'
-        }
+        },
+        details: {
+            casting: 'Cast',
+            directors: 'Directed by'
+        },
+        cursor: 'See details'
     }
 }

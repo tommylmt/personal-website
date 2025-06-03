@@ -1,14 +1,14 @@
 <template>
     <div
         :class="[
-            'rounded-xl md:absolute transition-shadow hover:shadow-2xl transition-transform scale-100',
+            'rounded-3xl md:absolute transition-shadow hover:shadow-2xl transition-transform scale-100',
             isDragging ? 'cursor-grabbing' : 'cursor-grab'
         ]"
         :style="realStyle"
         ref="draggable"
         @mousedown="mouseDown"
     >
-        <div class="rounded-xl overflow-hidden relative shadow-md dark:shadow-slate-900 dark:shadow-lg">
+        <div class="rounded-3xl overflow-hidden relative shadow-md dark:shadow-slate-900 dark:shadow-lg">
             <slot></slot>
         </div>
     </div>

@@ -70,7 +70,7 @@
                     <p class="text-slate-500 leading-7 mt-2">{{ data.overview }}</p>
 
                     <template v-if="data.cast?.length > 0">
-                        <h3 class="text-5xl mt-8 text-slate-900 font-bold mb-5 dark:text-slate-200">Cast</h3>
+                        <h3 class="text-5xl mt-8 text-slate-900 font-bold mb-5 dark:text-slate-200">{{ $t('culture.details.casting') }}</h3>
 
                         <div class="flex gap-3">
                             <div v-for="actor in data.cast.slice(0, 5)" :key="actor.id" class="basis-1/5">
@@ -82,7 +82,9 @@
                     </template>
 
                     <template v-if="directors()">
-                        <h3 class="text-5xl mt-8 text-slate-900 font-bold mb-5 dark:text-slate-200">Directed by</h3>
+                        <h3 class="text-5xl mt-8 text-slate-900 font-bold mb-5 dark:text-slate-200">
+                            {{ $t('culture.details.directors') }}
+                        </h3>
 
                         <div class="flex gap-3">
                             <div v-for="showrunner in directors()" :key="showrunner.id" class="basis-1/5">
