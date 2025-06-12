@@ -17,7 +17,7 @@
                 key="filmModal"
                 as="div"
                 :class="[
-                    'bg-white p-10 rounded-3xl shadow-lg relative z-50 dark:bg-slate-950',
+                    'bg-white p-4 xl:p-10 rounded-3xl shadow-lg relative z-50 dark:bg-slate-950',
                     'w-full xl:w-2/3 2xl:w-1/2 mx-auto xl:my-10'
                 ]"
             >
@@ -34,15 +34,19 @@
                 <CultureDetailModalLoader v-if="isLoading" />
                 <template v-else>
                     <div
-                        :style="{ background: `url(${getImage(data.backdrop_path)})`, backgroundSize: 'cover' }"
-                        class="rounded-2xl p-10 h-[450px]"
+                        :style="{
+                            background: `url(${getImage(data.backdrop_path)})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center'
+                        }"
+                        class="rounded-2xl p-10 h-64 md:h-[450px]"
                     ></div>
 
                     <h2 class="font-sans text-6xl text-slate-900 font-bold dark:text-slate-200 mt-3">
                         {{ data.title ?? data.name }}
                     </h2>
 
-                    <div class="flex gap-2 mt-3 items-center">
+                    <div class="flex gap-2 mt-3 items-center flex-wrap">
                         <div v-if="data.networks" class="flex gap-2 my-3">
                             <img
                                 v-for="network in data.networks"
@@ -72,8 +76,8 @@
                     <template v-if="data.cast?.length > 0">
                         <h3 class="text-5xl mt-8 text-slate-900 font-bold mb-5 dark:text-slate-200">{{ $t('culture.details.casting') }}</h3>
 
-                        <div class="flex gap-3">
-                            <div v-for="actor in data.cast.slice(0, 5)" :key="actor.id" class="basis-1/5">
+                        <div class="flex gap-3 overflow-x-scroll md:overflow-y-hidden">
+                            <div v-for="actor in data.cast.slice(0, 5)" :key="actor.id" class="basis-1/3 shrink-0 md:shrink md:basis-1/5">
                                 <img :src="getImage(actor.profile_path, 'w185')" :alt="actor.name" class="w-full rounded-2xl" />
                                 <p class="text-slate-800 text-sm font-bold dark:text-slate-300 mt-2">{{ actor.name }}</p>
                                 <p class="text-slate-500 text-xs">{{ actor.character }}</p>
@@ -86,8 +90,8 @@
                             {{ $t('culture.details.directors') }}
                         </h3>
 
-                        <div class="flex gap-3">
-                            <div v-for="showrunner in directors()" :key="showrunner.id" class="basis-1/5">
+                        <div class="flex gap-3 overflow-x-scroll md:overflow-y-hidden">
+                            <div v-for="showrunner in directors()" :key="showrunner.id" class="basis-1/3 shrink-0 lg:shrink-1 md:basis-1/5">
                                 <img :src="getImage(showrunner.profile_path, 'w185')" :alt="showrunner.name" class="w-full rounded-2xl" />
                                 <p class="text-slate-800 text-sm font-bold dark:text-slate-300 mt-2">
                                     {{ showrunner.name }}

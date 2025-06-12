@@ -15,9 +15,10 @@
 
             <div
                 :class="[
-                    'relative',
-                    'before:w-1/6 before:absolute before:left-0 before:h-full before:bg-gradient-to-r before:z-20 before:from-white before:to-transparent before:pointer-events-none',
-                    'after:w-1/6 after:absolute after:right-0 after:h-full after:bg-gradient-to-l after:from-white after:to-transparent after:z-20 after:top-0 after:pointer-events-none'
+                    'relative before:hidden before:lg:block before:w-1/6 before:absolute',
+                    'before:left-0 before:h-full before:bg-gradient-to-r before:z-20 before:from-white before:to-transparent before:pointer-events-none',
+                    'after:hidden after:lg:block after:w-1/6 after:absolute',
+                    'after:right-0 after:h-full after:bg-gradient-to-l after:from-white after:to-transparent after:z-20 after:top-0 after:pointer-events-none'
                 ]"
                 v-else
             >
@@ -49,9 +50,10 @@
 
                 <div
                     :class="[
-                        'relative',
-                        'before:w-1/6 before:absolute before:left-0 before:h-full before:bg-gradient-to-r before:z-20 before:from-white before:to-transparent before:pointer-events-none',
-                        'after:w-1/6 after:absolute after:right-0 after:h-full after:bg-gradient-to-l after:from-white after:to-transparent after:z-20 after:top-0 after:pointer-events-none'
+                        'relative before:hidden before:lg:block before:w-1/6 before:absolute',
+                        'before:left-0 before:h-full before:bg-gradient-to-r before:z-20 before:from-white before:to-transparent before:pointer-events-none',
+                        'after:hidden after:lg:block after:w-1/6 after:absolute',
+                        'after:right-0 after:h-full after:bg-gradient-to-l after:from-white after:to-transparent after:z-20 after:top-0 after:pointer-events-none'
                     ]"
                     v-else
                 >
