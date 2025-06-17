@@ -6,7 +6,10 @@
         ]"
     >
         <div
-            class="bg-slate-100 shadow-md min-w-12 h-12 rounded-full cursor-pointer flex justify-center items-center transition-all dark:bg-slate-800"
+            :class="[
+                'shadow-md min-w-12 h-12 rounded-full cursor-pointer flex justify-center items-center transition-all dark:bg-slate-800',
+                'dark:border-slate-700 bg-white/60 border border-slate-100/70 backdrop-blur-xl'
+            ]"
             @mouseover="switchLocale = true"
             @mouseleave="switchLocale = false"
         >

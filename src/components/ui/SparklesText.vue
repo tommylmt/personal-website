@@ -51,7 +51,7 @@ const props = defineProps({
     },
     colors: {
         type: Object,
-        default: () => ({ first: '#9E7AFF', second: '#FE8BBB' })
+        default: () => ({ first: '#fbbf24', second: '#fb923c' })
     },
     textClass: {
         type: [String, Array],

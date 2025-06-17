@@ -13,15 +13,7 @@
         <div class="my-5" data-aos="fade-up" data-aos-delay="200">
             <ErrorBanner v-if="errors" :title="errors" />
 
-            <div
-                :class="[
-                    'relative before:hidden before:lg:block before:w-1/6 before:absolute',
-                    'before:left-0 before:h-full before:bg-gradient-to-r before:z-20 before:from-white before:to-transparent before:pointer-events-none',
-                    'after:hidden after:lg:block after:w-1/6 after:absolute',
-                    'after:right-0 after:h-full after:bg-gradient-to-l after:from-white after:to-transparent after:z-20 after:top-0 after:pointer-events-none'
-                ]"
-                v-else
-            >
+            <template v-else>
                 <Vue3Marquee :pauseOnHover="true" :duration="speedForElements(movies)">
                     <CulturePoster
                         v-for="movie in movies"
@@ -32,7 +24,7 @@
                         :uuid="movie.unique_id"
                     />
                 </Vue3Marquee>
-            </div>
+            </template>
         </div>
         <div class="my-10">
             <div class="relative p-3 md:p-0">
@@ -48,15 +40,7 @@
             <div class="my-5" data-aos="fade-up" data-aos-delay="200">
                 <ErrorBanner v-if="errors" :title="errors" />
 
-                <div
-                    :class="[
-                        'relative before:hidden before:lg:block before:w-1/6 before:absolute',
-                        'before:left-0 before:h-full before:bg-gradient-to-r before:z-20 before:from-white before:to-transparent before:pointer-events-none',
-                        'after:hidden after:lg:block after:w-1/6 after:absolute',
-                        'after:right-0 after:h-full after:bg-gradient-to-l after:from-white after:to-transparent after:z-20 after:top-0 after:pointer-events-none'
-                    ]"
-                    v-else
-                >
+                <template v-else>
                     <Vue3Marquee direction="reverse" :pauseOnHover="true" :duration="speedForElements(shows)">
                         <CulturePoster
                             v-for="show in shows"
@@ -67,7 +51,7 @@
                             :uuid="show.unique_id"
                         />
                     </Vue3Marquee>
-                </div>
+                </template>
             </div>
         </div>
         <div class="relative p-3 md:p-0">

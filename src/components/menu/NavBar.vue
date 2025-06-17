@@ -2,7 +2,7 @@
     <div
         :class="[
             'md:hidden fixed left-5 w-12 h-12 rounded-full flex items-center justify-center',
-            'bg-slate-200/60 dark:bg-slate-700/60 backdrop-blur-xl z-[9999] transition-all bottom-6'
+            'bg-white/60 border border-slate-100/70 dark:border-slate-700dark:bg-slate-700/60 backdrop-blur-xl z-[9999] transition-all bottom-6'
         ]"
         @click="openMenu = !openMenu"
     >
