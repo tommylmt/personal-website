@@ -76,7 +76,7 @@
                     <template v-if="data.cast?.length > 0">
                         <h3 class="text-5xl mt-8 text-slate-900 font-bold mb-5 dark:text-slate-200">{{ $t('culture.details.casting') }}</h3>
 
-                        <div class="flex gap-3 overflow-x-scroll md:overflow-y-hidden">
+                        <div class="flex gap-3 overflow-x-scroll md:overflow-x-visible">
                             <div v-for="actor in data.cast.slice(0, 5)" :key="actor.id" class="basis-1/3 shrink-0 md:shrink md:basis-1/5">
                                 <img :src="getImage(actor.profile_path, 'w185')" :alt="actor.name" class="w-full rounded-2xl" />
                                 <p class="text-slate-800 text-sm font-bold dark:text-slate-300 mt-2">{{ actor.name }}</p>
@@ -90,7 +90,7 @@
                             {{ $t('culture.details.directors') }}
                         </h3>
 
-                        <div class="flex gap-3 overflow-x-scroll md:overflow-y-hidden">
+                        <div class="flex gap-3 overflow-x-scroll md:overflow-x-visible">
                             <div v-for="showrunner in directors()" :key="showrunner.id" class="basis-1/3 shrink-0 lg:shrink-1 md:basis-1/5">
                                 <img :src="getImage(showrunner.profile_path, 'w185')" :alt="showrunner.name" class="w-full rounded-2xl" />
                                 <p class="text-slate-800 text-sm font-bold dark:text-slate-300 mt-2">

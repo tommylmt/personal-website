@@ -58,11 +58,11 @@ export const en = {
             random: 'yet another random Carhartt kid in tech',
             working: 'I currently work as a tech lead developer at {0} in Toulouse, France.',
             whatido:
-                'My work essentially consist into building complex applications architectures and managing a developers team. I mostly write code using {0}, {1}, {2} and {3} shipped on {4} infrastructures.',
+                'My work essentially consists of building complex application architectures and managing a developers team. I mostly write code using {0}, {1}, {2} and {3} shipped on {4} infrastructures.',
             projects:
                 "I'm also the father of several projects like {0}, Orkestrum, Cinécombles and many others that, maybe, will never be released.",
             hobbies:
-                "Besides that, I'm a huge pop culture and music nerd. I've been playing guitar for {guitarYears} years, do skateboard. I'm also a tattoo, cinema, lifestyle and beer enthusiast.",
+                "Besides that, I'm a huge pop culture and music nerd. I've been playing guitar for {guitarYears} years and skateboarding. I'm also a tattoo, cinema, lifestyle and beer enthusiast.",
             findme: 'You can easily find me somewhere cool in Toulouse.'
         },
         school: {

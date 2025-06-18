@@ -1,9 +1,6 @@
 <template>
     <div
-        :class="[
-            'rounded-3xl md:absolute transition-shadow hover:shadow-2xl transition-transform scale-100',
-            isDragging ? 'cursor-grabbing' : 'cursor-grab'
-        ]"
+        :class="['rounded-3xl md:absolute transition-shadow hover:shadow-2xl', isDragging ? 'cursor-grabbing' : 'cursor-grab']"
         :style="realStyle"
         ref="draggable"
         @mousedown="mouseDown"

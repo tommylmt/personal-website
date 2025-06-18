@@ -5,7 +5,7 @@
     <SocialMedia />
     <Dragzone />
 
-    <div class="text-center my-20 md:my-40 pt-10">
+    <div class="text-center my-20 mx-6 md:mx-0 md:my-40 pt-10">
         <SparklesText
             :text="$t('about.theEnd')"
             :sparkles-count="20"
