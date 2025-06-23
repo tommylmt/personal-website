@@ -12,7 +12,7 @@
         <div class="z-[999] absolute w-full left-0 bottom-0 p-3">
             <div class="rounded-lg w-full bg-white/70 backdrop-blur-lg p-5 dark:bg-slate-600/50">
                 <p class="font-sans uppercase text-xs text-slate-500">Toulouse, France</p>
-                <p class="text-4xl font-light text-slate-900 dark:text-slate-300" v-if="currentTime.hours">
+                <p class="text-4xl font-light text-slate-900 dark:text-slate-300 tabular-nums" v-if="currentTime.hours">
                     <NumberFlowGroup>
                         <NumberFlow :value="currentTime.hours" :trend="0" :format="{ minimumIntegerDigits: 2 }" suffix=":" />
                         <NumberFlow :value="currentTime.minutes" :trend="0" :format="{ minimumIntegerDigits: 2 }" suffix=":" />
