@@ -8,7 +8,7 @@
             :aria-label="$t('stack.filter')"
             :class="[
                 'transition-all h-12 flex justify-center items-center rounded-3xl cursor-pointer',
-                'group dark:bg-slate-900',
+                'group dark:bg-slate-950',
                 isButtonHovered || displayDropdown ? 'w-32 shadow-lg' : 'w-12'
             ]"
         >
@@ -24,7 +24,7 @@
             </span>
         </button>
         <ul
-            class="dropdown absolute right-0 z-50 p-2 shadow-slate-200 transition-all shadow-lg rounded-lg bg-white w-52 dark:bg-slate-800 dark:shadow-slate-900"
+            class="dropdown absolute right-0 z-50 p-2 shadow-slate-200 transition-all shadow-lg rounded-lg bg-white w-52 dark:bg-slate-900 dark:shadow-slate-950"
             :class="[displayDropdown ? 'top-[60px] opacity-100 z-40' : 'top-[80px] opacity-0 -z-20']"
         >
             <li
@@ -34,7 +34,7 @@
                 class="px-4 py-2 text-sm rounded-md cursor-pointer transition-all"
                 :class="[
                     currentFilter === type
-                        ? 'bg-slate-900 text-white dark:bg-white/70 dark:text-slate-900'
+                        ? 'bg-slate-900 text-white dark:bg-white/70 dark:text-slate-950'
                         : 'bg-white text-slate-800 hover:bg-slate-50 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700'
                 ]"
             >

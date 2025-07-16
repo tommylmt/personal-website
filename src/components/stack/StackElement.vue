@@ -5,7 +5,7 @@
                 <CardBody
                     :class="[
                         'group text-center transition-all rounded-xl md:p-2',
-                        'bg-white dark:bg-slate-950 hover:shadow-lg hover:scale-110',
+                        'bg-white dark:bg-black hover:shadow-lg hover:scale-110',
                         isGrabbing ? 'cursor-grabbing' : 'cursor-grab'
                     ]"
                     @mousedown="isGrabbing = true"

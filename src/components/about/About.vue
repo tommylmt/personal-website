@@ -1,7 +1,7 @@
 <template>
     <Me />
-    <School />
     <ProSituation />
+    <School />
     <SocialMedia />
     <Dragzone />
 

@@ -1,6 +1,6 @@
 <template>
     <section class="relative w-full 2xl:w-11/12 xl:my-10 mx-auto">
-        <div class="p-3 lg:p-6 sticky text top-0 w-full bg-white/80 z-30 backdrop-blur-lg dark:bg-slate-950/80">
+        <div class="p-3 lg:p-6 sticky text top-0 w-full bg-white/80 z-30 backdrop-blur-lg dark:bg-black/80">
             <h2
                 :class="[
                     'font-sans font-extrabold text-slate-800 text-3xl dark:text-slate-400',

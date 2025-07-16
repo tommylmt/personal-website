@@ -60,7 +60,7 @@ export const fr = {
             whatido:
                 "Mon travaille consiste à développer et maintenir des applications métiers et des architectures modernes ainsi qu'à gérer une équipe de développeurs. Je code principalement avec {0}, {1}, {2} et {3} déployés sur des infrastructures {4}.",
             projects:
-                "Je suis l'auteur de plusieurs projets tels que {0}, Orkestrum, Cinécombles ainsi que beaucoup d'autres qui ne verront jamais le jour.",
+                "Je suis l'auteur de plusieurs projets tels que {0}, Orkestrum, Cinécombles ainsi qu'un contributeur à l'Open Source.",
             hobbies:
                 'Par ailleurs, je suis un nerd de pop culture et de musique. Je joue de la guitare depuis {guitarYears} ans, fais du skate, adore les tattoos, le cinéma, le design et la bière.',
             findme: 'Je suis facilement trouvable aux meilleurs endroits de Toulouse.'

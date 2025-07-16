@@ -2,7 +2,7 @@
     <div
         :class="[
             'md:hidden fixed left-5 w-12 h-12 rounded-full flex items-center justify-center',
-            'bg-white/60 border border-slate-100/70 dark:border-slate-700dark:bg-slate-700/60 backdrop-blur-xl z-[9999] transition-all bottom-6'
+            'bg-white/60 border border-slate-100/70 backdrop-blur-xl z-[9999] transition-all bottom-6'
         ]"
         @click="openMenu = !openMenu"
     >
@@ -18,12 +18,12 @@
             id="mainMenu"
             :class="[
                 'fixed z-[9999] bottom-20 m-auto backdrop-blur-xl p-2 rounded-xl md:rounded-[50px] shadow-sm',
-                'bg-white/60 border border-slate-100/70 dark:border-slate-700 dark:bg-slate-700/60 transition-all md:bottom-10',
+                'bg-white/60 dark:bg-white/20 border border-slate-100/20 transition-all md:bottom-10',
                 'md:motion-translate-y-in-[150px] md:motion-scale-in-0 md:motion-blur-in md:motion-delay-500 motion-duration-300'
             ]"
         >
             <div
-                class="bg-slate-900 dark:bg-slate-300 rounded-xl md:rounded-[45px] absolute transition-all duration-300"
+                class="bg-slate-900 rounded-xl md:rounded-[45px] absolute transition-all duration-300"
                 :style="{
                     left: currentLeft,
                     width: currentWidth,
@@ -93,12 +93,12 @@ export default {
             this.moveTracker(e.$refs.listItem)
 
             this.getCurrentItem().classList.remove(['text-white'])
-            this.getCurrentItem().classList.add(['text-slate-900', 'dark:text-slate-200'])
+            this.getCurrentItem().classList.add(['text-slate-900'])
         },
         retrieveCurrent() {
             this.moveTracker(this.getCurrentItem())
             this.getCurrentItem().classList.add(['text-white'])
-            this.getCurrentItem().classList.remove(['text-slate-900', 'dark:text-slate-200'])
+            this.getCurrentItem().classList.remove(['text-slate-900'])
         },
         moveTracker(element) {
             this.currentLeft = `${element.offsetLeft}px`

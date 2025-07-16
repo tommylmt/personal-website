@@ -11,7 +11,7 @@
             <button
                 :class="[
                     'transition-all h-12 flex justify-center items-center rounded-3xl cursor-pointer',
-                    'group hover:shadow-lg dark:bg-slate-900',
+                    'group hover:shadow-lg dark:bg-slate-950',
                     !displayShuffleTitle ? 'w-12' : 'w-36'
                 ]"
                 @mouseover="displayShuffleTitle = true"
