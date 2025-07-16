@@ -25,7 +25,7 @@
         </button>
         <ul
             class="dropdown absolute right-0 z-50 p-2 shadow-slate-200 transition-all shadow-lg rounded-lg bg-white w-52 dark:bg-slate-900 dark:shadow-slate-950"
-            :class="[displayDropdown ? 'top-[60px] opacity-100 z-40' : 'top-[80px] opacity-0 -z-20']"
+            :class="[displayDropdown ? 'top-[60px] opacity-100 z-40' : 'top-[80px] opacity-0 -z-40']"
         >
             <li
                 v-for="type in types"

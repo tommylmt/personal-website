@@ -2,7 +2,8 @@
     <div
         :class="[
             'md:hidden fixed left-5 w-12 h-12 rounded-full flex items-center justify-center',
-            'bg-white/60 border border-slate-100/70 backdrop-blur-xl z-[9999] transition-all bottom-6'
+            'bg-white/20 border border-slate-100/20 backdrop-blur-xl backdrop-saturate-200 z-[9999] transition-all bottom-6',
+            'shadow-md'
         ]"
         @click="openMenu = !openMenu"
     >
@@ -17,13 +18,13 @@
             v-show="openMenu || noResponsive"
             id="mainMenu"
             :class="[
-                'fixed z-[9999] bottom-20 m-auto backdrop-blur-xl p-2 rounded-xl md:rounded-[50px] shadow-sm',
-                'bg-white/60 dark:bg-white/20 border border-slate-100/20 transition-all md:bottom-10',
+                'fixed z-[9999] bottom-20 m-auto backdrop-blur-xl backdrop-saturate-200 p-2 rounded-xl md:rounded-[50px] shadow-md',
+                'bg-white/20 border border-slate-100/20 transition-all md:bottom-10',
                 'md:motion-translate-y-in-[150px] md:motion-scale-in-0 md:motion-blur-in md:motion-delay-500 motion-duration-300'
             ]"
         >
             <div
-                class="bg-slate-900 rounded-xl md:rounded-[45px] absolute transition-all duration-300"
+                class="bg-black rounded-xl md:rounded-[45px] absolute transition-all duration-300"
                 :style="{
                     left: currentLeft,
                     width: currentWidth,
