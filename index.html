@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://admin.thomaslamothe.com" crossorigin>
 
     <% if (!isDev) { %>
-      <meta http-equiv="Content-Security-Policy" content="default-src https: 'unsafe-inline' 'unsafe-eval' data:" />
+      <meta http-equiv="Content-Security-Policy" content="default-src https: 'unsafe-inline' 'unsafe-eval' data:; worker-src blob:" />
       <meta name="description" content="I'm Thomas, a french web tech lead. I mainly maintain and scale complex apps infrastructures and manage a team of developers">
 
       <meta name="twitter:title" content="Thomas Lamothe - Tech Lead developer">
