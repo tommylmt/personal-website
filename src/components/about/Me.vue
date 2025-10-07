@@ -38,6 +38,7 @@
 
                 <i18n-t keypath="about.me.whatido" tag="p" class="main-text">
                     <LinkPreview :url="symfony">Symfony</LinkPreview>
+                    <LinkPreview :url="react">React</LinkPreview>
                     <LinkPreview :url="vue">Vue.js</LinkPreview>
                     <LinkPreview :url="tailwind">Tailwind</LinkPreview>
                     <LinkPreview :url="docker">Docker</LinkPreview>
@@ -70,6 +71,7 @@ export default {
         return {
             iwitLink: 'https://iwit-systems.fr',
             symfony: 'https://symfony.com',
+            react: 'https://react.dev/',
             vue: 'https://vuejs.org',
             tailwind: 'https://tailwindcss.com',
             docker: 'https://www.docker.com',
