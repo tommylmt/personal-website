@@ -90,7 +90,7 @@ export const en = {
             },
             status: {
                 intern: 'Web development internship',
-                freelance: 'Freelance Full-Stack develooer',
+                freelance: 'Freelance Full-Stack developer',
                 lead: 'Web tech lead developer'
             }
         },
