@@ -5,6 +5,9 @@ export const fr = {
         culture: 'Culture',
         contact: 'Contact'
     },
+    error: {
+        error: 'Erreur'
+    },
     seo: {
         title: {
             about: 'Thomas Lamothe - Tech Lead développeur',

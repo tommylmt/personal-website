@@ -97,9 +97,13 @@ export default {
             this.getCurrentItem().classList.add(['text-slate-900'])
         },
         retrieveCurrent() {
-            this.moveTracker(this.getCurrentItem())
-            this.getCurrentItem().classList.add(['text-white'])
-            this.getCurrentItem().classList.remove(['text-slate-900'])
+            const current = this.getCurrentItem()
+
+            if (current) {
+                this.moveTracker(current)
+                current.classList.add(['text-white'])
+                current.classList.remove(['text-slate-900'])
+            }
         },
         moveTracker(element) {
             this.currentLeft = `${element.offsetLeft}px`

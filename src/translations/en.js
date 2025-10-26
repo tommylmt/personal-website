@@ -5,11 +5,15 @@ export const en = {
         culture: 'Culture',
         contact: 'Contact'
     },
+    error: {
+        error: 'Error'
+    },
     seo: {
         title: {
             about: 'Thomas Lamothe - Tech Lead developer',
             stack: 'My Stack',
-            culture: 'Things I love'
+            culture: 'Things I love',
+            notfound: 'Resource not found'
         },
         meta: {
             about: {

@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { nextTick } from 'vue'
 import { processSeo } from '@/utils/seo'
+import { NOT_FOUND } from '@/utils/constants'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,6 +51,24 @@ const router = createRouter({
             component: () => import('@/components/culture/Culture.vue'),
             meta: {
                 title: 'seo.title.culture',
+                seo: {
+                    description: 'seo.meta.culture.description',
+                    'twitter:title': 'seo.meta.culture.twitter.title',
+                    'twitter:description': 'seo.meta.culture.twitter.description'
+                },
+                og: {
+                    'og:title': 'seo.meta.culture.og.title',
+                    'og:description': 'seo.meta.culture.og.description',
+                    'og:site_name': 'seo.meta.culture.og.title'
+                }
+            }
+        },
+        {
+            path: '/:pathMatch(.*)*',
+            name: NOT_FOUND,
+            component: () => import('@/components/errors/Error404.vue'),
+            meta: {
+                title: 'seo.title.notfound',
                 seo: {
                     description: 'seo.meta.culture.description',
                     'twitter:title': 'seo.meta.culture.twitter.title',
