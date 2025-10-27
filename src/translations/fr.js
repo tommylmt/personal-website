@@ -6,7 +6,8 @@ export const fr = {
         contact: 'Contact'
     },
     error: {
-        error: 'Erreur'
+        nope: 'Nope !',
+        error: 'erreur'
     },
     seo: {
         title: {
