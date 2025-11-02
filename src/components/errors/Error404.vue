@@ -7,9 +7,9 @@
                 'bg-white/20 border border-slate-100/20 backdrop-blur-xl py-2 px-5'
             ]"
         >
-            💡 Type
+            💡 {{ $t('error.type') }}
             <span class="bg-slate-100 px-1 mx-1 text-black font-mono rounded-md cursor-pointer" @click="displayHelp">help</span>
-            to show available commands
+            {{ $t('error.listcommands') }}
         </div>
 
         <div class="w-10/12 md:w-6/12">
@@ -52,6 +52,13 @@ export default {
     mounted() {
         this.initTerminal()
     },
+    watch: {
+        '$i18n.locale'() {
+            this.terminal = null
+            this.$refs.terminal.innerHTML = ''
+            this.initTerminal()
+        }
+    },
     methods: {
         initTerminal() {
             this.getMotd().then((motd) => {
@@ -70,60 +77,60 @@ export default {
         options(motd) {
             return {
                 host: this.$refs.terminal,
-                welcomeMessage: motd + 'The resource you are looking for neither does not exist anymore or never existed.<br/><br/>',
+                welcomeMessage: motd + this.$t('error.notfound') + '.<br/><br/>',
                 prompt: this.prompt,
                 commands: {
                     ls: {
                         name: 'ls',
-                        description: 'list available routes',
+                        description: this.$t('error.terminal.ls'),
                         func: ({ print }) => {
                             print(this.routes.join('<br/>'))
                         }
                     },
                     exit: {
                         name: 'exit',
-                        description: 'take you back to the main route',
+                        description: this.$t('error.terminal.exit'),
                         func: (terminal) => {
-                            terminal.print('Bye!')
+                            terminal.print(this.$t('error.exitmessage'))
                             this.$router.push('/')
                         }
                     },
                     goto: {
                         name: 'goto',
-                        description: 'navigate to given route',
-                        argDescriptions: ['given route'],
+                        description: this.$t('error.terminal.goto'),
+                        argDescriptions: [this.$t('error.args.route')],
                         func: (terminal, route) => {
                             if (!route.startsWith('/')) {
-                                terminal.print(this.error('Route must start with a "/"'))
+                                terminal.print(this.error(this.$t('error.errors.routestart')))
                             } else if (!this.routes.includes(route)) {
-                                terminal.print(this.error('The given route does not exists'))
+                                terminal.print(this.error(this.$t('error.errors.routedoesnotexist')))
                             } else {
-                                terminal.print('Bye!')
+                                terminal.print(this.$t('error.exitmessage'))
                                 this.$router.push(route)
                             }
                         }
                     },
                     echo: {
                         name: 'echo',
-                        description: 'write arguments to the standard output',
-                        argDescriptions: ['the string to display in console'],
+                        description: this.$t('error.terminal.echo'),
+                        argDescriptions: [this.$t('error.args.echo')],
                         func: (terminal, args) => {
                             terminal.print(args)
                         }
                     },
                     whoami: {
                         name: 'whoami',
-                        description: 'display effective username',
+                        description: this.$t('error.terminal.whoami'),
                         func: (terminal) => {
                             terminal.print(this.user)
                         }
                     },
                     username: {
                         name: 'username',
-                        description: 'change the username',
+                        description: this.$t('error.terminal.username'),
                         func: (terminal, newname) => {
                             if (!newname) {
-                                terminal.print(this.error('a username is required'))
+                                terminal.print(this.error(this.$t('error.errors.usernamerequired')))
                             } else {
                                 this.user = newname.toLowerCase().replaceAll(' ', '_')
                                 terminal.setPrompt(this.prompt)
@@ -132,7 +139,7 @@ export default {
                     },
                     history: {
                         name: 'history',
-                        description: 'show last executed commands',
+                        description: this.$t('error.terminal.history'),
                         func: (terminal) => {
                             terminal.print(
                                 terminal.history.map((history, key) => `<span class="mx-4">${key + 1}</span> ${history}`).join('<br/>')
@@ -141,14 +148,14 @@ export default {
                     },
                     pwd: {
                         name: 'pwd',
-                        description: 'display current path',
+                        description: this.$t('error.terminal.pwd'),
                         func: (terminal) => {
                             terminal.print(window.location.pathname)
                         }
                     },
                     clear: {
                         name: 'clear',
-                        description: 'clear the terminal screen',
+                        description: this.$t('error.terminal.clear'),
                         func: ({ commandContainer }) => {
                             commandContainer.innerHTML = ''
                         }

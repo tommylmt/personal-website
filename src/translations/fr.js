@@ -6,14 +6,37 @@ export const fr = {
         contact: 'Contact'
     },
     error: {
-        nope: 'Nope !',
-        error: 'erreur'
+        type: 'Écris',
+        listcommands: 'pour lister les commandes disponibles',
+        notfound: "L'élément que vous recherchez n'existe pas ou plus",
+        terminal: {
+            ls: 'liste les routes disponibles',
+            exit: "retourne à l'accueil",
+            goto: 'navigue à la route passée en paramètre',
+            echo: 'écris sur la sortie standard le paramètre',
+            whoami: "affiche l'utilisateur courant",
+            username: "change l'utilisateur courant",
+            history: 'affiche les dernières commandes exécutées',
+            pwd: 'affiche le chemin courant',
+            clear: 'efface le contenu du terminal'
+        },
+        exitmessage: 'Salut !',
+        errors: {
+            routedoesnotexist: "La route demandée n'existe pas",
+            routestart: 'Le chemin doit commencer par "/"',
+            usernamerequired: "Un nom d'utilisateur est requis"
+        },
+        args: {
+            echo: 'the string to display in console',
+            route: 'Route de destination'
+        }
     },
     seo: {
         title: {
             about: 'Thomas Lamothe - Tech Lead développeur',
             stack: 'Environnement technique',
-            culture: "Éléments que j'ai récemment aimé"
+            culture: "Éléments que j'ai récemment aimé",
+            notfound: 'Erreur 404'
         },
         meta: {
             about: {

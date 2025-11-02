@@ -6,8 +6,30 @@ export const en = {
         contact: 'Contact'
     },
     error: {
-        nope: 'Nope!',
-        error: 'error'
+        type: 'Type',
+        listcommands: 'to show available commands',
+        notfound: 'The resource you are looking for neither does not exist anymore or never existed',
+        terminal: {
+            ls: 'list available routes',
+            exit: 'take you back to the main route',
+            goto: 'navigate to given route',
+            echo: 'write arguments to the standard output',
+            whoami: 'display effective username',
+            username: 'change the username',
+            history: 'show last executed commands',
+            pwd: 'display current path',
+            clear: 'clear the terminal screen'
+        },
+        exitmessage: 'Bye!',
+        errors: {
+            routedoesnotexist: 'The given route does not exists',
+            routestart: 'Route must start with a "/"',
+            usernamerequired: 'a username is required'
+        },
+        args: {
+            echo: 'the string to display in console',
+            route: 'given route'
+        }
     },
     seo: {
         title: {
