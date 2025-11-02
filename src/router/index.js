@@ -70,14 +70,14 @@ const router = createRouter({
             meta: {
                 title: 'seo.title.notfound',
                 seo: {
-                    description: 'seo.meta.culture.description',
-                    'twitter:title': 'seo.meta.culture.twitter.title',
-                    'twitter:description': 'seo.meta.culture.twitter.description'
+                    description: 'seo.meta.notfound.description',
+                    'twitter:title': 'seo.meta.notfound.twitter.title',
+                    'twitter:description': 'seo.meta.notfound.twitter.description'
                 },
                 og: {
-                    'og:title': 'seo.meta.culture.og.title',
-                    'og:description': 'seo.meta.culture.og.description',
-                    'og:site_name': 'seo.meta.culture.og.title'
+                    'og:title': 'seo.meta.notfound.og.title',
+                    'og:description': 'seo.meta.notfound.og.description',
+                    'og:site_name': 'seo.meta.notfound.og.title'
                 }
             }
         }

@@ -92,7 +92,7 @@ export default {
                         description: this.$t('error.terminal.exit'),
                         func: (terminal) => {
                             terminal.print(this.$t('error.exitmessage'))
-                            this.$router.push('/')
+                            window.location.href = '/'
                         }
                     },
                     goto: {
@@ -106,7 +106,7 @@ export default {
                                 terminal.print(this.error(this.$t('error.errors.routedoesnotexist')))
                             } else {
                                 terminal.print(this.$t('error.exitmessage'))
-                                this.$router.push(route)
+                                window.location.href = route
                             }
                         }
                     },

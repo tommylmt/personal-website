@@ -74,6 +74,17 @@ export const fr = {
                     title: "Éléments que j'ai récemment aimé",
                     description: "Tous mes coups de coeur culturels que j'ai eu récemment."
                 }
+            },
+            notfound: {
+                description: "La ressource recherchée n'existe pas ou plus.",
+                twitter: {
+                    title: 'Erreur 404',
+                    description: "La ressource recherchée n'existe pas ou plus."
+                },
+                og: {
+                    title: 'Erreur 404',
+                    description: "La ressource recherchée n'existe pas ou plus."
+                }
             }
         }
     },

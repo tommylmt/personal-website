@@ -74,6 +74,17 @@ export const en = {
                     title: 'Things I love',
                     description: 'All the pop culture things I recently loved'
                 }
+            },
+            notfound: {
+                description: 'The resource does not exist',
+                twitter: {
+                    title: 'Error 404',
+                    description: 'The resource does not exist'
+                },
+                og: {
+                    title: 'Error 404',
+                    description: 'The resource does not exist'
+                }
             }
         }
     },
