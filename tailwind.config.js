@@ -12,7 +12,8 @@ module.exports = {
       }
     },
     fontFamily: {
-      sans: ['Geist', 'sans-serif']
+      sans: ['Geist', 'sans-serif'],
+      mono: ['Google Sans Code', 'monospace']
     }
   },
   plugins: [require('tailwindcss-motion')],
