@@ -12,7 +12,7 @@
             {{ $t('error.listcommands') }}
         </div>
 
-        <div class="w-10/12 md:w-6/12">
+        <div class="w-full lg:w-10/12 2xl:w-6/12">
             <div ref="terminal" id="terminal"></div>
         </div>
     </div>
@@ -23,6 +23,11 @@
     --terminal-font: 'Google Sans Code', monospace;
     --terminal-accent-color: #ffffff;
     --terminal-error-color: #f87171;
+}
+@media screen and (max-width: 768px) {
+    .terminal-type {
+        display: block !important;
+    }
 }
 </style>
 
@@ -66,7 +71,7 @@ export default {
             })
         },
         async getMotd() {
-            return await axios.get('/misc/motd.txt').then((res) => res.data)
+            return await axios.get(`/misc/motd${window.innerWidth < 768 ? '_mobile' : ''}.txt`).then((res) => res.data)
         },
         displayHelp() {
             if (this.terminal) {
