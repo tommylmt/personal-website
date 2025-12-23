@@ -33,7 +33,7 @@ export const en = {
     },
     seo: {
         title: {
-            about: 'Thomas Lamothe - Tech Lead developer',
+            about: 'Thomas Lamothe - Software Engineer',
             stack: 'My Stack',
             culture: 'Things I love',
             notfound: 'Resource not found'
@@ -41,16 +41,16 @@ export const en = {
         meta: {
             about: {
                 description:
-                    "I'm Thomas, a french web tech lead. I mainly maintain and scale complex apps infrastructures and manage a team of developers",
+                    "I'm Thomas, a french web software engineer. I mainly maintain and scale complex apps infrastructures and manage a team of developers",
                 twitter: {
-                    title: 'Thomas Lamothe - Tech Lead developer',
+                    title: 'Thomas Lamothe - Software Engineer',
                     description:
-                        "I'm Thomas, a french web tech lead. I mainly maintain and scale complex apps infrastructures and manage a team of developers"
+                        "I'm Thomas, a french software engineer. I mainly maintain and scale complex apps infrastructures and manage a team of developers"
                 },
                 og: {
-                    title: 'Thomas Lamothe - Tech Lead developer',
+                    title: 'Thomas Lamothe - Software Engineer',
                     description:
-                        "I'm Thomas, a french web tech lead. I mainly maintain and scale complex apps infrastructures and manage a team of developers"
+                        "I'm Thomas, a french software engineer. I mainly maintain and scale complex apps infrastructures and manage a team of developers"
                 }
             },
             stack: {
@@ -92,9 +92,9 @@ export const en = {
         theEnd: 'Thank you for reaching the end',
         me: {
             title: 'Hi there',
-            introduction: "I'm Thomas, {0} a french web tech lead developer",
+            introduction: "I'm Thomas, {0} a french web software developer",
             random: 'yet another random Carhartt kid in tech',
-            working: 'I currently work as a tech lead developer at {0} in Toulouse, France.',
+            working: 'I currently work as a Software Developer II at {0} remotely from Toulouse, France.',
             whatido:
                 'My work essentially consists of building complex application architectures and managing a developers team. I mostly write code using {0}, {1}, {2}, {3} and {4} shipped on {5} infrastructures.',
             projects: "I'm also the father of several projects like {0}, Orkestrum, Cinécombles and an Open Source contributor.",
@@ -124,12 +124,14 @@ export const en = {
             },
             location: {
                 office: 'My office',
-                toulouse: 'Toulouse, France'
+                toulouse: 'Toulouse, France',
+                remote: 'Full remote position'
             },
             status: {
                 intern: 'Web development internship',
                 freelance: 'Freelance Full-Stack developer',
-                lead: 'Web tech lead developer'
+                lead: 'Web tech lead developer',
+                developer: 'Software Developer II'
             }
         },
         social: {
