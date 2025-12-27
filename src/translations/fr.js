@@ -40,17 +40,14 @@ export const fr = {
         },
         meta: {
             about: {
-                description:
-                    'Je suis développeur web. Je maintiens et fais évoluer des applications complexes et dirige une équipe de développeurs.',
+                description: "Je suis développeur web au sein d'une équipe pour un SaaS utilisé par des clients du monde entier",
                 twitter: {
-                    title: 'Thomas Lamothe - Tech Lead développeur',
-                    description:
-                        'Je suis lead développeur. Je maintiens et fais évoluer des applications complexes et dirige une équipe de développeurs.'
+                    title: 'Thomas Lamothe - Développeur web',
+                    description: "Je suis développeur web au sein d'une équipe pour un SaaS utilisé par des clients du monde entier"
                 },
                 og: {
-                    title: 'Thomas Lamothe - Tech Lead développeur',
-                    description:
-                        'Je suis lead développeur. Je maintiens et fais évoluer des applications complexes et dirige une équipe de développeurs.'
+                    title: 'Thomas Lamothe - Développeur web',
+                    description: "Je suis développeur web au sein d'une équipe pour un SaaS utilisé par des clients du monde entier"
                 }
             },
             stack: {
@@ -94,7 +91,7 @@ export const fr = {
             title: 'Bonjour',
             introduction: 'Je suis Thomas, {0} un développeur logiciel spécialisé dans le web',
             random: 'encore un random en Carhartt dans la tech',
-            working: 'Je travaille en tant que développeur logiciel chez {0} en télétravail à Toulouse, France.',
+            working: 'Je travaille en tant que développeur logiciel chez {0} depuis Toulouse en France.',
             whatido:
                 'Mon travail consiste à développer une application SaaS utilisée par des clients du monde entier. Je code principalement avec {0}, {1}, {2}, {3} et {4} déployés sur des infrastructures {5}.',
             projects:
