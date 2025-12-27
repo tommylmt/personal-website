@@ -52,7 +52,7 @@ export default {
                 {
                     name: 'Iwit Systems',
                     location: 'about.pro.location.toulouse',
-                    image: '/img/pro/iwit.jpg',
+                    image: '/img/pro/iwit.webp',
                     years: { start: 2020, end: 2026 },
                     work: 'about.pro.status.lead'
                 },
