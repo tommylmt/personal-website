@@ -96,7 +96,7 @@ export const en = {
             random: 'yet another random Carhartt kid in tech',
             working: 'I currently work as a Software Developer II at {0} remotely from Toulouse, France.',
             whatido:
-                'My work essentially consists of building complex application architectures and managing a developers team. I mostly write code using {0}, {1}, {2}, {3} and {4} shipped on {5} infrastructures.',
+                'I help build and maintain a SaaS platform used by customers around the world. I mostly write code using {0}, {1}, {2}, {3} and {4} shipped on {5} infrastructures.',
             projects: "I'm also the father of several projects like {0}, Orkestrum, Cinécombles and an Open Source contributor.",
             hobbies:
                 "Besides that, I'm a huge pop culture and music nerd. I've been playing guitar for {guitarYears} years and skateboarding. I'm also a tattoo, cinema, lifestyle and beer enthusiast.",
