@@ -59,7 +59,7 @@ export default {
                 {
                     name: 'Sinch Mailjet',
                     location: 'about.pro.location.remote',
-                    image: '',
+                    image: '/img/pro/home.webp',
                     years: { start: 2026, end: 'about.pro.duration.now' },
                     work: 'about.pro.status.developer'
                 }
