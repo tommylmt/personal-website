@@ -96,7 +96,7 @@ export const fr = {
             random: 'encore un random en Carhartt dans la tech',
             working: 'Je travaille en tant que Tech lead developpeur chez {0} à Toulouse, France.',
             whatido:
-                "Mon travaille consiste à développer et maintenir des applications métiers et des architectures modernes ainsi qu'à gérer une équipe de développeurs. Je code principalement avec {0}, {1}, {2}, {3} et {4} déployés sur des infrastructures {5}.",
+                "Mon travail consiste à développer et maintenir des applications métiers et des architectures modernes ainsi qu'à gérer une équipe de développeurs. Je code principalement avec {0}, {1}, {2}, {3} et {4} déployés sur des infrastructures {5}.",
             projects:
                 "Je suis l'auteur de plusieurs projets tels que {0}, Orkestrum, Cinécombles ainsi qu'un contributeur à l'Open Source.",
             hobbies:
