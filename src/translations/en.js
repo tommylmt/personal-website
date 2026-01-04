@@ -33,7 +33,7 @@ export const en = {
     },
     seo: {
         title: {
-            about: 'Thomas Lamothe - Software Engineer',
+            about: 'Thomas Lamothe - Software Developer',
             stack: 'My Stack',
             culture: 'Things I love',
             notfound: 'Resource not found'
@@ -41,16 +41,16 @@ export const en = {
         meta: {
             about: {
                 description:
-                    "I'm Thomas, a french web software engineer. I help design, build, and maintain a globally deployed, multi-tenant SaaS platform.",
+                    "I'm Thomas, a french web software developer. I help design, build, and maintain a globally deployed, multi-tenant SaaS platform.",
                 twitter: {
-                    title: 'Thomas Lamothe - Software Engineer',
+                    title: 'Thomas Lamothe - Software Developer',
                     description:
-                        "I'm Thomas, a french software engineer. I help design, build, and maintain a globally deployed, multi-tenant SaaS platform."
+                        "I'm Thomas, a french software developer. I help design, build, and maintain a globally deployed, multi-tenant SaaS platform."
                 },
                 og: {
-                    title: 'Thomas Lamothe - Software Engineer',
+                    title: 'Thomas Lamothe - Software Developer',
                     description:
-                        "I'm Thomas, a french software engineer. I help design, build, and maintain a globally deployed, multi-tenant SaaS platform."
+                        "I'm Thomas, a french software developer. I help design, build, and maintain a globally deployed, multi-tenant SaaS platform."
                 }
             },
             stack: {
