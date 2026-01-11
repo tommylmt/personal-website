@@ -113,7 +113,7 @@ export const en = {
             graduations: {
                 bac: 'Scientific High School Diploma (English mention)',
                 dut: "Associate's degree in computer science",
-                prolicence: 'Professionnal Bachelor in computer science',
+                prolicence: 'Professional Bachelor in computer science',
                 duallicence: 'Dual Bachelor in computer engineering'
             }
         },
@@ -148,7 +148,7 @@ export const en = {
         shuffle: 'Shuffle',
         filter: 'Filter',
         types: {
-            beginner: 'Begginer',
+            beginner: 'Beginner',
             advanced: 'Advanced',
             expert: 'Expert',
             misc: 'Miscellaneous',
@@ -167,8 +167,8 @@ export const en = {
         meetme: 'Meet me on',
         listenon: 'Listen on Spotify',
         errors: {
-            fetching: 'An error occured while fetching culture data',
-            charts: 'An error occured while fetching music charts'
+            fetching: 'An error occurred while fetching culture data',
+            charts: 'An error occurred while fetching music charts'
         },
         details: {
             casting: 'Cast',
