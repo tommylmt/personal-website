@@ -24,6 +24,11 @@ export default {
         return {
             socials: [
                 {
+                    link: 'https://www.instagram.com/tommy.lmt',
+                    icon: 'ph-light ph-instagram-logo',
+                    label: 'Instagram'
+                },
+                {
                     link: 'https://www.threads.net/@tommy.lmt',
                     icon: 'ph-light ph-threads-logo',
                     label: 'Threads'

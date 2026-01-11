@@ -33,11 +33,11 @@
                 <div class="my-3 mx-auto w-64 h-[1px] bg-slate-200 dark:bg-slate-700"></div>
 
                 <i18n-t keypath="about.me.working" class="mt-2 main-text" tag="p">
-                    <LinkPreview :url="iwitLink">Iwit Systems</LinkPreview>
+                    <LinkPreview :url="sinchMailjet">Sinch Mailjet</LinkPreview>
                 </i18n-t>
 
                 <i18n-t keypath="about.me.whatido" tag="p" class="main-text">
-                    <LinkPreview :url="symfony">Symfony</LinkPreview>
+                    <LinkPreview :url="php">PHP</LinkPreview>
                     <LinkPreview :url="react">React</LinkPreview>
                     <LinkPreview :url="vue">Vue.js</LinkPreview>
                     <LinkPreview :url="tailwind">Tailwind</LinkPreview>
@@ -69,8 +69,8 @@ export default {
     },
     data() {
         return {
-            iwitLink: 'https://iwit-systems.fr',
-            symfony: 'https://symfony.com',
+            sinchMailjet: 'https://mailjet.com',
+            php: 'https://php.net',
             react: 'https://react.dev/',
             vue: 'https://vuejs.org',
             tailwind: 'https://tailwindcss.com',

@@ -33,7 +33,7 @@ export const en = {
     },
     seo: {
         title: {
-            about: 'Thomas Lamothe - Tech Lead developer',
+            about: 'Thomas Lamothe - Software Developer',
             stack: 'My Stack',
             culture: 'Things I love',
             notfound: 'Resource not found'
@@ -41,16 +41,16 @@ export const en = {
         meta: {
             about: {
                 description:
-                    "I'm Thomas, a french web tech lead. I mainly maintain and scale complex apps infrastructures and manage a team of developers",
+                    "I'm Thomas, a french web software developer. I help design, build, and maintain a globally deployed, multi-tenant SaaS platform.",
                 twitter: {
-                    title: 'Thomas Lamothe - Tech Lead developer',
+                    title: 'Thomas Lamothe - Software Developer',
                     description:
-                        "I'm Thomas, a french web tech lead. I mainly maintain and scale complex apps infrastructures and manage a team of developers"
+                        "I'm Thomas, a french software developer. I help design, build, and maintain a globally deployed, multi-tenant SaaS platform."
                 },
                 og: {
-                    title: 'Thomas Lamothe - Tech Lead developer',
+                    title: 'Thomas Lamothe - Software Developer',
                     description:
-                        "I'm Thomas, a french web tech lead. I mainly maintain and scale complex apps infrastructures and manage a team of developers"
+                        "I'm Thomas, a french software developer. I help design, build, and maintain a globally deployed, multi-tenant SaaS platform."
                 }
             },
             stack: {
@@ -92,11 +92,11 @@ export const en = {
         theEnd: 'Thank you for reaching the end',
         me: {
             title: 'Hi there',
-            introduction: "I'm Thomas, {0} a french web tech lead developer",
+            introduction: "I'm Thomas, {0} a french web software developer",
             random: 'yet another random Carhartt kid in tech',
-            working: 'I currently work as a tech lead developer at {0} in Toulouse, France.',
+            working: 'I currently work as a Software Developer II at {0} remotely from Toulouse, France.',
             whatido:
-                'My work essentially consists of building complex application architectures and managing a developers team. I mostly write code using {0}, {1}, {2}, {3} and {4} shipped on {5} infrastructures.',
+                'I help build and maintain a SaaS platform used by customers around the world. I mostly write code using {0}, {1}, {2}, {3} and {4} shipped on {5} infrastructures.',
             projects: "I'm also the father of several projects like {0}, Orkestrum, Cinécombles and an Open Source contributor.",
             hobbies:
                 "Besides that, I'm a huge pop culture and music nerd. I've been playing guitar for {guitarYears} years and skateboarding. I'm also a tattoo, cinema, lifestyle and beer enthusiast.",
@@ -113,7 +113,7 @@ export const en = {
             graduations: {
                 bac: 'Scientific High School Diploma (English mention)',
                 dut: "Associate's degree in computer science",
-                prolicence: 'Professionnal Bachelor in computer science',
+                prolicence: 'Professional Bachelor in computer science',
                 duallicence: 'Dual Bachelor in computer engineering'
             }
         },
@@ -124,12 +124,14 @@ export const en = {
             },
             location: {
                 office: 'My office',
-                toulouse: 'Toulouse, France'
+                toulouse: 'Toulouse, France',
+                remote: 'Full remote position'
             },
             status: {
                 intern: 'Web development internship',
                 freelance: 'Freelance Full-Stack developer',
-                lead: 'Web tech lead developer'
+                lead: 'Web tech lead developer',
+                developer: 'Software Developer II'
             }
         },
         social: {
@@ -146,7 +148,7 @@ export const en = {
         shuffle: 'Shuffle',
         filter: 'Filter',
         types: {
-            beginner: 'Begginer',
+            beginner: 'Beginner',
             advanced: 'Advanced',
             expert: 'Expert',
             misc: 'Miscellaneous',
@@ -165,8 +167,8 @@ export const en = {
         meetme: 'Meet me on',
         listenon: 'Listen on Spotify',
         errors: {
-            fetching: 'An error occured while fetching culture data',
-            charts: 'An error occured while fetching music charts'
+            fetching: 'An error occurred while fetching culture data',
+            charts: 'An error occurred while fetching music charts'
         },
         details: {
             casting: 'Cast',

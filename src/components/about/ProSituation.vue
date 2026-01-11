@@ -52,9 +52,16 @@ export default {
                 {
                     name: 'Iwit Systems',
                     location: 'about.pro.location.toulouse',
-                    image: '/img/pro/iwit.jpg',
-                    years: { start: 2020, end: 'about.pro.duration.now' },
+                    image: '/img/pro/iwit.webp',
+                    years: { start: 2020, end: 2026 },
                     work: 'about.pro.status.lead'
+                },
+                {
+                    name: 'Sinch Mailjet',
+                    location: 'about.pro.location.remote',
+                    image: '/img/pro/home.webp',
+                    years: { start: 2026, end: 'about.pro.duration.now' },
+                    work: 'about.pro.status.developer'
                 }
             ]
         }
