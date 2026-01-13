@@ -1,5 +1,8 @@
 <template>
-    <AboutBlock :title="'📌 ' + $t('about.social.internet')" custom-class="flex p-3 2xl:p-0 justify-center gap-3 lg:gap-40 my-20">
+    <AboutBlock
+        :title="'📌 ' + $t('about.social.internet')"
+        custom-class="flex p-3 2xl:p-0 justify-center flex-wrap gap-20 lg:gap-40 my-20"
+    >
         <div v-for="(social, index) in socials" :key="index">
             <a
                 :href="social.link"

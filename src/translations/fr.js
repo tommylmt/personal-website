@@ -91,7 +91,7 @@ export const fr = {
             title: 'Bonjour',
             introduction: 'Je suis Thomas, {0} un développeur logiciel spécialisé dans le web',
             random: 'encore un random en Carhartt dans la tech',
-            working: 'Je travaille en tant que développeur logiciel chez {0} depuis Toulouse en France.',
+            working: 'Je travaille en tant que développeur logiciel à Toulouse en France.',
             whatido:
                 'Mon travail consiste à développer une application SaaS utilisée par des clients du monde entier. Je code principalement avec {0}, {1}, {2}, {3} et {4} déployés sur des infrastructures {5}.',
             projects:
