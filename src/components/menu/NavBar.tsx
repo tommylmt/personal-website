@@ -17,7 +17,8 @@ export default function NavBar({ pages }: { pages: NavItem[] }): ReactElement {
     const [clientHeight, setClientHeight] = useState<number>(0);
     const [localPages, setLocalPages] = useState<NavItem[]>(pages);
 
-    const noResponsive = window.innerWidth >= 768;
+    // TODO improve this
+    const noResponsive = true // window.innerWidth >= 768;
 
     const handleHover = (e: HTMLElement) => {
         moveTracker(e)

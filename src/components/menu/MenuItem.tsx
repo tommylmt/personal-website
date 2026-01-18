@@ -1,6 +1,7 @@
 import {ReactElement} from "react";
 import {NavItem} from "@/src/types/menu";
 import Link from "next/link";
+import {useTranslation} from "next-i18next";
 
 export default function MenuItem({ page, onFollowItem, onHoverStop, onActiveChange }: {
     page: NavItem,
@@ -8,6 +9,7 @@ export default function MenuItem({ page, onFollowItem, onHoverStop, onActiveChan
     onHoverStop: () => void,
     onActiveChange: (path: string) => void
 }): ReactElement {
+    const { t } = useTranslation();
     const mainClass = 'font-sans px-5 py-2 relative hover:text-white dark:text-white transition-color duration-300';
     const currentClass = 'current-item text-white';
     const classList = 'font-sans font-light';
@@ -20,15 +22,14 @@ export default function MenuItem({ page, onFollowItem, onHoverStop, onActiveChan
         >
             {
                 page.specialLink
-                    ? <a v-else href={page.path} className={classList} target="_blank">{ page.name }</a>
+                    ? <a href={page.path} className={classList} target="_blank">{ t(page.name) }</a>
                     : (
                         <Link
                             href={page.path}
-                            v-if="!special"
                             onClick={() => onActiveChange(page.path)}
                             className={classList}
                         >
-                            { page.name }
+                            { t(page.name) }
                         </Link>
                     )
             }

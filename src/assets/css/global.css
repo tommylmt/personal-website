@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+:root {
+    --menu-width: 460px;
+    --mobile: 768px;
+}
+
+*::selection {
+    @apply text-white bg-slate-800;
+}
+
+#mainMenu {
+    width: var(--menu-width);
+    left: calc(50% - calc(var(--menu-width) / 2));
+}
+
+@media screen and (max-width: var(--mobile)) {
+    width: 90%;
+    left: 5%;
+}
+
+@layer components {
+    .main-text {
+        @apply text-slate-500 leading-7 font-sans;
+    }
+    .me-link {
+        @apply text-slate-800 relative z-20 transition-all before:rounded-sm before:w-0 before:absolute before:h-full before:top-0 before:left-0 before:-z-10 hover:text-white before:transition-all hover:before:w-full px-1 dark:text-slate-200;
+    }
+    .title-shadow {
+        text-shadow: 3px 3px #e2e8f0;
+    }
+    .title-shadow-dark {
+        text-shadow: 3px 3px #1e293b;
+    }
+    .culture-loader {
+        @apply animate-pulse bg-slate-200 dark:bg-slate-800;
+    }
+}
