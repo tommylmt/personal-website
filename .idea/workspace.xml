@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="393ab080-a6ea-463c-a017-20e7bebdd44a" name="Default Changelist" comment="feat: initiate next js project">
+      <change beforePath="$PROJECT_DIR$/vue/next/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/next/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/next/app/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/next/app/globals.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/next/app/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/next/app/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/next/eslint.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/next/next.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/next/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/next/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/next/postcss.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/next/public/file.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/next/public/globe.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/next/public/next.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/next/public/vercel.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/next/public/window.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/next/tsconfig.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerConfigs">
+    <option name="configs">
+      <option value="/Applications/MAMP/htdocs/interface-administration/composer.json" />
+    </option>
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>/Applications/MAMP/htdocs/party-maker/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="EditorConfigPreviewManager">
+    <editorConfig file="$PROJECT_DIR$/../../boulot/miage/S6/web/projet-web-miage/front-end/.editorconfig" previewFile="$PROJECT_DIR$/../../boulot/miage/S6/web/projet-web-miage/front-end/src/app/app-calendar/app-calendar.component.html" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/vue" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/sentry/sentry-symfony" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/browser-kit" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/asset" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/cache-contracts" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/cache" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/console" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/config" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/debug" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/css-selector" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/dependency-injection" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/debug-bundle" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/dom-crawler" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/doctrine-bridge" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/error-handler" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/dotenv" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/event-dispatcher-contracts" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/event-dispatcher" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/filesystem" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/expression-language" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/flex" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/finder" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/framework-bundle" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/form" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/http-client-contracts" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/http-client" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/http-kernel" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/http-foundation" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/intl" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/inflector" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/maker-bundle" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/mailer" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/monolog-bridge" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/mime" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/options-resolver" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/monolog-bundle" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/polyfill-intl-icu" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/phpunit-bridge" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/polyfill-intl-idn" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/polyfill-php72" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/polyfill-mbstring" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/polyfill-php80" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/polyfill-php73" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/process" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/polyfill-uuid" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/property-info" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/property-access" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/security-bundle" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/routing" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/security-csrf" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/security-core" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/security-http" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/security-guard" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/service-contracts" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/serializer" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/templating" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/stopwatch" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/translation-contracts" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/translation" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/twig-bundle" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/twig-bridge" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/var-dumper" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/validator" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/web-link" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/var-exporter" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/webpack-encore-bundle" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/web-profiler-bundle" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/symfony/yaml" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/twig/twig" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/twig/extra-bundle" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/webmozart/assert" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/willdurand/jsonp-callback-validator" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/zendframework/zend-code" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/zendframework/zend-eventmanager" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/behat/transliterator" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/chillerlan/php-qrcode" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/chillerlan/php-settings-container" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/composer" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/clue/stream-filter" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/doctrine/annotations" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/doctrine/collections" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/doctrine/cache" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/doctrine/data-fixtures" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/doctrine/common" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/doctrine/doctrine-bundle" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/doctrine/dbal" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/doctrine/inflector" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/doctrine/event-manager" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/doctrine/lexer" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/doctrine/instantiator" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/doctrine/orm" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/doctrine/migrations" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/doctrine/reflection" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/doctrine/persistence" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/doctrine/sql-formatter" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/egulias/email-validator" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/friendsofphp/php-cs-fixer" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/friendsofsymfony/jsrouting-bundle" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/gedmo/doctrine-extensions" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/guzzlehttp/promises" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/guzzlehttp/guzzle" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/guzzlehttp/psr7" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/http-interop/http-factory-guzzle" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/intervention/image" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/jean85/pretty-package-versions" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/mailjet/mailjet-apiv3-php" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/monolog/monolog" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/mustangostang/spyc" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/nikic/php-parser" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/ocramius/proxy-manager" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/php-cs-fixer/diff" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/php-http/discovery" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/php-http/client-common" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/php-http/message" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/php-http/httplug" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/php-http/promise" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/php-http/message-factory" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/phpdocumentor/reflection-common" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/phpdocumentor/type-resolver" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/phpdocumentor/reflection-docblock" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/piwik/device-detector" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/psr/cache" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/psr/http-client" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/psr/container" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/psr/http-message" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/psr/http-factory" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/psr/log" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/psr/link" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/ralouphie/getallheaders" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/sensio/framework-extra-bundle" />
+      <path value="/Applications/MAMP/htdocs/party-maker/vendor/sentry/sentry" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/http-foundation" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/doctrine/inflector" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/framework-bundle" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/doctrine/migrations" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/event-dispatcher" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/doctrine/persistence" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/webpack-encore-bundle" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/doctrine/sql-formatter" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/translation-contracts" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/doctrine/common" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/service-contracts" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/validator" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/dom-crawler" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/translation" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/security-bundle" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/web-link" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/templating" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/routing" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/http-client" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/finder" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/intl" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/monolog-bridge" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/http-client-contracts" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/doctrine-bridge" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/dependency-injection" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/config" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/friendsofphp/php-cs-fixer" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/security-http" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/phpunit-bridge" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/twig-bundle" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/polyfill-php72" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/monolog/monolog" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/debug-bundle" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/mailer" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/mime" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/polyfill-php73" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/polyfill-intl-idn" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/error-handler" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/filesystem" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/console" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/security-guard" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/web-profiler-bundle" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/maker-bundle" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/psr/cache" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/polyfill-intl-icu" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/psr/log" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/yaml" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/psr/http-message" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/http-kernel" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/psr/link" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/browser-kit" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/debug" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/asset" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/psr/container" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/twig-bridge" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/serializer" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/ralouphie/getallheaders" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/cache-contracts" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/dotenv" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/process" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/webmozart/assert" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/piwik/device-detector" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/nikic/php-parser" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/guzzlehttp/promises" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/guzzlehttp/psr7" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/guzzlehttp/guzzle" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/zendframework/zend-eventmanager" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/zendframework/zend-code" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/egulias/email-validator" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/php-cs-fixer/diff" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/twig/twig" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/twig/extra-bundle" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/ocramius/proxy-manager" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/willdurand/jsonp-callback-validator" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/sensio/framework-extra-bundle" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/mailjet/mailjet-apiv3-php" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/mustangostang/spyc" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/expression-language" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/polyfill-mbstring" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/monolog-bundle" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/composer" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/friendsofsymfony/jsrouting-bundle" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/css-selector" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/form" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/cache" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/security-core" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/doctrine/event-manager" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/phpdocumentor/reflection-docblock" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/inflector" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/doctrine/data-fixtures" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/phpdocumentor/type-resolver" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/var-exporter" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/polyfill-php80" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/doctrine/lexer" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/event-dispatcher-contracts" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/doctrine/cache" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/security-csrf" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/doctrine/orm" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/property-access" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/doctrine/instantiator" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/phpdocumentor/reflection-common" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/property-info" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/doctrine/dbal" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/options-resolver" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/doctrine/reflection" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/var-dumper" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/doctrine/doctrine-bundle" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/stopwatch" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/doctrine/annotations" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/symfony/flex" />
+      <path value="/Applications/MAMP/htdocs/interface-administration/vendor/doctrine/collections" />
+    </include_path>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="1nmcn4XtJ97Uq1PXKaKXZFq3Lb8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "feature/next",
+    "last_opened_file_path": "/Users/thomaslamothe/Documents/Projets/redesign-site/public/img/pro",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "ts.external.directory.path": "/Users/thomaslamothe/Documents/Projets/redesign-site/next/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/img/pro" />
+      <recent name="$PROJECT_DIR$/src/assets/fonts" />
+      <recent name="/Applications/MAMP/htdocs/party-maker/src/Manager" />
+      <recent name="/Applications/MAMP/htdocs/party-maker/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/next" />
+      <recent name="$PROJECT_DIR$/src/assets/fonts" />
+      <recent name="$PROJECT_DIR$/../../boulot/miage/S6/web/projet-web-miage/front-end/src/app" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PS-243.28141.5" />
+        <option value="bundled-php-predefined-a98d8de5180a-1ec7b7818973-com.jetbrains.php.sharedIndexes-PS-243.28141.5" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="393ab080-a6ea-463c-a017-20e7bebdd44a" name="Default Changelist" comment="" />
+      <created>1611998870589</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611998870589</updated>
+      <workItem from="1611998874617" duration="7690000" />
+      <workItem from="1612028352908" duration="16403000" />
+      <workItem from="1612691905538" duration="3559000" />
+      <workItem from="1613910109687" duration="4839000" />
+      <workItem from="1620484381640" duration="4702000" />
+      <workItem from="1620647654475" duration="70000" />
+      <workItem from="1620647749218" duration="3503000" />
+      <workItem from="1621263579209" duration="5696000" />
+      <workItem from="1621768623124" duration="6066000" />
+      <workItem from="1623086001502" duration="18655000" />
+      <workItem from="1630767046945" duration="625000" />
+      <workItem from="1631451368761" duration="6109000" />
+      <workItem from="1635764712620" duration="36253000" />
+      <workItem from="1637173471978" duration="26501000" />
+      <workItem from="1640943485318" duration="70000" />
+      <workItem from="1730019636863" duration="4305000" />
+      <workItem from="1730273416249" duration="139000" />
+      <workItem from="1730273566641" duration="185731000" />
+      <workItem from="1730473869739" duration="8000" />
+      <workItem from="1730473935991" duration="38000" />
+      <workItem from="1730473996335" duration="16604000" />
+      <workItem from="1730836890816" duration="6937000" />
+      <workItem from="1730923009934" duration="7640000" />
+      <workItem from="1731355266083" duration="4750000" />
+      <workItem from="1731856661988" duration="13397000" />
+      <workItem from="1732179177677" duration="6610000" />
+      <workItem from="1732196856316" duration="5957000" />
+      <workItem from="1732361029821" duration="206000" />
+      <workItem from="1732361248567" duration="7074000" />
+      <workItem from="1732697250439" duration="576000" />
+      <workItem from="1732824093636" duration="2827000" />
+      <workItem from="1733587453085" duration="26000" />
+      <workItem from="1734794815689" duration="423000" />
+      <workItem from="1734800422506" duration="41000" />
+      <workItem from="1736010367901" duration="2905000" />
+      <workItem from="1736013286889" duration="16068000" />
+      <workItem from="1736696544894" duration="8575000" />
+      <workItem from="1736751772501" duration="1387000" />
+      <workItem from="1736923560327" duration="2324000" />
+      <workItem from="1737097110554" duration="1487000" />
+      <workItem from="1737193997664" duration="29521000" />
+      <workItem from="1737615183316" duration="3000" />
+      <workItem from="1737615463202" duration="1265000" />
+      <workItem from="1738306422396" duration="24000" />
+      <workItem from="1740908807934" duration="668000" />
+      <workItem from="1741432420840" duration="5493000" />
+      <workItem from="1742047523673" duration="17000" />
+      <workItem from="1742055352022" duration="5852000" />
+      <workItem from="1742840519255" duration="15000" />
+      <workItem from="1744804609268" duration="10175000" />
+      <workItem from="1744867723998" duration="9403000" />
+      <workItem from="1745562325049" duration="123000" />
+      <workItem from="1746090099747" duration="3230000" />
+      <workItem from="1746094912893" duration="1964000" />
+      <workItem from="1746448009184" duration="6747000" />
+      <workItem from="1747492098879" duration="102000" />
+      <workItem from="1747821161561" duration="15079000" />
+      <workItem from="1748089140264" duration="602000" />
+      <workItem from="1748504616511" duration="663000" />
+      <workItem from="1748506766422" duration="9071000" />
+      <workItem from="1750189135078" duration="48000" />
+      <workItem from="1752524955039" duration="9062000" />
+      <workItem from="1759864799020" duration="32000" />
+      <workItem from="1761489693948" duration="33554000" />
+      <workItem from="1763621399409" duration="445000" />
+      <workItem from="1766508544410" duration="4949000" />
+      <workItem from="1766850982934" duration="5334000" />
+      <workItem from="1767549295333" duration="5609000" />
+      <workItem from="1768142615131" duration="1709000" />
+      <workItem from="1768240694022" duration="4716000" />
+      <workItem from="1768742448168" duration="1260000" />
+    </task>
+    <task id="LOCAL-00001" summary="feat: initiate next js project">
+      <option name="closed" value="true" />
+      <created>1768743334765</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1768743334765</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="swagger.json" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: initiate next js project" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: initiate next js project" />
+  </component>
+</project>
