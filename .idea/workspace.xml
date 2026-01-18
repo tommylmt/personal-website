@@ -23,23 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="393ab080-a6ea-463c-a017-20e7bebdd44a" name="Default Changelist" comment="feat: initiate next js project">
-      <change beforePath="$PROJECT_DIR$/vue/next/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/next/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/next/app/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/next/app/globals.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/next/app/layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/next/app/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/next/eslint.config.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/next/next.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/next/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/next/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/next/postcss.config.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/next/public/file.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/next/public/globe.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/next/public/next.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/next/public/vercel.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/next/public/window.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/next/tsconfig.json" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/next/app/culture/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/next/app/global-not-found.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/next/app/stack/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/next/src/types/menu.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/next/src/utils/MenuHelper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/next/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/next/app/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +50,7 @@
     <editorConfig file="$PROJECT_DIR$/../../boulot/miage/S6/web/projet-web-miage/front-end/.editorconfig" previewFile="$PROJECT_DIR$/../../boulot/miage/S6/web/projet-web-miage/front-end/src/app/app-calendar/app-calendar.component.html" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/vue" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -337,6 +328,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
+    "prettierjs.PrettierConfiguration.Package": "/Users/thomaslamothe/Documents/Projets/redesign-site/vue/node_modules/prettier",
     "ts.external.directory.path": "/Users/thomaslamothe/Documents/Projets/redesign-site/next/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -444,6 +436,7 @@
       <workItem from="1768142615131" duration="1709000" />
       <workItem from="1768240694022" duration="4716000" />
       <workItem from="1768742448168" duration="1260000" />
+      <workItem from="1768743715447" duration="838000" />
     </task>
     <task id="LOCAL-00001" summary="feat: initiate next js project">
       <option name="closed" value="true" />
