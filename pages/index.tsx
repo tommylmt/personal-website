@@ -1,8 +1,7 @@
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
-import {GetServerSideProps} from "next";
-import {Props} from "next/script";
+import { GetStaticProps } from "next";
 
-export async function getServerSideProps({ locale }): GetServerSideProps<Props> {
+export const getStaticProps = (async ({ locale }: { locale: string }) => {
   const res = await serverSideTranslations(locale, ['common']);
 
   if (res._nextI18Next) {
@@ -14,7 +13,7 @@ export async function getServerSideProps({ locale }): GetServerSideProps<Props> 
       ...res
     }
   };
-}
+}) satisfies GetStaticProps<{ props: object }>
 
 export default function Home() {
   return (
