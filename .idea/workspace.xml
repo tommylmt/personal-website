@@ -22,15 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="393ab080-a6ea-463c-a017-20e7bebdd44a" name="Default Changelist" comment="feat: initiate next js project">
-      <change afterPath="$PROJECT_DIR$/next/app/culture/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/next/app/global-not-found.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/next/app/stack/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/next/src/types/menu.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/next/src/utils/MenuHelper.ts" afterDir="false" />
+    <list default="true" id="393ab080-a6ea-463c-a017-20e7bebdd44a" name="Default Changelist" comment="feat(menu): convert menu from Vue to Next Typescript">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/next/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/next/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/next/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next/src/components/menu/MenuItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/next/src/components/menu/MenuItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next/src/components/menu/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/next/src/components/menu/NavBar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -436,7 +432,7 @@
       <workItem from="1768142615131" duration="1709000" />
       <workItem from="1768240694022" duration="4716000" />
       <workItem from="1768742448168" duration="1260000" />
-      <workItem from="1768743715447" duration="838000" />
+      <workItem from="1768743715447" duration="2802000" />
     </task>
     <task id="LOCAL-00001" summary="feat: initiate next js project">
       <option name="closed" value="true" />
@@ -446,7 +442,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768743334765</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat(menu): convert menu from Vue to Next Typescript">
+      <option name="closed" value="true" />
+      <created>1768744748423</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1768744748423</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -469,6 +473,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: initiate next js project" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: initiate next js project" />
+    <MESSAGE value="feat(menu): convert menu from Vue to Next Typescript" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(menu): convert menu from Vue to Next Typescript" />
   </component>
 </project>
