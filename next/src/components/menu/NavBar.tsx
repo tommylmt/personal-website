@@ -9,7 +9,6 @@ const LOCAL_SELECTORS = {
     currenItem: '#mainMenu ul li.current-item'
 }
 
-
 export default function NavBar({ pages }: { pages: NavItem[] }): ReactElement {
     const [currentLeft, setCurrentLeft] = useState<string>('0');
     const [currentTop, setCurrentTop] = useState<string>('0');
