@@ -22,11 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="393ab080-a6ea-463c-a017-20e7bebdd44a" name="Default Changelist" comment="feat(menu): convert menu from Vue to Next Typescript">
+    <list default="true" id="393ab080-a6ea-463c-a017-20e7bebdd44a" name="Default Changelist" comment="chore: add gitignore for .idea folder">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/next/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/next/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/next/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next/next.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/next/src/components/menu/MenuItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/next/src/components/menu/MenuItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next/src/components/menu/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/next/src/components/menu/NavBar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -312,23 +313,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/next",
-    "last_opened_file_path": "/Users/thomaslamothe/Documents/Projets/redesign-site/public/img/pro",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "prettierjs.PrettierConfiguration.Package": "/Users/thomaslamothe/Documents/Projets/redesign-site/vue/node_modules/prettier",
-    "ts.external.directory.path": "/Users/thomaslamothe/Documents/Projets/redesign-site/next/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/next&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/thomaslamothe/Documents/Projets/redesign-site/public/img/pro&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/thomaslamothe/Documents/Projets/redesign-site/vue/node_modules/prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/thomaslamothe/Documents/Projets/redesign-site/next/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/img/pro" />
@@ -450,7 +451,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768744748423</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="chore: add gitignore for .idea folder">
+      <option name="closed" value="true" />
+      <created>1768746671837</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1768746671837</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,6 +483,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: initiate next js project" />
     <MESSAGE value="feat(menu): convert menu from Vue to Next Typescript" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(menu): convert menu from Vue to Next Typescript" />
+    <MESSAGE value="chore: add gitignore for .idea folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: add gitignore for .idea folder" />
   </component>
 </project>

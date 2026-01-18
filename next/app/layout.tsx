@@ -16,7 +16,7 @@ export default function RootLayout({
   const menuHelper = new MenuHelper('/'); // TODO fetch current route
 
   return (
-    <html lang="en">
+    <html>
        <body className="dark:bg-black overflow-x-hidden">
          <NavBar pages={menuHelper.routes} />
 
