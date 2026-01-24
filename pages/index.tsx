@@ -1,5 +1,6 @@
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
+import Me from "@/src/components/about/Me";
 
 export const getStaticProps = (async ({ locale }: { locale: string }) => {
   const res = await serverSideTranslations(locale, ['common']);
@@ -17,6 +18,8 @@ export const getStaticProps = (async ({ locale }: { locale: string }) => {
 
 export default function Home() {
   return (
-    <h1>About Page</h1>
+    <>
+      <Me />
+    </>
   );
 }

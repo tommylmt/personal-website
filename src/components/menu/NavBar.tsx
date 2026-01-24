@@ -1,6 +1,6 @@
 "use client"
 
-import {ReactElement, useState} from "react";
+import {ReactElement, useEffect, useState} from "react";
 import {NavItem} from "@/src/types/menu";
 import MenuItem from "@/src/components/menu/MenuItem";
 
@@ -16,9 +16,7 @@ export default function NavBar({ pages }: { pages: NavItem[] }): ReactElement {
     const [openMenu, setOpenMenu] = useState<boolean>(false);
     const [clientHeight, setClientHeight] = useState<number>(0);
     const [localPages, setLocalPages] = useState<NavItem[]>(pages);
-
-    // TODO improve this
-    const noResponsive = true // window.innerWidth >= 768;
+    const [noResponsive, setNotResponsive] = useState<boolean>(true);
 
     const handleHover = (e: HTMLElement) => {
         moveTracker(e)
@@ -56,6 +54,11 @@ export default function NavBar({ pages }: { pages: NavItem[] }): ReactElement {
     const getCurrentItem = (): HTMLElement => {
         return document.querySelector(LOCAL_SELECTORS.currenItem) as HTMLElement
     }
+
+    useEffect(() => {
+        setNotResponsive(window.innerWidth >= 768);
+        retrieveCurrent();
+    }, []);
 
     return (
         <>
