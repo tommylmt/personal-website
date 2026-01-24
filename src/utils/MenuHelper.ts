@@ -1,9 +1,13 @@
+import { MenuItem } from '../types/menu'
+
 export default class MenuHelper {
-    constructor(currentRoute) {
-        this.current = currentRoute
+    private current: string
+
+    constructor(currentPath: string) {
+        this.current = currentPath
     }
 
-    get routes() {
+    get routes(): MenuItem[] {
         return [
             {
                 name: 'menu.about',
