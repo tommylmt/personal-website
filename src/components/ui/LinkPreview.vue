@@ -94,7 +94,7 @@ export default {
 
             const linkRect = this.$refs.wrapper?.getBoundingClientRect()
             const offset = 20
-            let mouseMove = this.mousePosition.x - linkRect?.left
+            const mouseMove = this.mousePosition.x - linkRect?.left
             const propName = this.height + offset >= linkRect.top ? 'top' : 'bottom'
 
             return {

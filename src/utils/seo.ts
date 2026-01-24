@@ -1,5 +1,5 @@
 import { i18n } from '@/utils/lang'
-import { TPageMeta } from '../types/page'
+import { type TPageMeta } from '../types/page'
 
 const { t } = i18n.global
 

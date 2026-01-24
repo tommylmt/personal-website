@@ -30,3 +30,9 @@ coverage
 
 .env
 .env.local
+
+
+*.tsbuildinfo
+
+.eslintcache
+

@@ -38,7 +38,7 @@ export default {
     },
     computed: {
         realStyle() {
-            let style = this.style
+            const style = this.style
             style.zIndex = this.isActive ? 5000 : this.isDragging ? 5000 : style.zIndex || 'auto'
             style.left = this.left || this.style.left
             style.top = this.top || this.style.top

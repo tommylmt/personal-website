@@ -29,18 +29,24 @@ export default {
 
             this.emojis.forEach((e, index) => {
                 this.timeouts.push(
-                    setTimeout(() => {
-                        this.emoji = e
-                    }, (index + 1) * 500)
+                    setTimeout(
+                        () => {
+                            this.emoji = e
+                        },
+                        (index + 1) * 500
+                    )
                 )
 
                 globalIndex = index
             })
 
             this.timeouts.push(
-                setTimeout(() => {
-                    this.randomEmoji()
-                }, (globalIndex + 1) * 500)
+                setTimeout(
+                    () => {
+                        this.randomEmoji()
+                    },
+                    (globalIndex + 1) * 500
+                )
             )
         },
         stopAnimation() {

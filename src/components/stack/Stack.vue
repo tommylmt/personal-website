@@ -104,11 +104,11 @@ export default {
             this.muuri.filter((item) => item.getElement().dataset.type === type)
         },
         randomSortItems() {
-            let elements = this.muuri.getItems()
+            const elements = this.muuri.getItems()
             let currentIndex = elements.length
 
             while (currentIndex != 0) {
-                let randomIndex = Math.floor(Math.random() * currentIndex)
+                const randomIndex = Math.floor(Math.random() * currentIndex)
                 currentIndex--
                 ;[elements[currentIndex], elements[randomIndex]] = [elements[randomIndex], elements[currentIndex]]
             }

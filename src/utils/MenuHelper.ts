@@ -1,4 +1,4 @@
-import { MenuItem } from '../types/menu'
+import { type MenuItem } from '../types/menu'
 
 export default class MenuHelper {
     private current: string

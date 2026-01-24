@@ -2,11 +2,11 @@ import '@/assets/scss/main.scss'
 import '@phosphor-icons/web/light'
 
 import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-import { i18n } from '@/utils/lang'
+import router from '@/router/index.js'
+import { i18n } from './utils/lang'
 import { createPinia } from 'pinia'
 import AOS from 'aos'
+import App from '@/App.vue'
 
 const app = createApp(App)
 

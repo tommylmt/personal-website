@@ -1,4 +1,7 @@
-export type TPageMeta = {
+import type { RouteMeta } from 'vue-router'
+import type { Component } from 'vue'
+
+export type TPageMeta = RouteMeta & {
     title: string
     seo: {
         description: string
@@ -15,6 +18,6 @@ export type TPageMeta = {
 export type TPage = {
     path: string
     name: string
-    component: Function
+    component: () => Promise<Component>
     meta: TPageMeta
 }

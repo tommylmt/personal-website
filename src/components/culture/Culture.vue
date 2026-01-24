@@ -123,7 +123,7 @@ export default {
 
                 this.movies = data.filter((media) => media.media_type.slug === MEDIA_TYPE.Movie)
                 this.shows = data.filter((media) => media.media_type.slug === MEDIA_TYPE.TvShows)
-            } catch (e) {
+            } catch (_) {
                 this.errors = 'culture.errors.fetching'
             }
         },
@@ -132,7 +132,7 @@ export default {
                 const { data } = await axios.get(`${this.$baseUrl}/api/charts`)
 
                 this.songs = data
-            } catch (e) {
+            } catch (_) {
                 this.errorSongs = 'culture.errors.charts'
             }
         }
