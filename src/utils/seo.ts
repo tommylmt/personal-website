@@ -1,8 +1,9 @@
 import { i18n } from '@/utils/lang'
+import { TPageMeta } from '../types/page'
 
 const { t } = i18n.global
 
-export function processSeo(meta) {
+export function processSeo(meta: TPageMeta): void {
     document.title = t(meta.title)
 
     for (const [key, value] of Object.entries(meta.seo)) {
