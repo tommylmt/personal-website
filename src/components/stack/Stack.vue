@@ -119,6 +119,6 @@ export default {
 }
 </script>
 
-<style lang="scss">
-@import '@/assets/scss/stack/stack';
+<style>
+@import '@/assets/css/stack/stack.css';
 </style>

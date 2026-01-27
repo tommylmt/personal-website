@@ -1,22 +1,31 @@
-@import 'fonts';
-@import 'responsive';
+@import './fonts.css';
 @import 'aos/dist/aos.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-$menuWidth: 460px;
+@theme {
+    --font-sans: 'Geist', 'sans-serif';
+    --font-mono: 'Google Sans Code', 'monospace';
+    --font-gothic: 'Aktura Regular', 'serif';
+    --font-vintage: 'Midway Retro', 'cursive';
+}
+
+:root {
+    --menu-width: 460px;
+    --responsive-mobile: 768px;
+}
 
 *::selection {
     @apply text-white bg-slate-800;
 }
 
 #mainMenu {
-    width: $menuWidth;
-    left: calc(50% - calc($menuWidth / 2));
+    width: var(--menu-width);
+    left: calc(50% - calc(var(--menu-width) / 2));
+}
 
-    @media screen and (max-width: $mobile) {
+@media screen and (max-width: var(--responsive-mobile)) {
+    #mainMenu {
         width: 90%;
         left: 5%;
     }

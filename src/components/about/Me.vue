@@ -1,10 +1,12 @@
 <template>
-    <div
+    <Motion
+        :initial="{ scale: 0.75, opacity: 0, blur: 35 }"
+        :animate="{ scale: 1, opacity: 1, blur: 0 }"
+        as="div"
         :class="[
             'block md:flex bg-white border border-slate-100 shadow-lg shadow-slate-100 rounded-3xl my-10 mx-auto',
             'w-11/12 md:w-10/12 xl:w-9/12 2xl:w-7/12',
-            'dark:bg-black dark:border-slate-800 dark:shadow-slate-950',
-            'motion-scale-in-75 motion-opacity-in-0 motion-blur-in'
+            'dark:bg-black dark:border-slate-800 dark:shadow-slate-950'
         ]"
     >
         <div class="w-full md:w-64 lg:w-80 2xl:w-2/5 shrink-0 p-0 md:p-2 2xl:p-0">
@@ -53,17 +55,19 @@
                 <p class="mt-2 main-text">{{ $t('about.me.findme') }}</p>
             </div>
         </div>
-    </div>
+    </Motion>
 </template>
 
 <script>
 import Emoji from '@/components/about/Emoji.vue'
 import LinkPreview from '@/components/ui/LinkPreview.vue'
+import { Motion } from 'motion-v'
 
 export default {
     components: {
         LinkPreview,
-        Emoji
+        Emoji,
+        Motion
     },
     data() {
         return {

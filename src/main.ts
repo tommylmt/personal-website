@@ -1,4 +1,4 @@
-import '@/assets/scss/main.scss'
+import '@/assets/css/main.css'
 import '@phosphor-icons/web/light'
 
 import { createApp } from 'vue'

@@ -10,11 +10,6 @@
     margin: 10px;
     z-index: 1;
     color: #fff;
-
-    @media screen and (max-width: 768px) {
-        width: 90px;
-        height: 90px;
-    }
 }
 .item.muuri-item-dragging {
     z-index: 3;
@@ -29,4 +24,10 @@
     position: relative;
     width: 100%;
     height: 100%;
+}
+@media screen and (max-width: 768px) {
+    .item {
+        width: 90px;
+        height: 90px;
+    }
 }

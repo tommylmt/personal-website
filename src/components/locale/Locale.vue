@@ -1,8 +1,10 @@
 <template>
-    <div
+    <Motion
+        as="div"
+        :initial="{ scale: 0, y: 150, blur: 15 }"
+        :animate="{ scale: 1, y: 0, blur: 0 }"
         :class="[
-            'fixed z-[9998] right-5 transition-all bottom-6 md:bottom-10 motion-duration-200',
-            'md:motion-translate-y-in-[150px] md:motion-scale-in-0 md:motion-blur-in md:motion-delay-700',
+            'fixed z-[9998] right-5 transition-all bottom-6 md:bottom-10',
             'shadow-md min-w-12 h-12 rounded-full cursor-pointer flex justify-center items-center transition-all',
             'bg-white/20 border border-slate-100/20 backdrop-blur-xl'
         ]"
@@ -21,15 +23,17 @@
                 <img :src="currentLocale.icon" alt="current locale" class="w-[60%] rounded-lg" />
             </li>
         </ul>
-    </div>
+    </Motion>
 </template>
 
 <script>
 import Fr from '@/assets/img/france.webp'
 import Us from '@/assets/img/usa.webp'
 import { processSeo } from '@/utils/seo'
+import { Motion } from 'motion-v'
 
 export default {
+    components: { Motion },
     data() {
         return {
             switchLocale: false,

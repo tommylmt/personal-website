@@ -14,13 +14,15 @@
     </div>
 
     <Transition name="toggle-menu" @after-enter="retrieveCurrent">
-        <nav
+        <Motion
+            as="nav"
+            :initial="{ scale: 0, y: 150, blur: 15 }"
+            :animate="{ scale: 1, y: 0, blur: 0, delay: 700, duration: 300 }"
             v-show="openMenu || noResponsive"
             id="mainMenu"
             :class="[
                 'fixed z-[9999] bottom-20 m-auto backdrop-blur-xl backdrop-saturate-200 p-2 rounded-xl md:rounded-[50px] shadow-md',
-                'bg-white/20 border border-slate-100/20 transition-all md:bottom-10',
-                'md:motion-translate-y-in-[150px] md:motion-scale-in-0 md:motion-blur-in md:motion-delay-500 motion-duration-300'
+                'bg-white/20 border border-slate-100/20 transition-all md:bottom-10'
             ]"
         >
             <div
@@ -45,12 +47,13 @@
                     @active-page-change="($e) => changeActivePage($e)"
                 />
             </ul>
-        </nav>
+        </Motion>
     </Transition>
 </template>
 
 <script>
 import MenuItem from './MenuItem.vue'
+import { Motion } from 'motion-v'
 
 const localSelectors = {
     menuListItem: '#mainMenu ul li',
@@ -59,7 +62,8 @@ const localSelectors = {
 
 export default {
     components: {
-        MenuItem
+        MenuItem,
+        Motion
     },
     data() {
         return {
