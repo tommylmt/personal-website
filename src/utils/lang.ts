@@ -2,7 +2,9 @@ import { createI18n } from 'vue-i18n'
 import { fr } from '@/translations/fr'
 import { en } from '@/translations/en'
 
-export const i18n = createI18n({
+type MessageSchema = typeof en
+
+export const i18n = createI18n<[MessageSchema], 'en-US' | 'fr-FR'>({
     locale: navigator.language,
     fallbackLocale: 'en-US',
     globalInjection: true,

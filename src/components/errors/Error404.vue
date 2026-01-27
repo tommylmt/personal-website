@@ -31,7 +31,7 @@
 }
 </style>
 
-<script>
+<script lang="ts">
 import { initTerminal } from 'ttty'
 import axios from 'axios'
 import MenuHelper from '@/utils/MenuHelper'

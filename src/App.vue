@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import NavBar from './components/menu/NavBar.vue'
 import MenuHelper from '@/utils/MenuHelper'
 import Locale from '@/components/locale/Locale.vue'

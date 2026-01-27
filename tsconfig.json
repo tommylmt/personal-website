@@ -1,7 +1,9 @@
 {
   "files": [],
   "compilerOptions": {
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "target": "ESNext",
+    "types": ["vite/client"]
   },
   "references": [
     {

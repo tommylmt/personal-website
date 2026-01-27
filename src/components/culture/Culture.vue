@@ -75,7 +75,7 @@
     <CultureDetailModal />
 </template>
 
-<script>
+<script lang="ts">
 import axios from 'axios'
 import { Vue3Marquee } from 'vue3-marquee'
 import 'vue3-marquee/dist/style.css'

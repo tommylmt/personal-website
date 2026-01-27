@@ -14,7 +14,7 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import Me from '@/components/about/Me.vue'
 import School from '@/components/about/School.vue'
 import ProSituation from '@/components/about/ProSituation.vue'

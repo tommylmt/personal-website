@@ -2,7 +2,7 @@ import '@/assets/scss/main.scss'
 import '@phosphor-icons/web/light'
 
 import { createApp } from 'vue'
-import router from '@/router/index.js'
+import router from '@/router/index'
 import { i18n } from './utils/lang'
 import { createPinia } from 'pinia'
 import AOS from 'aos'

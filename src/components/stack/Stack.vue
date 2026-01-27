@@ -36,7 +36,7 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import * as sicons from 'simple-icons'
 import axios from 'axios'
 import StackElement from '@/components/stack/StackElement.vue'

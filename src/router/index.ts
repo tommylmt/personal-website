@@ -2,10 +2,11 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { nextTick } from 'vue'
 import { processSeo } from '@/utils/seo'
 import { NOT_FOUND } from '@/utils/constants'
+import type { TPageMeta } from '@/types/page.ts'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
-    scrollBehavior() {
+    scrollBehavior(): { top: number } {
         return { top: 0 }
     },
     routes: [
@@ -86,7 +87,7 @@ const router = createRouter({
 
 router.afterEach((to) => {
     nextTick(() => {
-        processSeo(to.meta)
+        processSeo(to.meta as TPageMeta)
     })
 })
 
