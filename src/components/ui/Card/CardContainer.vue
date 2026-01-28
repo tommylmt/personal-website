@@ -13,17 +13,18 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useMouse } from '@/composables/useMouse'
 import { provide, ref } from 'vue'
 
-const props = defineProps({
-    class: String,
-    containerClass: String,
-    ratio: {
-        type: Number,
-        default: 25
-    }
+interface Props {
+    class: string
+    containerClass: string
+    ratio?: number
+}
+
+const props = withDefaults(defineProps<Props>(), {
+    ratio: 25
 })
 
 const containerRef = ref(null)
@@ -31,7 +32,7 @@ const mouseState = useMouse()
 
 provide('use3DCardMouseState', mouseState)
 
-function handleMouseMove({ clientX, clientY }) {
+function handleMouseMove({ clientX, clientY }: { clientX: number; clientY: number }) {
     if (!containerRef.value) return
 
     const { left, top, width, height } = containerRef.value.getBoundingClientRect()

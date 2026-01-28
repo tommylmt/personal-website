@@ -4,18 +4,28 @@
     </component>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { inject, ref, watch } from 'vue'
 
-const props = defineProps({
-    as: { type: String, default: 'div' },
-    class: String,
-    translateX: { type: [Number, String], default: 0 },
-    translateY: { type: [Number, String], default: 0 },
-    translateZ: { type: [Number, String], default: 0 },
-    rotateX: { type: [Number, String], default: 0 },
-    rotateY: { type: [Number, String], default: 0 },
-    rotateZ: { type: [Number, String], default: 0 }
+interface Props {
+    as?: string
+    class: string
+    translateX?: number | string
+    translateY?: number | string
+    translateZ?: number | string
+    rotateX?: number | string
+    rotateY?: number | string
+    rotateZ?: number | string
+}
+
+const props = withDefaults(defineProps<Props>(), {
+    as: 'div',
+    translateX: 0,
+    translateY: 0,
+    translateZ: 0,
+    rotateX: 0,
+    rotateY: 0,
+    rotateZ: 0
 })
 
 const refElement = ref(null)

@@ -1,7 +1,79 @@
+<script setup lang="ts">
+import { Motion } from 'motion-v'
+import { onMounted, onUnmounted, ref } from 'vue'
+
+interface Sparkle {
+    id: string
+    x: string
+    y: string
+    color: string
+    delay: number
+    scale: number
+    lifespan: number
+}
+
+interface Props {
+    text: string
+    sparklesCount?: number
+    textClass?: string
+    colors?: {
+        first: string
+        second: string
+    }
+    class?: string
+}
+
+const props = withDefaults(defineProps<Props>(), {
+    sparklesCount: 10,
+    colors: () => ({ first: '#fbbf24', second: '#fb923c' })
+})
+
+const sparkles = ref<Sparkle[]>([])
+
+function generateStar(): Sparkle {
+    const starX = `${Math.random() * 100}%`
+    const starY = `${Math.random() * 100}%`
+    const color = Math.random() > 0.5 ? props.colors.first : props.colors.second
+    const delay = Math.random() * 2
+    const scale = Math.random() + 0.3
+    const lifespan = Math.random() * 10 + 5
+    const id = `${starX}-${starY}-${Date.now()}`
+    return { id, x: starX, y: starY, color, delay, scale, lifespan }
+}
+
+function initializeStars() {
+    sparkles.value = Array.from({ length: props.sparklesCount }, generateStar)
+}
+
+function updateStars() {
+    sparkles.value = sparkles.value.map((star) => {
+        if (star.lifespan <= 0) {
+            return generateStar()
+        } else {
+            return { ...star, lifespan: star.lifespan - 0.1 }
+        }
+    })
+}
+
+let interval: number
+
+onMounted(() => {
+    initializeStars()
+    interval = window.setInterval(updateStars, 100)
+})
+
+onUnmounted(() => {
+    if (interval) {
+        clearInterval(interval)
+    }
+})
+</script>
+
 <template>
     <div class="text-6xl font-bold" :class="props.class">
         <span class="relative inline-block">
             <template v-for="sparkle in sparkles" :key="sparkle.id">
+                <!-- Animated star SVG with fade, scale, and rotation effects -->
                 <Motion
                     :initial="{ opacity: 0, scale: 0, rotate: 75 }"
                     :animate="{
@@ -35,68 +107,3 @@
         </span>
     </div>
 </template>
-
-<script setup>
-import { Motion } from 'motion-v'
-import { ref, onMounted, onUnmounted } from 'vue'
-
-const props = defineProps({
-    text: {
-        type: String,
-        default: ''
-    },
-    sparklesCount: {
-        type: Number,
-        default: 10
-    },
-    colors: {
-        type: Object,
-        default: () => ({ first: '#fbbf24', second: '#fb923c' })
-    },
-    textClass: {
-        type: [String, Array],
-        default: ''
-    }
-})
-
-const sparkles = ref([])
-
-function generateStar() {
-    const starX = `${Math.random() * 100}%`
-    const starY = `${Math.random() * 100}%`
-    const color = Math.random() > 0.5 ? props.colors.first : props.colors.second
-    const delay = Math.random() * 2
-    const scale = Math.random() * 1 + 0.3
-    const lifespan = Math.random() * 10 + 5
-    const id = `${starX}-${starY}-${Date.now()}`
-
-    return { id, x: starX, y: starY, color, delay, scale, lifespan }
-}
-
-function initializeStars() {
-    sparkles.value = Array.from({ length: props.sparklesCount }, generateStar)
-}
-
-function updateStars() {
-    sparkles.value = sparkles.value.map((star) => {
-        if (star.lifespan <= 0) {
-            return generateStar()
-        } else {
-            return { ...star, lifespan: star.lifespan - 0.1 }
-        }
-    })
-}
-
-let interval
-
-onMounted(() => {
-    initializeStars()
-    interval = window.setInterval(updateStars, 100)
-})
-
-onUnmounted(() => {
-    if (interval) {
-        clearInterval(interval)
-    }
-})
-</script>

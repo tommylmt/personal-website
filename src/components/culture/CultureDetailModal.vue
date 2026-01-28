@@ -1,14 +1,17 @@
 <template>
-    <AnimatePresence :initial="true">
-        <Motion as="div" v-if="isOpen" class="fixed h-screen inset-0 z-[9999] overflow-auto xl:p-0 p-3">
+    <div v-if="isOpen" class="fixed h-screen inset-0 z-[9999] overflow-auto xl:p-0 p-3">
+        <AnimatePresence :initial="true">
             <Motion
                 v-if="isOpen"
                 :initial="{ opacity: 0 }"
                 :animate="{ opacity: 1, delay: 300 }"
                 :exit="{ opacity: 0, delay: 300 }"
                 as="div"
+                key="backdropModal"
                 class="backdrop-blur-sm bg-slate-800/60 size-full top-0 left-0 fixed inset-0"
             ></Motion>
+        </AnimatePresence>
+        <AnimatePresence :initial="true">
             <Motion
                 v-if="isOpen"
                 :initial="{ opacity: 0, scale: 0 }"
@@ -101,8 +104,8 @@
                     </template>
                 </template>
             </Motion>
-        </Motion>
-    </AnimatePresence>
+        </AnimatePresence>
+    </div>
 </template>
 
 <script>
