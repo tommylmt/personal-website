@@ -4,7 +4,9 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+import type { TEmojiProps } from '@/types/emoji.ts'
+
 export default {
     data() {
         return {
@@ -12,7 +14,7 @@ export default {
             emoji: '🤙',
             emojiClass: '',
             timeouts: []
-        }
+        } satisfies TEmojiProps
     },
     watch: {
         emoji() {

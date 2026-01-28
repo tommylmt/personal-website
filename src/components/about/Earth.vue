@@ -25,7 +25,7 @@
     </DraggableBlock>
 </template>
 
-<script>
+<script lang="ts">
 import 'leaflet/dist/leaflet.css'
 import DraggableBlock from '@/components/layout/DraggableBlock.vue'
 import * as L from 'leaflet'

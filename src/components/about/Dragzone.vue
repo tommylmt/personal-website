@@ -71,7 +71,7 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import Earth from '@/components/about/Earth.vue'
 import MyLife from '@/components/about/MyLife.vue'
 import PictureWrapper from '@/components/about/PictureWrapper.vue'

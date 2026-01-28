@@ -1,9 +1,9 @@
-import { ref, readonly } from 'vue'
+import { readonly, ref } from 'vue'
 
 export function useMouse() {
     const isMouseEntered = ref(false)
 
-    function setMouseEntered(value) {
+    function setMouseEntered(value: boolean) {
         isMouseEntered.value = value
     }
 
