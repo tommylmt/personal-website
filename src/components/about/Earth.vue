@@ -30,6 +30,7 @@ import 'leaflet/dist/leaflet.css'
 import DraggableBlock from '@/components/layout/DraggableBlock.vue'
 import * as L from 'leaflet'
 import NumberFlow, { NumberFlowGroup } from '@number-flow/vue'
+import type { TTime } from '@/types/date.ts'
 
 export default {
     components: { NumberFlowGroup, DraggableBlock, NumberFlow },
@@ -37,7 +38,7 @@ export default {
         this.initMap()
         this.setCurrentTime()
     },
-    data() {
+    data(): { currentTime: TTime; currentDate: Date } {
         return {
             currentTime: {
                 hours: '',
