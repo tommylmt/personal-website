@@ -1,5 +1,6 @@
 import type MenuHelper from '@/utils/MenuHelper.ts'
 import type { MenuItem } from '@/types/menu.ts'
+import type { TerminalInstance } from 'ttty/dist/types'
 
 export type TAppData = {
     helper: null | MenuHelper
@@ -29,4 +30,10 @@ export type TDraggableBlockData = {
     left: string | null
     top: string | null
     isActive: boolean
+}
+
+export type TError404Data = {
+    terminal: null | TerminalInstance
+    user: string | 'visitor'
+    host: string
 }

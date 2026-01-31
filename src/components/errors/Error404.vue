@@ -35,9 +35,11 @@
 import { initTerminal } from 'ttty'
 import axios from 'axios'
 import MenuHelper from '@/utils/MenuHelper'
+import type { TError404Data } from '@/types/app.ts'
+import type { TerminalInstance } from 'ttty/dist/types/terminal'
 
 export default {
-    data() {
+    data(): TError404Data {
         return {
             terminal: null,
             user: 'visitor',
@@ -52,6 +54,9 @@ export default {
             const helper = new MenuHelper()
 
             return helper.routes.filter((r) => !r.specialLink).map((r) => r.path)
+        },
+        terminalElement() {
+            return this.$refs.terminal as HTMLDivElement
         }
     },
     mounted() {
@@ -60,18 +65,18 @@ export default {
     watch: {
         '$i18n.locale'() {
             this.terminal = null
-            this.$refs.terminal.innerHTML = ''
+            this.terminalElement.innerHTML = ''
             this.initTerminal()
         }
     },
     methods: {
         initTerminal() {
-            this.getMotd().then((motd) => {
+            this.getMotd().then((motd: string) => {
                 this.terminal = initTerminal(this.options(motd))
             })
         },
         async getMotd() {
-            return await axios.get(`/misc/motd${window.innerWidth < 768 ? '_mobile' : ''}.txt`).then((res) => res.data)
+            return await axios.get<string>(`/misc/motd${window.innerWidth < 768 ? '_mobile' : ''}.txt`).then((res) => res.data)
         },
         displayHelp() {
             if (this.terminal) {
@@ -79,23 +84,23 @@ export default {
                 this.terminal.run('help')
             }
         },
-        options(motd) {
+        options(motd: string) {
             return {
-                host: this.$refs.terminal,
+                host: this.terminalElement,
                 welcomeMessage: motd + this.$t('error.notfound') + '.<br/><br/>',
                 prompt: this.prompt,
                 commands: {
                     ls: {
                         name: 'ls',
                         description: this.$t('error.terminal.ls'),
-                        func: ({ print }) => {
+                        func: ({ print }: TerminalInstance) => {
                             print(this.routes.join('<br/>'))
                         }
                     },
                     exit: {
                         name: 'exit',
                         description: this.$t('error.terminal.exit'),
-                        func: (terminal) => {
+                        func: (terminal: TerminalInstance) => {
                             terminal.print(this.$t('error.exitmessage'))
                             window.location.href = '/'
                         }
@@ -104,7 +109,7 @@ export default {
                         name: 'goto',
                         description: this.$t('error.terminal.goto'),
                         argDescriptions: [this.$t('error.args.route')],
-                        func: (terminal, route) => {
+                        func: (terminal: TerminalInstance, route: string) => {
                             if (!route.startsWith('/')) {
                                 terminal.print(this.error(this.$t('error.errors.routestart')))
                             } else if (!this.routes.includes(route)) {
@@ -119,25 +124,25 @@ export default {
                         name: 'echo',
                         description: this.$t('error.terminal.echo'),
                         argDescriptions: [this.$t('error.args.echo')],
-                        func: (terminal, args) => {
+                        func: (terminal: TerminalInstance, args: string) => {
                             terminal.print(args)
                         }
                     },
                     whoami: {
                         name: 'whoami',
                         description: this.$t('error.terminal.whoami'),
-                        func: (terminal) => {
+                        func: (terminal: TerminalInstance) => {
                             terminal.print(this.user)
                         }
                     },
                     username: {
                         name: 'username',
                         description: this.$t('error.terminal.username'),
-                        func: (terminal, newname) => {
+                        func: (terminal: TerminalInstance, newname: string) => {
                             if (!newname) {
                                 terminal.print(this.error(this.$t('error.errors.usernamerequired')))
                             } else {
-                                this.user = newname.toLowerCase().replaceAll(' ', '_')
+                                this.user = newname.toLowerCase().replace(/ /gi, '_')
                                 terminal.setPrompt(this.prompt)
                             }
                         }
@@ -145,7 +150,7 @@ export default {
                     history: {
                         name: 'history',
                         description: this.$t('error.terminal.history'),
-                        func: (terminal) => {
+                        func: (terminal: TerminalInstance) => {
                             terminal.print(
                                 terminal.history.map((history, key) => `<span class="mx-4">${key + 1}</span> ${history}`).join('<br/>')
                             )
@@ -154,21 +159,21 @@ export default {
                     pwd: {
                         name: 'pwd',
                         description: this.$t('error.terminal.pwd'),
-                        func: (terminal) => {
+                        func: (terminal: TerminalInstance) => {
                             terminal.print(window.location.pathname)
                         }
                     },
                     clear: {
                         name: 'clear',
                         description: this.$t('error.terminal.clear'),
-                        func: ({ commandContainer }) => {
+                        func: ({ commandContainer }: TerminalInstance) => {
                             commandContainer.innerHTML = ''
                         }
                     }
                 }
             }
         },
-        error(message) {
+        error(message: string) {
             return `<span class="terminal-error">${message}</span>`
         }
     }

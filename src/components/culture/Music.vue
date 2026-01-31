@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="relative w-full rounded-lg shadow-lg h-full md:shadow-none overflow-hidden md:overflow-visible">
-            <img :src="getImage(song.album)" alt="Song" class="w-full h-full" crossorigin />
+            <img :src="getImage(song.album)" alt="Song" class="w-full h-full" crossorigin="" />
             <div
                 :class="[
                     'absolute rounded-md p-3 pt-5 bg-gradient-to-t from-black to-transparent w-full left-0',
@@ -58,27 +58,15 @@
     </div>
 </template>
 
-<script lang="ts">
-export default {
-    props: {
-        song: {
-            type: Object,
-            required: true
-        }
-    },
-    data() {
-        return {
-            sizes: {
-                large: 0,
-                medium: 1,
-                small: 2
-            }
-        }
-    },
-    methods: {
-        getImage(entry, size = 'large') {
-            return entry.images[this.sizes[size]].url
-        }
-    }
+<script setup lang="ts">
+import { SPOTIFY_IMAGE_SIZES } from '@/utils/constants.ts'
+import type { SpotifyImaged, SpotifyImageSize, SpotifySong } from '@/types/culture.ts'
+
+defineProps<{
+    song: SpotifySong
+}>()
+
+function getImage(entry: SpotifyImaged, size: SpotifyImageSize = 'large') {
+    return entry.images[SPOTIFY_IMAGE_SIZES[size]]?.url
 }
 </script>

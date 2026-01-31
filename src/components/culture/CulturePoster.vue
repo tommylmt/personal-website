@@ -40,6 +40,7 @@
 <script lang="ts">
 import { mapStores } from 'pinia'
 import { useCultureStore } from '@/stores/cultureStore'
+import type { TCulturePosterData } from '@/types/culture.ts'
 
 export default {
     props: {
@@ -48,7 +49,7 @@ export default {
         artist: { type: String, required: true },
         uuid: { type: [String, null], required: false, default: null }
     },
-    data() {
+    data(): TCulturePosterData {
         return {
             visible: false,
             mouse: {
