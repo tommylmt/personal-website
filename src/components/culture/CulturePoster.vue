@@ -37,7 +37,7 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import { mapStores } from 'pinia'
 import { useCultureStore } from '@/stores/cultureStore'
 

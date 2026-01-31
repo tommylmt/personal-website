@@ -1,8 +1,8 @@
 <template>
-    <DraggableBlock> </DraggableBlock>
+    <DraggableBlock></DraggableBlock>
 </template>
 
-<script>
+<script lang="ts">
 import DraggableBlock from '@/components/layout/DraggableBlock.vue'
 
 export default {

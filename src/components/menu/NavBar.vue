@@ -51,7 +51,7 @@
     </Transition>
 </template>
 
-<script>
+<script lang="ts">
 import MenuItem from './MenuItem.vue'
 import { Motion } from 'motion-v'
 

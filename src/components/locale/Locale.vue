@@ -26,7 +26,7 @@
     </Motion>
 </template>
 
-<script>
+<script lang="ts">
 import Fr from '@/assets/img/france.webp'
 import Us from '@/assets/img/usa.webp'
 import { processSeo } from '@/utils/seo'

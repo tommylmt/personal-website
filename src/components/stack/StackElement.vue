@@ -26,7 +26,7 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import CardContainer from '@/components/ui/Card/CardContainer.vue'
 import CardBody from '@/components/ui/Card/CardBody.vue'
 import CardItem from '@/components/ui/Card/CardItem.vue'

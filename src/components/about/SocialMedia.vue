@@ -18,7 +18,7 @@
     </AboutBlock>
 </template>
 
-<script>
+<script lang="ts">
 import AboutBlock from '@/components/layout/AboutBlock.vue'
 
 export default {

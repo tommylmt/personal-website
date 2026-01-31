@@ -26,7 +26,7 @@
     </AboutBlock>
 </template>
 
-<script>
+<script lang="ts">
 import AboutBlock from '@/components/layout/AboutBlock.vue'
 import Card from '@/components/card/Card.vue'
 

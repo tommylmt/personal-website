@@ -44,7 +44,7 @@
     </span>
 </template>
 
-<script>
+<script lang="ts">
 import '@phosphor-icons/web/fill'
 
 export default {
