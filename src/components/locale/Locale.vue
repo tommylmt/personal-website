@@ -1,8 +1,12 @@
 <template>
     <Motion
         as="div"
-        :initial="{ scale: 0, y: 150, blur: 15 }"
-        :animate="{ scale: 1, y: 0, blur: 0 }"
+        :initial="{ scale: 0, y: 200 }"
+        :animate="{ scale: 1, y: 0 }"
+        :transition="{
+            duration: 0.4,
+            scale: { visualDuration: 0.4, type: 'spring', bounce: 0.5 }
+        }"
         :class="[
             'fixed z-[9998] right-5 transition-all bottom-6 md:bottom-10',
             'shadow-md min-w-12 h-12 rounded-full cursor-pointer flex justify-center items-center transition-all',
@@ -20,7 +24,7 @@
                 </template>
             </template>
             <li class="flex items-center justify-center w-11 h-11">
-                <img :src="currentLocale.icon" alt="current locale" class="w-[60%] rounded-lg" />
+                <img :src="currentLocale!.icon" alt="current locale" class="w-[60%] rounded-lg" />
             </li>
         </ul>
     </Motion>
@@ -31,6 +35,7 @@ import Fr from '@/assets/img/france.webp'
 import Us from '@/assets/img/usa.webp'
 import { processSeo } from '@/utils/seo'
 import { Motion } from 'motion-v'
+import type { TPageMeta } from '@/types/page.ts'
 
 export default {
     components: { Motion },
@@ -51,7 +56,7 @@ export default {
     },
     watch: {
         '$i18n.locale'() {
-            processSeo(this.$route.meta)
+            processSeo(this.$route.meta as TPageMeta)
         }
     },
     computed: {

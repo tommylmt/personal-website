@@ -25,7 +25,7 @@
                     {{ $t('stack.shuffle') }}
                 </span>
             </button>
-            <FilterDropdown :types="skillTypes" @click-filter="(t) => filter(t)" />
+            <FilterDropdown :types="skillTypes" @click-filter="filter" />
         </div>
 
         <div class="mt-5 lg:mt-5 mb-20 md:mb-40" data-aos="fade-up" data-aos-delay="200" v-if="icons.length > 0">
@@ -41,15 +41,16 @@ import * as sicons from 'simple-icons'
 import axios from 'axios'
 import StackElement from '@/components/stack/StackElement.vue'
 import 'web-animations-js'
-import Muuri from 'muuri'
+import Muuri, { Item } from 'muuri'
 import FilterDropdown from '@/components/stack/FilterDropdown.vue'
+import type { TApiStackElement, TStackData, TStackElement } from '@/types/stack.ts'
 
 export default {
     components: {
         FilterDropdown,
         StackElement
     },
-    data() {
+    data(): TStackData {
         return {
             icons: [],
             displayShuffleTitle: false,
@@ -62,7 +63,7 @@ export default {
     },
     methods: {
         async retrieveSkills() {
-            const { data } = await axios.get(`${this.$baseUrl}/api/stack`)
+            const { data } = await axios.get<TApiStackElement[]>(`${this.$baseUrl}/api/stack`)
 
             this.prepareIcons(data).then(() => {
                 this.muuri = new Muuri('#muuri', {
@@ -74,46 +75,57 @@ export default {
                     dragEnabled: true,
                     sortData: {
                         id: (_, element) => {
-                            return parseFloat(element.children[0].textContent)
+                            return parseFloat(element.children[0]!.textContent)
                         }
                     }
                 })
             })
         },
-        prepareIcons(data) {
-            return new Promise((res) => {
-                data.sort((a, b) => a.title.localeCompare(b.title)).forEach(async (el) => {
-                    this.icons.push({ ...sicons[el.code], ...{ type: el.skill_type.name } })
-                })
-                this.skillTypes = [...new Set(data.map((s) => s.skill_type.name))].sort((a, b) => a.localeCompare(b))
+        prepareIcons(data: TApiStackElement[]) {
+            return new Promise((resolve: (value: unknown) => void) => {
+                data.sort((a, b) => a.title.localeCompare(b.title)).forEach((el) => {
+                    // @ts-expect-error we should not call from import alias like if it was an array.
+                    const icon = sicons[el.code] as TStackElement
 
-                res()
+                    this.icons.push({ ...icon, ...{ type: el.skill_type.name } })
+                })
+                this.skillTypes = [...new Set(data.map((s) => s.skill_type.name))].sort((a, b) => a.localeCompare(b)) as string[]
+
+                resolve(null)
             })
         },
         shuffle() {
-            this.muuri.sort(this.randomSortItems())
-            this.muuri.refreshItems().layout()
+            if (this.muuri) {
+                this.muuri.sort(this.randomSortItems())
+                this.muuri.refreshItems().layout()
+            }
         },
-        filter(type) {
-            if (!type) {
-                this.muuri.show(this.muuri.getItems())
+        filter(type: string | null) {
+            if (this.muuri) {
+                if (!type) {
+                    this.muuri.show(this.muuri.getItems())
 
-                return
+                    return
+                }
+
+                this.muuri.filter((item) => item.getElement()!.dataset.type === type)
+            }
+        },
+        randomSortItems(): Item[] {
+            if (this.muuri) {
+                const elements = this.muuri.getItems()
+                let currentIndex = elements.length
+
+                while (currentIndex != 0) {
+                    const randomIndex = Math.floor(Math.random() * currentIndex)
+                    currentIndex--
+                    ;[elements[currentIndex], elements[randomIndex]] = [elements[randomIndex] as Item, elements[currentIndex] as Item]
+                }
+
+                return elements
             }
 
-            this.muuri.filter((item) => item.getElement().dataset.type === type)
-        },
-        randomSortItems() {
-            const elements = this.muuri.getItems()
-            let currentIndex = elements.length
-
-            while (currentIndex != 0) {
-                const randomIndex = Math.floor(Math.random() * currentIndex)
-                currentIndex--
-                ;[elements[currentIndex], elements[randomIndex]] = [elements[randomIndex], elements[currentIndex]]
-            }
-
-            return elements
+            return []
         }
     }
 }

@@ -1,39 +1,39 @@
 <template>
     <span class="relative">
         <button
-            @mouseenter="isButtonHovered = true"
-            @mouseleave="isButtonHovered = false"
+            @mouseenter="data.isButtonHovered = true"
+            @mouseleave="data.isButtonHovered = false"
             role="button"
-            @click="displayDropdown = !displayDropdown"
+            @click="data.displayDropdown = !data.displayDropdown"
             :aria-label="$t('stack.filter')"
             :class="[
                 'transition-all h-12 flex justify-center items-center rounded-3xl cursor-pointer',
                 'group dark:transparent',
-                isButtonHovered || displayDropdown ? 'w-32 shadow-lg' : 'w-12'
+                data.isButtonHovered || data.displayDropdown ? 'w-32 shadow-lg' : 'w-12'
             ]"
         >
             <i
-                :class="[currentFilter ? 'ph-fill text-slate-800 dark:text-white' : 'ph-light text-slate-400', 'ph-funnel']"
+                :class="[data.currentFilter ? 'ph-fill text-slate-800 dark:text-white' : 'ph-light text-slate-400', 'ph-funnel']"
                 class="transition-all text-3xl group-hover:text-slate-500"
             ></i>
             <span
                 class="transition-all text-slate-400 ms-3 font-sans group-hover:text-slate-500"
-                v-show="isButtonHovered || displayDropdown"
+                v-show="data.isButtonHovered || data.displayDropdown"
             >
                 {{ $t('stack.filter') }}
             </span>
         </button>
         <ul
             class="dropdown absolute right-0 z-50 p-2 shadow-slate-200 transition-all shadow-lg rounded-lg bg-white w-52 dark:bg-slate-900 dark:shadow-slate-950"
-            :class="[displayDropdown ? 'top-[60px] opacity-100 !z-40' : 'top-[80px] opacity-0 !-z-40']"
+            :class="[data.displayDropdown ? 'top-[60px] opacity-100 !z-40' : 'top-[80px] opacity-0 !-z-40']"
         >
             <li
-                v-for="type in types"
+                v-for="type in props.types"
                 :key="type"
                 @click="filter(type)"
                 class="px-4 py-2 text-sm rounded-md cursor-pointer transition-all"
                 :class="[
-                    currentFilter === type
+                    data.currentFilter === type
                         ? 'bg-slate-900 text-white dark:bg-white/70 dark:text-slate-950'
                         : 'bg-white text-slate-800 hover:bg-slate-50 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-700'
                 ]"
@@ -44,34 +44,32 @@
     </span>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import '@phosphor-icons/web/fill'
+import type { TFilterDropdownData } from '@/types/stack.ts'
+import { ref } from 'vue'
 
-export default {
-    props: {
-        types: {
-            type: Array,
-            required: true
-        }
-    },
-    data() {
-        return {
-            isButtonHovered: false,
-            displayDropdown: false,
-            currentFilter: null
-        }
-    },
-    emits: ['clickFilter'],
-    methods: {
-        filter(type) {
-            this.currentFilter = this.currentFilter === type ? null : type
+const props = defineProps<{
+    types: string[]
+}>()
 
-            this.$emit('clickFilter', this.currentFilter)
-            this.displayDropdown = false
-        },
-        slugify(name) {
-            return name.toLowerCase()
-        }
-    }
+const data = ref<TFilterDropdownData>({
+    isButtonHovered: false,
+    displayDropdown: false,
+    currentFilter: null
+})
+
+const emit = defineEmits<{
+    (e: 'clickFilter', filter: string | null): void
+}>()
+
+const filter = (type: string) => {
+    data.value.currentFilter = data.value.currentFilter === type ? null : type
+    emit('clickFilter', data.value.currentFilter)
+    data.value.displayDropdown = false
+}
+
+const slugify = (name: string) => {
+    return name.toLowerCase()
 }
 </script>

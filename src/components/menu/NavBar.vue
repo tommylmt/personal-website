@@ -16,8 +16,12 @@
     <Transition name="toggle-menu" @after-enter="retrieveCurrent">
         <Motion
             as="nav"
-            :initial="{ scale: 0, y: 150, blur: 15 }"
-            :animate="{ scale: 1, y: 0, blur: 0, delay: 700, duration: 300 }"
+            :initial="{ y: 200, scale: 0 }"
+            :animate="{ y: 0, scale: 1 }"
+            :transition="{
+                duration: 0.4,
+                scale: { visualDuration: 0.4, type: 'spring', bounce: 0.5 }
+            }"
             v-show="openMenu || noResponsive"
             id="mainMenu"
             :class="[
@@ -42,9 +46,9 @@
                     :key="page.path"
                     :path="page.path"
                     :special="page.specialLink"
-                    @followItem="($e) => handleHover($e)"
-                    @hoverStop="retrieveCurrent()"
-                    @active-page-change="($e) => changeActivePage($e)"
+                    @follow-item="handleHover"
+                    @hover-stop="retrieveCurrent"
+                    @active-page-change="changeActivePage"
                 />
             </ul>
         </Motion>
@@ -54,6 +58,7 @@
 <script lang="ts">
 import MenuItem from './MenuItem.vue'
 import { Motion } from 'motion-v'
+import type { TNavBarData } from '@/types/app.ts'
 
 const localSelectors = {
     menuListItem: '#mainMenu ul li',
@@ -65,7 +70,7 @@ export default {
         MenuItem,
         Motion
     },
-    data() {
+    data(): TNavBarData {
         return {
             currentLeft: 0,
             currentTop: 0,
@@ -76,7 +81,7 @@ export default {
         }
     },
     mounted() {
-        this.clientHeight = document.querySelector(localSelectors.menuListItem).clientHeight
+        this.clientHeight = document.querySelector(localSelectors.menuListItem)!.clientHeight
         this.retrieveCurrent()
     },
     watch: {
@@ -94,34 +99,34 @@ export default {
     },
     props: ['pages'],
     methods: {
-        handleHover(e) {
-            this.moveTracker(e.$refs.listItem)
+        handleHover(e: HTMLLIElement) {
+            this.moveTracker(e)
 
-            this.getCurrentItem().classList.remove(['text-white'])
-            this.getCurrentItem().classList.add(['text-slate-900'])
+            this.getCurrentItem()?.classList.remove('text-white')
+            this.getCurrentItem()?.classList.add('text-slate-900')
         },
         retrieveCurrent() {
             const current = this.getCurrentItem()
 
             if (current) {
                 this.moveTracker(current)
-                current.classList.add(['text-white'])
-                current.classList.remove(['text-slate-900'])
+                current.classList.add('text-white')
+                current.classList.remove('text-slate-900')
             }
         },
-        moveTracker(element) {
+        moveTracker(element: HTMLLIElement) {
             this.currentLeft = `${element.offsetLeft}px`
             this.currentWidth = `${element.clientWidth}px`
             this.currentTop = `${element.offsetTop}px`
             this.clientHeight = element.clientHeight
         },
-        changeActivePage(e) {
+        changeActivePage(e: string) {
             this.localPages.forEach((element) => {
-                element.current = element.path === e.$refs.link.to
+                element.current = element.path === e
             })
         },
-        getCurrentItem() {
-            return document.querySelector(localSelectors.currenItem)
+        getCurrentItem(): HTMLLIElement {
+            return document.querySelector(localSelectors.currenItem) as HTMLLIElement
         }
     }
 }

@@ -22,7 +22,6 @@ export default defineConfigWithVueTs(
     {
         rules: {
             'vue/multi-word-component-names': 'off',
-            'vue/block-lang': 'off', // TODO turn on once every files has been migrated to TS,
             "no-unused-vars": "off",
             "@typescript-eslint/no-unused-vars": [
                 "warn",

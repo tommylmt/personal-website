@@ -12,6 +12,8 @@
 </template>
 
 <script lang="ts">
+import type { TDraggableBlockData } from '@/types/app.ts'
+
 export default {
     props: {
         style: {
@@ -25,14 +27,13 @@ export default {
             default: false
         }
     },
-    data() {
+    data(): TDraggableBlockData {
         return {
             offsetX: null,
             offsetY: null,
             isDragging: false,
             left: null,
             top: null,
-            timeoutId: null,
             isActive: false
         }
     },
@@ -62,21 +63,23 @@ export default {
             this.isDragging = false
             window.removeEventListener('mousemove', this.moveElement, false)
         },
-        mouseDown(e) {
+        mouseDown(e: MouseEvent) {
             e.preventDefault()
             this.isDragging = true
+            const draggable = this.$refs.draggable as HTMLDivElement
 
-            this.offsetX = e.clientX - this.$refs.draggable.offsetLeft
-            this.offsetY = e.clientY - this.$refs.draggable.offsetTop
+            this.offsetX = e.clientX - draggable.offsetLeft
+            this.offsetY = e.clientY - draggable.offsetTop
 
             window.addEventListener('mousemove', this.moveElement, false)
         },
-        moveElement(e) {
-            this.left = e.clientX - this.offsetX + 'px'
-            this.top = e.clientY - this.offsetY + 'px'
+        moveElement(e: MouseEvent) {
+            this.left = e.clientX - (this.offsetX ?? 0) + 'px'
+            this.top = e.clientY - (this.offsetY ?? 0) + 'px'
+            const draggable = this.$refs.draggable as HTMLDivElement
 
-            this.$refs.draggable.style.left = this.left
-            this.$refs.draggable.style.top = this.top
+            draggable.style.left = this.left
+            draggable.style.top = this.top
         }
     }
 }

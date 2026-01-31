@@ -1,32 +1,44 @@
 <template>
-    <li :class="[mainClass, current ? currentClass : '']" ref="listItem" @mouseover="onHover()" @mouseleave="stopHover()">
-        <router-link v-if="!special" :to="path" @click="changeActive()" ref="link" :class="classList">
-            {{ $t(name) }}
+    <li :class="[mainClass, props.current ? currentClass : '']" ref="list-item" @mouseover="onHover()" @mouseleave="stopHover()">
+        <router-link v-if="!props.special" :to="props.path" @click="changeActive()" ref="link" :class="classList">
+            {{ $t(props.name) }}
         </router-link>
-        <a v-else :href="path" :class="classList" target="_blank">{{ $t(name) }}</a>
+        <a v-else :href="props.path" :class="classList" target="_blank">
+            {{ $t(props.name) }}
+        </a>
     </li>
 </template>
 
-<script lang="ts">
-export default {
-    data() {
-        return {
-            mainClass: 'font-sans px-5 py-2 relative hover:text-white dark:text-white transition-color duration-300',
-            currentClass: 'current-item text-white',
-            classList: 'font-sans font-light'
-        }
-    },
-    props: ['path', 'current', 'name', 'special'],
-    methods: {
-        onHover() {
-            this.$emit('followItem', this)
-        },
-        stopHover() {
-            this.$emit('hoverStop', this)
-        },
-        changeActive() {
-            this.$emit('active-page-change', this)
-        }
+<script setup lang="ts">
+import type { TMenuItemProps } from '@/types/app.ts'
+import { useTemplateRef } from 'vue'
+
+const props = defineProps<TMenuItemProps>()
+
+const mainClass = 'font-sans px-5 py-2 relative hover:text-white dark:text-white transition-color duration-300'
+const currentClass = 'current-item text-white'
+const classList = 'font-sans font-light'
+
+const emits = defineEmits<{
+    (e: 'followItem', item: HTMLLIElement): void
+    (e: 'hoverStop'): void
+    (e: 'activePageChange', to: string): void
+}>()
+
+const listItem = useTemplateRef<HTMLLIElement>('list-item')
+const link = useTemplateRef('link')
+
+function onHover() {
+    if (listItem.value) {
+        emits('followItem', listItem.value)
     }
+}
+
+function stopHover() {
+    emits('hoverStop')
+}
+
+function changeActive() {
+    emits('activePageChange', props.path)
 }
 </script>
