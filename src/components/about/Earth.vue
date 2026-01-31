@@ -41,9 +41,9 @@ export default {
     data(): { currentTime: TTime; currentDate: Date } {
         return {
             currentTime: {
-                hours: '',
-                minutes: '',
-                seconds: ''
+                hours: 0,
+                minutes: 0,
+                seconds: 0
             },
             currentDate: new Date()
         }

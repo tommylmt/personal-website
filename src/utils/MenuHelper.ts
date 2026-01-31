@@ -1,10 +1,10 @@
 import { type MenuItem } from '../types/menu'
 
 export default class MenuHelper {
-    private current: string
+    private current: string | undefined
 
-    constructor(currentPath: string) {
-        this.current = currentPath
+    constructor(currentPath?: string) {
+        this.current = currentPath ?? undefined
     }
 
     get routes(): MenuItem[] {

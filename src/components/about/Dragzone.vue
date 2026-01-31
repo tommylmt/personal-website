@@ -76,6 +76,7 @@ import Earth from '@/components/about/Earth.vue'
 import MyLife from '@/components/about/MyLife.vue'
 import PictureWrapper from '@/components/about/PictureWrapper.vue'
 import axios from 'axios'
+import type { TDragzoneData } from '@/types/about.ts'
 
 export default {
     components: {
@@ -87,14 +88,14 @@ export default {
         this.pictures = await axios.get(`${this.$baseUrl}/api/camera-roll`).then((res) => res.data)
         this.isLoading = false
     },
-    data() {
+    data(): TDragzoneData {
         return {
             pictures: {},
             isLoading: true
         }
     },
     methods: {
-        prefix(img) {
+        prefix(img: string | null): string {
             return `${this.$baseUrl}${img}`
         }
     }

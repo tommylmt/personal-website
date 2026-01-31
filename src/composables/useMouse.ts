@@ -1,6 +1,7 @@
 import { readonly, ref } from 'vue'
+import type { TMouseHook } from '@/types/ui.ts'
 
-export function useMouse() {
+export function useMouse(): TMouseHook {
     const isMouseEntered = ref(false)
 
     function setMouseEntered(value: boolean) {

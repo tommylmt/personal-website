@@ -6,10 +6,11 @@
 
 <script setup lang="ts">
 import { inject, ref, watch } from 'vue'
+import type { TMouseHook } from '@/types/ui.ts'
 
 interface Props {
     as?: string
-    class: string
+    class?: string
     translateX?: number | string
     translateY?: number | string
     translateZ?: number | string
@@ -20,6 +21,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
     as: 'div',
+    class: '',
     translateX: 0,
     translateY: 0,
     translateZ: 0,
@@ -28,10 +30,10 @@ const props = withDefaults(defineProps<Props>(), {
     rotateZ: 0
 })
 
-const refElement = ref(null)
-const mouseState = inject('use3DCardMouseState')
+const refElement = ref<null | HTMLElement>(null)
+const mouseState = inject<TMouseHook>('use3DCardMouseState')
 
-function handleAnimation(isMouseEntered) {
+function handleAnimation(isMouseEntered: boolean) {
     if (!refElement.value) return
 
     if (isMouseEntered) {
@@ -41,5 +43,7 @@ function handleAnimation(isMouseEntered) {
     }
 }
 
-watch(mouseState.isMouseEntered, handleAnimation, { immediate: true })
+if (mouseState) {
+    watch(mouseState.isMouseEntered, handleAnimation, { immediate: true })
+}
 </script>

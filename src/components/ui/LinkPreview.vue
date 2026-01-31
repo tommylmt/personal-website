@@ -1,5 +1,5 @@
 <template>
-    <div :class="['relative inline-block', this.class]" ref="wrapper">
+    <div :class="['relative inline-block', $props.class]" ref="wrapper">
         <a
             :href="url"
             :class="['text-black dark:text-white cursor-pointer', linkClass]"
@@ -21,7 +21,6 @@
                         class="size-full rounded-lg object-cover"
                         :style="imageStyle"
                         alt="preview"
-                        @load="handleImageLoad"
                     />
                 </div>
             </div>
@@ -30,6 +29,8 @@
 </template>
 
 <script lang="ts">
+import type { TLinkPreviewData } from '@/types/ui.ts'
+
 export default {
     props: {
         isStatic: {
@@ -61,7 +62,7 @@ export default {
             default: 188
         }
     },
-    data() {
+    data(): TLinkPreviewData {
         return {
             isVisible: false,
             hasPopped: false,
@@ -72,7 +73,7 @@ export default {
         }
     },
     computed: {
-        previewSrc() {
+        previewSrc(): string {
             if (this.isStatic) return this.imageSrc
 
             const params = new URLSearchParams({
@@ -92,7 +93,9 @@ export default {
         previewStyle() {
             if (!this.isVisible) return {}
 
-            const linkRect = this.$refs.wrapper?.getBoundingClientRect()
+            const wrapper = this.$refs.wrapper as HTMLDivElement
+
+            const linkRect = wrapper.getBoundingClientRect()
             const offset = 20
             const mouseMove = this.mousePosition.x - linkRect?.left
             const propName = this.height + offset >= linkRect.top ? 'top' : 'bottom'
@@ -117,7 +120,7 @@ export default {
         }
     },
     methods: {
-        handleMouseMove({ clientX, clientY }) {
+        handleMouseMove({ clientX, clientY }: { clientX: number; clientY: number }) {
             ;[this.mousePosition.x, this.mousePosition.y] = [clientX, clientY]
         },
         showPreview() {
@@ -130,9 +133,6 @@ export default {
         hidePreview() {
             this.isVisible = false
             this.hasPopped = false
-        },
-        handleImageLoad() {
-            this.isLoading = false
         }
     }
 }

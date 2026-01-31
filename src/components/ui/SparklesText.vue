@@ -15,7 +15,7 @@ interface Sparkle {
 interface Props {
     text: string
     sparklesCount?: number
-    textClass?: string
+    textClass?: string | string[]
     colors?: {
         first: string
         second: string

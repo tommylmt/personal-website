@@ -18,16 +18,18 @@ import { useMouse } from '@/composables/useMouse'
 import { provide, ref } from 'vue'
 
 interface Props {
-    class: string
-    containerClass: string
+    class?: string
+    containerClass?: string
     ratio?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
-    ratio: 25
+    ratio: 25,
+    containerClass: '',
+    class: ''
 })
 
-const containerRef = ref(null)
+const containerRef = ref<null | HTMLDivElement>(null)
 const mouseState = useMouse()
 
 provide('use3DCardMouseState', mouseState)

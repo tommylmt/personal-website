@@ -3,9 +3,10 @@ import NavBar from './components/menu/NavBar.vue'
 import MenuHelper from '@/utils/MenuHelper'
 import Locale from '@/components/locale/Locale.vue'
 import { NOT_FOUND } from '@/utils/constants'
+import type { TAppData } from '@/types/app.ts'
 
 export default {
-    data() {
+    data(): TAppData {
         return {
             helper: null,
             displayMenu: true

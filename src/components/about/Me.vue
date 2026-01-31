@@ -58,7 +58,7 @@
     </Motion>
 </template>
 
-<script>
+<script lang="ts">
 import Emoji from '@/components/about/Emoji.vue'
 import LinkPreview from '@/components/ui/LinkPreview.vue'
 import { Motion } from 'motion-v'
