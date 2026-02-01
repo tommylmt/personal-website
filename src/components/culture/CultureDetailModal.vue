@@ -4,8 +4,8 @@
             <Motion
                 v-if="isOpen"
                 :initial="{ opacity: 0 }"
-                :animate="{ opacity: 1, delay: 300 }"
-                :exit="{ opacity: 0, delay: 300 }"
+                :animate="{ opacity: 1 }"
+                :exit="{ opacity: 0 }"
                 as="div"
                 key="backdropModal"
                 class="backdrop-blur-sm bg-slate-800/60 size-full top-0 left-0 fixed inset-0"
@@ -35,7 +35,7 @@
                 </span>
 
                 <CultureDetailModalLoader v-if="isLoading" />
-                <template v-else>
+                <template v-else-if="data">
                     <div
                         :style="{
                             background: `url(${getImage(data.backdrop_path)})`,
@@ -114,20 +114,21 @@ import { mapStores } from 'pinia'
 import { useCultureStore } from '@/stores/cultureStore'
 import axios from 'axios'
 import CultureDetailModalLoader from '@/components/culture/CultureDetailModalLoader.vue'
+import type { TCultureDetail, TCultureDetailModalData } from '@/types/culture.ts'
 
 export default {
     components: { CultureDetailModalLoader, AnimatePresence, Motion },
-    data() {
+    data(): TCultureDetailModalData {
         return {
             isOpen: false,
             isLoading: true,
-            data: {}
+            data: null
         }
     },
     computed: {
         ...mapStores(useCultureStore),
         releaseYear() {
-            return new Date(this.data.release_date ?? this.data.first_air_date ?? '').getFullYear()
+            return new Date(this.data?.release_date ?? this.data?.first_air_date ?? '').getFullYear()
         }
     },
     watch: {
@@ -141,27 +142,30 @@ export default {
     },
     methods: {
         directors() {
-            if (this.data.created_by) {
+            if (this.data?.created_by) {
                 return this.data.created_by
             }
 
-            return this.data.crew
-                ?.sort((a, b) => (a.popularity > b.popularity ? -1 : 1))
+            return this.data!.crew?.sort((a, b) => (a.popularity > b.popularity ? -1 : 1))
                 .filter((c) => ['Director'].includes(c.job) && c.profile_path)
                 .slice(0, 5)
         },
         close() {
-            this.data = {}
+            this.data = null
             this.cultureStore.$reset()
             this.isOpen = false
             this.isLoading = true
             document.body.style.overflowY = 'auto'
         },
-        getImage(path, size = 'original') {
-            return this.data.image_base_url + '/t/p/' + size + path
+        getImage(path: string, size = 'original') {
+            if (this.data?.image_base_url) {
+                return this.data.image_base_url + '/t/p/' + size + path
+            }
+
+            return undefined
         },
-        async fetch(uuid) {
-            const { data } = await axios.get(`${this.$baseUrl}/api/${this.$i18n.locale}/culture/${uuid}/details`)
+        async fetch(uuid: string) {
+            const { data } = await axios.get<TCultureDetail>(`${this.$baseUrl}/api/${this.$i18n.locale}/culture/${uuid}/details`)
 
             this.data = data
             this.isLoading = false

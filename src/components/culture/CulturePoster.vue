@@ -62,15 +62,17 @@ export default {
         ...mapStores(useCultureStore)
     },
     methods: {
-        mouseenter(e) {
-            const { left, top } = e.target.getBoundingClientRect()
+        mouseenter(e: MouseEvent) {
+            const target = e.target as HTMLDivElement
+            const { left, top } = target.getBoundingClientRect()
 
             this.visible = true
             this.mouse.x = e.clientX - left
             this.mouse.y = e.clientY - top
         },
-        mousemove(e) {
-            const { left, top } = e.target.getBoundingClientRect()
+        mousemove(e: MouseEvent) {
+            const target = e.target as HTMLDivElement
+            const { left, top } = target.getBoundingClientRect()
 
             this.mouse.x = e.clientX - left
             this.mouse.y = e.clientY - top

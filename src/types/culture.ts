@@ -12,6 +12,12 @@ export type TCulturePosterData = {
     }
 }
 
+export type TCultureDetailModalData = {
+    isOpen: boolean
+    isLoading: boolean
+    data: TCultureDetail | null
+}
+
 export type SpotifyImageSize = 'small' | 'medium' | 'large'
 
 export type SpotifyArtist = {
@@ -65,4 +71,84 @@ export type SpotifySong = {
     uri: string
     artist: SpotifyArtist & SpotifyImaged
     external_urls: SpotifyUrls
+}
+
+export type TCultureDetailGenre = {
+    id: number
+    name: string
+}
+
+export type TCultureDetailProductionCompany = {
+    id: number
+    logo_path: string
+    name: string
+    origin_country: string
+}
+
+export type TCultureDetailMember = {
+    adult: boolean
+    gender: number
+    id: number
+    known_for_department: string | 'Acting' | 'Directing'
+    name: string
+    original_name: string
+    popularity: number
+    profile_path: string
+    cast_id: number
+    credit_id: string
+}
+
+export type TCultureDetailCast = TCultureDetailMember & {
+    character: string
+    order: number
+}
+
+export type TCultureDetailCrew = TCultureDetailMember & {
+    department: string
+    job: string
+}
+
+export type TCultureDetailNetwork = {
+    id: number
+    logo_path: string
+    name: string
+    origin_country: string
+}
+
+export type TCultureDetail = {
+    adult: false
+    backdrop_path: string
+    budget: number
+    genres: TCultureDetailGenre[]
+    created_by?: TCultureDetailCrew[]
+    first_air_date?: string
+    episode_run_time?: number[]
+    in_production?: boolean
+    networks?: TCultureDetailNetwork[]
+    number_of_episodes?: number
+    number_of_seasons?: number
+    homepage: string
+    id: number
+    production_countries: { iso_3166_1: string; name: string }[]
+    production_companies: TCultureDetailProductionCompany[]
+    release_date: string
+    revenue: number
+    runtime: number
+    imdb_id: string
+    status: string
+    tagline: string
+    name: string
+    title?: string
+    video: string | boolean
+    vote_average: number
+    vote_count: number
+    cast: TCultureDetailCast[]
+    crew: TCultureDetailCrew[]
+    origin_country: string[]
+    original_language: string
+    original_title: string
+    overview: string
+    popularity: number
+    poster_path: string
+    image_base_url: string
 }
