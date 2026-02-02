@@ -1,11 +1,30 @@
-image: node:20.5
+image: node:22.5
 
 stages:
+    - lint
     - deploy
 
 cache:
     paths:
         - node_modules/
+
+eslint:
+    stage: lint
+    script:
+        - npm i
+        - npm run lint
+    only:
+        - merge_requests
+        - develop
+
+type-check:
+    stage: lint
+    script:
+        - npm i
+        - npm run type-check
+    only:
+        - merge_requests
+        - develop
 
 production:
     stage: deploy
@@ -27,5 +46,4 @@ production:
         - scp -rp dist/* $DEPLOY_HOST:/srv/thomaslamothe.com/
     only:
         - master
-        - develop
     when: manual
