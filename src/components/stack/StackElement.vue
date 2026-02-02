@@ -6,10 +6,8 @@
                     :class="[
                         'group text-center transition-all rounded-xl md:p-2',
                         'bg-white dark:bg-black hover:shadow-lg hover:scale-110',
-                        isGrabbing ? 'cursor-grabbing' : 'cursor-grab'
+                        'active:cursor-grabbing cursor-grab'
                     ]"
-                    @mousedown="isGrabbing = true"
-                    @mouseup="isGrabbing = false"
                 >
                     <CardItem as="div" :translate-z="60">
                         <div
@@ -41,11 +39,6 @@ export default {
         delay: {
             type: Number,
             default: 0
-        }
-    },
-    data() {
-        return {
-            isGrabbing: false
         }
     }
 }

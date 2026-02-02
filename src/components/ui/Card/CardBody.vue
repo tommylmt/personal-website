@@ -7,7 +7,7 @@
 <script setup lang="ts">
 interface Props {
     size?: number
-    class: string
+    class: string | string[]
 }
 
 const props = withDefaults(defineProps<Props>(), {
