@@ -2,5 +2,20 @@ export type TPicturePosition = 'bottom-left' | 'middle-left' | 'middle-right' | 
 
 export type TDragzoneData = {
     isLoading: boolean
-    pictures: Record<TPicturePosition, string>
+    pictures: Record<TPicturePosition, string> | undefined
+}
+
+export type TProSituation = {
+    name: string
+    location: string
+    image: string
+    years: {
+        start: string | number
+        end: string | number
+    }
+    work: string
+}
+
+export type TProSituationData = {
+    xp: TProSituation[]
 }

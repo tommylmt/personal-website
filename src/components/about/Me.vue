@@ -1,7 +1,7 @@
 <template>
     <Motion
-        :initial="{ scale: 0.75, opacity: 0, blur: 35 }"
-        :animate="{ scale: 1, opacity: 1, blur: 0 }"
+        :initial="{ scale: 0.75, opacity: 0 }"
+        :animate="{ scale: 1, opacity: 1 }"
         as="div"
         :class="[
             'block md:flex bg-white border border-slate-100 shadow-lg shadow-slate-100 rounded-3xl my-10 mx-auto',

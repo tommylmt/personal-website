@@ -8,13 +8,13 @@
 import type { TEmojiProps } from '@/types/emoji.ts'
 
 export default {
-    data() {
+    data(): TEmojiProps {
         return {
             emojis: ['✊', '🤘', '🤙', '✌', '🖕'],
             emoji: '🤙',
             emojiClass: '',
             timeouts: []
-        } satisfies TEmojiProps
+        }
     },
     watch: {
         emoji() {

@@ -19,7 +19,7 @@
                 </div>
                 <div class="w-10 h-1 bg-slate-300 dark:bg-slate-800 rounded-xl"></div>
                 <div class="text-xl font-light text-slate-400 dark:text-slate-600">
-                    {{ isNaN(element.years.end) ? $t(element.years.end) : element.years.end }}
+                    {{ typeof element.years.end === 'string' ? $t(element.years.end) : element.years.end }}
                 </div>
             </div>
         </Card>
@@ -29,10 +29,11 @@
 <script lang="ts">
 import AboutBlock from '@/components/layout/AboutBlock.vue'
 import Card from '@/components/card/Card.vue'
+import type { TProSituationData } from '@/types/about.ts'
 
 export default {
     components: { Card, AboutBlock },
-    data() {
+    data(): TProSituationData {
         return {
             xp: [
                 {

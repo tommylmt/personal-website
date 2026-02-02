@@ -78,13 +78,13 @@
 <script lang="ts">
 import axios from 'axios'
 import { Vue3Marquee } from 'vue3-marquee'
-import 'vue3-marquee/dist/style.css'
 import CulturePoster from '@/components/culture/CulturePoster.vue'
 import MeetMe from '@/components/culture/MeetMe.vue'
 import Music from '@/components/culture/Music.vue'
 import ErrorBanner from '@/components/errors/ErrorBanner.vue'
-import { MEDIA_TYPE } from '@/utils/constants'
+import { CULTURE_LINKS, MEDIA_TYPE } from '@/utils/constants'
 import CultureDetailModal from '@/components/culture/CultureDetailModal.vue'
+import type { SpotifySong, TCultureData, TCultureElement } from '@/types/culture.ts'
 
 export default {
     components: {
@@ -95,31 +95,31 @@ export default {
         CulturePoster,
         Vue3Marquee
     },
-    data() {
+    data(): TCultureData {
         return {
             movies: [],
             shows: [],
             errors: false,
             errorSongs: false,
-            songs: [],
-            links: {
-                spotify: 'https://open.spotify.com/user/313guoevms7cob2dvjizsmwfk4o4',
-                tvtime: 'https://tvtime.com/r/35sjB',
-                senscritique: 'https://www.senscritique.com/tommy-dvdrip-mkv'
-            }
+            songs: []
+        }
+    },
+    computed: {
+        links() {
+            return CULTURE_LINKS
         }
     },
     mounted() {
         this.fetchElements()
-        this.retrieveDeezerCharts()
+        this.retrieveCharts()
     },
     methods: {
-        speedForElements(elements) {
+        speedForElements(elements: TCultureElement[]) {
             return (20 / 5) * elements.length
         },
         async fetchElements() {
             try {
-                const { data } = await axios.get(`${this.$baseUrl}/api/culture`)
+                const { data } = await axios.get<TCultureElement[]>(`${this.$baseUrl}/api/culture`)
 
                 this.movies = data.filter((media) => media.media_type.slug === MEDIA_TYPE.Movie)
                 this.shows = data.filter((media) => media.media_type.slug === MEDIA_TYPE.TvShows)
@@ -127,9 +127,9 @@ export default {
                 this.errors = 'culture.errors.fetching'
             }
         },
-        async retrieveDeezerCharts() {
+        async retrieveCharts() {
             try {
-                const { data } = await axios.get(`${this.$baseUrl}/api/charts`)
+                const { data } = await axios.get<SpotifySong[]>(`${this.$baseUrl}/api/charts`)
 
                 this.songs = data
             } catch (_) {

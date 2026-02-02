@@ -7,7 +7,7 @@
         <MyLife />
         <PictureWrapper
             :is-loading="isLoading"
-            :source="prefix(pictures['bottom-left'])"
+            :source="imageForPosition('bottom-left')"
             :width="350"
             :position="{
                 top: 'calc(70% - 100px)',
@@ -16,7 +16,7 @@
         />
         <PictureWrapper
             :is-loading="isLoading"
-            :source="prefix(pictures['middle-left'])"
+            :source="imageForPosition('middle-left')"
             :width="500"
             :position="{
                 top: '40%',
@@ -25,7 +25,7 @@
         />
         <PictureWrapper
             :is-loading="isLoading"
-            :source="prefix(pictures['middle-right'])"
+            :source="imageForPosition('middle-right')"
             :width="400"
             :position="{
                 right: '30%',
@@ -34,7 +34,7 @@
         />
         <PictureWrapper
             :is-loading="isLoading"
-            :source="prefix(pictures['up-left'])"
+            :source="imageForPosition('up-left')"
             :width="350"
             :position="{
                 top: '0'
@@ -42,7 +42,7 @@
         />
         <PictureWrapper
             :is-loading="isLoading"
-            :source="prefix(pictures['center'])"
+            :source="imageForPosition('center')"
             :width="300"
             :position="{
                 top: 'calc(50%)',
@@ -51,7 +51,7 @@
         />
         <PictureWrapper
             :is-loading="isLoading"
-            :source="prefix(pictures['under-map'])"
+            :source="imageForPosition('under-map')"
             :width="400"
             :position="{
                 top: 'calc(30% + 15px)',
@@ -61,7 +61,7 @@
         />
         <PictureWrapper
             :is-loading="isLoading"
-            :source="prefix(pictures['middle-top'])"
+            :source="imageForPosition('middle-top')"
             :width="600"
             :position="{
                 top: '40px',
@@ -76,7 +76,7 @@ import Earth from '@/components/about/Earth.vue'
 import MyLife from '@/components/about/MyLife.vue'
 import PictureWrapper from '@/components/about/PictureWrapper.vue'
 import axios from 'axios'
-import type { TDragzoneData } from '@/types/about.ts'
+import type { TDragzoneData, TPicturePosition } from '@/types/about.ts'
 
 export default {
     components: {
@@ -90,13 +90,19 @@ export default {
     },
     data(): TDragzoneData {
         return {
-            pictures: {},
+            pictures: undefined,
             isLoading: true
         }
     },
     methods: {
-        prefix(img: string | null): string {
-            return `${this.$baseUrl}${img}`
+        imageForPosition(position: TPicturePosition): string {
+            const image = this.pictures ? this.pictures[position] : null
+
+            if (image) {
+                return `${this.$baseUrl}${image}`
+            }
+
+            return ''
         }
     }
 }
