@@ -7,10 +7,12 @@ import { i18n } from './utils/lang'
 import { createPinia } from 'pinia'
 import AOS from 'aos'
 import App from '@/App.vue'
+import { TestIds } from '@/utils/testIds.ts'
 
 const app = createApp(App)
 
 app.config.globalProperties.$baseUrl = import.meta.env.VITE_API_BASE_URL
+app.config.globalProperties.$testIds = TestIds
 app.config.performance = true
 
 app.use(createPinia())

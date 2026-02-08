@@ -18,3 +18,8 @@ export const CULTURE_LINKS: Record<CultureLinks, string> = {
     tvtime: 'https://tvtime.com/r/35sjB',
     senscritique: 'https://www.senscritique.com/tommy-dvdrip-mkv'
 }
+
+export const NAVBAR_SELECTORS = {
+    menuListItem: '#mainMenu ul li',
+    currenItem: '#mainMenu ul li.current-item'
+}

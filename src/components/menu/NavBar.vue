@@ -49,6 +49,7 @@
                     @follow-item="handleHover"
                     @hover-stop="retrieveCurrent"
                     @active-page-change="changeActivePage"
+                    :data-test="$testIds.About.NavBar.items"
                 />
             </ul>
         </Motion>
@@ -59,11 +60,7 @@
 import MenuItem from './MenuItem.vue'
 import { Motion } from 'motion-v'
 import type { TNavBarData } from '@/types/app.ts'
-
-const localSelectors = {
-    menuListItem: '#mainMenu ul li',
-    currenItem: '#mainMenu ul li.current-item'
-}
+import { NAVBAR_SELECTORS } from '@/utils/constants.ts'
 
 export default {
     components: {
@@ -81,7 +78,7 @@ export default {
         }
     },
     mounted() {
-        this.clientHeight = document.querySelector(localSelectors.menuListItem)!.clientHeight
+        this.clientHeight = document.querySelector(NAVBAR_SELECTORS.menuListItem)!.clientHeight
         this.retrieveCurrent()
     },
     watch: {
@@ -126,7 +123,7 @@ export default {
             })
         },
         getCurrentItem(): HTMLLIElement {
-            return document.querySelector(localSelectors.currenItem) as HTMLLIElement
+            return document.querySelector(NAVBAR_SELECTORS.currenItem) as HTMLLIElement
         }
     }
 }

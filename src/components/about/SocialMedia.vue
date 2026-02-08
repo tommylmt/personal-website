@@ -3,7 +3,7 @@
         :title="'📌 ' + $t('about.social.internet')"
         custom-class="flex p-3 2xl:p-0 justify-center flex-wrap gap-20 lg:gap-40 my-20"
     >
-        <div v-for="(social, index) in socials" :key="index">
+        <div v-for="(social, index) in socials" :key="index" :data-test="$testIds.About.SocialMedia.linkWrapper">
             <a
                 :href="social.link"
                 class="text-6xl text-slate-300 transition-all hover:text-slate-400"
@@ -11,8 +11,9 @@
                 :aria-label="social.label"
                 data-aos="fade-in"
                 :data-aos-delay="100 * index"
+                :data-test="$testIds.About.SocialMedia.link"
             >
-                <i :class="[social.icon, 'cursor-pointer']"></i>
+                <i :class="[social.icon, 'cursor-pointer']" :data-test="$testIds.About.SocialMedia.icon"></i>
             </a>
         </div>
     </AboutBlock>
