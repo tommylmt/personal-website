@@ -5,12 +5,14 @@
             'relative rounded-lg group overflow-hidden transition-all scale-100 hover:scale-110 cursor-pointer',
             'col-span-1 p-2 md:p-0 md:shadow-lg'
         ]"
+        @click="toggleExpand"
     >
         <div
             :class="[
                 'absolute w-full h-full top-0 left-0 backdrop-blur-md z-10 p-4 transition-all delay-700',
-                'justify-center items-center opacity-0 group-hover:opacity-100',
-                'hidden md:flex'
+                'justify-center items-center group-hover:opacity-100',
+                'hidden md:flex',
+                { 'opacity-100': isExpanded, 'opacity-0': !isExpanded }
             ]"
         >
             <div class="text-center">
@@ -61,10 +63,20 @@
 <script setup lang="ts">
 import { SPOTIFY_IMAGE_SIZES } from '@/utils/constants.ts'
 import type { SpotifyImaged, SpotifyImageSize, SpotifySong } from '@/types/culture.ts'
+import { ref } from 'vue'
 
 defineProps<{
     song: SpotifySong
 }>()
+
+const isExpanded = ref<boolean>(false)
+
+const toggleExpand = () => {
+    // only on touch devices
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        isExpanded.value = !isExpanded.value
+    }
+}
 
 function getImage(entry: SpotifyImaged, size: SpotifyImageSize = 'large') {
     return entry.images[SPOTIFY_IMAGE_SIZES[size]]?.url
