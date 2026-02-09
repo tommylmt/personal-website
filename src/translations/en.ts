@@ -2,6 +2,7 @@ export const en = {
     menu: {
         about: 'About',
         stack: 'Stack',
+        blog: 'Blog',
         culture: 'Culture',
         contact: 'Contact'
     },
@@ -35,6 +36,7 @@ export const en = {
         title: {
             about: 'Thomas Lamothe - Software Developer',
             stack: 'My Stack',
+            blog: 'Blog',
             culture: 'Things I love',
             notfound: 'Resource not found'
         },
@@ -62,6 +64,17 @@ export const en = {
                 og: {
                     title: 'My Stack',
                     description: "A (messy) list of all the stack I'm used to"
+                }
+            },
+            blog: {
+                description: 'My blog posts',
+                twitter: {
+                    title: 'Blog',
+                    description: 'My blog posts: both technicals and personals'
+                },
+                og: {
+                    title: 'Blog',
+                    description: 'My blog posts: both technicals and personals'
                 }
             },
             culture: {
@@ -141,6 +154,10 @@ export const en = {
             title: 'Me, on earth',
             subtitle: 'A camera roll dump'
         }
+    },
+    blog: {
+        title: 'Blog',
+        subtitle: 'All my blog posts, both technicals and personals'
     },
     stack: {
         title: 'Stack',

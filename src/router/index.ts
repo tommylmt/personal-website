@@ -47,6 +47,24 @@ const router = createRouter({
             }
         },
         {
+            path: '/blog',
+            name: 'blog',
+            component: () => import('@/components/blog/BlogList.vue'),
+            meta: {
+                title: 'seo.title.blog',
+                seo: {
+                    description: 'seo.meta.blog.description',
+                    'twitter:title': 'seo.meta.blog.twitter.title',
+                    'twitter:description': 'seo.meta.blog.twitter.description'
+                },
+                og: {
+                    'og:title': 'seo.meta.blog.og.title',
+                    'og:description': 'seo.meta.blog.og.description',
+                    'og:site_name': 'seo.meta.blog.og.title'
+                }
+            }
+        },
+        {
             path: '/culture',
             name: 'culture',
             component: () => import('@/components/culture/Culture.vue'),

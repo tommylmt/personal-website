@@ -20,6 +20,11 @@ export default class MenuHelper {
                 current: '/stack' === this.current
             },
             {
+                name: 'menu.blog',
+                path: '/blog',
+                current: '/blog' === this.current
+            },
+            {
                 name: 'menu.culture',
                 path: '/culture',
                 current: '/culture' === this.current

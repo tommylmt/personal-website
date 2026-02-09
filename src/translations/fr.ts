@@ -2,6 +2,7 @@ export const fr = {
     menu: {
         about: 'À propos',
         stack: 'Stack',
+        blog: 'Blog',
         culture: 'Culture',
         contact: 'Contact'
     },
@@ -35,6 +36,7 @@ export const fr = {
         title: {
             about: 'Thomas Lamothe - Développeur web',
             stack: 'Environnement technique',
+            blog: 'Blog',
             culture: "Éléments que j'ai récemment aimé",
             notfound: 'Erreur 404'
         },
@@ -59,6 +61,17 @@ export const fr = {
                 og: {
                     title: 'Environnement technique',
                     description: "Une liste (bien borderlique) de la stack que j'utilise"
+                }
+            },
+            blog: {
+                description: 'Mes articles de blog',
+                twitter: {
+                    title: 'Blog',
+                    description: 'Mes articles de blog techniques et personnels'
+                },
+                og: {
+                    title: 'Blog',
+                    description: 'Mes articles de blog techniques et personnels'
                 }
             },
             culture: {
