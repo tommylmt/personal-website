@@ -3,7 +3,8 @@
         :class="[
             'md:hidden fixed left-5 w-12 h-12 rounded-full flex items-center justify-center',
             'bg-white/20 border border-slate-100/20 backdrop-blur-xl backdrop-saturate-200 z-[9999] transition-all bottom-6',
-            'shadow-md'
+            'shadow-md',
+            mobileButtonAnimation
         ]"
         @click="openMenu = !openMenu"
     >
@@ -13,20 +14,13 @@
         </Transition>
     </div>
 
-    <Motion
-        as="nav"
-        :initial="{ y: 200, scale: 0 }"
-        :animate="{ y: 0, scale: 1 }"
-        :transition="{
-            duration: 0.4,
-            scale: { visualDuration: 0.4, type: 'spring', bounce: 0.5 }
-        }"
-        @animation-complete="retrieveCurrent"
+    <nav
         v-show="openMenu || noResponsive"
         id="mainMenu"
         :class="[
-            'fixed z-[9999] bottom-20 m-auto backdrop-blur-xl backdrop-saturate-200 p-2 rounded-xl md:rounded-[50px] shadow-md',
-            'bg-white/20 border border-slate-100/20 transition-all md:bottom-10'
+            'fixed z-[9999] m-auto backdrop-blur-xl backdrop-saturate-200 p-2 rounded-xl md:rounded-[50px] shadow-md',
+            'bg-white/20 border border-slate-100/20 transition-all duration-500',
+            animation
         ]"
     >
         <div
@@ -52,79 +46,80 @@
                 :data-test="$testIds.About.NavBar.items"
             />
         </ul>
-    </Motion>
+    </nav>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import MenuItem from './MenuItem.vue'
-import { Motion } from 'motion-v'
-import type { TNavBarData } from '@/types/app.ts'
+import type { MenuItem as TMenuItem } from '@/types/menu'
 import { NAVBAR_SELECTORS } from '@/utils/constants.ts'
+import { onMounted, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useAnimation } from '@/composables/useAnimation.ts'
 
-export default {
-    components: {
-        MenuItem,
-        Motion
-    },
-    data(): TNavBarData {
-        return {
-            currentLeft: 0,
-            currentTop: 0,
-            currentWidth: '50px',
-            openMenu: false,
-            clientHeight: 0,
-            localPages: this.pages
-        }
-    },
-    mounted() {
-        this.clientHeight = document.querySelector(NAVBAR_SELECTORS.menuListItem)!.clientHeight
-        this.retrieveCurrent()
-    },
-    watch: {
-        '$i18n.locale'() {
-            setTimeout(() => {
-                this.currentWidth = `${this.getCurrentItem()?.clientWidth}px`
-                this.currentLeft = `${this.getCurrentItem()?.offsetLeft}px`
-            }, 50)
-        }
-    },
-    computed: {
-        noResponsive() {
-            return window.innerWidth >= 768
-        }
-    },
-    props: ['pages'],
-    methods: {
-        handleHover(e: HTMLLIElement) {
-            this.moveTracker(e)
+const i18n = useI18n()
+const animation = useAnimation('-bottom-50 scale-0 opacity-0', 'bottom-20 md:bottom-10 scale-100 opacity-100', 750)
+const mobileButtonAnimation = useAnimation('-bottom-50 scale-0 opacity-0', 'bottom-6 scale-100 opacity-100', 750)
 
-            this.getCurrentItem()?.classList.remove('text-white')
-            this.getCurrentItem()?.classList.add('text-slate-900')
-        },
-        retrieveCurrent() {
-            const current = this.getCurrentItem()
+const props = defineProps<{
+    pages: TMenuItem[]
+}>()
 
-            if (current) {
-                this.moveTracker(current)
-                current.classList.add('text-white')
-                current.classList.remove('text-slate-900')
-            }
-        },
-        moveTracker(element: HTMLLIElement) {
-            this.currentLeft = `${element.offsetLeft}px`
-            this.currentWidth = `${element.clientWidth}px`
-            this.currentTop = `${element.offsetTop}px`
-            this.clientHeight = element.clientHeight
-        },
-        changeActivePage(e: string) {
-            this.localPages.forEach((element) => {
-                element.current = element.path === e
-            })
-        },
-        getCurrentItem(): HTMLLIElement {
-            return document.querySelector(NAVBAR_SELECTORS.currenItem) as HTMLLIElement
-        }
+const clientHeight = ref<number>(0)
+const currentLeft = ref<number | string>(0)
+const currentTop = ref<number | string>(0)
+const currentWidth = ref<string>('50px')
+const openMenu = ref<boolean>(false)
+const localPages = ref(props.pages)
+
+onMounted(() => {
+    clientHeight.value = document.querySelector(NAVBAR_SELECTORS.menuListItem)!.clientHeight
+    retrieveCurrent()
+})
+
+watch(i18n.locale, () => {
+    setTimeout(() => {
+        currentWidth.value = `${getCurrentItem()?.clientWidth}px`
+        currentLeft.value = `${getCurrentItem()?.offsetLeft}px`
+    }, 50)
+})
+
+watch(openMenu, () => retrieveCurrent())
+
+const noResponsive = window.innerWidth >= 768
+
+const handleHover = (e: HTMLLIElement) => {
+    moveTracker(e)
+
+    getCurrentItem()?.classList.remove('text-white')
+    getCurrentItem()?.classList.add('text-slate-900')
+}
+
+const retrieveCurrent = () => {
+    const current = getCurrentItem()
+
+    if (current) {
+        moveTracker(current)
+        current.classList.add('text-white')
+        current.classList.remove('text-slate-900')
     }
+}
+
+const moveTracker = (element: HTMLLIElement) => {
+    currentLeft.value = `${element.offsetLeft}px`
+    currentWidth.value = `${element.clientWidth}px`
+    currentTop.value = `${element.offsetTop}px`
+    clientHeight.value = element.clientHeight
+}
+
+const changeActivePage = (e: string) => {
+    localPages.value.forEach((element) => {
+        element.current = element.path === e
+    })
+}
+
+const getCurrentItem = (): HTMLLIElement => {
+    return document.querySelector(NAVBAR_SELECTORS.currenItem) as HTMLLIElement
 }
 </script>
 
