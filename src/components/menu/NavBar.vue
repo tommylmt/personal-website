@@ -53,7 +53,7 @@
 import MenuItem from './MenuItem.vue'
 import type { MenuItem as TMenuItem } from '@/types/menu'
 import { NAVBAR_SELECTORS } from '@/utils/constants.ts'
-import { onMounted, ref, watch } from 'vue'
+import { nextTick, onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useAnimation } from '@/composables/useAnimation.ts'
 
@@ -84,7 +84,10 @@ watch(i18n.locale, () => {
     }, 50)
 })
 
-watch(openMenu, () => retrieveCurrent())
+watch(openMenu, async () => {
+    await nextTick()
+    retrieveCurrent()
+})
 
 const noResponsive = window.innerWidth >= 768
 
