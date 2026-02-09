@@ -13,47 +13,46 @@
         </Transition>
     </div>
 
-    <Transition name="toggle-menu" @after-enter="retrieveCurrent">
-        <Motion
-            as="nav"
-            :initial="{ y: 200, scale: 0 }"
-            :animate="{ y: 0, scale: 1 }"
-            :transition="{
-                duration: 0.4,
-                scale: { visualDuration: 0.4, type: 'spring', bounce: 0.5 }
+    <Motion
+        as="nav"
+        :initial="{ y: 200, scale: 0 }"
+        :animate="{ y: 0, scale: 1 }"
+        :transition="{
+            duration: 0.4,
+            scale: { visualDuration: 0.4, type: 'spring', bounce: 0.5 }
+        }"
+        @animation-complete="retrieveCurrent"
+        v-show="openMenu || noResponsive"
+        id="mainMenu"
+        :class="[
+            'fixed z-[9999] bottom-20 m-auto backdrop-blur-xl backdrop-saturate-200 p-2 rounded-xl md:rounded-[50px] shadow-md',
+            'bg-white/20 border border-slate-100/20 transition-all md:bottom-10'
+        ]"
+    >
+        <div
+            class="bg-black rounded-xl md:rounded-[45px] absolute transition-all duration-300"
+            :style="{
+                left: currentLeft,
+                width: currentWidth,
+                top: currentTop,
+                height: `${clientHeight}px`
             }"
-            v-show="openMenu || noResponsive"
-            id="mainMenu"
-            :class="[
-                'fixed z-[9999] bottom-20 m-auto backdrop-blur-xl backdrop-saturate-200 p-2 rounded-xl md:rounded-[50px] shadow-md',
-                'bg-white/20 border border-slate-100/20 transition-all md:bottom-10'
-            ]"
-        >
-            <div
-                class="bg-black rounded-xl md:rounded-[45px] absolute transition-all duration-300"
-                :style="{
-                    left: currentLeft,
-                    width: currentWidth,
-                    top: currentTop,
-                    height: `${clientHeight}px`
-                }"
-            ></div>
-            <ul class="md:flex gap-5 justify-between">
-                <MenuItem
-                    v-for="page in localPages"
-                    :name="page.name"
-                    :current="page.current"
-                    :key="page.path"
-                    :path="page.path"
-                    :special="page.specialLink"
-                    @follow-item="handleHover"
-                    @hover-stop="retrieveCurrent"
-                    @active-page-change="changeActivePage"
-                    :data-test="$testIds.About.NavBar.items"
-                />
-            </ul>
-        </Motion>
-    </Transition>
+        ></div>
+        <ul class="md:flex gap-5 justify-between">
+            <MenuItem
+                v-for="page in localPages"
+                :name="page.name"
+                :current="page.current"
+                :key="page.path"
+                :path="page.path"
+                :special="page.specialLink"
+                @follow-item="handleHover"
+                @hover-stop="retrieveCurrent"
+                @active-page-change="changeActivePage"
+                :data-test="$testIds.About.NavBar.items"
+            />
+        </ul>
+    </Motion>
 </template>
 
 <script lang="ts">

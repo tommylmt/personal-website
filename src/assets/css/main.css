@@ -24,7 +24,7 @@
     left: calc(50% - calc(var(--menu-width) / 2));
 }
 
-@media screen and (max-width: var(--responsive-mobile)) {
+@media screen and (max-width: 460px) {
     #mainMenu {
         width: 90%;
         left: 5%;
