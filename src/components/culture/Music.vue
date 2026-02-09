@@ -21,7 +21,7 @@
                 <p
                     :class="[
                         'font-sans bg-white text-xs uppercase p-1 rounded-md m-auto w-fit ',
-                        'shadow-sm text-slate-900 -translate-y-4'
+                        'shadow-xs text-slate-900 -translate-y-4'
                     ]"
                 >
                     {{ song.artist.name }}

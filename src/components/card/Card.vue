@@ -6,10 +6,11 @@
             'border-slate-50 dark:border-slate-900'
         ]"
         data-aos="fade-up"
+        @click="isExpanded = !isExpanded"
         :data-aos-delay="delay"
     >
         <div
-            class="w-full h-full rounded-xl transition-all duration-300 group-hover:scale-110"
+            :class="['w-full h-full rounded-xl transition-all duration-300 group-hover:scale-110', { 'scale-110': isExpanded }]"
             :style="{
                 backgroundImage: `url(${img})`,
                 backgroundPosition: 'center center',
@@ -17,24 +18,23 @@
             }"
         ></div>
         <div
-            class="absolute transition-all duration-200 content bg-white/90 backdrop-blur-md p-5 rounded-2xl w-[96%] left-[2%] -bottom-[200px] -xl:bottom-[160px] group-hover:bottom-2 dark:bg-slate-950/80"
+            :class="[
+                'absolute transition-all duration-200 content bg-white/90 backdrop-blur-md p-5 rounded-2xl w-[96%] left-[2%] -bottom-[200px] -xl:bottom-[160px] group-hover:bottom-2 dark:bg-slate-950/80',
+                { 'bottom-2': isExpanded }
+            ]"
         >
             <slot></slot>
         </div>
     </div>
 </template>
 
-<script lang="ts">
-export default {
-    props: {
-        img: {
-            type: String,
-            required: true
-        },
-        delay: {
-            type: Number,
-            default: 0
-        }
-    }
-}
+<script lang="ts" setup>
+import { ref } from 'vue'
+
+defineProps<{
+    img: string
+    delay?: number
+}>()
+
+const isExpanded = ref(false)
 </script>

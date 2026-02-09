@@ -48,7 +48,7 @@ export default {
     },
     computed: {
         prompt() {
-            return `<span class="!text-green-300">${this.user}@${this.host}</span>:<span class="!text-blue-600">~</span>$ `
+            return `<span class="text-green-300!">${this.user}@${this.host}</span>:<span class="!text-blue-600">~</span>$ `
         },
         routes() {
             const helper = new MenuHelper()

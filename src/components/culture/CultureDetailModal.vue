@@ -8,7 +8,7 @@
                 :exit="{ opacity: 0 }"
                 as="div"
                 key="backdropModal"
-                class="backdrop-blur-sm bg-slate-800/60 size-full top-0 left-0 fixed inset-0"
+                class="backdrop-blur-xs bg-slate-800/60 size-full top-0 left-0 fixed inset-0"
             ></Motion>
         </AnimatePresence>
         <AnimatePresence :initial="true">
