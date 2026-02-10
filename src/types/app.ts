@@ -16,6 +16,10 @@ export type TNavBarData = {
     localPages: MenuItem[]
 }
 
+export type TContainerProps = {
+    mobileWidth?: string
+}
+
 export type TMenuItemProps = {
     path: string
     current: boolean

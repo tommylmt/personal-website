@@ -1,5 +1,5 @@
 <template>
-    <div class="w-11/12 md:w-10/12 my-10 mx-auto relative">
+    <ContainerLayout>
         <h1 class="font-sans font-extrabold text-4xl md:text-5xl text-neutral-800 dark:text-neutral-300" data-aos="fade-up">
             {{ $t('blog.title') }}
         </h1>
@@ -20,7 +20,7 @@
                 <BlogPost v-else v-for="article in articles" :key="article.slug" :post="article" />
             </div>
         </div>
-    </div>
+    </ContainerLayout>
 </template>
 
 <script setup lang="ts">
@@ -29,6 +29,7 @@ import type { TBlogPost } from '@/types/blog.ts'
 import axios from 'axios'
 import ErrorBanner from '@/components/errors/ErrorBanner.vue'
 import BlogPost from '@/components/blog/BlogPost.vue'
+import ContainerLayout from '@/components/layout/ContainerLayout.vue'
 
 const articles = ref<TBlogPost[] | null>(null)
 const hasErrors = ref<boolean>(false)

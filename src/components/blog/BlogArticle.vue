@@ -1,5 +1,9 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import ContainerLayout from '@/components/layout/ContainerLayout.vue'
+</script>
 
 <template>
-    {{ $route.params.slug }}
+    <ContainerLayout>
+        {{ $route.params.slug }}
+    </ContainerLayout>
 </template>

@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full md:w-10/12 my-10 mx-auto relative">
+    <ContainerLayout mobile-width="w-full">
         <div class="relative p-3 md:p-0">
             <h1 class="font-sans font-extrabold text-5xl text-neutral-800 dark:text-neutral-300" data-aos="fade-up">
                 {{ $t('culture.movies') }}
@@ -70,7 +70,7 @@
                 <Music v-for="element in songs" :song="element" :key="element.id" />
             </div>
         </div>
-    </div>
+    </ContainerLayout>
 
     <CultureDetailModal />
 </template>
@@ -85,9 +85,11 @@ import ErrorBanner from '@/components/errors/ErrorBanner.vue'
 import { CULTURE_LINKS, MEDIA_TYPE } from '@/utils/constants'
 import CultureDetailModal from '@/components/culture/CultureDetailModal.vue'
 import type { SpotifySong, TCultureData, TCultureElement } from '@/types/culture.ts'
+import ContainerLayout from '@/components/layout/ContainerLayout.vue'
 
 export default {
     components: {
+        ContainerLayout,
         CultureDetailModal,
         ErrorBanner,
         Music,

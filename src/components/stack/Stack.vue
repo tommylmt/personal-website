@@ -1,5 +1,5 @@
 <template>
-    <div class="w-11/12 md:w-10/12 my-10 mx-auto relative">
+    <ContainerLayout>
         <h1 class="font-sans font-extrabold text-4xl md:text-5xl text-neutral-800 dark:text-neutral-300" data-aos="fade-up">
             {{ $t('stack.title') }}
         </h1>
@@ -33,7 +33,7 @@
                 <StackElement v-for="icon in icons" :icon="icon" :key="icon.title" />
             </div>
         </div>
-    </div>
+    </ContainerLayout>
 </template>
 
 <script lang="ts">
@@ -44,9 +44,11 @@ import 'web-animations-js'
 import Muuri, { Item } from 'muuri'
 import FilterDropdown from '@/components/stack/FilterDropdown.vue'
 import type { TApiStackElement, TStackData, TStackElement } from '@/types/stack.ts'
+import ContainerLayout from '@/components/layout/ContainerLayout.vue'
 
 export default {
     components: {
+        ContainerLayout,
         FilterDropdown,
         StackElement
     },
