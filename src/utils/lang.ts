@@ -10,9 +10,11 @@ export const i18n = createI18n<[MessageSchema], 'en-US' | 'fr-FR'>({
     globalInjection: true,
     datetimeFormats: {
         'fr-FR': {
+            short: { year: 'numeric', month: 'numeric', day: 'numeric' },
             long: { year: 'numeric', month: 'long', day: 'numeric' }
         },
         'en-US': {
+            short: { year: 'numeric', month: 'numeric', day: 'numeric' },
             long: { year: 'numeric', month: 'long', day: 'numeric' }
         }
     },

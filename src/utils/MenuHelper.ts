@@ -22,7 +22,7 @@ export default class MenuHelper {
             {
                 name: 'menu.blog',
                 path: '/blog',
-                current: '/blog' === this.current
+                current: new RegExp(/\/blog\/?.*/).test(this.current)
             },
             {
                 name: 'menu.culture',

@@ -48,8 +48,6 @@ const router = createRouter({
         },
         {
             path: '/blog',
-            name: 'blog',
-            component: () => import('@/components/blog/BlogList.vue'),
             meta: {
                 title: 'seo.title.blog',
                 seo: {
@@ -62,7 +60,19 @@ const router = createRouter({
                     'og:description': 'seo.meta.blog.og.description',
                     'og:site_name': 'seo.meta.blog.og.title'
                 }
-            }
+            },
+            children: [
+                {
+                    path: '',
+                    component: () => import('@/components/blog/BlogList.vue'),
+                    name: 'blog'
+                },
+                {
+                    path: ':slug',
+                    name: 'blog_post',
+                    component: () => import('@/components/blog/BlogArticle.vue')
+                }
+            ]
         },
         {
             path: '/culture',

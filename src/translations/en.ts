@@ -157,7 +157,8 @@ export const en = {
     },
     blog: {
         title: 'Blog',
-        subtitle: 'All my blog posts, both technicals and personals'
+        subtitle: 'All my blog posts, both technicals and personals',
+        error: 'An error occured while loading blog posts, try again later'
     },
     stack: {
         title: 'Stack',

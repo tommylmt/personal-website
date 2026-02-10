@@ -18,6 +18,7 @@ app.config.performance = true
 app.use(createPinia())
 app.use(router)
 app.use(i18n)
+app.provide('baseUrl', app.config.globalProperties.$baseUrl)
 app.mount('#app')
 
 AOS.init()
