@@ -1,0 +1,10 @@
+@reference "tailwindcss";
+
+#markdown {
+    h1 {
+        @apply py-6 text-5xl font-sans text-neutral-900 font-bold;
+    }
+    img {
+        @apply rounded-4xl shadow-lg m-5;
+    }
+}

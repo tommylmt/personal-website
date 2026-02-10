@@ -78,3 +78,7 @@ onMounted(async () => {
         </template>
     </ContainerLayout>
 </template>
+
+<style>
+@import '@/assets/css/blog/index.css';
+</style>
