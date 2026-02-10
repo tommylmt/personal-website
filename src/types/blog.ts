@@ -11,3 +11,10 @@ export type TBlogPost = {
     language: string
     language_icon: string
 }
+
+export type TCompleteBlogPost = TBlogPost & {
+    unique_id: string
+    banner: string
+    reading_time: number
+    content: string
+}
