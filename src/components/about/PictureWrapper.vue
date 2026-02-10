@@ -6,7 +6,7 @@
             ...position
         }"
     >
-        <div v-if="isLoading" :class="`w-[${width}px] bg-slate-50 animate-pulse h-[300px]`"></div>
+        <div v-if="isLoading" :class="`w-[${width}px] bg-neutral-50 animate-pulse h-[300px]`"></div>
         <img v-else :src="source" alt="Image" :width="width" loading="lazy" />
     </DraggableBlock>
 </template>

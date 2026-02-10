@@ -6,9 +6,9 @@
             left: 'calc(50% - calc(320px / 2))'
         }"
     >
-        <div class="p-6 bg-slate-100/70 backdrop-blur-lg w-80 text-center dark:bg-slate-900/70">
-            <h3 class="font-extrabold font-sans text-slate-700 text-3xl dark:text-slate-300">🍻 {{ $t('about.earth.title') }}</h3>
-            <p class="text-slate-600">{{ $t('about.earth.subtitle') }}</p>
+        <div class="p-6 bg-neutral-100/70 backdrop-blur-lg w-80 text-center dark:bg-neutral-900/70">
+            <h3 class="font-extrabold font-sans text-neutral-700 text-3xl dark:text-neutral-300">🍻 {{ $t('about.earth.title') }}</h3>
+            <p class="text-neutral-600">{{ $t('about.earth.subtitle') }}</p>
         </div>
     </DraggableBlock>
 </template>

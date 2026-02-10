@@ -4,10 +4,10 @@
         target="_blank"
         :class="[
             'transition-all absolute rounded-3xl px-6 w-fit h-12  justify-center flex items-center gap-2 font-sans group shadow-lg',
-            'shadow-slate-300 bg-slate-900 dark:bg-slate-800 dark:shadow-none top-3 md:top-5 right-3 md:right-0'
+            'shadow-neutral-300 bg-neutral-900 dark:bg-neutral-800 dark:shadow-none top-3 md:top-5 right-3 md:right-0'
         ]"
     >
-        <span class="transition-all text-slate-300 font-sans group-hover:text-slate-200 hidden md:inline">
+        <span class="transition-all text-neutral-300 font-sans group-hover:text-neutral-200 hidden md:inline">
             {{ $t('culture.meetme') }}
         </span>
         <img :src="image" alt="Culture image" :width="width" />

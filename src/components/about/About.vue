@@ -9,7 +9,7 @@
         <SparklesText
             :text="$t('about.theEnd')"
             :sparkles-count="20"
-            :text-class="['text-slate-200 text-8xl 2xl:text-9xl font-gothic dark:text-slate-900']"
+            :text-class="['text-neutral-200 text-8xl 2xl:text-9xl font-gothic dark:text-neutral-900']"
         />
     </div>
 </template>

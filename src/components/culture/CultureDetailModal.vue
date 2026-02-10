@@ -8,7 +8,7 @@
                 :exit="{ opacity: 0 }"
                 as="div"
                 key="backdropModal"
-                class="backdrop-blur-xs bg-slate-800/60 size-full top-0 left-0 fixed inset-0"
+                class="backdrop-blur-xs bg-neutral-800/60 size-full top-0 left-0 fixed inset-0"
             ></Motion>
         </AnimatePresence>
         <AnimatePresence :initial="true">
@@ -20,7 +20,7 @@
                 key="filmModal"
                 as="div"
                 :class="[
-                    'bg-white p-4 xl:p-10 rounded-3xl shadow-lg relative z-50 dark:bg-slate-950',
+                    'bg-white p-4 xl:p-10 rounded-3xl shadow-lg relative z-50 dark:bg-neutral-950',
                     'w-full xl:w-2/3 2xl:w-1/2 mx-auto xl:my-10'
                 ]"
             >
@@ -45,7 +45,7 @@
                         class="rounded-2xl p-10 h-64 md:h-[450px]"
                     ></div>
 
-                    <h2 class="font-sans text-6xl text-slate-900 font-bold dark:text-slate-200 mt-3">
+                    <h2 class="font-sans text-6xl text-neutral-900 font-bold dark:text-neutral-200 mt-3">
                         {{ data.title ?? data.name }}
                     </h2>
 
@@ -59,7 +59,9 @@
                             />
                         </div>
 
-                        <span class="border text-xs border-slate-400 rounded-xl py-1 px-3 bg-white dark:bg-slate-950 dark:text-slate-200">
+                        <span
+                            class="border text-xs border-neutral-400 rounded-xl py-1 px-3 bg-white dark:bg-neutral-950 dark:text-neutral-200"
+                        >
                             {{ releaseYear }}
                         </span>
 
@@ -67,36 +69,38 @@
                             <li
                                 v-for="genre in data.genres"
                                 :key="genre.id"
-                                class="px-3 rounded-xl py-1 text-white text-xs bg-slate-950 dark:bg-white dark:text-slate-950"
+                                class="px-3 rounded-xl py-1 text-white text-xs bg-neutral-950 dark:bg-white dark:text-neutral-950"
                             >
                                 {{ genre.name }}
                             </li>
                         </ul>
                     </div>
 
-                    <p class="text-slate-500 leading-7 mt-2">{{ data.overview }}</p>
+                    <p class="text-neutral-500 leading-7 mt-2">{{ data.overview }}</p>
 
                     <template v-if="data.cast?.length > 0">
-                        <h3 class="text-5xl mt-8 text-slate-900 font-bold mb-5 dark:text-slate-200">{{ $t('culture.details.casting') }}</h3>
+                        <h3 class="text-5xl mt-8 text-neutral-900 font-bold mb-5 dark:text-neutral-200">
+                            {{ $t('culture.details.casting') }}
+                        </h3>
 
                         <div class="flex gap-3 overflow-x-scroll md:overflow-x-visible">
                             <div v-for="actor in data.cast.slice(0, 5)" :key="actor.id" class="basis-1/3 shrink-0 md:shrink md:basis-1/5">
                                 <img :src="getImage(actor.profile_path, 'w185')" :alt="actor.name" class="w-full rounded-2xl" />
-                                <p class="text-slate-800 text-sm font-bold dark:text-slate-300 mt-2">{{ actor.name }}</p>
-                                <p class="text-slate-500 text-xs">{{ actor.character }}</p>
+                                <p class="text-neutral-800 text-sm font-bold dark:text-neutral-300 mt-2">{{ actor.name }}</p>
+                                <p class="text-neutral-500 text-xs">{{ actor.character }}</p>
                             </div>
                         </div>
                     </template>
 
                     <template v-if="directors()">
-                        <h3 class="text-5xl mt-8 text-slate-900 font-bold mb-5 dark:text-slate-200">
+                        <h3 class="text-5xl mt-8 text-neutral-900 font-bold mb-5 dark:text-neutral-200">
                             {{ $t('culture.details.directors') }}
                         </h3>
 
                         <div class="flex gap-3 overflow-x-scroll md:overflow-x-visible">
                             <div v-for="showrunner in directors()" :key="showrunner.id" class="basis-1/3 shrink-0 lg:shrink-1 md:basis-1/5">
                                 <img :src="getImage(showrunner.profile_path, 'w185')" :alt="showrunner.name" class="w-full rounded-2xl" />
-                                <p class="text-slate-800 text-sm font-bold dark:text-slate-300 mt-2">
+                                <p class="text-neutral-800 text-sm font-bold dark:text-neutral-300 mt-2">
                                     {{ showrunner.name }}
                                 </p>
                             </div>

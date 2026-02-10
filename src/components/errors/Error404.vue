@@ -4,11 +4,11 @@
             :class="[
                 'fixed left-5 bottom-6 md:bottom-10 rounded-2xl text-white font-sans text-xs motion-duration-200',
                 'md:motion-translate-y-in-[150px] md:motion-scale-in-0 md:motion-blur-in md:motion-delay-1000',
-                'bg-white/20 border border-slate-100/20 backdrop-blur-xl py-2 px-5'
+                'bg-white/20 border border-neutral-100/20 backdrop-blur-xl py-2 px-5'
             ]"
         >
             💡 {{ $t('error.type') }}
-            <span class="bg-slate-100 px-1 mx-1 text-black font-mono rounded-md cursor-pointer" @click="displayHelp">help</span>
+            <span class="bg-neutral-100 px-1 mx-1 text-black font-mono rounded-md cursor-pointer" @click="displayHelp">help</span>
             {{ $t('error.listcommands') }}
         </div>
 

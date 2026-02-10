@@ -4,9 +4,9 @@
         :animate="{ scale: 1, opacity: 1 }"
         as="div"
         :class="[
-            'block md:flex bg-white border border-slate-100 shadow-lg shadow-slate-100 rounded-3xl my-10 mx-auto',
+            'block md:flex bg-white border border-neutral-100 shadow-lg shadow-neutral-100 rounded-3xl my-10 mx-auto',
             'w-11/12 md:w-10/12 xl:w-9/12 2xl:w-7/12',
-            'dark:bg-black dark:border-slate-800 dark:shadow-slate-950'
+            'dark:bg-black dark:border-neutral-800 dark:shadow-neutral-950'
         ]"
     >
         <div class="w-full md:w-64 lg:w-80 2xl:w-2/5 shrink-0 p-0 md:p-2 2xl:p-0">
@@ -20,7 +20,7 @@
         <div class="grow-0 lg:grow">
             <div class="p-5 2xl:p-10 2xl:pb-0">
                 <h1 class="font-vintage text-6xl flex gap-3 items-center mt-3 md:mt-0">
-                    <span class="text-8xl text-slate-800 dark:text-slate-400 title-shadow dark:title-shadow-dark">
+                    <span class="text-8xl text-neutral-800 dark:text-neutral-400 title-shadow dark:title-shadow-dark">
                         {{ $t('about.me.title') }}
                     </span>
                     <Emoji />
@@ -32,7 +32,7 @@
                     </span>
                 </i18n-t>
 
-                <div class="my-3 mx-auto w-64 h-[1px] bg-slate-200 dark:bg-slate-700"></div>
+                <div class="my-3 mx-auto w-64 h-[1px] bg-neutral-200 dark:bg-neutral-700"></div>
 
                 <p class="mt-2 main-text">{{ $t('about.me.working') }}</p>
 

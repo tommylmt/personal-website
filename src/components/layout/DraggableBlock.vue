@@ -5,7 +5,7 @@
         ref="draggable"
         @mousedown="mouseDown"
     >
-        <div class="rounded-3xl overflow-hidden relative shadow-md dark:shadow-slate-900 dark:shadow-lg">
+        <div class="rounded-3xl overflow-hidden relative shadow-md dark:shadow-neutral-900 dark:shadow-lg">
             <slot></slot>
         </div>
     </div>

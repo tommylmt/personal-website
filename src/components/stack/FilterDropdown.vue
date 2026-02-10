@@ -13,18 +13,18 @@
             ]"
         >
             <i
-                :class="[data.currentFilter ? 'ph-fill text-slate-800 dark:text-white' : 'ph-light text-slate-400', 'ph-funnel']"
-                class="transition-all text-3xl group-hover:text-slate-500"
+                :class="[data.currentFilter ? 'ph-fill text-neutral-800 dark:text-white' : 'ph-light text-neutral-400', 'ph-funnel']"
+                class="transition-all text-3xl group-hover:text-neutral-500"
             ></i>
             <span
-                class="transition-all text-slate-400 ms-3 font-sans group-hover:text-slate-500"
+                class="transition-all text-neutral-400 ms-3 font-sans group-hover:text-neutral-500"
                 v-show="data.isButtonHovered || data.displayDropdown"
             >
                 {{ $t('stack.filter') }}
             </span>
         </button>
         <ul
-            class="dropdown absolute right-0 z-50 p-2 shadow-slate-200 transition-all shadow-lg rounded-lg bg-white w-52 dark:bg-slate-900 dark:shadow-slate-950"
+            class="dropdown absolute right-0 z-50 p-2 shadow-neutral-200 transition-all shadow-lg rounded-lg bg-white w-52 dark:bg-neutral-900 dark:shadow-neutral-950"
             :class="[data.displayDropdown ? 'top-[60px] opacity-100 z-40!' : 'top-[80px] opacity-0 !-z-40']"
         >
             <li
@@ -34,8 +34,8 @@
                 class="px-4 py-2 text-sm rounded-md cursor-pointer transition-all"
                 :class="[
                     data.currentFilter === type
-                        ? 'bg-slate-900 text-white dark:bg-white/70 dark:text-slate-950'
-                        : 'bg-white text-slate-800 hover:bg-slate-50 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-700'
+                        ? 'bg-neutral-900 text-white dark:bg-white/70 dark:text-neutral-950'
+                        : 'bg-white text-neutral-800 hover:bg-neutral-50 dark:bg-neutral-900 dark:text-white dark:hover:bg-neutral-700'
                 ]"
             >
                 {{ $t(`stack.types.${slugify(type)}`) }}

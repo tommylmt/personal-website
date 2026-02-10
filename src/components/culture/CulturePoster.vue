@@ -15,11 +15,11 @@
             <div
                 :class="[
                     'shadow-lg backdrop-blur-lg w-full p-3 flex justify-between items-center rounded-2xl pointer-events-none',
-                    'bg-white/70 dark:bg-slate-800/70'
+                    'bg-white/70 dark:bg-neutral-800/70'
                 ]"
             >
-                <p class="text-slate-500 dark:text-slate-300 text-sm">{{ subtitle }}</p>
-                <p class="text-slate-800 dark:text-slate-100 font-sans">{{ artist }}</p>
+                <p class="text-neutral-500 dark:text-neutral-300 text-sm">{{ subtitle }}</p>
+                <p class="text-neutral-800 dark:text-neutral-100 font-sans">{{ artist }}</p>
             </div>
         </div>
 

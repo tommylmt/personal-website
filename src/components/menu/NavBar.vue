@@ -2,15 +2,15 @@
     <div
         :class="[
             'md:hidden fixed left-5 w-12 h-12 rounded-full flex items-center justify-center',
-            'bg-white/20 border border-slate-100/20 backdrop-blur-xl backdrop-saturate-200 z-[9999] transition-all bottom-6',
+            'bg-white/20 border border-neutral-100/20 backdrop-blur-xl backdrop-saturate-200 z-[9999] transition-all bottom-6',
             'shadow-md',
             mobileButtonAnimation
         ]"
         @click="openMenu = !openMenu"
     >
         <Transition name="toggle-menu">
-            <i class="ph-light ph-list text-3xl z-50 text-slate-900 dark:text-white absolute" v-if="!openMenu"></i>
-            <i class="ph-light ph-x text-3xl z-50 text-slate-900 dark:text-white absolute" v-else></i>
+            <i class="ph-light ph-list text-3xl z-50 text-neutral-900 dark:text-white absolute" v-if="!openMenu"></i>
+            <i class="ph-light ph-x text-3xl z-50 text-neutral-900 dark:text-white absolute" v-else></i>
         </Transition>
     </div>
 
@@ -19,7 +19,7 @@
         id="mainMenu"
         :class="[
             'fixed z-[9999] m-auto backdrop-blur-xl backdrop-saturate-200 p-2 rounded-xl md:rounded-[50px] shadow-md',
-            'bg-white/20 border border-slate-100/20 transition-all duration-500',
+            'bg-white/20 border border-neutral-100/20 transition-all duration-500',
             animation
         ]"
     >
@@ -95,7 +95,7 @@ const handleHover = (e: HTMLLIElement) => {
     moveTracker(e)
 
     getCurrentItem()?.classList.remove('text-white')
-    getCurrentItem()?.classList.add('text-slate-900')
+    getCurrentItem()?.classList.add('text-neutral-900')
 }
 
 const retrieveCurrent = () => {
@@ -104,7 +104,7 @@ const retrieveCurrent = () => {
     if (current) {
         moveTracker(current)
         current.classList.add('text-white')
-        current.classList.remove('text-slate-900')
+        current.classList.remove('text-neutral-900')
     }
 }
 

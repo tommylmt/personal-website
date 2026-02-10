@@ -1,24 +1,24 @@
 <template>
     <AboutBlock :title="'💻 ' + $t('about.pro.title')">
         <Card v-for="(element, index) in xp" :key="index" :img="element.image" :delay="100 * index">
-            <p class="font-sans text-slate-800 dark:text-slate-200">
+            <p class="font-sans text-neutral-800 dark:text-neutral-200">
                 {{ element.name }}
             </p>
-            <p class="font-sans text-slate-800 text-sm italic dark:text-slate-200">
+            <p class="font-sans text-neutral-800 text-sm italic dark:text-neutral-200">
                 {{ $t(element.work) }}
             </p>
 
-            <p class="font-sans text-sm text-slate-500">
+            <p class="font-sans text-sm text-neutral-500">
                 <span class="me-1">📍</span>
                 {{ $t(element.location) }}
             </p>
 
             <div class="flex mt-2 justify-center items-center gap-3 w-full">
-                <div class="text-xl font-light text-slate-400 dark:text-slate-600">
+                <div class="text-xl font-light text-neutral-400 dark:text-neutral-600">
                     {{ element.years.start }}
                 </div>
-                <div class="w-10 h-1 bg-slate-300 dark:bg-slate-800 rounded-xl"></div>
-                <div class="text-xl font-light text-slate-400 dark:text-slate-600">
+                <div class="w-10 h-1 bg-neutral-300 dark:bg-neutral-800 rounded-xl"></div>
+                <div class="text-xl font-light text-neutral-400 dark:text-neutral-600">
                     {{ typeof element.years.end === 'string' ? $t(element.years.end) : element.years.end }}
                 </div>
             </div>

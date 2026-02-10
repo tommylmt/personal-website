@@ -12,10 +12,10 @@
                     <CardItem as="div" :translate-z="60">
                         <div
                             v-html="icon.svg"
-                            class="transition-all mx-auto w-7/12 fill-slate-300 group-hover:fill-slate-400 dark:fill-slate-600"
+                            class="transition-all mx-auto w-7/12 fill-neutral-300 group-hover:fill-neutral-400 dark:fill-neutral-600"
                         ></div>
                     </CardItem>
-                    <CardItem as="p" :translate-z="40" class="font-sans text-xs text-slate-400 mt-5 dark:text-slate-600">
+                    <CardItem as="p" :translate-z="40" class="font-sans text-xs text-neutral-400 mt-5 dark:text-neutral-600">
                         {{ icon.title }}
                     </CardItem>
                 </CardBody>

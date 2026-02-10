@@ -6,7 +6,7 @@
         <div v-for="(social, index) in socials" :key="index" :data-test="$testIds.About.SocialMedia.linkWrapper">
             <a
                 :href="social.link"
-                class="text-6xl text-slate-300 transition-all hover:text-slate-400"
+                class="text-6xl text-neutral-300 transition-all hover:text-neutral-400"
                 target="_blank"
                 :aria-label="social.label"
                 data-aos="fade-in"

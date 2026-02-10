@@ -3,7 +3,7 @@
         :class="[
             'fixed z-[9998] right-5 transition-all duration-500',
             'shadow-md min-w-12 h-12 rounded-full cursor-pointer flex justify-center items-center transition-all',
-            'bg-white/20 border border-slate-100/20 backdrop-blur-xl',
+            'bg-white/20 border border-neutral-100/20 backdrop-blur-xl',
             animation
         ]"
         @mouseover="switchLocale = true"
