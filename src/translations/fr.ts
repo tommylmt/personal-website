@@ -153,6 +153,11 @@ export const fr = {
             subtitle: 'Un dump de la galerie'
         }
     },
+    blog: {
+        title: 'Blog',
+        subtitle: 'Tous mes articles de blog, personnels et techniques',
+        error: "Une erreur s'est produite lors du chargement des articles"
+    },
     stack: {
         title: 'Environnement technique',
         subtitle: "Liste des logiciels que j'utilise au quotidien",

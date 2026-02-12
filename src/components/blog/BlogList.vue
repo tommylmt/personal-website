@@ -40,7 +40,7 @@ onMounted(async () => {
     try {
         const { data } = await axios.get<TBlogPost[]>(`${baseUrl}/api/blog/list`)
         articles.value = data
-    } catch (e) {
+    } catch (_) {
         hasErrors.value = true
     }
 })

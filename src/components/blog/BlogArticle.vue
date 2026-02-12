@@ -2,7 +2,7 @@
 import '@phosphor-icons/web/regular'
 import ContainerLayout from '@/components/layout/ContainerLayout.vue'
 import { useRoute } from 'vue-router'
-import { computed, inject, onMounted, ref, watch } from 'vue'
+import { computed, inject, onMounted, ref } from 'vue'
 import type { TCompleteBlogPost } from '@/types/blog.ts'
 import axios from 'axios'
 import markdownit from 'markdown-it'
