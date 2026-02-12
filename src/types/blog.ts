@@ -17,4 +17,8 @@ export type TCompleteBlogPost = TBlogPost & {
     banner: string
     reading_time: number
     content: string
+    table_of_contents: {
+        level: number
+        text: string
+    }[]
 }

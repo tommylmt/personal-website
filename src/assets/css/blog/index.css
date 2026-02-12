@@ -4,7 +4,49 @@
     h1 {
         @apply py-6 text-5xl font-sans text-neutral-900 font-bold;
     }
+    h2 {
+        @apply py-3 text-4xl font-sans text-neutral-900 font-bold;
+    }
+    h3 {
+        @apply py-2 text-3xl font-sans text-neutral-900 font-bold;
+    }
+    h4 {
+        @apply py-2 text-2xl font-sans text-neutral-900 font-bold;
+    }
     img {
-        @apply rounded-4xl shadow-lg m-5;
+        @apply rounded-4xl shadow-lg my-6;
+    }
+    blockquote {
+        @apply font-sans text-neutral-500 px-4 py-3 border-s-2 border-s-neutral-200;
+    }
+    ul {
+        @apply ms-4;
+
+        li {
+            @apply list-inside list-disc text-base/8;
+        }
+    }
+    p {
+        @apply text-base/8;
+
+        a {
+            @apply bg-gradient-to-r from-indigo-500 to-pink-600 bg-clip-text text-transparent relative before:w-0 before:absolute before:bg-gradient-to-r before:from-indigo-500 before:to-pink-600 before:h-1 before:-bottom-1 hover:before:w-full before:transition-all before:opacity-60;
+        }
+    }
+    div.embed-link {
+        @apply border border-neutral-100 shadow-lg rounded-2xl p-5 my-5;
+
+        a {
+            @apply font-semibold inline-block bg-gradient-to-r from-indigo-500 to-pink-600 bg-clip-text text-transparent;
+        }
+        h5 {
+            @apply text-neutral-400 text-sm py-1;
+        }
+        img {
+            @apply rounded-3xl shadow-none w-52 my-0;
+        }
+    }
+    pre {
+        @apply bg-slate-900 p-5 my-5 rounded-2xl text-white text-sm shadow-md border border-slate-900;
     }
 }

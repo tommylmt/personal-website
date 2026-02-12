@@ -2,11 +2,13 @@
 import '@phosphor-icons/web/regular'
 import ContainerLayout from '@/components/layout/ContainerLayout.vue'
 import { useRoute } from 'vue-router'
-import { computed, inject, onMounted, ref } from 'vue'
+import { computed, inject, onMounted, ref, watch } from 'vue'
 import type { TCompleteBlogPost } from '@/types/blog.ts'
 import axios from 'axios'
 import markdownit from 'markdown-it'
 import DynamicIsland from '@/components/ui/DynamicIsland.vue'
+import hljs from 'highlight.js'
+import 'highlight.js/styles/atom-one-dark.min.css'
 
 const { params } = useRoute()
 const article = ref<TCompleteBlogPost | null>(null)
@@ -14,7 +16,20 @@ const hasError = ref<boolean>(false)
 const baseUrl = inject('baseUrl')
 
 const html = computed<string>(() => {
-    const md = markdownit()
+    const md = markdownit({
+        html: true,
+        highlight: (str, lang) => {
+            if (lang && hljs.getLanguage(lang)) {
+                try {
+                    return hljs.highlight(str, { language: lang }).value
+                } catch (_) {
+                    hasError.value = true
+                }
+            }
+
+            return ''
+        }
+    })
 
     return md.render(article.value?.content ?? '')
 })
@@ -31,18 +46,37 @@ onMounted(async () => {
 <template>
     <ContainerLayout>
         <template v-if="article">
-            <div v-if="article.banner"></div>
-            <DynamicIsland title="Table of content" class="bg-black text-white">
-                <p>Hello</p>
-                <p>TODO Table of content</p>
-                <p>Right here</p>
+            <div
+                v-if="article.banner"
+                class="rounded-4xl h-[500px] mb-10 relative flex items-end"
+                :style="{
+                    background: `url(${baseUrl + article.banner}`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                }"
+            >
+                <div class="absolute bg-linear-to-t from-neutral-900/80 to-transparent h-full w-full rounded-4xl"></div>
+                <h1 class="text-white font-bold text-6xl relative p-10 z-20">{{ article.title }}</h1>
+            </div>
+            <DynamicIsland title="Table of contents" class="bg-black text-white">
+                <p
+                    v-for="(section, key) in article.table_of_contents"
+                    :key="key"
+                    :style="{
+                        marginLeft: section.level * 7 + 'px'
+                    }"
+                >
+                    {{ section.text }}
+                </p>
             </DynamicIsland>
 
             <div class="relative flex gap-10 items-start">
                 <div :class="['sticky top-10 rounded-3xl bg-neutral-100 shadow-lg shadow-neutral-100', 'p-7 basis-1/4 shrink-0']">
-                    <div class="cursor-pointer w-12 h-12 bg-black rounded-full flex items-center justify-center">
-                        <i class="ph ph-arrow-left text-white text-3xl"></i>
-                    </div>
+                    <RouterLink to="/blog">
+                        <div class="cursor-pointer w-12 h-12 bg-black rounded-full flex items-center justify-center">
+                            <i class="ph ph-arrow-left text-white text-3xl"></i>
+                        </div>
+                    </RouterLink>
 
                     <div class="mt-4">
                         <h5 class="text-sm text-neutral-500">Estimated time to read</h5>
@@ -72,7 +106,7 @@ onMounted(async () => {
                     </div>
                 </div>
                 <div class="grow">
-                    <div id="markdown" class="my-20" v-html="html"></div>
+                    <div id="markdown" class="mb-20" v-html="html"></div>
                 </div>
             </div>
         </template>
