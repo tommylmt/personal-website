@@ -58,7 +58,7 @@ onMounted(async () => {
                 <div class="absolute bg-linear-to-t from-neutral-900/80 to-transparent h-full w-full rounded-4xl"></div>
                 <h1 class="text-white font-bold text-6xl relative p-10 z-20">{{ article.title }}</h1>
             </div>
-            <DynamicIsland title="Table of contents" class="bg-black text-white">
+            <DynamicIsland :title="$t('blog.toc')" class="bg-black text-white">
                 <p
                     v-for="(section, key) in article.table_of_contents"
                     :key="key"
@@ -79,17 +79,17 @@ onMounted(async () => {
                     </RouterLink>
 
                     <div class="mt-4">
-                        <h5 class="text-sm text-neutral-500">Estimated time to read</h5>
+                        <h5 class="text-sm text-neutral-500">{{ $t('blog.timetoread') }}</h5>
                         <p class="text-neutral-900 font-bold font-sans">{{ article.reading_time }} min</p>
                     </div>
 
                     <div class="mt-4">
-                        <h5 class="text-sm text-neutral-500">Language</h5>
+                        <h5 class="text-sm text-neutral-500">{{ $t('blog.language') }}</h5>
                         <p class="text-neutral-900 font-bold font-sans">{{ article.language_icon }} {{ article.language }}</p>
                     </div>
 
                     <div class="mt-4">
-                        <h5 class="text-sm text-neutral-500">Published At</h5>
+                        <h5 class="text-sm text-neutral-500">{{ $t('blog.publishedat') }}</h5>
                         <i18n-d
                             tag="p"
                             class="font-bold font-sans text-neutral-900"
@@ -100,7 +100,7 @@ onMounted(async () => {
                     <div class="flex items-center mt-4 gap-4">
                         <img :src="baseUrl + article.author.avatar" :alt="article.author.name" class="w-15 rounded-full" />
                         <div>
-                            <h5 class="text-sm text-neutral-500">Published by</h5>
+                            <h5 class="text-sm text-neutral-500">{{ $t('blog.author') }}</h5>
                             <p class="font-bold font-sans text-neutral-900">{{ article.author.name }}</p>
                         </div>
                     </div>

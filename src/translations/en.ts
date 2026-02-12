@@ -158,7 +158,12 @@ export const en = {
     blog: {
         title: 'Blog',
         subtitle: 'All my blog posts, both technicals and personals',
-        error: 'An error occured while loading blog posts, try again later'
+        error: 'An error occured while loading blog posts, try again later',
+        toc: 'Table of contents',
+        timetoread: 'Estimated time to read',
+        language: 'Language',
+        publishedat: 'Published at',
+        author: 'Author'
     },
     stack: {
         title: 'Stack',

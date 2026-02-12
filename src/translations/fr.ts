@@ -156,7 +156,12 @@ export const fr = {
     blog: {
         title: 'Blog',
         subtitle: 'Tous mes articles de blog, personnels et techniques',
-        error: "Une erreur s'est produite lors du chargement des articles"
+        error: "Une erreur s'est produite lors du chargement des articles",
+        toc: 'Sommaire',
+        timetoread: 'Temps de lecture',
+        language: 'Langue',
+        publishedat: 'Publié le',
+        author: 'Auteur'
     },
     stack: {
         title: 'Environnement technique',
