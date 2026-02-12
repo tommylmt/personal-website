@@ -52,6 +52,8 @@ import { useColorMode } from '@vueuse/core'
 import { motion, MotionConfig } from 'motion-v'
 import { computed, onMounted, onUnmounted, ref, useSlots } from 'vue'
 import AnimatedCircularProgressBar from '@/components/ui/AnimatedCircularProgressBar.vue'
+import { DomEvent } from 'leaflet'
+import off = DomEvent.off
 
 interface Props {
     class?: string
@@ -82,7 +84,11 @@ onMounted(() => {
 })
 
 function updatePageScroll() {
-    scrollPercentage.value = window.scrollY / (document.body.scrollHeight - window.innerHeight)
+    const offset = document.querySelector('#markdown')?.getBoundingClientRect()
+
+    if (offset) {
+        scrollPercentage.value = window.scrollY > offset.x ? (window.scrollY - offset.x) / offset.height : 0
+    }
 }
 
 onUnmounted(() => {
