@@ -9,4 +9,11 @@ const About = {
     }
 }
 
-export const TestIds = { About }
+const Blog = {
+    List: {
+        aBlogPost: 'blog-list-blog-post',
+        aLoaderSkeleton: 'blog-list-loader-skeleton'
+    }
+}
+
+export const TestIds = { About, Blog }

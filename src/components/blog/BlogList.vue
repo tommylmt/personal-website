@@ -15,9 +15,14 @@
             v-else
         >
             <template v-if="isLoading">
-                <div v-for="e in [...Array(8).keys()]" class="h-[400px] rounded-4xl col-span-1 bg-neutral-200 animate-pulse" :key="e"></div>
+                <div
+                    v-for="e in [...Array(8).keys()]"
+                    class="h-[400px] rounded-4xl col-span-1 bg-neutral-200 animate-pulse"
+                    :key="e"
+                    :data-test="TestIds.Blog.List.aLoaderSkeleton"
+                ></div>
             </template>
-            <BlogPost v-else v-for="article in articles" :key="article.slug" :post="article" />
+            <BlogPost v-else v-for="article in articles" :key="article.slug" :post="article" :data-test="TestIds.Blog.List.aBlogPost" />
         </div>
     </ContainerLayout>
 </template>
@@ -29,6 +34,7 @@ import axios from 'axios'
 import ErrorBanner from '@/components/errors/ErrorBanner.vue'
 import BlogPost from '@/components/blog/BlogPost.vue'
 import ContainerLayout from '@/components/layout/ContainerLayout.vue'
+import { TestIds } from '@/utils/testIds.ts'
 
 const articles = ref<TBlogPost[] | null>(null)
 const hasErrors = ref<boolean>(false)
