@@ -7,7 +7,7 @@
             {{ $t('blog.subtitle') }}
         </p>
 
-        <ErrorBanner title="blog.error" v-if="hasErrors" />
+        <ErrorBanner title="blog.error" v-if="hasErrors" data-aos="fade-up" data-aos-delay="200" />
         <div
             class="my-3 md:my-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 xl:gap-6 md:p-0"
             data-aos="fade-up"
@@ -17,7 +17,7 @@
             <template v-if="isLoading">
                 <div
                     v-for="e in [...Array(8).keys()]"
-                    class="h-[400px] rounded-4xl col-span-1 bg-neutral-200 animate-pulse"
+                    class="h-[400px] rounded-4xl col-span-1 bg-neutral-200 dark:bg-neutral-800 animate-pulse"
                     :key="e"
                     :data-test="TestIds.Blog.List.aLoaderSkeleton"
                 ></div>
