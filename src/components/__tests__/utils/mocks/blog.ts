@@ -23,7 +23,7 @@ export const createFakeBlogPostForList = (
 }
 
 export const blogPostList = [
-    createFakeBlogPostForList('First article', 'first-article', 'https://example.org/image.jpg', '2026-01-01T12:00:00', '🇫🇷'),
-    createFakeBlogPostForList('Second article', 'second-article', 'https://example.org/second.jpg', '2026-01-01T12:00:00', '🇫🇷'),
-    createFakeBlogPostForList('Third article', 'third-article', 'https://example.org/third.jpg', '2026-01-01T12:00:00', '🇺🇸')
+    createFakeBlogPostForList('First article', 'first-article', '/image.jpg', '2026-01-01T12:00:00', '🇫🇷'),
+    createFakeBlogPostForList('Second article', 'second-article', '/second.jpg', '2026-01-01T12:00:00', '🇫🇷'),
+    createFakeBlogPostForList('Third article', 'third-article', '/third.jpg', '2026-01-01T12:00:00', '🇺🇸')
 ]
