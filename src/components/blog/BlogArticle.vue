@@ -48,7 +48,7 @@ onMounted(async () => {
         <template v-if="article">
             <div
                 v-if="article.banner"
-                class="rounded-4xl h-[500px] mb-10 relative flex items-end"
+                class="rounded-4xl h-125 mb-10 relative flex items-end"
                 :style="{
                     background: `url(${baseUrl + article.banner}`,
                     backgroundSize: 'cover',

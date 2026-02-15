@@ -30,14 +30,14 @@
         @apply text-base/8 dark:text-neutral-300;
 
         a {
-            @apply bg-gradient-to-r from-amber-300 to-orange-600 bg-clip-text text-transparent relative before:w-0 before:absolute before:bg-gradient-to-r before:from-amber-300 before:to-orange-600 before:h-1 before:-bottom-1 hover:before:w-full before:transition-all before:opacity-80 before:rounded-xl;
+            @apply bg-linear-to-r from-amber-300 to-orange-600 bg-clip-text text-transparent relative before:w-0 before:absolute before:bg-linear-to-r before:from-amber-300 before:to-orange-600 before:h-1 before:-bottom-1 hover:before:w-full before:transition-all before:opacity-80 before:rounded-xl;
         }
     }
     div.embed-link {
         @apply border border-neutral-100 dark:border-neutral-800 shadow-lg rounded-2xl p-5 my-5;
 
         a {
-            @apply font-semibold inline-block bg-gradient-to-r from-amber-300 to-orange-600 bg-clip-text text-transparent;
+            @apply font-semibold inline-block bg-linear-to-r from-amber-300 to-orange-600 bg-clip-text text-transparent;
         }
         h5 {
             @apply text-neutral-400 text-sm py-1;
