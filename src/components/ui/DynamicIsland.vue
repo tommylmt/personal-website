@@ -85,7 +85,7 @@ const isSlotAvailable = computed(() => !!slots.default)
 const borderRadius = computed(() => `${props.height / 2}px`)
 
 const observeProgress = () => {
-    const element = document.querySelector(props.blockToObserve)
+    const element = document.querySelector<HTMLElement>(props.blockToObserve)
 
     if (!element) {
         return
