@@ -47,6 +47,6 @@
         }
     }
     pre {
-        @apply bg-neutral-900 p-5 my-5 rounded-2xl text-white text-sm shadow-md border border-neutral-800;
+        @apply bg-neutral-900 p-5 my-5 rounded-2xl text-white text-sm shadow-md border border-neutral-800 overflow-y-scroll;
     }
 }

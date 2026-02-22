@@ -54,7 +54,7 @@ onMounted(() => {
         <template v-else>
             <div
                 v-if="article.banner"
-                class="rounded-4xl h-125 mb-10 relative flex items-end"
+                class="rounded-4xl h-80 md:h-125 mb-10 relative flex items-end"
                 :style="{
                     background: `url(${baseUrl + article.banner}`,
                     backgroundSize: 'cover',
@@ -62,7 +62,32 @@ onMounted(() => {
                 }"
             >
                 <div class="absolute bg-linear-to-t from-neutral-900/80 to-transparent h-full w-full rounded-4xl"></div>
-                <h1 class="text-white font-bold text-6xl relative p-10 z-20">{{ article.title }}</h1>
+
+                <div class="p-5 lg:p-10 relative z-20">
+                    <h1 class="text-white font-bold text-4xl lg:text-6xl">{{ article.title }}</h1>
+
+                    <div class="lg:hidden flex text-white items-end gap-5">
+                        <div>
+                            <i class="ph ph-clock"></i>
+                            <p>{{ article.reading_time }} min</p>
+                        </div>
+                        <div>
+                            <p>{{ article.language_icon }}</p>
+                            <p class="font-bold font-sans text-neutral-100">
+                                {{ article.language }}
+                            </p>
+                        </div>
+                        <div>
+                            <i class="ph ph-calendar"></i>
+                            <i18n-d
+                                tag="p"
+                                class="font-bold font-sans text-neutral-100"
+                                :value="new Date(article.published_at)"
+                                format="short"
+                            ></i18n-d>
+                        </div>
+                    </div>
+                </div>
             </div>
             <DynamicIsland :title="$t('blog.toc')" class="bg-black dark:bg-white text-white dark:text-black" block-to-observe="#markdown">
                 <p
@@ -76,7 +101,7 @@ onMounted(() => {
                 </p>
             </DynamicIsland>
 
-            <div class="relative flex gap-10 items-start">
+            <div class="relative lg:flex gap-10 items-start">
                 <div
                     :class="[
                         'sticky top-10 rounded-3xl bg-neutral-100 shadow-lg shadow-neutral-100',

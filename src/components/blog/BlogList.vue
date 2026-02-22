@@ -9,7 +9,7 @@
 
         <ErrorBanner title="blog.error" v-if="hasErrors" data-aos="fade-up" data-aos-delay="200" />
         <div
-            class="my-3 md:my-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 xl:gap-6 md:p-0"
+            class="my-3 md:my-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 xl:gap-6 md:p-0 mb-40!"
             data-aos="fade-up"
             data-aos-delay="200"
             v-else
@@ -17,7 +17,7 @@
             <template v-if="isLoading">
                 <div
                     v-for="e in [...Array(8).keys()]"
-                    class="h-100 2xl:h-120 rounded-4xl col-span-1 culture-loader"
+                    class="h-100 md:h-80 lg:h-100 2xl:h-120 rounded-4xl col-span-1 culture-loader"
                     :key="e"
                     :data-test="TestIds.Blog.List.aLoaderSkeleton"
                 ></div>
