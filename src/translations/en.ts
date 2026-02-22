@@ -70,11 +70,11 @@ export const en = {
                 description: 'My blog posts',
                 twitter: {
                     title: 'Blog',
-                    description: 'My blog posts: both technicals and personals'
+                    description: 'Exploring software and the human side of building it.'
                 },
                 og: {
                     title: 'Blog',
-                    description: 'My blog posts: both technicals and personals'
+                    description: 'Exploring software and the human side of building it.'
                 }
             },
             culture: {
@@ -157,7 +157,7 @@ export const en = {
     },
     blog: {
         title: 'Blog',
-        subtitle: 'All my blog posts, both technicals and personals',
+        subtitle: 'Code, craft, and everything in between.',
         error: 'An error occured while loading blog posts, try again later',
         toc: 'Table of contents',
         timetoread: 'Estimated time to read',

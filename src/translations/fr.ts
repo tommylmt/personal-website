@@ -67,11 +67,11 @@ export const fr = {
                 description: 'Mes articles de blog',
                 twitter: {
                     title: 'Blog',
-                    description: 'Mes articles de blog techniques et personnels'
+                    description: "Plongée dans mes expérimentations, de l'IDE à la vie"
                 },
                 og: {
                     title: 'Blog',
-                    description: 'Mes articles de blog techniques et personnels'
+                    description: "Plongée dans mes expérimentations, de l'IDE à la vie"
                 }
             },
             culture: {
@@ -155,7 +155,7 @@ export const fr = {
     },
     blog: {
         title: 'Blog',
-        subtitle: 'Tous mes articles de blog, personnels et techniques',
+        subtitle: "Plongée dans mes expérimentations, de l'IDE à la vie",
         error: "Une erreur s'est produite lors du chargement des articles",
         toc: 'Sommaire',
         timetoread: 'Temps de lecture',
