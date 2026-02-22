@@ -2,7 +2,7 @@
 import '@phosphor-icons/web/regular'
 import ContainerLayout from '@/components/layout/ContainerLayout.vue'
 import { useRoute } from 'vue-router'
-import { computed, inject, onMounted, ref } from 'vue'
+import { computed, inject, onMounted, ref, useTemplateRef } from 'vue'
 import type { TCompleteBlogPost } from '@/types/blog.ts'
 import axios from 'axios'
 import markdownit from 'markdown-it'
@@ -34,12 +34,16 @@ const html = computed<string>(() => {
     return md.render(article.value?.content ?? '')
 })
 
-onMounted(async () => {
+const fetchArticle = async () => {
     try {
         article.value = await axios.get<TCompleteBlogPost>(`${baseUrl}/api/blog/${params.slug}`).then((res) => res.data)
     } catch (_) {
         hasError.value = true
     }
+}
+
+onMounted(() => {
+    fetchArticle()
 })
 </script>
 
@@ -58,7 +62,7 @@ onMounted(async () => {
                 <div class="absolute bg-linear-to-t from-neutral-900/80 to-transparent h-full w-full rounded-4xl"></div>
                 <h1 class="text-white font-bold text-6xl relative p-10 z-20">{{ article.title }}</h1>
             </div>
-            <DynamicIsland :title="$t('blog.toc')" class="bg-black dark:bg-white text-white dark:text-black">
+            <DynamicIsland :title="$t('blog.toc')" class="bg-black dark:bg-white text-white dark:text-black" block-to-observe="#markdown">
                 <p
                     v-for="(section, key) in article.table_of_contents"
                     :key="key"
@@ -74,7 +78,7 @@ onMounted(async () => {
                 <div
                     :class="[
                         'sticky top-10 rounded-3xl bg-neutral-100 shadow-lg shadow-neutral-100',
-                        'p-7 basis-1/4 shrink-0 dark:bg-neutral-900 dark:shadow-none'
+                        'p-7 basis-1/4 hidden lg:block shrink-0 dark:bg-neutral-900 dark:shadow-none'
                     ]"
                 >
                     <RouterLink to="/blog">

@@ -38,7 +38,10 @@
                     <h1 class="grow text-center font-bold">{{ title }}</h1>
                     <NumberFlow :value="scrollPercentage" :format="{ style: 'percent' }" locales="en-US" />
                 </header>
-                <motion.div v-if="isSlotAvailable" class="mb-2 flex h-full max-h-60 flex-col gap-1 overflow-y-auto px-4 text-sm">
+                <motion.div
+                    v-if="isSlotAvailable"
+                    class="mb-2 flex h-full max-h-60 overflow-hidden flex-col gap-1 overflow-y-auto px-4 text-sm"
+                >
                     <slot />
                 </motion.div>
             </motion.div>
@@ -52,47 +55,57 @@ import { useColorMode } from '@vueuse/core'
 import { motion, MotionConfig } from 'motion-v'
 import { computed, onMounted, onUnmounted, ref, useSlots } from 'vue'
 import AnimatedCircularProgressBar from '@/components/ui/AnimatedCircularProgressBar.vue'
-import { DomEvent } from 'leaflet'
-import off = DomEvent.off
 
 interface Props {
     class?: string
     title?: string
     height?: number
+    blockToObserve?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
     class: '',
     title: 'Progress',
-    height: 44
+    height: 44,
+    blockToObserve: 'body'
 })
 
 const open = ref(false)
 const slots = useSlots()
 
-const scrollPercentage = ref(0)
+const scrollPercentage = ref<number>(0)
+
+onMounted(() => {
+    window.addEventListener('scroll', observeProgress)
+    observeProgress()
+})
 
 const isDark = computed(() => useColorMode().value == 'dark')
 const isSlotAvailable = computed(() => !!slots.default)
 const borderRadius = computed(() => `${props.height / 2}px`)
 
-onMounted(() => {
-    if (window === undefined) return
+const observeProgress = () => {
+    const element = document.querySelector(props.blockToObserve)
 
-    window.addEventListener('scroll', updatePageScroll)
-    updatePageScroll()
-})
+    if (!element) {
+        return
+    }
 
-function updatePageScroll() {
-    const offset = document.querySelector('#markdown')?.getBoundingClientRect()
+    const windowBottom = window.scrollY + window.innerHeight
+    const elementTop = element.getBoundingClientRect().top + window.scrollY
+    const percentage = (windowBottom - elementTop) / element.offsetHeight
 
-    if (offset) {
-        scrollPercentage.value = window.scrollY > offset.x ? (window.scrollY - offset.x) / offset.height : 0
+    if (percentage >= 1) {
+        scrollPercentage.value = 1
+    } else if (windowBottom >= elementTop) {
+        scrollPercentage.value = percentage
+    } else {
+        scrollPercentage.value = 0
     }
 }
 
 onUnmounted(() => {
-    window.removeEventListener('scroll', updatePageScroll)
+    window.removeEventListener('scroll', observeProgress)
 })
 </script>
 
