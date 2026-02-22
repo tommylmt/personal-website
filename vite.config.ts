@@ -7,14 +7,20 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-      vue(),
-      ViteEjsPlugin(),
-      tailwindcss()
-  ],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+    plugins: [vue(), ViteEjsPlugin(), tailwindcss()],
+    resolve: {
+        alias: {
+            '@': fileURLToPath(new URL('./src', import.meta.url))
+        }
+    },
+    build: {
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    'icons': ['simple-icons'],
+                    'code-highlight': ['highlight.js']
+                }
+            }
+        }
     }
-  }
 })
