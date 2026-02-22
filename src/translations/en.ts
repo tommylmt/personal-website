@@ -163,7 +163,8 @@ export const en = {
         timetoread: 'Estimated time to read',
         language: 'Language',
         publishedat: 'Published at',
-        author: 'Author'
+        author: 'Author',
+        backtolist: 'Back to blog list'
     },
     stack: {
         title: 'Stack',

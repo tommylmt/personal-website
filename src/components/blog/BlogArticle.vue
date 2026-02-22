@@ -108,26 +108,26 @@ onMounted(() => {
                         'p-7 basis-1/4 hidden lg:block shrink-0 dark:bg-neutral-900 dark:shadow-none'
                     ]"
                 >
-                    <RouterLink to="/blog">
+                    <RouterLink to="/blog" :aria-label="$t('blog.backtolist')">
                         <div class="cursor-pointer w-12 h-12 bg-black dark:bg-white rounded-full flex items-center justify-center">
                             <i class="ph ph-arrow-left text-white dark:text-black text-3xl"></i>
                         </div>
                     </RouterLink>
 
                     <div class="mt-4">
-                        <h5 class="text-sm text-neutral-500">{{ $t('blog.timetoread') }}</h5>
+                        <p class="text-sm text-neutral-700">{{ $t('blog.timetoread') }}</p>
                         <p class="text-neutral-900 font-bold font-sans dark:text-neutral-300">{{ article.reading_time }} min</p>
                     </div>
 
                     <div class="mt-4">
-                        <h5 class="text-sm text-neutral-500">{{ $t('blog.language') }}</h5>
+                        <p class="text-sm text-neutral-700">{{ $t('blog.language') }}</p>
                         <p class="text-neutral-900 font-bold font-sans dark:text-neutral-300">
                             {{ article.language_icon }} {{ article.language }}
                         </p>
                     </div>
 
                     <div class="mt-4">
-                        <h5 class="text-sm text-neutral-500">{{ $t('blog.publishedat') }}</h5>
+                        <p class="text-sm text-neutral-700">{{ $t('blog.publishedat') }}</p>
                         <i18n-d
                             tag="p"
                             class="font-bold font-sans text-neutral-900 dark:text-neutral-300"
@@ -138,7 +138,7 @@ onMounted(() => {
                     <div class="flex items-center mt-4 gap-4">
                         <img :src="baseUrl + article.author.avatar" :alt="article.author.name" class="w-15 rounded-full" />
                         <div>
-                            <h5 class="text-sm text-neutral-500">{{ $t('blog.author') }}</h5>
+                            <p class="text-sm text-neutral-700">{{ $t('blog.author') }}</p>
                             <p class="font-bold font-sans text-neutral-900 dark:text-neutral-300">
                                 {{ article.author.name }}
                             </p>

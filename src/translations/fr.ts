@@ -161,7 +161,8 @@ export const fr = {
         timetoread: 'Temps de lecture',
         language: 'Langue',
         publishedat: 'Publié le',
-        author: 'Auteur'
+        author: 'Auteur',
+        backtolist: 'Retour à la liste des articles'
     },
     stack: {
         title: 'Environnement technique',
