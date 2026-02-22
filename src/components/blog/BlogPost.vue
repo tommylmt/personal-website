@@ -15,7 +15,7 @@ defineProps<{
 <template>
     <div class="col-span-1">
         <RouterLink :to="{ name: 'blog_post', params: { slug: post.slug } }" :data-test="TestIds.Blog.Post.link">
-            <div class="h-[400px] rounded-4xl relative group cursor-pointer overflow-hidden">
+            <div class="h-100 2xl:h-120 rounded-4xl relative group cursor-pointer overflow-hidden">
                 <div
                     class="h-full w-full absolute scale-110 transition-all group-hover:scale-100"
                     :data-test="TestIds.Blog.Post.cardImage"

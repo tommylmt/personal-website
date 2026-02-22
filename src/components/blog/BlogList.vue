@@ -17,7 +17,7 @@
             <template v-if="isLoading">
                 <div
                     v-for="e in [...Array(8).keys()]"
-                    class="h-100 rounded-4xl col-span-1 bg-neutral-200 dark:bg-neutral-800 animate-pulse"
+                    class="h-100 2xl:h-120 rounded-4xl col-span-1 culture-loader"
                     :key="e"
                     :data-test="TestIds.Blog.List.aLoaderSkeleton"
                 ></div>

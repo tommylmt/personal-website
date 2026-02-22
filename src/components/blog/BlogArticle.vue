@@ -2,13 +2,14 @@
 import '@phosphor-icons/web/regular'
 import ContainerLayout from '@/components/layout/ContainerLayout.vue'
 import { useRoute } from 'vue-router'
-import { computed, inject, onMounted, ref, useTemplateRef } from 'vue'
+import { computed, inject, onMounted, ref } from 'vue'
 import type { TCompleteBlogPost } from '@/types/blog.ts'
 import axios from 'axios'
 import markdownit from 'markdown-it'
 import DynamicIsland from '@/components/ui/DynamicIsland.vue'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/atom-one-dark.min.css'
+import BlogArticleLoader from '@/components/blog/BlogArticleLoader.vue'
 
 const { params } = useRoute()
 const article = ref<TCompleteBlogPost | null>(null)
@@ -49,7 +50,8 @@ onMounted(() => {
 
 <template>
     <ContainerLayout>
-        <template v-if="article">
+        <BlogArticleLoader v-if="!article" />
+        <template v-else>
             <div
                 v-if="article.banner"
                 class="rounded-4xl h-125 mb-10 relative flex items-end"
