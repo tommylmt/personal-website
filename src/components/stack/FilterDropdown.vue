@@ -1,5 +1,5 @@
 <template>
-    <span class="relative">
+    <div class="relative">
         <button
             @mouseenter="data.isButtonHovered = true"
             @mouseleave="data.isButtonHovered = false"
@@ -25,7 +25,7 @@
         </button>
         <ul
             class="dropdown absolute right-0 z-50 p-2 shadow-neutral-200 transition-all shadow-lg rounded-lg bg-white w-52 dark:bg-neutral-900 dark:shadow-neutral-950"
-            :class="[data.displayDropdown ? 'top-[60px] opacity-100 z-40!' : 'top-[80px] opacity-0 !-z-40']"
+            :class="[data.displayDropdown ? 'top-15 opacity-100 z-40!' : 'top-20 opacity-0 -z-40!']"
         >
             <li
                 v-for="type in props.types"
@@ -41,7 +41,7 @@
                 {{ $t(`stack.types.${slugify(type)}`) }}
             </li>
         </ul>
-    </span>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -70,6 +70,6 @@ const filter = (type: string) => {
 }
 
 const slugify = (name: string) => {
-    return name.toLowerCase()
+    return name?.toLowerCase()
 }
 </script>

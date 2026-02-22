@@ -89,9 +89,9 @@ export default {
                     // @ts-expect-error we should not call from import alias like if it was an array.
                     const icon = sicons[el.code] as TStackElement
 
-                    this.icons.push({ ...icon, ...{ type: el.skill_type.name } })
+                    this.icons.push({ ...icon, ...{ type: el.skill_type?.name } })
                 })
-                this.skillTypes = [...new Set(data.map((s) => s.skill_type.name))].sort((a, b) => a.localeCompare(b)) as string[]
+                this.skillTypes = [...new Set(data.map((s) => s.skill_type?.name))].sort((a, b) => a.localeCompare(b)) as string[]
 
                 resolve(null)
             })
