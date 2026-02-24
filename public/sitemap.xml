@@ -2,13 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://thomaslamothe.com/</loc>
-        <lastmod>2025-01-19</lastmod>
+        <lastmod>2026-02-24</lastmod>
         <changefreq>yearly</changefreq>
         <priority>1</priority>
     </url>
     <url>
         <loc>https://thomaslamothe.com/stack</loc>
         <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://thomaslamothe.com/blog</loc>
+        <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>

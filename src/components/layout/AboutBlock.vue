@@ -20,7 +20,7 @@ export default {
         },
         customClass: {
             type: [String, Array, Object],
-            default: 'flex-nowrap md:flex-wrap md:flex lg:flex-nowrap gap-5 p-3 2xl:p-0'
+            default: 'flex-nowrap md:flex-wrap flex flex-col-reverse md:flex-row lg:flex-nowrap gap-5 p-3 2xl:p-0'
         }
     }
 }

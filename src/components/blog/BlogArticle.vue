@@ -115,19 +115,19 @@ onMounted(() => {
                     </RouterLink>
 
                     <div class="mt-4">
-                        <p class="text-sm text-neutral-700">{{ $t('blog.timetoread') }}</p>
+                        <p class="text-sm text-neutral-700 dark:text-neutral-400">{{ $t('blog.timetoread') }}</p>
                         <p class="text-neutral-900 font-bold font-sans dark:text-neutral-300">{{ article.reading_time }} min</p>
                     </div>
 
                     <div class="mt-4">
-                        <p class="text-sm text-neutral-700">{{ $t('blog.language') }}</p>
+                        <p class="text-sm text-neutral-700 dark:text-neutral-400">{{ $t('blog.language') }}</p>
                         <p class="text-neutral-900 font-bold font-sans dark:text-neutral-300">
                             {{ article.language_icon }} {{ article.language }}
                         </p>
                     </div>
 
                     <div class="mt-4">
-                        <p class="text-sm text-neutral-700">{{ $t('blog.publishedat') }}</p>
+                        <p class="text-sm text-neutral-700 dark:text-neutral-400">{{ $t('blog.publishedat') }}</p>
                         <i18n-d
                             tag="p"
                             class="font-bold font-sans text-neutral-900 dark:text-neutral-300"
@@ -138,7 +138,7 @@ onMounted(() => {
                     <div class="flex items-center mt-4 gap-4">
                         <img :src="baseUrl + article.author.avatar" :alt="article.author.name" class="w-15 rounded-full" />
                         <div>
-                            <p class="text-sm text-neutral-700">{{ $t('blog.author') }}</p>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">{{ $t('blog.author') }}</p>
                             <p class="font-bold font-sans text-neutral-900 dark:text-neutral-300">
                                 {{ article.author.name }}
                             </p>
