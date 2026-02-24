@@ -1,0 +1,26 @@
+# Thomas Lamothe
+
+> Thomas Lamothe is a French Software Developer based in Toulouse, specializing in full-stack web development and SaaS platforms.
+
+## About
+Thomas is a software developer with a background in building and maintaining global SaaS platforms. He is currently a Software Developer II at Mailjet by Sinch and has experience as a Tech Lead and Freelance Developer. Outside of coding, he is a musician, skateboarder, and open-source contributor.
+
+## Technical Stack
+- **Languages/Frameworks:** PHP (Symfony, Laravel, Laminas), React (React Router, Next.js), Vue.js, Tailwind CSS
+- **Infrastructure/Tools:** Docker, AWS, Redis
+- **Methodologies:** Full-stack development, SaaS maintenance, Open Source, APIs
+
+## Experience
+- **Mailjet by Sinch** (2026 – Present): Software Developer II (Remote)
+- **Iwit Systems** (2020 – 2026): Web Tech Lead Developer in Toulouse
+- **Freelance** (2017 – 2022): Full-Stack Developer
+- **Mipih** (2019): Web Development Intern
+
+## Education
+- **Dual Bachelor in Computer Engineering** (2020 – 2021) - Paul Sabatier College
+- **Professional Bachelor in Computer Science** (2019 – 2020) - Toulouse's Capitole College
+- **Associate's Degree in Computer Science** (2017 – 2019) - Paul Sabatier Technology Institute
+
+## Contact & Socials
+- **Location:** Toulouse, France
+- **Website:** [thomaslamothe.com](https://thomaslamothe.com)
