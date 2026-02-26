@@ -8,22 +8,20 @@
         </p>
 
         <ErrorBanner title="blog.error" v-if="hasErrors" data-aos="fade-up" data-aos-delay="200" />
-        <div
-            class="my-3 md:my-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 xl:gap-6 md:p-0 mb-40!"
-            data-aos="fade-up"
-            data-aos-delay="200"
-            v-else
-        >
-            <template v-if="isLoading">
+        <template v-else>
+            <BlogListColumnContainer v-if="isLoading">
                 <div
                     v-for="e in [...Array(8).keys()]"
                     class="h-100 md:h-80 lg:h-100 2xl:h-120 rounded-4xl col-span-1 culture-loader"
                     :key="e"
                     :data-test="TestIds.Blog.List.aLoaderSkeleton"
                 ></div>
-            </template>
-            <BlogPost v-else v-for="article in articles" :key="article.slug" :post="article" :data-test="TestIds.Blog.List.aBlogPost" />
-        </div>
+            </BlogListColumnContainer>
+            <BlogListColumnContainer v-else-if="articles && articles.length > 0">
+                <BlogPost v-for="article in articles" :key="article.slug" :post="article" :data-test="TestIds.Blog.List.aBlogPost" />
+            </BlogListColumnContainer>
+            <NoArticleFound v-else />
+        </template>
     </ContainerLayout>
 </template>
 
@@ -35,6 +33,8 @@ import ErrorBanner from '@/components/errors/ErrorBanner.vue'
 import BlogPost from '@/components/blog/BlogPost.vue'
 import ContainerLayout from '@/components/layout/ContainerLayout.vue'
 import { TestIds } from '@/utils/testIds.ts'
+import NoArticleFound from '@/components/blog/NoArticleFound.vue'
+import BlogListColumnContainer from '@/components/blog/BlogListColumnContainer.vue'
 
 const articles = ref<TBlogPost[] | null>(null)
 const hasErrors = ref<boolean>(false)

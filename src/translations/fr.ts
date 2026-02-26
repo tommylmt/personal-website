@@ -157,6 +157,7 @@ export const fr = {
         title: 'Blog',
         subtitle: "Plongée dans mes expérimentations, de l'IDE à la vie",
         error: "Une erreur s'est produite lors du chargement des articles",
+        noarticle: '// TODO: publier des articles',
         toc: 'Sommaire',
         timetoread: 'Temps de lecture',
         language: 'Langue',

@@ -159,6 +159,7 @@ export const en = {
         title: 'Blog',
         subtitle: 'Code, craft, and everything in between.',
         error: 'An error occured while loading blog posts, try again later',
+        noarticle: '// TODO: publish content here',
         toc: 'Table of contents',
         timetoread: 'Estimated time to read',
         language: 'Language',
