@@ -9,11 +9,11 @@
             'dark:bg-black dark:border-neutral-800 dark:shadow-neutral-950'
         ]"
     >
-        <div class="w-full md:w-64 lg:w-80 2xl:w-2/5 shrink-0 p-0 md:p-2 2xl:p-0">
+        <div class="w-1/2 mx-auto md:mx-0 md:w-64 lg:w-80 2xl:w-2/5 shrink-0 p-0 md:p-2 2xl:p-0">
             <img
                 src="/img/about/about_me.webp"
                 alt="Thomas Lamothe"
-                class="rounded-t-3xl md:rounded-3xl 2xl:rounded-e-none"
+                class="rounded-3xl md:rounded-3xl 2xl:rounded-e-none"
                 fetchpriority="high"
             />
         </div>

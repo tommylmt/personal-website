@@ -10,6 +10,7 @@ import DynamicIsland from '@/components/ui/DynamicIsland.vue'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/atom-one-dark.min.css'
 import BlogArticleLoader from '@/components/blog/BlogArticleLoader.vue'
+import { TestIds } from '@/utils/testIds.ts'
 
 const { params } = useRoute()
 const article = ref<TCompleteBlogPost | null>(null)
@@ -60,11 +61,14 @@ onMounted(() => {
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
                 }"
+                :data-test="TestIds.Blog.Article.banner"
             >
                 <div class="absolute bg-linear-to-t from-neutral-900/80 to-transparent h-full w-full rounded-4xl"></div>
 
                 <div class="p-5 lg:p-10 relative z-20">
-                    <h1 class="text-white font-bold text-4xl lg:text-6xl">{{ article.title }}</h1>
+                    <h1 class="text-white font-bold text-4xl lg:text-6xl" :data-test="TestIds.Blog.Article.title">
+                        {{ article.title }}
+                    </h1>
 
                     <div class="lg:hidden flex text-white items-end gap-5">
                         <div>
@@ -116,12 +120,14 @@ onMounted(() => {
 
                     <div class="mt-4">
                         <p class="text-sm text-neutral-700 dark:text-neutral-400">{{ $t('blog.timetoread') }}</p>
-                        <p class="text-neutral-900 font-bold font-sans dark:text-neutral-300">{{ article.reading_time }} min</p>
+                        <p class="text-neutral-900 font-bold font-sans dark:text-neutral-300" :data-test="TestIds.Blog.Article.timeToRead">
+                            {{ article.reading_time }} min
+                        </p>
                     </div>
 
                     <div class="mt-4">
                         <p class="text-sm text-neutral-700 dark:text-neutral-400">{{ $t('blog.language') }}</p>
-                        <p class="text-neutral-900 font-bold font-sans dark:text-neutral-300">
+                        <p class="text-neutral-900 font-bold font-sans dark:text-neutral-300" :data-test="TestIds.Blog.Article.language">
                             {{ article.language_icon }} {{ article.language }}
                         </p>
                     </div>
@@ -136,17 +142,25 @@ onMounted(() => {
                         ></i18n-d>
                     </div>
                     <div class="flex items-center mt-4 gap-4">
-                        <img :src="baseUrl + article.author.avatar" :alt="article.author.name" class="w-15 rounded-full" />
+                        <img
+                            :src="baseUrl + article.author.avatar"
+                            :alt="article.author.name"
+                            class="w-15 rounded-full"
+                            :data-test="TestIds.Blog.Article.authorIcon"
+                        />
                         <div>
                             <p class="text-sm text-neutral-700 dark:text-neutral-400">{{ $t('blog.author') }}</p>
-                            <p class="font-bold font-sans text-neutral-900 dark:text-neutral-300">
+                            <p
+                                class="font-bold font-sans text-neutral-900 dark:text-neutral-300"
+                                :data-test="TestIds.Blog.Article.authorName"
+                            >
                                 {{ article.author.name }}
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="grow">
-                    <div id="markdown" class="mb-20" v-html="html"></div>
+                    <div id="markdown" class="mb-20" v-html="html" :data-test="TestIds.Blog.Article.markdown"></div>
                 </div>
             </div>
         </template>

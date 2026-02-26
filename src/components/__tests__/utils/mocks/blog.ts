@@ -1,4 +1,25 @@
-import type { TBlogPost } from '@/types/blog.ts'
+import type { TBlogPost, TCompleteBlogPost } from '@/types/blog.ts'
+
+export const createFakeBlogPost = (
+    title: string,
+    slug: string,
+    card_image: string,
+    published_at: string,
+    language_icon: string,
+    content: string,
+    uuid: string,
+    banner: string,
+    reading_time: number
+): TCompleteBlogPost => {
+    return {
+        ...createFakeBlogPostForList(title, slug, card_image, published_at, language_icon),
+        unique_id: uuid,
+        banner: banner,
+        reading_time: reading_time,
+        content: content,
+        table_of_contents: []
+    }
+}
 
 export const createFakeBlogPostForList = (
     title: string,
