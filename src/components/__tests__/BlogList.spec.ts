@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { flushPromises, shallowMount } from '@vue/test-utils'
+import { flushPromises, mount } from '@vue/test-utils'
 import BlogList from '@/components/blog/BlogList.vue'
 import axios from 'axios'
 import { blogPostList } from '@/components/__tests__/utils/mocks/blog.ts'
@@ -19,6 +19,7 @@ const GLOBAL_PROPS = {
         stubs: {
             ContainerLayout: false,
             ErrorBanner: false,
+            NoArticleFound: false,
             BlogPost: false
         }
     }
@@ -34,7 +35,7 @@ describe('BlogList Component', () => {
     it('fetches all blog post when mounted', async () => {
         vi.mocked(axios.get).mockResolvedValue({ data: blogPostList })
 
-        const wrapper = shallowMount(BlogList, GLOBAL_PROPS)
+        const wrapper = mount(BlogList, GLOBAL_PROPS)
         const {
             Blog: {
                 List: { aBlogPost }
@@ -49,7 +50,7 @@ describe('BlogList Component', () => {
 
     it('display a skeleton loader when data are not loaded', async () => {
         vi.mocked(axios.get).mockImplementation(() => new Promise(() => {}))
-        const wrapper = shallowMount(BlogList, GLOBAL_PROPS)
+        const wrapper = mount(BlogList, GLOBAL_PROPS)
         const {
             Blog: {
                 List: { aLoaderSkeleton }
@@ -61,7 +62,7 @@ describe('BlogList Component', () => {
 
     it('render an error when fetch fail', async () => {
         vi.mocked(axios.get).mockRejectedValue(new Error('Failed to fetch'))
-        const wrapper = shallowMount(BlogList, GLOBAL_PROPS)
+        const wrapper = mount(BlogList, GLOBAL_PROPS)
 
         await flushPromises()
         expect(wrapper.getComponent(ErrorBanner)).toBeDefined()

@@ -9,7 +9,8 @@ export const createFakeBlogPost = (
     content: string,
     uuid: string,
     banner: string,
-    reading_time: number
+    reading_time: number,
+    toc: { level: number; text: string }[] = []
 ): TCompleteBlogPost => {
     return {
         ...createFakeBlogPostForList(title, slug, card_image, published_at, language_icon),
@@ -17,7 +18,7 @@ export const createFakeBlogPost = (
         banner: banner,
         reading_time: reading_time,
         content: content,
-        table_of_contents: []
+        table_of_contents: toc
     }
 }
 
@@ -38,7 +39,7 @@ export const createFakeBlogPostForList = (
             name: 'Tommy',
             avatar: '/avatar.jpg'
         },
-        language: 'Language',
+        language: 'English',
         language_icon
     }
 }
