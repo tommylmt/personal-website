@@ -11,7 +11,7 @@
             :class="[
                 'absolute w-full h-full top-0 left-0 backdrop-blur-md z-10 p-4 transition-all delay-700',
                 'justify-center items-center group-hover:opacity-100',
-                'hidden md:flex',
+                'block md:flex',
                 { 'opacity-100': isExpanded, 'opacity-0': !isExpanded }
             ]"
         >
@@ -32,7 +32,10 @@
                 <a
                     :href="song.external_urls.spotify"
                     target="_blank"
-                    :class="['px-3 py-1 text-sm rounded-3xl text-white w-fit m-auto', 'flex items-center gap-1 bg-black transition-all']"
+                    :class="[
+                        'px-3 py-1 text-sm rounded-3xl text-white w-fit m-auto',
+                        'hidden md:flex items-center gap-1 bg-black transition-all'
+                    ]"
                 >
                     <i class="ph-light ph-spotify-logo text-lg text-lime-500"></i>
                     {{ $t('culture.listenon') }}
@@ -64,6 +67,7 @@
 import { SPOTIFY_IMAGE_SIZES } from '@/utils/constants.ts'
 import type { SpotifyImaged, SpotifyImageSize, SpotifySong } from '@/types/culture.ts'
 import { ref } from 'vue'
+import { isTouchDevice } from '@/utils/mobile.ts'
 
 defineProps<{
     song: SpotifySong
@@ -72,8 +76,7 @@ defineProps<{
 const isExpanded = ref<boolean>(false)
 
 const toggleExpand = () => {
-    // only on touch devices
-    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    if (isTouchDevice()) {
         isExpanded.value = !isExpanded.value
     }
 }
