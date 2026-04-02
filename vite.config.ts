@@ -17,7 +17,6 @@ export default defineConfig({
         rollupOptions: {
             output: {
                 manualChunks: {
-                    'icons': ['simple-icons'],
                     'code-highlight': ['highlight.js']
                 }
             }

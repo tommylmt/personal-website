@@ -37,14 +37,13 @@
 </template>
 
 <script lang="ts">
-import * as sicons from 'simple-icons'
-import axios from 'axios'
 import StackElement from '@/components/stack/StackElement.vue'
 import 'web-animations-js'
 import Muuri, { Item } from 'muuri'
 import FilterDropdown from '@/components/stack/FilterDropdown.vue'
-import type { TApiStackElement, TStackData, TStackElement } from '@/types/stack.ts'
+import type { TApiStackElement, TStackData } from '@/types/stack.ts'
 import ContainerLayout from '@/components/layout/ContainerLayout.vue'
+import { apiRequest } from '@/utils/client.ts'
 
 export default {
     components: {
@@ -65,7 +64,7 @@ export default {
     },
     methods: {
         async retrieveSkills() {
-            const { data } = await axios.get<TApiStackElement[]>(`${this.$baseUrl}/api/stack`)
+            const data = await apiRequest<TApiStackElement[]>('/api/stack')
 
             this.prepareIcons(data).then(() => {
                 this.muuri = new Muuri('#muuri', {
@@ -86,10 +85,7 @@ export default {
         prepareIcons(data: TApiStackElement[]) {
             return new Promise((resolve: (value: unknown) => void) => {
                 data.sort((a, b) => a.title.localeCompare(b.title)).forEach((el) => {
-                    // @ts-expect-error we should not call from import alias like if it was an array.
-                    const icon = sicons[el.code] as TStackElement
-
-                    this.icons.push({ ...icon, ...{ type: el.skill_type?.name } })
+                    this.icons.push({ ...el, ...{ type: el.skill_type?.name } })
                 })
                 this.skillTypes = [...new Set(data.map((s) => s.skill_type?.name))].sort((a, b) => a.localeCompare(b)) as string[]
 

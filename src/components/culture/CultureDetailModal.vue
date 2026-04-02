@@ -116,9 +116,9 @@
 import { AnimatePresence, Motion } from 'motion-v'
 import { mapStores } from 'pinia'
 import { useCultureStore } from '@/stores/cultureStore'
-import axios from 'axios'
 import CultureDetailModalLoader from '@/components/culture/CultureDetailModalLoader.vue'
 import type { TCultureDetail, TCultureDetailModalData } from '@/types/culture.ts'
+import { apiRequest } from '@/utils/client.ts'
 
 export default {
     components: { CultureDetailModalLoader, AnimatePresence, Motion },
@@ -169,9 +169,7 @@ export default {
             return undefined
         },
         async fetch(uuid: string) {
-            const { data } = await axios.get<TCultureDetail>(`${this.$baseUrl}/api/${this.$i18n.locale}/culture/${uuid}/details`)
-
-            this.data = data
+            this.data = await apiRequest<TCultureDetail>(`/api/${this.$i18n.locale}/culture/${uuid}/details`)
             this.isLoading = false
         }
     }

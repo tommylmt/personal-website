@@ -4,7 +4,7 @@
             class="w-full h-[500px] rounded-3xl flex items-end p-5 cursor-none"
             @click="openDetails"
             :style="{
-                background: `url(${$baseUrl + '/cdn' + file})`,
+                background: `url(${$baseUrl + file})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
             }"

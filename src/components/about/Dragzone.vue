@@ -75,8 +75,8 @@
 import Earth from '@/components/about/Earth.vue'
 import MyLife from '@/components/about/MyLife.vue'
 import PictureWrapper from '@/components/about/PictureWrapper.vue'
-import axios from 'axios'
 import type { TDragzoneData, TPicturePosition } from '@/types/about.ts'
+import { apiRequest } from '@/utils/client.ts'
 
 export default {
     components: {
@@ -85,7 +85,7 @@ export default {
         Earth
     },
     async mounted() {
-        this.pictures = await axios.get(`${this.$baseUrl}/api/camera-roll`).then((res) => res.data)
+        this.pictures = await apiRequest<Record<TPicturePosition, string>>('/api/camera-roll')
         this.isLoading = false
     },
     data(): TDragzoneData {

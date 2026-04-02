@@ -76,7 +76,6 @@
 </template>
 
 <script lang="ts">
-import axios from 'axios'
 import { Vue3Marquee } from 'vue3-marquee'
 import CulturePoster from '@/components/culture/CulturePoster.vue'
 import MeetMe from '@/components/culture/MeetMe.vue'
@@ -86,6 +85,7 @@ import { CULTURE_LINKS, MEDIA_TYPE } from '@/utils/constants'
 import CultureDetailModal from '@/components/culture/CultureDetailModal.vue'
 import type { SpotifySong, TCultureData, TCultureElement } from '@/types/culture.ts'
 import ContainerLayout from '@/components/layout/ContainerLayout.vue'
+import { apiRequest } from '@/utils/client.ts'
 
 export default {
     components: {
@@ -121,7 +121,7 @@ export default {
         },
         async fetchElements() {
             try {
-                const { data } = await axios.get<TCultureElement[]>(`${this.$baseUrl}/api/culture`)
+                const data = await apiRequest<TCultureElement[]>('/api/culture')
 
                 this.movies = data.filter((media) => media.media_type.slug === MEDIA_TYPE.Movie)
                 this.shows = data.filter((media) => media.media_type.slug === MEDIA_TYPE.TvShows)
@@ -131,9 +131,7 @@ export default {
         },
         async retrieveCharts() {
             try {
-                const { data } = await axios.get<SpotifySong[]>(`${this.$baseUrl}/api/charts`)
-
-                this.songs = data
+                this.songs = await apiRequest<SpotifySong[]>('/api/charts')
             } catch (_) {
                 this.errorSongs = 'culture.errors.charts'
             }

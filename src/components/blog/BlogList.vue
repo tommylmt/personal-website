@@ -26,26 +26,24 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import type { TBlogPost } from '@/types/blog.ts'
-import axios from 'axios'
 import ErrorBanner from '@/components/errors/ErrorBanner.vue'
 import BlogPost from '@/components/blog/BlogPost.vue'
 import ContainerLayout from '@/components/layout/ContainerLayout.vue'
 import { TestIds } from '@/utils/testIds.ts'
 import NoArticleFound from '@/components/blog/NoArticleFound.vue'
 import BlogListColumnContainer from '@/components/blog/BlogListColumnContainer.vue'
+import { apiRequest } from '@/utils/client.ts'
 
 const articles = ref<TBlogPost[] | null>(null)
 const hasErrors = ref<boolean>(false)
 
 const isLoading = computed<boolean>(() => articles.value === null)
-const baseUrl = inject('baseUrl')
 
 onMounted(async () => {
     try {
-        const { data } = await axios.get<TBlogPost[]>(`${baseUrl}/api/blog/list`)
-        articles.value = data
+        articles.value = await apiRequest<TBlogPost[]>('/api/blog/list')
     } catch (_) {
         hasErrors.value = true
     }
