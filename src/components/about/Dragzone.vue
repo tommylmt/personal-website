@@ -71,39 +71,32 @@
     </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import Earth from '@/components/about/Earth.vue'
 import MyLife from '@/components/about/MyLife.vue'
 import PictureWrapper from '@/components/about/PictureWrapper.vue'
-import type { TDragzoneData, TPicturePosition } from '@/types/about.ts'
-import { apiRequest } from '@/utils/client.ts'
+import type { TPicturePosition } from '@/types/about.ts'
+import { useApiClient } from '@/composables/useApiClient.ts'
+import { inject, onMounted, ref } from 'vue'
 
-export default {
-    components: {
-        PictureWrapper,
-        MyLife,
-        Earth
-    },
-    async mounted() {
-        this.pictures = await apiRequest<Record<TPicturePosition, string>>('/api/camera-roll')
-        this.isLoading = false
-    },
-    data(): TDragzoneData {
-        return {
-            pictures: undefined,
-            isLoading: true
-        }
-    },
-    methods: {
-        imageForPosition(position: TPicturePosition): string {
-            const image = this.pictures ? this.pictures[position] : null
+const { apiRequest } = useApiClient()
 
-            if (image) {
-                return `${this.$baseUrl}${image}`
-            }
+const pictures = ref<Record<TPicturePosition, string> | undefined>(undefined)
+const isLoading = ref<boolean>(true)
+const baseUrl = inject('baseUrl')
 
-            return ''
-        }
+onMounted(async () => {
+    pictures.value = await apiRequest<Record<TPicturePosition, string>>('/api/camera-roll')
+    isLoading.value = false
+})
+
+const imageForPosition = (position: TPicturePosition): string => {
+    const image = pictures.value ? pictures.value[position] : null
+
+    if (image) {
+        return baseUrl + image
     }
+
+    return ''
 }
 </script>

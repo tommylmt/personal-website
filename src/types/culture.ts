@@ -12,12 +12,6 @@ export type TCulturePosterData = {
     }
 }
 
-export type TCultureDetailModalData = {
-    isOpen: boolean
-    isLoading: boolean
-    data: TCultureDetail | null
-}
-
 export type TCultureElement = {
     artist: string
     file: string

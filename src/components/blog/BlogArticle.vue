@@ -10,8 +10,9 @@ import hljs from 'highlight.js'
 import 'highlight.js/styles/atom-one-dark.min.css'
 import BlogArticleLoader from '@/components/blog/BlogArticleLoader.vue'
 import { TestIds } from '@/utils/testIds.ts'
-import { apiRequest } from '@/utils/client.ts'
+import { useApiClient } from '@/composables/useApiClient.ts'
 
+const { apiRequest } = useApiClient()
 const { params } = useRoute()
 const article = ref<TCompleteBlogPost | null>(null)
 const hasError = ref<boolean>(false)

@@ -34,8 +34,9 @@ import ContainerLayout from '@/components/layout/ContainerLayout.vue'
 import { TestIds } from '@/utils/testIds.ts'
 import NoArticleFound from '@/components/blog/NoArticleFound.vue'
 import BlogListColumnContainer from '@/components/blog/BlogListColumnContainer.vue'
-import { apiRequest } from '@/utils/client.ts'
+import { useApiClient } from '@/composables/useApiClient.ts'
 
+const { apiRequest } = useApiClient()
 const articles = ref<TBlogPost[] | null>(null)
 const hasErrors = ref<boolean>(false)
 

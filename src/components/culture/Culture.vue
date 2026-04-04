@@ -66,7 +66,10 @@
         </div>
         <div class="my-7 mb-20 md:mb-40">
             <ErrorBanner v-if="errorSongs" :title="errorSongs" />
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-6 xl:gap-10 p-3 md:p-0" v-else>
+            <div
+                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6 gap-3 md:gap-6 xl:gap-10 p-3 md:p-0"
+                v-else
+            >
                 <Music v-for="element in songs" :song="element" :key="element.id" />
             </div>
         </div>
@@ -85,9 +88,16 @@ import { CULTURE_LINKS, MEDIA_TYPE } from '@/utils/constants'
 import CultureDetailModal from '@/components/culture/CultureDetailModal.vue'
 import type { SpotifySong, TCultureData, TCultureElement } from '@/types/culture.ts'
 import ContainerLayout from '@/components/layout/ContainerLayout.vue'
-import { apiRequest } from '@/utils/client.ts'
+import { useApiClient } from '@/composables/useApiClient.ts'
+
+// TODO migrate this component to composition API
+let requester = null
 
 export default {
+    setup() {
+        const { apiRequest } = useApiClient()
+        requester = apiRequest
+    },
     components: {
         ContainerLayout,
         CultureDetailModal,
@@ -121,7 +131,7 @@ export default {
         },
         async fetchElements() {
             try {
-                const data = await apiRequest<TCultureElement[]>('/api/culture')
+                const data = await requester<TCultureElement[]>('/api/culture')
 
                 this.movies = data.filter((media) => media.media_type.slug === MEDIA_TYPE.Movie)
                 this.shows = data.filter((media) => media.media_type.slug === MEDIA_TYPE.TvShows)
@@ -131,7 +141,7 @@ export default {
         },
         async retrieveCharts() {
             try {
-                this.songs = await apiRequest<SpotifySong[]>('/api/charts')
+                this.songs = await requester<SpotifySong[]>('/api/charts')
             } catch (_) {
                 this.errorSongs = 'culture.errors.charts'
             }

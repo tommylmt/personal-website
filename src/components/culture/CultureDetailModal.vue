@@ -1,5 +1,5 @@
 <template>
-    <div v-if="isOpen" class="fixed h-screen inset-0 z-[9999] overflow-auto xl:p-0 p-3">
+    <div v-if="isOpen" class="fixed h-screen inset-0 z-9999 overflow-auto xl:p-0 p-3">
         <AnimatePresence :initial="true">
             <Motion
                 v-if="isOpen"
@@ -98,7 +98,7 @@
                         </h3>
 
                         <div class="flex gap-3 overflow-x-scroll md:overflow-x-visible">
-                            <div v-for="showrunner in directors()" :key="showrunner.id" class="basis-1/3 shrink-0 lg:shrink-1 md:basis-1/5">
+                            <div v-for="showrunner in directors()" :key="showrunner.id" class="basis-1/3 shrink-0 lg:shrink md:basis-1/5">
                                 <img :src="getImage(showrunner.profile_path, 'w185')" :alt="showrunner.name" class="w-full rounded-2xl" />
                                 <p class="text-neutral-800 text-sm font-bold dark:text-neutral-300 mt-2">
                                     {{ showrunner.name }}
@@ -112,66 +112,63 @@
     </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { AnimatePresence, Motion } from 'motion-v'
-import { mapStores } from 'pinia'
-import { useCultureStore } from '@/stores/cultureStore'
 import CultureDetailModalLoader from '@/components/culture/CultureDetailModalLoader.vue'
-import type { TCultureDetail, TCultureDetailModalData } from '@/types/culture.ts'
-import { apiRequest } from '@/utils/client.ts'
+import type { TCultureDetail } from '@/types/culture.ts'
+import { useCultureStore } from '@/stores/cultureStore'
+import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useApiClient } from '@/composables/useApiClient.ts'
 
-export default {
-    components: { CultureDetailModalLoader, AnimatePresence, Motion },
-    data(): TCultureDetailModalData {
-        return {
-            isOpen: false,
-            isLoading: true,
-            data: null
-        }
-    },
-    computed: {
-        ...mapStores(useCultureStore),
-        releaseYear() {
-            return new Date(this.data?.release_date ?? this.data?.first_air_date ?? '').getFullYear()
-        }
-    },
-    watch: {
-        'cultureStore.uuid'(newValue) {
-            if (newValue) {
-                this.isOpen = true
-                this.fetch(newValue)
-                document.body.style.overflowY = 'hidden'
-            }
-        }
-    },
-    methods: {
-        directors() {
-            if (this.data?.created_by) {
-                return this.data.created_by
-            }
+const isOpen = ref(false)
+const isLoading = ref(true)
+const data = ref<TCultureDetail | null>(null)
+const i18n = useI18n()
+const cultureStore = useCultureStore()
+const { apiRequest } = useApiClient()
 
-            return this.data!.crew?.sort((a, b) => (a.popularity > b.popularity ? -1 : 1))
-                .filter((c) => ['Director'].includes(c.job) && c.profile_path)
-                .slice(0, 5)
-        },
-        close() {
-            this.data = null
-            this.cultureStore.$reset()
-            this.isOpen = false
-            this.isLoading = true
-            document.body.style.overflowY = 'auto'
-        },
-        getImage(path: string, size = 'original') {
-            if (this.data?.image_base_url) {
-                return this.data.image_base_url + '/t/p/' + size + path
-            }
+const releaseYear = computed<number>(() => {
+    return new Date(data.value?.release_date ?? data.value?.first_air_date ?? '').getFullYear()
+})
 
-            return undefined
-        },
-        async fetch(uuid: string) {
-            this.data = await apiRequest<TCultureDetail>(`/api/${this.$i18n.locale}/culture/${uuid}/details`)
-            this.isLoading = false
-        }
+cultureStore.$subscribe((_, state) => {
+    if (state.uuid) {
+        isOpen.value = true
+        fetch(state.uuid)
+        document.body.style.overflowY = 'hidden'
     }
+})
+
+const directors = () => {
+    if (data.value?.created_by) {
+        return data.value.created_by
+    }
+
+    return data
+        .value!.crew?.sort((a, b) => (a.popularity > b.popularity ? -1 : 1))
+        .filter((c) => ['Director'].includes(c.job) && c.profile_path)
+        .slice(0, 5)
+}
+
+const close = () => {
+    data.value = null
+    cultureStore.$reset()
+    isOpen.value = false
+    isLoading.value = true
+    document.body.style.overflowY = 'auto'
+}
+
+const getImage = (path: string, size = 'original') => {
+    if (data.value?.image_base_url) {
+        return data.value.image_base_url + '/t/p/' + size + path
+    }
+
+    return undefined
+}
+
+const fetch = async (uuid: string) => {
+    data.value = await apiRequest<TCultureDetail>(`/api/${i18n.locale.value}/culture/${uuid}/details`)
+    isLoading.value = false
 }
 </script>
