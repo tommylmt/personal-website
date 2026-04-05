@@ -1,4 +1,4 @@
-export type TEmojiHand = '✊' | '🤘' | '🤙' | '✌' | '🖕'
+export type TEmojiHand = '👋' | '✊' | '🤘' | '🤙' | '✌' | '🖕'
 
 export type TEmojiProps = {
     emojis: TEmojiHand[]
