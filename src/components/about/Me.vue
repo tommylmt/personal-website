@@ -45,8 +45,8 @@
                     <LinkPreview :url="docker">
                         <LinkChip icon="docker.svg" name="Docker" />
                     </LinkPreview>
-                    <LinkPreview :url="aws">
-                        <LinkChip icon="aws.svg" name="AWS" />
+                    <LinkPreview :url="rust">
+                        <LinkChip icon="rust.svg" name="Rust" />
                     </LinkPreview>
                 </i18n-t>
 
@@ -83,7 +83,7 @@ export default {
             vue: 'https://vuejs.org',
             tailwind: 'https://tailwindcss.com',
             docker: 'https://www.docker.com',
-            aws: 'https://aws.amazon.com',
+            rust: 'https://rust-lang.org',
             trax: 'https://trax.thomaslamothe.com'
         }
     },
