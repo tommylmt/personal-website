@@ -21,14 +21,6 @@ export type TCultureElement = {
     unique_id: string
 }
 
-export type TCultureData = {
-    movies: TCultureElement[]
-    shows: TCultureElement[]
-    errors: false | string
-    errorSongs: false | string
-    songs: SpotifySong[]
-}
-
 export type CultureLinks = 'spotify' | 'senscritique' | 'tvtime'
 
 export type SpotifyImageSize = 'small' | 'medium' | 'large'

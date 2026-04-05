@@ -10,7 +10,7 @@ import type { TEmojiProps } from '@/types/emoji.ts'
 export default {
     data(): TEmojiProps {
         return {
-            emojis: ['✊', '🤘', '🤙', '✌', '🖕'],
+            emojis: ['👋', '✊', '🤘', '🤙', '✌', '🖕'],
             emoji: '🤙',
             emojiClass: '',
             timeouts: []

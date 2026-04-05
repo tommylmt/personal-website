@@ -101,7 +101,7 @@ export const fr = {
     about: {
         theEnd: 'Merci, à bientôt',
         me: {
-            title: 'Bonjour',
+            title: 'Et Salut',
             introduction: 'Je suis Thomas, {0} un développeur logiciel spécialisé dans le web',
             random: 'encore un random en Carhartt dans la tech',
             working: 'Je travaille en tant que développeur logiciel à Toulouse en France.',

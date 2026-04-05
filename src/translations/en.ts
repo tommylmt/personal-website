@@ -104,10 +104,10 @@ export const en = {
     about: {
         theEnd: 'Thank you for reaching the end',
         me: {
-            title: 'Hi there',
+            title: 'Hey there',
             introduction: "I'm Thomas, {0} a french web software developer",
             random: 'yet another random Carhartt kid in tech',
-            working: 'I currently work as a Software Developer from Toulouse, France.',
+            working: 'I currently work as a Software Engineer from Toulouse, France.',
             whatido:
                 'I help build and maintain a SaaS platform used by customers around the world. I mostly write code using {0}, {1}, {2}, {3} and {4} shipped on {5} infrastructures.',
             projects: "I'm also the father of several projects like {0}, Orkestrum, Cinécombles and an Open Source contributor.",
