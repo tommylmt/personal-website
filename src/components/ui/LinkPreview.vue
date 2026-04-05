@@ -2,7 +2,7 @@
     <div :class="['relative inline-block', $props.class]" ref="wrapper">
         <a
             :href="url"
-            :class="['text-neutral-500 dark:text-white cursor-pointer', linkClass]"
+            :class="['text-neutral-800 dark:text-white cursor-pointer', linkClass]"
             @mousemove="handleMouseMove"
             @mouseenter="showPreview"
             @mouseleave="hidePreview"

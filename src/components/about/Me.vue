@@ -31,22 +31,22 @@
 
                 <i18n-t keypath="about.me.whatido" tag="p" class="main-text">
                     <LinkPreview :url="php">
-                        <LinkChip icon="php.svg" name="PHP" image-class="w-5" />
+                        <IconChip icon="php.svg" name="PHP" image-class="w-5" />
                     </LinkPreview>
                     <LinkPreview :url="react">
-                        <LinkChip icon="react.svg" name="React" />
+                        <IconChip icon="react.svg" name="React" />
                     </LinkPreview>
                     <LinkPreview :url="vue">
-                        <LinkChip icon="vue.svg" name="Vue.js" />
+                        <IconChip icon="vue.svg" name="Vue.js" />
                     </LinkPreview>
                     <LinkPreview :url="tailwind">
-                        <LinkChip icon="tailwindcss.svg" name="Tailwind CSS" />
+                        <IconChip icon="tailwindcss.svg" name="Tailwind CSS" />
                     </LinkPreview>
                     <LinkPreview :url="docker">
-                        <LinkChip icon="docker.svg" name="Docker" />
+                        <IconChip icon="docker.svg" name="Docker" />
                     </LinkPreview>
                     <LinkPreview :url="rust">
-                        <LinkChip icon="rust.svg" name="Rust" />
+                        <IconChip icon="rust.svg" name="Rust" />
                     </LinkPreview>
                 </i18n-t>
 
@@ -67,11 +67,11 @@
 import Emoji from '@/components/about/Emoji.vue'
 import LinkPreview from '@/components/ui/LinkPreview.vue'
 import { Motion } from 'motion-v'
-import LinkChip from '@/components/about/LinkChip.vue'
+import IconChip from '@/components/about/IconChip.vue'
 
 export default {
     components: {
-        LinkChip,
+        IconChip,
         LinkPreview,
         Emoji,
         Motion
