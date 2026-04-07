@@ -142,7 +142,7 @@ export const fr = {
                 intern: 'Stage développeur web',
                 freelance: 'Développeur Full-Stack freelance',
                 lead: 'Tech lead developer web',
-                developer: 'Software Developer II'
+                developer: 'Software Engineer III'
             }
         },
         social: {

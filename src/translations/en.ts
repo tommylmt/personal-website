@@ -144,7 +144,7 @@ export const en = {
                 intern: 'Web development internship',
                 freelance: 'Freelance Full-Stack developer',
                 lead: 'Web tech lead developer',
-                developer: 'Software Developer II'
+                developer: 'Software Engineer III'
             }
         },
         social: {

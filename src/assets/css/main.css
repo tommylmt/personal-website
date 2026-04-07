@@ -33,7 +33,7 @@
 
 @layer components {
     .main-text {
-        @apply text-black leading-7 font-sans mb-3;
+        @apply text-black dark:text-neutral-300 leading-7 font-sans mb-3;
     }
     .me-link {
         @apply text-neutral-500 relative z-20 transition-all before:rounded-xs before:w-0 before:absolute before:h-full before:top-0 before:left-0 before:-z-10 hover:text-white before:transition-all hover:before:w-full px-1 dark:text-neutral-200;

@@ -9,7 +9,7 @@
             'dark:bg-black dark:border-neutral-800 dark:shadow-neutral-950'
         ]"
     >
-        <div class="w-1/2 mx-auto md:mx-0 md:w-64 lg:w-80 2xl:w-75 shrink-0 p-0 md:p-2">
+        <div class="w-1/2 mx-auto md:mx-0 md:w-64 lg:w-80 2xl:w-75 shrink-0 p-2 relative">
             <img src="/img/about/about_me.webp" alt="Thomas Lamothe" class="rounded-3xl md:rounded-2xl" fetchpriority="high" />
         </div>
         <div class="grow-0 lg:grow">
@@ -51,7 +51,7 @@
                 </i18n-t>
 
                 <i18n-t keypath="about.me.projects" tag="p" class="main-text">
-                    <LinkPreview :url="trax">Trax</LinkPreview>
+                    <LinkPreview :url="trax"><IconChip icon="trax.webp" name="Trax" /></LinkPreview>
                 </i18n-t>
 
                 <p class="mt-2 main-text">
