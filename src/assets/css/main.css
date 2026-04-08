@@ -7,7 +7,7 @@
     --font-sans: 'Geist', 'sans-serif';
     --font-mono: 'Google Sans Code', 'monospace';
     --font-gothic: 'Aktura Regular', 'serif';
-    --font-vintage: 'Midway Retro', 'cursive';
+    --font-serif: 'Playfair Display', 'serif';
 }
 
 :root {
@@ -33,16 +33,10 @@
 
 @layer components {
     .main-text {
-        @apply text-neutral-500 leading-7 font-sans;
+        @apply text-black dark:text-neutral-300 leading-7 font-sans mb-3;
     }
     .me-link {
-        @apply text-neutral-800 relative z-20 transition-all before:rounded-xs before:w-0 before:absolute before:h-full before:top-0 before:left-0 before:-z-10 hover:text-white before:transition-all hover:before:w-full px-1 dark:text-neutral-200;
-    }
-    .title-shadow {
-        text-shadow: 3px 3px #e2e8f0;
-    }
-    .title-shadow-dark {
-        text-shadow: 3px 3px #1e293b;
+        @apply text-neutral-500 relative z-20 transition-all before:rounded-xs before:w-0 before:absolute before:h-full before:top-0 before:left-0 before:-z-10 hover:text-white before:transition-all hover:before:w-full px-1 dark:text-neutral-200;
     }
     .culture-loader {
         @apply animate-pulse bg-neutral-200 dark:bg-neutral-800;

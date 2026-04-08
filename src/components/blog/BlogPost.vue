@@ -20,7 +20,7 @@ defineProps<{
                     class="h-full w-full absolute scale-110 transition-all group-hover:scale-100"
                     :data-test="TestIds.Blog.Post.cardImage"
                     :style="{
-                        background: `url(${baseUrl + '/cdn' + post.card_image})`,
+                        background: `url(${baseUrl + post.card_image})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center'
                     }"

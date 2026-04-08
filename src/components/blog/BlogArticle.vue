@@ -4,14 +4,15 @@ import ContainerLayout from '@/components/layout/ContainerLayout.vue'
 import { useRoute } from 'vue-router'
 import { computed, inject, onMounted, ref } from 'vue'
 import type { TCompleteBlogPost } from '@/types/blog.ts'
-import axios from 'axios'
 import markdownit from 'markdown-it'
 import DynamicIsland from '@/components/ui/DynamicIsland.vue'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/atom-one-dark.min.css'
 import BlogArticleLoader from '@/components/blog/BlogArticleLoader.vue'
 import { TestIds } from '@/utils/testIds.ts'
+import { useApiClient } from '@/composables/useApiClient.ts'
 
+const { apiRequest } = useApiClient()
 const { params } = useRoute()
 const article = ref<TCompleteBlogPost | null>(null)
 const hasError = ref<boolean>(false)
@@ -38,7 +39,7 @@ const html = computed<string>(() => {
 
 const fetchArticle = async () => {
     try {
-        article.value = await axios.get<TCompleteBlogPost>(`${baseUrl}/api/blog/${params.slug}`).then((res) => res.data)
+        article.value = await apiRequest<TCompleteBlogPost>(`/api/blog/${params.slug}`)
     } catch (_) {
         hasError.value = true
     }

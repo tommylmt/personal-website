@@ -49,7 +49,7 @@ describe('BlogPost Component', () => {
         // Card image style
         expect(wrapper.find(getByTestId(TestIds.Blog.Post.cardImage)).attributes()['style']).toBeDefined()
         expect(wrapper.find(getByTestId(TestIds.Blog.Post.cardImage)).attributes()['style']).toBe(
-            `background: url("${ApiMockedUrl}/cdn${data.card_image}");`
+            `background: url("${ApiMockedUrl}${data.card_image}");`
         )
     })
 })

@@ -12,12 +12,6 @@ export type TCulturePosterData = {
     }
 }
 
-export type TCultureDetailModalData = {
-    isOpen: boolean
-    isLoading: boolean
-    data: TCultureDetail | null
-}
-
 export type TCultureElement = {
     artist: string
     file: string
@@ -25,14 +19,6 @@ export type TCultureElement = {
         slug: string
     }
     unique_id: string
-}
-
-export type TCultureData = {
-    movies: TCultureElement[]
-    shows: TCultureElement[]
-    errors: false | string
-    errorSongs: false | string
-    songs: SpotifySong[]
 }
 
 export type CultureLinks = 'spotify' | 'senscritique' | 'tvtime'

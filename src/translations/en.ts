@@ -104,16 +104,15 @@ export const en = {
     about: {
         theEnd: 'Thank you for reaching the end',
         me: {
-            title: 'Hi there',
+            title: 'Hey there',
             introduction: "I'm Thomas, {0} a french web software developer",
-            random: 'yet another random Carhartt kid in tech',
-            working: 'I currently work as a Software Developer from Toulouse, France.',
+            random: 'another random Carhartt kid in tech',
             whatido:
-                'I help build and maintain a SaaS platform used by customers around the world. I mostly write code using {0}, {1}, {2}, {3} and {4} shipped on {5} infrastructures.',
-            projects: "I'm also the father of several projects like {0}, Orkestrum, Cinécombles and an Open Source contributor.",
+                'Currently, I’m a Software Engineer focused on scaling a global SaaS product. I spend most of my time in the world of {0}, {1}, and {2}, keeping things tidy with {3} and {4} (and diving into {5} when I can).',
+            projects: "I'm also the father of several projects like {0}, Orkestrum, Cinécombles and an active Open Source contributor.",
             hobbies:
-                "Besides that, I'm a huge pop culture and music nerd. I've been playing guitar for {guitarYears} years and skateboarding. I'm also a tattoo, cinema, lifestyle and beer enthusiast.",
-            findme: 'You can easily find me somewhere cool in Toulouse.'
+                "Besides that, I'm a huge pop culture and music nerd. I've been playing guitar for {guitarYears} years and love skateboarding. I'm also a tattoo, cinema, lifestyle and beer enthusiast.",
+            findme: "If you're in Toulouse, you’ll likely find me at one of the local favorite spots!"
         },
         school: {
             title: 'School & education',
@@ -144,7 +143,7 @@ export const en = {
                 intern: 'Web development internship',
                 freelance: 'Freelance Full-Stack developer',
                 lead: 'Web tech lead developer',
-                developer: 'Software Developer II'
+                developer: 'Software Engineer III'
             }
         },
         social: {

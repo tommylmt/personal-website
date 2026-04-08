@@ -8,7 +8,7 @@
                 {{ $t('culture.moviesubtitle') }}
             </p>
 
-            <MeetMe :link="links.senscritique" image="/img/culture/senscritique.webp" :width="45" />
+            <MeetMe :link="links.senscritique" image="/img/culture/senscritique.webp" :width="30" />
         </div>
         <div class="my-5" data-aos="fade-up" data-aos-delay="200">
             <ErrorBanner v-if="errors" :title="errors" />
@@ -35,7 +35,7 @@
                     {{ $t('culture.tvshowsubtitle') }}
                 </p>
 
-                <MeetMe :link="links.tvtime" image="/img/culture/tvtime.webp" :width="30" />
+                <MeetMe :link="links.tvtime" image="/img/culture/tvtime.webp" :width="20" />
             </div>
             <div class="my-5" data-aos="fade-up" data-aos-delay="200">
                 <ErrorBanner v-if="errors" :title="errors" />
@@ -62,11 +62,14 @@
                 {{ $t('culture.musicsubtitle') }}
             </p>
 
-            <MeetMe :link="links.spotify" image="/img/culture/spotify.svg" :width="30" />
+            <MeetMe :link="links.spotify" image="/img/culture/spotify.svg" :width="20" />
         </div>
         <div class="my-7 mb-20 md:mb-40">
             <ErrorBanner v-if="errorSongs" :title="errorSongs" />
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-6 xl:gap-10 p-3 md:p-0" v-else>
+            <div
+                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6 gap-3 md:gap-6 xl:gap-10 p-3 md:p-0"
+                v-else
+            >
                 <Music v-for="element in songs" :song="element" :key="element.id" />
             </div>
         </div>
@@ -75,69 +78,54 @@
     <CultureDetailModal />
 </template>
 
-<script lang="ts">
-import axios from 'axios'
+<script setup lang="ts">
 import { Vue3Marquee } from 'vue3-marquee'
 import CulturePoster from '@/components/culture/CulturePoster.vue'
 import MeetMe from '@/components/culture/MeetMe.vue'
 import Music from '@/components/culture/Music.vue'
 import ErrorBanner from '@/components/errors/ErrorBanner.vue'
-import { CULTURE_LINKS, MEDIA_TYPE } from '@/utils/constants'
 import CultureDetailModal from '@/components/culture/CultureDetailModal.vue'
-import type { SpotifySong, TCultureData, TCultureElement } from '@/types/culture.ts'
 import ContainerLayout from '@/components/layout/ContainerLayout.vue'
+import type { SpotifySong, TCultureElement } from '@/types/culture.ts'
+import { CULTURE_LINKS, MEDIA_TYPE } from '@/utils/constants'
+import { computed, onMounted, ref } from 'vue'
+import { useApiClient } from '@/composables/useApiClient.ts'
 
-export default {
-    components: {
-        ContainerLayout,
-        CultureDetailModal,
-        ErrorBanner,
-        Music,
-        MeetMe,
-        CulturePoster,
-        Vue3Marquee
-    },
-    data(): TCultureData {
-        return {
-            movies: [],
-            shows: [],
-            errors: false,
-            errorSongs: false,
-            songs: []
-        }
-    },
-    computed: {
-        links() {
-            return CULTURE_LINKS
-        }
-    },
-    mounted() {
-        this.fetchElements()
-        this.retrieveCharts()
-    },
-    methods: {
-        speedForElements(elements: TCultureElement[]) {
-            return (20 / 5) * elements.length
-        },
-        async fetchElements() {
-            try {
-                const { data } = await axios.get<TCultureElement[]>(`${this.$baseUrl}/api/culture`)
+const movies = ref<TCultureElement[]>([])
+const shows = ref<TCultureElement[]>([])
+const errors = ref<false | string>(false)
+const errorSongs = ref<false | string>(false)
+const songs = ref<SpotifySong[]>([])
 
-                this.movies = data.filter((media) => media.media_type.slug === MEDIA_TYPE.Movie)
-                this.shows = data.filter((media) => media.media_type.slug === MEDIA_TYPE.TvShows)
-            } catch (_) {
-                this.errors = 'culture.errors.fetching'
-            }
-        },
-        async retrieveCharts() {
-            try {
-                const { data } = await axios.get<SpotifySong[]>(`${this.$baseUrl}/api/charts`)
+const { apiRequest } = useApiClient()
 
-                this.songs = data
-            } catch (_) {
-                this.errorSongs = 'culture.errors.charts'
-            }
-        }
+const links = computed(() => CULTURE_LINKS)
+
+onMounted(() => {
+    fetchElements()
+    retrieveCharts()
+})
+
+const speedForElements = (elements: TCultureElement[]) => {
+    return (20 / 5) * elements.length
+}
+
+const fetchElements = async () => {
+    try {
+        const data = await apiRequest<TCultureElement[]>('/api/culture')
+
+        movies.value = data.filter((media) => media.media_type.slug === MEDIA_TYPE.Movie)
+        shows.value = data.filter((media) => media.media_type.slug === MEDIA_TYPE.TvShows)
+    } catch (_) {
+        errors.value = 'culture.errors.fetching'
+    }
+}
+
+const retrieveCharts = async () => {
+    try {
+        songs.value = await apiRequest<SpotifySong[]>('/api/charts')
+    } catch (_) {
+        errorSongs.value = 'culture.errors.charts'
     }
 }
 </script>
