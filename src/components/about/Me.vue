@@ -27,8 +27,6 @@
                     </span>
                 </i18n-t>
 
-                <p class="mt-2 main-text">{{ $t('about.me.working') }}</p>
-
                 <i18n-t keypath="about.me.whatido" tag="p" class="main-text">
                     <LinkPreview :url="php">
                         <IconChip icon="php.svg" name="PHP" image-class="w-5" />
@@ -55,7 +53,7 @@
                 </i18n-t>
 
                 <p class="mt-2 main-text">
-                    {{ $t('about.me.hobbies', { guitarYears: guitarYears }) }}
+                    {{ $t('about.me.hobbies', { guitarYears }) }}
                 </p>
                 <p class="mt-2 main-text">{{ $t('about.me.findme') }}</p>
             </div>

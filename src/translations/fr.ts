@@ -103,15 +103,14 @@ export const fr = {
         me: {
             title: 'Et Salut',
             introduction: 'Je suis Thomas, {0} un développeur logiciel spécialisé dans le web',
-            random: 'encore un random en Carhartt dans la tech',
-            working: 'Je travaille en tant que développeur logiciel à Toulouse en France.',
+            random: 'un random Carhartt kid dans la tech',
             whatido:
-                "Mon travail consiste à développer une application SaaS utilisée par des clients du monde entier. Je code principalement avec {0}, {1}, {2}, {3} et {4}. Il m'arrive de faire du {5} occasionnellement.",
+                "Je contribue en tant que Software Engineer à la croissance d'un SaaS utilisée par des clients du monde entier. Ma stack se compose principalement de {0}, {1}, {2}, {3} et {4} (et de {5} quand j'ai le temps).",
             projects:
-                "Je suis l'auteur de plusieurs projets tels que {0}, Orkestrum, Cinécombles ainsi qu'un contributeur à l'Open Source.",
+                "Je suis l'auteur de plusieurs projets tels que {0}, Orkestrum, Cinécombles ainsi qu'un contributeur actif à l'Open Source.",
             hobbies:
-                'Par ailleurs, je suis un nerd de pop culture et de musique. Je joue de la guitare depuis {guitarYears} ans, fais du skate, adore les tattoos, le cinéma, le design et la bière.',
-            findme: 'Je suis facilement trouvable aux meilleurs endroits de Toulouse.'
+                'Sinon, je suis un nerd de pop culture et de musique. Je joue de la guitare depuis {guitarYears} ans, fais du skate, adore les tattoos, le cinéma, le design et la bière.',
+            findme: 'Je suis facilement trouvable aux meilleurs endroits de Toulouse !'
         },
         school: {
             title: 'Formation',
