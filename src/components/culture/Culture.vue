@@ -8,7 +8,7 @@
                 {{ $t('culture.moviesubtitle') }}
             </p>
 
-            <MeetMe :link="links.senscritique" image="/img/culture/senscritique.webp" :width="45" />
+            <MeetMe :link="links.senscritique" image="/img/culture/senscritique.webp" :width="30" />
         </div>
         <div class="my-5" data-aos="fade-up" data-aos-delay="200">
             <ErrorBanner v-if="errors" :title="errors" />
@@ -35,7 +35,7 @@
                     {{ $t('culture.tvshowsubtitle') }}
                 </p>
 
-                <MeetMe :link="links.tvtime" image="/img/culture/tvtime.webp" :width="30" />
+                <MeetMe :link="links.tvtime" image="/img/culture/tvtime.webp" :width="20" />
             </div>
             <div class="my-5" data-aos="fade-up" data-aos-delay="200">
                 <ErrorBanner v-if="errors" :title="errors" />
@@ -62,7 +62,7 @@
                 {{ $t('culture.musicsubtitle') }}
             </p>
 
-            <MeetMe :link="links.spotify" image="/img/culture/spotify.svg" :width="30" />
+            <MeetMe :link="links.spotify" image="/img/culture/spotify.svg" :width="20" />
         </div>
         <div class="my-7 mb-20 md:mb-40">
             <ErrorBanner v-if="errorSongs" :title="errorSongs" />

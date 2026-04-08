@@ -10,7 +10,9 @@
     >
         <div id="openstreetmap"></div>
         <div class="z-999 absolute w-full left-0 bottom-0 p-3">
-            <div class="rounded-2xl shadow-sm w-full bg-white/70 backdrop-blur-lg border border-neutral-200 p-5 dark:bg-neutral-600/50">
+            <div
+                class="rounded-2xl shadow-sm w-full bg-white/70 backdrop-blur-lg border border-neutral-200 dark:border-neutral-700 p-5 dark:bg-neutral-600/50"
+            >
                 <p class="font-sans uppercase text-xs text-neutral-500">Toulouse, France</p>
                 <p class="text-4xl font-light text-neutral-900 dark:text-neutral-300 tabular-nums" v-if="currentTime.hours">
                     <NumberFlowGroup>
