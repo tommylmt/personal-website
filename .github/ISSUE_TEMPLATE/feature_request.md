@@ -1,20 +1,20 @@
 ---
 name: Feature request
-about: Suggest an idea for this project
-title: ''
+about: New feature to add on the website
+title: '[FEATURE] - feature description here'
 labels: ''
-assignees: ''
+assignees: tommylmt
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+**Feature description.**
+A clear and concise description of what feature we should add to the website and why. Explain the need using a user story when possible. 
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+**Sub-tasks**
+Smaller tasks if the feature described above requires big changes on the application. 
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+**Design**
+Put here any material related to UI/UX. Could be screenshots, links to resources, ...
 
 **Additional context**
 Add any other context or screenshots about the feature request here.
