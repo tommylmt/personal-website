@@ -54,19 +54,17 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v5
-
       - name: Download all artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           path: ./artifacts
           merge-multiple: true
-      - name: list elements
-        run: ls -alh
+      - name: retrieve project
+        run: ls -alh artifacts/
       - name: Creating archive from Artifacts
         uses: montudor/action-zip@v1
         with:
           args: zip -qq -r personal_website_build.zip personal_website_build
-
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
@@ -82,7 +80,7 @@ jobs:
       name: production
     steps:
       - name: Download all artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           path: ./artifacts
           merge-multiple: true
