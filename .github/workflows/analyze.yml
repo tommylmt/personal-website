@@ -19,7 +19,7 @@ jobs:
     name: Perform eslint check
     steps:
       - name: Eslint
-        run: npm run lint
+        run: ls -alh && npm run lint
 
   type-check:
     needs: dependencies
