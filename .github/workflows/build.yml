@@ -1,0 +1,99 @@
+name: Build project
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check version tag is correct
+        run: |
+          TAG="${{ github.ref_name }}"
+          if [[ ! "$TAG" =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-[a-zA-Z0-9]+(.[a-zA-Z0-9]+)*)?(\+[a-zA-Z0-9]+(.[a-zA-Z0-9]+)*)?$ ]]; then
+            echo "❌ The version '$TAG' doesn't match Semver convention"
+            exit 1
+          fi
+      - uses: actions/checkout@v5
+      - name: Check package.json is up to date
+        run: |
+          TAG="${{ github.ref_name }}"
+          if [[ $(node -e "console.log(require('./package.json').version);") != $TAG ]]; then
+            echo "❌ The version '$TAG' doesn't match package.json version"
+            exit 1
+          fi
+
+  build:
+    needs: validate
+    environment:
+      name: production
+      deployment: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ./.github/actions/setup
+      - name: Prepare dotenv file
+        run: echo "${{ secrets.DOTENV }}" > .env.production
+      - name: Create build
+        run: npm run build
+      - name: Rename dist folder
+        run: mv dist personal_website_build
+      - name: Upload artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: personal_website_build
+          path: personal_website_build/
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - name: Download all artifacts
+        uses: actions/download-artifact@v5
+        with:
+          path: ./artifacts
+          merge-multiple: true
+      - name: Creating archive from Artifacts
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r personal_website_build.zip artifacts
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          prerelease: false
+          make_latest: true
+          files: personal_website_build.zip
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v5
+        with:
+          path: ./artifacts
+          merge-multiple: true
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          sudo chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H "$SSH_HOST" > ~/.ssh/known_hosts
+        shell: bash
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+          SSH_HOST: ${{ secrets.DEPLOY_HOST }}
+      - name: Deploy artifact
+        run: scp -rp artifacts/* $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
+        env:
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}

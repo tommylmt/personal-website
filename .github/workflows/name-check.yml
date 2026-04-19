@@ -1,0 +1,29 @@
+name: Basic name checks
+
+on:
+  pull_request:
+
+jobs:
+  branch-name:
+    name: Validate Branch name
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check branch name
+        run: |
+          BRANCH="${{ github.head_ref }}"
+          if [[ ! "$BRANCH" =~ ^(feature|bugfix|hotfix|documentation)/.+ ]]; then
+            echo "❌ Branch '$BRANCH' doesn't match convention (feature/bugfix//...)"
+            exit 1
+          fi
+
+  pr-name:
+    name: Validate Pull Request's title
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Pull Request title
+        run: |
+          PR_NAME="${{ github.event.pull_request.title }}"
+          if [[ ! "$PR_NAME" =~ ^(feat|fix|chore|ci|test)(\(.*\))?!?:.+ ]]; then
+            echo "❌ Pull request's title '$PR_NAME' doesn't match convention"
+            exit 1
+          fi

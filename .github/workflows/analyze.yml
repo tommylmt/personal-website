@@ -1,0 +1,36 @@
+name: Code analysis
+
+on:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: Perform eslint check
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ./.github/actions/setup
+      - name: Install dependencies
+        run: npm install
+      - name: Eslint
+        run: npm run lint
+
+  type-check:
+    runs-on: ubuntu-latest
+    name: Perform Typescript check
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ./.github/actions/setup
+      - name: Check Typescript
+        run: npm run type-check
+
+  # Doesn't use default setup to ensure job summary
+  tests:
+    runs-on: ubuntu-latest
+    name: Run all tests
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests
+        run: GITHUB_ACTIONS=true npx vitest
