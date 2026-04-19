@@ -28,6 +28,7 @@ jobs:
         run: npm run lint
 
   type-check:
+    needs: setup
     runs-on: ubuntu-latest
     name: Perform Typescript check
     steps:
@@ -38,6 +39,7 @@ jobs:
         run: npm run type-check
 
   tests:
+    needs: setup
     runs-on: ubuntu-latest
     name: Run all tests
     steps:
