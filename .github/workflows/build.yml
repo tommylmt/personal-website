@@ -38,11 +38,13 @@ jobs:
         run: echo "${{ secrets.DOTENV }}" > .env.production
       - name: Create build
         run: npm run build
+      - name: Rename dist folder
+        run: mv dist personal_website_build
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: build
-          path: build/
+          name: personal_website_build
+          path: personal_website_build/
 
   release:
     needs: build
@@ -58,13 +60,18 @@ jobs:
           path: ./artifacts
           merge-multiple: true
 
+      - name: Creating archive from Artifacts
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r personal_website_build.zip personal_website_build
+
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           generate_release_notes: true
           prerelease: false
           make_latest: true
-          files: ./artifacts/*
+          files: personal_website_build.zip
 
   deploy:
     needs: build
