@@ -1,6 +1,6 @@
 {
     "name": "thomas-lamothe",
-    "version": "6.2.0-alpha",
+    "version": "6.2.0-alpha-2",
     "private": true,
     "type": "module",
     "scripts": {
