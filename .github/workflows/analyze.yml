@@ -24,16 +24,13 @@ jobs:
       - name: Check Typescript
         run: npm run type-check
 
+  # Doesn't use default setup to ensure job summary
   tests:
     runs-on: ubuntu-latest
     name: Run all tests
     steps:
       - uses: actions/checkout@v5
-      - uses: ./.github/actions/setup
-      - name: Perform test validation
-        run: |
-          npm run test -- --reporter=github-actions | tee test-output.txt
-          echo "## Test Results" >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          cat test-output.txt >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests
+        run: npx vitest --reporter=github-actions
