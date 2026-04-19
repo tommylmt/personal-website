@@ -4,35 +4,45 @@ on:
   pull_request:
 
 jobs:
-  dependencies:
-    name: Install dependencies
+  setup:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout branch
-        uses: actions/checkout@v5
-      - name: Install dependencies
-        run: npm install
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: &node_configuration
+          node-version: 22
+          cache: 'npm'
+      - run: npm ci
 
   lint:
-    needs: dependencies
+    needs: setup
     runs-on: ubuntu-latest
     name: Perform eslint check
     steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: *node_configuration
+      - name: Install dependencies
+        run: npm install
       - name: Eslint
-        run: ls -alh && npm run lint
+        run: npm run lint
 
   type-check:
-    needs: dependencies
     runs-on: ubuntu-latest
     name: Perform Typescript check
     steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: *node_configuration
       - name: Check Typescript
         run: npm run type-check
 
   tests:
-    needs: dependencies
     runs-on: ubuntu-latest
     name: Run all tests
     steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: *node_configuration
       - name: Perform test validation
         run: GITHUB_ACTIONS=true npx vitest
