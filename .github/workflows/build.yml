@@ -93,7 +93,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
           SSH_HOST: ${{ secrets.DEPLOY_HOST }}
       - name: Deploy artifact
-        run: scp -rp dist/* $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
+        run: scp -rp artifacts/* $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
         env:
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
