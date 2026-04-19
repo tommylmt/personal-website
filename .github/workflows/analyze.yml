@@ -32,3 +32,5 @@ jobs:
       - uses: ./.github/actions/setup
       - name: Perform test validation
         run: npm run test -- --reporter=verbose --reporter=github-actions
+      - name: Check output
+        run: echo $GITHUB_STEP_SUMMARY
