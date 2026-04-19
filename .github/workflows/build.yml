@@ -84,14 +84,10 @@ jobs:
           merge-multiple: true
       - name: Configure SSH
         run: |
-          mkdir -p ~/.ssh/
-          echo "$SSH_PRIVATE_KEY" > ../private.key
-          sudo chmod 600 ../private.key
-          ssh-keyscan -H "$SSH_HOST" > ~/.ssh/known_hosts
+          echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
         shell: bash
         env:
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
-          SSH_HOST: ${{ secrets.DEPLOY_HOST }}
       - name: Deploy artifact
         run: scp -rp artifacts/* $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
         env:
