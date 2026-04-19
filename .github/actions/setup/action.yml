@@ -2,7 +2,7 @@ name: Setup dependencies
 description: Checkout and install dependencies
 
 runs:
-  using: composite
+  using: "composite"
   steps:
     - uses: actions/checkout@v5
 
