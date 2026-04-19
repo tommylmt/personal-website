@@ -59,12 +59,10 @@ jobs:
         with:
           path: ./artifacts
           merge-multiple: true
-      - name: retrieve project
-        run: ls -alh artifacts/
       - name: Creating archive from Artifacts
         uses: montudor/action-zip@v1
         with:
-          args: zip -qq -r personal_website_build.zip personal_website_build
+          args: zip -qq -r personal_website_build.zip artifacts
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
@@ -84,4 +82,19 @@ jobs:
         with:
           path: ./artifacts
           merge-multiple: true
-
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_PRIVATE_KEY" > ../private.key
+          sudo chmod 600 ../private.key
+          ssh-keyscan -H "$SSH_HOST" > ~/.ssh/known_hosts
+        shell: bash
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+          SSH_HOST: ${{ secrets.DEPLOY_HOST }}
+      - name: Deploy artifact
+        run: scp -rp dist/* $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
+        env:
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
