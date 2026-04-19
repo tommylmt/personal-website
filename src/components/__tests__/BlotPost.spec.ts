@@ -43,8 +43,6 @@ describe('BlogPost Component', () => {
             }
         })
 
-        expect(3).toBe(2)
-
         expect(wrapper.find(getByTestId(TestIds.Blog.Post.title)).text()).toBe(data.title)
         expect(wrapper.find(getByTestId(TestIds.Blog.Post.metadata)).text()).toContain(data.language_icon)
 
