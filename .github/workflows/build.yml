@@ -42,7 +42,7 @@ jobs:
       - name: Rename dist folder
         run: mv dist personal_website_build
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: personal_website_build
           path: personal_website_build/
