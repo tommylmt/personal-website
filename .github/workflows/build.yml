@@ -6,7 +6,27 @@ on:
       - '*'
 
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check version tag is correct
+        run: |
+          TAG="${{ github.ref_name }}"
+          if [[ ! "TAG" =~ ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$ ]]; then
+            echo "❌ The version '$TAG' doesn't match Semver convention"
+            exit 1
+          fi
+      - uses: actions/checkout@v5
+      - name: Check package.json is up to date
+        run: |
+          TAG="${{ github.ref_name }}"
+          if [[ $(node -e "console.log(require('./package.json').version);") != $TAG ]]; then
+            echo "❌ The version '$TAG' doesn't match package.json version
+            exit 1
+          fi
+
   build:
+    needs: validate
     environment:
       name: production
       deployment: false
@@ -15,9 +35,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: ./.github/actions/setup
       - name: Prepare dotenv file
-        env:
-          DOTENV: ${{ secrets.DOTENV }}
-        run: echo "$DOTENV" > .env.production
+        run: echo "${{ secrets.DOTENV }}" > .env.production
       - name: Create build
         run: npm run build
       - name: Upload artifact
@@ -47,3 +65,16 @@ jobs:
           prerelease: false
           make_latest: true
           files: ./artifacts/*
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ./artifacts
+          merge-multiple: true
+
