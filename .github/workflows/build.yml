@@ -21,7 +21,7 @@ jobs:
         run: |
           TAG="${{ github.ref_name }}"
           if [[ $(node -e "console.log(require('./package.json').version);") != $TAG ]]; then
-            echo "❌ The version '$TAG' doesn't match package.json version
+            echo "❌ The version '$TAG' doesn't match package.json version"
             exit 1
           fi
 
