@@ -33,4 +33,4 @@ jobs:
       - name: Perform test validation
         run: npm run test -- --reporter=verbose --reporter=github-actions
       - name: Check output
-        run: echo $GITHUB_STEP_SUMMARY
+        run: cat $GITHUB_STEP_SUMMARY
