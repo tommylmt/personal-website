@@ -1,0 +1,55 @@
+name: Build project
+
+on:
+  push:
+    tags:
+      - '*'
+
+
+jobs:
+  build:
+    environment:
+      name: production
+      deployment: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Prepare dotenv file
+        env:
+          DOTENV: ${{ secrets.DOTENV }}
+        run: echo "$DOTENV" > .env.production
+
+      - name: Create build
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: build/
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ./artifacts
+          merge-multiple: true
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          prerelease: false
+          make_latest: true
+          files: ./artifacts/*

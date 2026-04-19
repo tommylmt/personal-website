@@ -1,0 +1,38 @@
+name: Code analysis
+
+on:
+  pull_request:
+
+jobs:
+  dependencies:
+    name: Install dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm install
+
+  lint:
+    needs: dependencies
+    runs-on: ubuntu-latest
+    name: Perform eslint check
+    steps:
+      - name: Eslint
+        run: npm run lint
+
+  type-check:
+    needs: dependencies
+    runs-on: ubuntu-latest
+    name: Perform Typescript check
+    steps:
+      - name: Check Typescript
+        run: npm run type-check
+
+  tests:
+    needs: dependencies
+    runs-on: ubuntu-latest
+    name: Run all tests
+    steps:
+      - name: Perform test validation
+        run: GITHUB_ACTIONS=true npx vitest
