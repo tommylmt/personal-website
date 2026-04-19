@@ -32,7 +32,7 @@ jobs:
       - uses: ./.github/actions/setup
       - name: Perform test validation
         run: |
-          npm run test -- --reporter=verbose | tee test-output.txt
+          npm run test -- --reporter=github-actions | tee test-output.txt
           echo "## Test Results" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
           cat test-output.txt >> $GITHUB_STEP_SUMMARY
