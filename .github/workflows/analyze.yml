@@ -33,4 +33,4 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run tests
-        run: GITHUB_ACTIONS=true npx vitest --reporter=github-actions
+        run: GITHUB_ACTIONS=true npx vitest
