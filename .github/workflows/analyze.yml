@@ -12,7 +12,7 @@ jobs:
         with: &node_configuration
           node-version: 22
           cache: 'npm'
-      - run: npm ci
+      - run: npm i
 
   lint:
     needs: setup
