@@ -11,7 +11,7 @@ jobs:
       - name: Check branch name
         run: |
           BRANCH="${{ github.head_ref }}"
-          if [[ ! "$BRANCH" =~ ^(feature|bugfix|hotfix|documentation)/.+ ]]; then
+          if [[ ! "$BRANCH" =~ ^(feature|bugfix|hotfix|documentation|dependabot)/.+ ]]; then
             echo "❌ Branch '$BRANCH' doesn't match convention (feature/bugfix//...)"
             exit 1
           fi
