@@ -83,7 +83,7 @@ Thomas Lamothe - [@tommy.lmt](https://www.instagram.com/tommy.lmt/) - thomaslamo
 
 [Release]: https://img.shields.io/github/v/release/tommylmt/personal-website
 [License]: https://img.shields.io/github/license/tommylmt/personal-website
-[Build]: https://img.shields.io/github/actions/workflow/status/tommylmt/personal-website/build
+[Build]: https://img.shields.io/github/actions/workflow/status/tommylmt/personal-website/build.yml
 
 [Vue.js]: https://img.shields.io/badge/Vue.js-35495E?logo=vuedotjs&logoColor=4FC08D
 [Vue-url]: https://vuejs.org/
