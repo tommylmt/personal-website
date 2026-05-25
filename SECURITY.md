@@ -13,8 +13,3 @@ Send email to [thomaslamothe@free.fr](mailto:thomaslamothe@free.fr) with:
 - **Reproduction steps**: How to trigger the vulnerability
 - **Impact assessment**: What an attacker could do
 - **Suggested fix**: (Optional) Ideas for remediation
-
-## Bug Bounty
-
-I do not currently offer a bug bounty program. Security reports are greatly appreciated and credited.
-
