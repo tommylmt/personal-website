@@ -1,6 +1,6 @@
 {
     "name": "thomas-lamothe",
-    "version": "6.2.5",
+    "version": "6.2.6",
     "private": true,
     "type": "module",
     "scripts": {
@@ -18,7 +18,7 @@
         "@number-flow/vue": "^0.4.7",
         "@phosphor-icons/web": "^2.1.1",
         "aos": "^2.3.4",
-        "axios": "^1.15.2",
+        "axios": "^1.16.0",
         "highlight.js": "^11.11.1",
         "leaflet": "^1.9.4",
         "markdown-it": "^14.1.0",
@@ -60,7 +60,7 @@
         "tailwindcss": "^4.1.18",
         "vite": "^7.3.2",
         "vite-plugin-ejs": "^1.7.0",
-        "vitest": "^4.0.18",
+        "vitest": "^4.1.8",
         "vue-tsc": "^3.2.3"
     }
 }
