@@ -16,7 +16,7 @@ jobs:
             echo "❌ The version '$TAG' doesn't match Semver convention"
             exit 1
           fi
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Check package.json is up to date
         run: |
           TAG="${{ github.ref_name }}"
@@ -32,7 +32,7 @@ jobs:
       deployment: false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: ./.github/actions/setup
       - name: Prepare dotenv file
         run: echo "${{ secrets.DOTENV }}" > .env.production
@@ -41,7 +41,7 @@ jobs:
       - name: Rename dist folder
         run: mv dist personal_website_build
       - name: Upload artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: personal_website_build
           path: personal_website_build/
@@ -52,9 +52,9 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Download all artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           path: ./artifacts
           merge-multiple: true
@@ -63,7 +63,7 @@ jobs:
         with:
           args: zip -qq -r personal_website_build.zip artifacts
       - name: Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           generate_release_notes: true
           prerelease: false
@@ -77,7 +77,7 @@ jobs:
       name: production
     steps:
       - name: Download all artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           path: ./artifacts
           merge-multiple: true
