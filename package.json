@@ -36,7 +36,7 @@
     },
     "devDependencies": {
         "@rushstack/eslint-patch": "^1.2.0",
-        "@tailwindcss/vite": "^4.1.18",
+        "@tailwindcss/vite": "^4.3.1",
         "@tsconfig/node24": "^24.0.4",
         "@types/aos": "^3.0.7",
         "@types/jsdom": "^27.0.0",
@@ -58,7 +58,7 @@
         "npm-run-all2": "^8.0.4",
         "prettier": "^3.8.1",
         "tailwindcss": "^4.1.18",
-        "vite": "^7.3.2",
+        "vite": "^8.0.16",
         "vite-plugin-ejs": "^1.7.0",
         "vitest": "^4.1.8",
         "vue-tsc": "^3.2.3"
