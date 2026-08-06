@@ -1,6 +1,20 @@
 <template>
     <AboutBlock :title="'🎓 ' + $t('about.school.title')">
         <Card v-for="(school, index) in timeline" :img="school.image" :delay="100 * index" :key="index">
+            <div class="flex my-2 justify-end items-center">
+                <div class="flex items-center gap-2">
+                    <div class="text-xl font-light text-neutral-900 dark:text-neutral-600">
+                        {{ school.years.start }}
+                    </div>
+                    <div class="text-xl font-light text-neutral-400 dark:text-neutral-600">
+                        <i class="ph ph-arrow-right"></i>
+                    </div>
+                    <div class="text-xl font-light text-neutral-900 dark:text-neutral-600">
+                        {{ school.years.end }}
+                    </div>
+                </div>
+            </div>
+
             <p class="font-sans font-semibold text-neutral-800 dark:text-neutral-200">
                 {{ $t(school.name) }}
             </p>
@@ -12,16 +26,6 @@
                 <span class="me-1">🎓</span>
                 {{ $t(school.grade) }}
             </p>
-
-            <div class="flex mt-2 justify-center items-center gap-3 w-full">
-                <div class="text-xl font-light text-neutral-400 dark:text-neutral-600">
-                    {{ school.years.start }}
-                </div>
-                <div class="w-10 h-1 bg-neutral-300 dark:bg-neutral-800 rounded-xl"></div>
-                <div class="text-xl font-light text-neutral-400 dark:text-neutral-600">
-                    {{ school.years.end }}
-                </div>
-            </div>
         </Card>
     </AboutBlock>
 </template>

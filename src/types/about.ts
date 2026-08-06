@@ -2,6 +2,7 @@ export type TPicturePosition = 'bottom-left' | 'middle-left' | 'middle-right' | 
 
 export type TProSituation = {
     name: string
+    logo: string
     location: string
     image: string
     years: {

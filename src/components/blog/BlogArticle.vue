@@ -110,7 +110,9 @@ onMounted(() => {
                 <div
                     :class="[
                         'sticky top-10 rounded-3xl bg-neutral-100 shadow-lg shadow-neutral-100',
-                        'p-7 basis-1/4 hidden lg:block shrink-0 dark:bg-neutral-900 dark:shadow-none'
+                        'p-7 basis-1/4 hidden lg:block shrink-0 dark:bg-neutral-900 dark:shadow-none',
+                        'border-neutral-200 border shadow-sm shadow-neutral-100',
+                        'dark:border-neutral-800 dark:shadow-neutral-950'
                     ]"
                 >
                     <RouterLink to="/blog" :aria-label="$t('blog.backtolist')">
@@ -146,7 +148,7 @@ onMounted(() => {
                         <img
                             :src="baseUrl + article.author.avatar"
                             :alt="article.author.name"
-                            class="w-15 rounded-full"
+                            class="w-12 h-12 rounded-full"
                             :data-test="TestIds.Blog.Article.authorIcon"
                         />
                         <div>

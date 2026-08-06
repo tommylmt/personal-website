@@ -1,6 +1,6 @@
 {
     "name": "thomas-lamothe",
-    "version": "6.3.0",
+    "version": "6.4.0",
     "private": true,
     "type": "module",
     "scripts": {
@@ -18,7 +18,7 @@
         "@number-flow/vue": "^0.4.7",
         "@phosphor-icons/web": "^2.1.1",
         "aos": "^2.3.4",
-        "axios": "^1.16.0",
+        "axios": "^1.18.0",
         "highlight.js": "^11.11.1",
         "leaflet": "^1.9.4",
         "markdown-it": "^14.2.0",

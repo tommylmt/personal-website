@@ -1,7 +1,7 @@
 <template>
     <div class="w-96 p-3 relative">
         <div
-            class="w-full h-[500px] rounded-3xl flex items-end p-5 cursor-none"
+            class="w-full h-125 rounded-3xl flex items-end p-2 cursor-none"
             @click="openDetails"
             :style="{
                 background: `url(${$baseUrl + file})`,
