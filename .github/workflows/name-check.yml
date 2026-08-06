@@ -8,7 +8,7 @@ jobs:
     name: Validate Branch name
     runs-on: ubuntu-latest
     env:
-      BRANCH: github.head_ref
+      BRANCH: ${{ github.head_ref }}
     steps:
       - name: Check branch name
         run: |
@@ -21,7 +21,7 @@ jobs:
     name: Validate Pull Request's title
     runs-on: ubuntu-latest
     env:
-      PR_NAME: github.event.pull_request.title
+      PR_NAME: ${{ github.event.pull_request.title }}
     steps:
       - name: Check Pull Request title
         run: |
