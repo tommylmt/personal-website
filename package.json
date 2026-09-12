@@ -21,6 +21,7 @@
         "axios": "^1.18.0",
         "highlight.js": "^11.11.1",
         "leaflet": "^1.9.4",
+        "mapbox-gl": "^3.30.0",
         "markdown-it": "^14.2.0",
         "motion-v": "^1.1.0-alpha.1",
         "muuri": "^0.9.5",
