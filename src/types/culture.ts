@@ -21,7 +21,7 @@ export type TCultureElement = {
     unique_id: string
 }
 
-export type CultureLinks = 'spotify' | 'senscritique' | 'tvtime'
+export type CultureLinks = 'spotify' | 'senscritique' | 'sofatime'
 
 export type SpotifyImageSize = 'small' | 'medium' | 'large'
 
