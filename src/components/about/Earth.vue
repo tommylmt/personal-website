@@ -82,7 +82,7 @@ export default {
             const el = document.createElement('div')
             el.className = 'p-2 rounded-full bg-blue-500 border-4 border-white shadow-md'
 
-            const marker = new mapboxgl.Marker({ element: el }).setLngLat([1.4353, 43.6107]).addTo(this.map)
+            new mapboxgl.Marker({ element: el }).setLngLat([1.4353, 43.6107]).addTo(this.map)
         }
     }
 }
