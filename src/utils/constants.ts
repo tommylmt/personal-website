@@ -15,7 +15,7 @@ export const SPOTIFY_IMAGE_SIZES: Record<SpotifyImageSize, number> = {
 
 export const CULTURE_LINKS: Record<CultureLinks, string> = {
     spotify: 'https://open.spotify.com/user/313guoevms7cob2dvjizsmwfk4o4',
-    tvtime: 'https://tvtime.com/r/35sjB',
+    sofatime: 'https://www.sofatime.app/profile/totolamothe65',
     senscritique: 'https://www.senscritique.com/tommy-dvdrip-mkv'
 }
 
