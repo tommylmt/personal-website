@@ -4,11 +4,14 @@
             right: '-20px',
             top: '-25px',
             zIndex: 400,
-            width: '600px'
+            width: '600px',
+            overflow: 'hidden'
         }"
         :hide-mobile="true"
     >
-        <div id="openstreetmap"></div>
+        <div id="mapboxContainer">
+            <div ref="mapbox" id="mapbox"></div>
+        </div>
         <div class="z-999 absolute w-full left-0 bottom-0 p-3">
             <div
                 class="rounded-2xl shadow-sm w-full bg-white/70 backdrop-blur-lg border border-neutral-200 dark:border-neutral-700 p-5 dark:bg-neutral-600/50"
@@ -28,9 +31,9 @@
 </template>
 
 <script lang="ts">
-import 'leaflet/dist/leaflet.css'
+import mapboxgl from 'mapbox-gl'
+import 'mapbox-gl/dist/mapbox-gl.css'
 import DraggableBlock from '@/components/layout/DraggableBlock.vue'
-import * as L from 'leaflet'
 import NumberFlow, { NumberFlowGroup } from '@number-flow/vue'
 import type { TTime } from '@/types/date.ts'
 
@@ -40,30 +43,20 @@ export default {
         this.initMap()
         this.setCurrentTime()
     },
-    data(): { currentTime: TTime; currentDate: Date } {
+    data(): { currentTime: TTime; currentDate: Date; map: unknown } {
         return {
             currentTime: {
                 hours: 0,
                 minutes: 0,
                 seconds: 0
             },
-            currentDate: new Date()
+            currentDate: new Date(),
+            map: null
         }
     },
     computed: {
         isDarkTheme() {
             return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-        },
-        tileTheme() {
-            return this.isDarkTheme
-                ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
-                : 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png'
-        },
-        tileSettings() {
-            return {
-                attribution:
-                    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-            }
         }
     },
     methods: {
@@ -78,30 +71,38 @@ export default {
             }, 1000)
         },
         initMap() {
-            const map = L.map('openstreetmap', {
-                trackResize: false,
-                zoomControl: false
-            }).setView([43.6107, 1.4353], 17)
-            map.invalidateSize()
+            this.map = new mapboxgl.Map({
+                accessToken: import.meta.env.VITE_MAPBOX_TOKEN,
+                container: this.$refs.mapbox as HTMLDivElement,
+                center: [1.4353, 43.6107],
+                zoom: 14,
+                ...(this.isDarkTheme ? { style: 'mapbox://styles/mapbox/dark-v11' } : {})
+            })
 
-            L.tileLayer(this.tileTheme, this.tileSettings).addTo(map)
-            L.marker([43.6107, 1.4353], {
-                title: 'Home',
-                icon: L.divIcon({
-                    className: 'p-2 rounded-full bg-blue-500 border-4 border-white shadow-md'
-                })
-            }).addTo(map)
+            const el = document.createElement('div')
+            el.className = 'p-2 rounded-full bg-blue-500 border-4 border-white shadow-md'
+
+            new mapboxgl.Marker({ element: el }).setLngLat([1.4353, 43.6107]).addTo(this.map as mapboxgl.Map)
         }
     }
 }
 </script>
 
 <style>
-#openstreetmap {
+#mapboxContainer {
     width: 600px !important;
     height: 400px !important;
+    border-radius: var(--radius-3xl);
+    overflow: hidden;
+    transform: translateZ(0);
+    isolation: isolate;
 }
-.leaflet-right {
+
+#mapbox {
+    width: 100%;
+    height: 100%;
+}
+.mapboxgl-control-container {
     display: none;
 }
 </style>
