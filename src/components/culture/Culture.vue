@@ -35,7 +35,7 @@
                     {{ $t('culture.tvshowsubtitle') }}
                 </p>
 
-                <MeetMe :link="links.tvtime" image="/img/culture/tvtime.webp" :width="20" />
+                <MeetMe :link="links.sofatime" image="/img/culture/sofatime.webp" :width="28" />
             </div>
             <div class="my-5" data-aos="fade-up" data-aos-delay="200">
                 <ErrorBanner v-if="errors" :title="errors" />
