@@ -1,26 +1,14 @@
 <template>
-    <div v-if="isOpen" class="fixed h-screen inset-0 z-9999 overflow-auto xl:p-0 p-3">
-        <AnimatePresence :initial="true">
+    <AnimatePresence>
+        <div v-if="isOpen" class="fixed h-screen inset-0 z-9999 overflow-auto xl:p-0 p-3">
             <Motion
-                v-if="isOpen"
-                :initial="{ opacity: 0 }"
-                :animate="{ opacity: 1 }"
-                :exit="{ opacity: 0 }"
-                as="div"
-                key="backdropModal"
-                class="backdrop-blur-xs bg-neutral-800/60 size-full top-0 left-0 fixed inset-0"
-            ></Motion>
-        </AnimatePresence>
-        <AnimatePresence :initial="true">
-            <Motion
-                v-if="isOpen"
-                :initial="{ opacity: 0, scale: 0 }"
-                :animate="{ scale: 1, opacity: 1 }"
-                :exit="{ opacity: 0, scale: 0 }"
+                :initial="{ opacity: 0, y: 50 }"
+                :animate="{ y: 0, opacity: 1 }"
+                :exit="{ opacity: 0, y: 50 }"
                 key="filmModal"
                 as="div"
                 :class="[
-                    'bg-white p-4 xl:p-10 rounded-3xl shadow-lg relative z-50 dark:bg-neutral-950',
+                    'bg-white p-4 xl:p-10 rounded-3xl shadow-lg relative z-50 dark:bg-neutral-950 origin-top',
                     'w-full xl:w-2/3 2xl:w-1/2 mx-auto xl:my-10'
                 ]"
             >
@@ -84,7 +72,7 @@
                         </h3>
 
                         <div class="flex gap-3 overflow-x-scroll md:overflow-x-visible">
-                            <div v-for="actor in data.cast.slice(0, 5)" :key="actor.id" class="basis-1/3 shrink-0 md:shrink md:basis-1/5">
+                            <div v-for="actor in cast" :key="actor.id" class="basis-1/3 shrink-0 md:shrink md:basis-1/5">
                                 <img :src="getImage(actor.profile_path, 'w185')" :alt="actor.name" class="w-full rounded-2xl" />
                                 <p class="text-neutral-800 text-sm font-bold dark:text-neutral-300 mt-2">{{ actor.name }}</p>
                                 <p class="text-neutral-500 text-xs">{{ actor.character }}</p>
@@ -92,13 +80,13 @@
                         </div>
                     </template>
 
-                    <template v-if="directors()">
+                    <template v-if="directors">
                         <h3 class="text-5xl mt-8 text-neutral-900 font-bold mb-5 dark:text-neutral-200">
                             {{ $t('culture.details.directors') }}
                         </h3>
 
                         <div class="flex gap-3 overflow-x-scroll md:overflow-x-visible">
-                            <div v-for="showrunner in directors()" :key="showrunner.id" class="basis-1/3 shrink-0 lg:shrink md:basis-1/5">
+                            <div v-for="showrunner in directors" :key="showrunner.id" class="basis-1/3 shrink-0 lg:shrink md:basis-1/5">
                                 <img :src="getImage(showrunner.profile_path, 'w185')" :alt="showrunner.name" class="w-full rounded-2xl" />
                                 <p class="text-neutral-800 text-sm font-bold dark:text-neutral-300 mt-2">
                                     {{ showrunner.name }}
@@ -108,14 +96,22 @@
                     </template>
                 </template>
             </Motion>
-        </AnimatePresence>
-    </div>
+            <Motion
+                :initial="{ opacity: 0 }"
+                :animate="{ opacity: 1 }"
+                :exit="{ opacity: 0 }"
+                as="div"
+                key="backdropModal"
+                class="backdrop-blur-xs bg-neutral-800/60 size-full top-0 left-0 fixed inset-0"
+            ></Motion>
+        </div>
+    </AnimatePresence>
 </template>
 
 <script setup lang="ts">
 import { AnimatePresence, Motion } from 'motion-v'
 import CultureDetailModalLoader from '@/components/culture/CultureDetailModalLoader.vue'
-import type { TCultureDetail } from '@/types/culture.ts'
+import type { TCultureDetail, TCultureDetailCast, TCultureDetailCrew } from '@/types/culture.ts'
 import { useCultureStore } from '@/stores/cultureStore'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -140,7 +136,11 @@ cultureStore.$subscribe((_, state) => {
     }
 })
 
-const directors = () => {
+const cast = computed<TCultureDetailCast[]>(() => {
+    return data.value!.cast.slice(0, 5)
+})
+
+const directors = computed<TCultureDetailCrew[]>(() => {
     if (data.value?.created_by) {
         return data.value.created_by
     }
@@ -149,7 +149,7 @@ const directors = () => {
         .value!.crew?.sort((a, b) => (a.popularity > b.popularity ? -1 : 1))
         .filter((c) => ['Director'].includes(c.job) && c.profile_path)
         .slice(0, 5)
-}
+})
 
 const close = () => {
     data.value = null
